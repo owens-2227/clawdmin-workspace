@@ -53,6 +53,18 @@ Version header: `Notion-Version: 2022-06-28`
 | Openclaw Management (page) | 32666005-ab52-8032-9338-df9720ae0f45 |
 | 🧪 Reddit Experiments (database) | 32666005-ab52-81f8-9bbe-f50add0099a4 |
 
+## GitHub
+
+Repo: https://github.com/owens-2227/clawdmin-workspace (private)
+Token: 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
+Account: owens-2227
+Remote: already configured on main branch
+
+To host an asset (screenshot, image):
+1. Copy file to ~/.openclaw/workspace/BRAIN/assets/
+2. `git add . && git commit -m "Add asset" && git push`
+3. Raw URL: https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/filename.png
+
 ## Flint
 
 API base: `https://app.tryflint.com/api/v1`
