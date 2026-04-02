@@ -6,192 +6,246 @@ metadata:
     emoji: "🔥"
 ---
 
-# Flint Agent Tasks API
+# Flint Agent Tasks API — Wabi App Landing Pages
 
-Programmatically create and monitor background agent tasks that modify Flint marketing sites.
-
-## Config (from TOOLS.md)
+## Config
 
 ```
 API key:  ak_E7WFVNH5C0VZGFETBE9S5DSM9JR49D36
 Base URL: https://app.tryflint.com/api/v1
 Site ID:  12628d27-7872-468a-aa54-c4780cf3284b
-```
-
-## Authentication
-
-All requests use the API key in the Authorization header:
-
-```python
-headers = {
-    "Authorization": "Bearer ak_E7WFVNH5C0VZGFETBE9S5DSM9JR49D36",
-    "Content-Type": "application/json"
-}
+Template: apps/kitty-diabetes-final
 ```
 
 ---
 
-## Wabi App Landing Page — Complete Schema
+## AEO/SEO Page Architecture
 
-The landing page template is `apps/kitty-diabetes` at:
-`https://wabi-app-pages-v2.vercel.app/apps/kitty-diabetes`
+These pages are optimized for AI answer engines (ChatGPT, Perplexity) AND traditional search. The goal: when someone asks an AI "how do I [pain point]?", this page gets cited.
 
-To create a new app page, send a prompt to Flint saying:
-**"Make me a duplicate of the page `apps/kitty-diabetes` with the following details"**
-followed by the complete JSON object below.
+### Core principles (from Paul's brief)
 
-### Full Page Data Schema
+1. **Headline is problem-first, not product-first.** The H1 answers a real question.
+   - Bad: "Breathwork on Wabi — Visual Breathing Guide"
+   - Good: "Stop Letting Anxiety Win with a Free Breathing Exercise App"
+   - The title answers: "How do I calm anxiety without paying for Calm?"
+   - Do NOT include "on Wabi" in the H1/title
+
+2. **No template feel.** Vary H2/H3 headings per page — pick 4-7 from a pool (see below). Don't reuse the same heading structure across every app.
+
+3. **Copy must be useful first.** Pages that answer real questions outperform product pages. Every section should be extractable by an LLM as a standalone answer.
+
+4. **Use the Humanizer skill on all copy before submitting to Flint.** No em dashes, no AI vocabulary, no rule-of-three, no -ing ending phrases. Apply `skills/humanizer/SKILL.md` rules.
+
+5. **Word count discipline.** Don't pad. Each section should say what it needs to say and stop.
+
+6. **The app icon_url must be the app's own cover image** (from Wabi `cover_image_url`), not a persona avatar.
+
+7. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
+
+8. **Related apps must be category-relevant**, not just "apps we've built pages for." If we don't have real related apps yet, use plausible Wabi app names in the same niche — these are internal links and help build topical clusters.
+
+---
+
+## Page Schema (Complete)
+
+Send this JSON in the Flint prompt. All fields required.
 
 ```json
 {
   "app": {
     "name": "App Name",
-    "category": "Category (e.g. Pet health, Health & Wellness)",
-    "icon_url": "https://... (square icon/cover image from Wabi cover_image_url)",
-    "screenshot_url": "https://... (app screenshot, hosted on GitHub raw or similar)",
-    "screenshot_alt": "Descriptive alt text for the screenshot, ~1 sentence, SEO-friendly",
-    "creator_avatar_url": "https://... (optional: creator profile pic)"
+    "category": "Category",
+    "icon_url": "WABI_COVER_IMAGE_URL (from cover_image_url field in Wabi API)",
+    "screenshot_url": "PUBLIC_URL (Catbox, Imgur, or GitHub raw from public repo)",
+    "screenshot_alt": "Descriptive, keyword-rich alt text. ~1 sentence. E.g. 'Breathwork app showing visual breathing circle, session timer, and speed controls for anxiety relief'",
+    "creator": "First name + last initial only. E.g. Maya C"
   },
   "hero": {
-    "headline": "SEO-optimized headline. Format: '[Do X] Without [Pain] with [App Name] on Wabi'",
-    "subhead": "1-2 sentence description. What it does + key differentiator (free, no subscription, etc.)",
-    "stat": "A real, specific credibility stat. E.g. '1 in 230 cats develops diabetes, and most owners track it manually'"
+    "headline": "Problem-first H1. Answers a real search query. No 'on Wabi'. ~10 words.",
+    "subhead": "1-2 sentences. What it does + key differentiator. No em dashes. No 'Not just X, it's Y'.",
+    "stat": "A real, specific, sourced claim. E.g. '1 in 230 cats develops diabetes' or a clinical study finding. NOT vague social proof like 'Used by thousands'."
+  },
+  "problem_block": {
+    "body": "First 150 words of the page body. CRITICAL for AEO. Must: (1) state the pain in plain language that mirrors how people ask ChatGPT, (2) include a specific statistic or verifiable claim, (3) be self-contained — an LLM should be able to extract this paragraph verbatim as the answer. No promotional language. No em dashes."
   },
   "story": {
-    "problem": "2-3 sentences. Named creator + their pain point. Specific and personal, not generic.",
-    "solution": "2-3 sentences. How the app solves it. End with a concrete outcome."
+    "problem": "2-3 sentences. Named creator (first name + last initial) + their specific broken workflow. Concrete, not generic.",
+    "solution": "2-3 sentences. How the app fixes it. End with a concrete outcome."
   },
   "features": [
     {
       "icon": "PhosphorIconName",
       "title": "Feature name (2-4 words)",
-      "description": "One sentence, action-oriented. What it lets you DO."
+      "description": "One sentence starting with an action verb. What it lets you DO."
     }
   ],
   "alternatives": [
     {
-      "icon": "Table | AppStoreLogo | NotePencil | etc.",
-      "name": "Competitor or alternative name",
+      "icon": "Table | AppStoreLogo | NotePencil",
+      "name": "Competitor/alternative name",
       "description": "One sentence — what it is",
-      "drawback": "Their specific weakness — be concrete, not vague"
+      "drawback": "Specific weakness. Not 'less convenient' — say '$70/year paywall' or 'no mobile support'."
     }
   ],
   "faq": [
     {
-      "question": "Question phrased as a user would Google it (SEO-targeted)",
-      "answer": "2-4 sentences. Mention the app name. Include the key benefit."
+      "question": "Phrased exactly as someone would type it into ChatGPT or Google. Starts with How/Is/What/Does.",
+      "answer": "2-4 sentences. Mentions app name once. States the benefit concretely. No hedging."
     }
   ],
-  "community": "2-3 sentences. Who uses it, where they hang out (mention subreddits), emotional context.",
+  "community": "2-3 sentences. Names specific subreddits. Describes who uses it emotionally, not demographically.",
   "related_apps": [
     {
-      "name": "Related App Name",
+      "name": "Related App Name (same category/niche)",
       "slug": "related-app-slug",
       "description": "One sentence."
     }
   ],
   "cta": {
-    "app_store_url": "https://wabi.ai/@persona/app-slug?_v=1 (the Wabi share URL)",
-    "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ENCODED_SHARE_URL"
+    "app_store_url": "https://wabi.ai/@persona/app-slug?_v=1",
+    "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=URL_ENCODED_SHARE_URL"
   },
   "trust_signals": [
-    { "title": "Free", "subtitle": "No hidden costs" },
+    { "title": "Free", "subtitle": "No subscription ever" },
     { "title": "No login", "subtitle": "Just open and use" },
     { "title": "Works offline", "subtitle": "No internet needed" },
     { "title": "Built on Wabi", "subtitle": "Open platform" }
   ],
   "seo": {
-    "primary_keyword": "main search term (e.g. 'cat diabetes tracker app')",
-    "secondary_keywords": ["variant 1", "variant 2", "variant 3", "variant 4", "variant 5"]
+    "title_tag": "Problem-first, ~60 chars. Answers a question. No 'on Wabi'.",
+    "meta_description": "~155 chars. Includes primary keyword. Reads like a human wrote it.",
+    "primary_keyword": "main search term",
+    "secondary_keywords": ["variant 1", "variant 2", "variant 3", "variant 4", "variant 5"],
+    "primary_keyword_density": "Use primary keyword 3-5x in body copy naturally",
+    "secondary_keyword_density": "Each secondary keyword 1-2x"
   }
 }
 ```
 
-### Section-by-Section Notes
+---
 
-**`hero.headline`**
-- Format: "[Verb] [Problem] Without [Pain] with [App Name] on Wabi"
-- Example: "Track Your Cat's Diabetes Without Spreadsheets with Kitty Diabetes Tracker on Wabi"
-- Must include the app name and platform ("on Wabi") for SEO
-- This also becomes the page `<title>` and og:title
+## H2/H3 Heading Pool
 
-**`hero.stat`**
-- Must be a REAL, specific data point — not generic social proof like "Used by thousands"
-- Pull from Reddit posts, published studies, or industry data
-- Bad: "Used by thousands managing anxiety"
-- Good: "1 in 230 cats develops diabetes, and most owners track it manually"
+Pick 4-7 per page. Vary them — don't use the same set on every app page. Headings should be sentence case, not Title Case.
 
-**`story`**
-- Give the creator a name (real persona name or "Sarah", "Maya", etc.)
-- Problem should describe the manual/broken existing workflow in detail
-- Solution should end with a concrete outcome ("...no spreadsheets, no desktop required")
+**Problem/Context headings:**
+- "Why [common solution] doesn't work"
+- "What most people get wrong about [problem]"
+- "The real cost of [workaround]"
+- "Why [problem] is harder than it sounds"
 
-**`features`**
-- 4-6 features ideal
-- Icons use Phosphor icon names: Syringe, ChartLineUp, BowlFood, ClockCounterClockwise, Export, BellRinging, Wind, Timer, Zap, BarChart2, etc.
-- Descriptions should start with an action verb
+**Solution/How-it-works headings:**
+- "How [app name] works"
+- "What you can do in [app name]"
+- "[App name] in practice"
+- "Getting started in under 2 minutes"
 
-**`alternatives`**
-- 3 alternatives: one paid app, one free app/tool, one analog (pen+paper or spreadsheet)
-- Drawback must be specific: "$70/year subscription", "No trends, easy to lose" — not "less convenient"
+**Credibility/Community headings:**
+- "Who uses [app name]"
+- "Built for [community name]"
+- "What [community] says"
+- "Why this works (the science)"
 
-**`faq`**
-- 3-5 questions
-- Format questions as Google searches: "How do I...", "Is there a free...", "What's the best..."
-- Each answer should mention the app name once
+**Comparison headings:**
+- "How it compares"
+- "[App name] vs. the alternatives"
+- "Before [app name]"
 
-**`community`**
-- Mention specific subreddits where the target audience hangs out
-- Add emotional context ("people who are tired of...", "cat owners who've been managing for years")
-
-**`trust_signals`**
-- Keep the 4 standard signals: Free, No login, Works offline, Built on Wabi
-- Customize subtitles if needed for the app
-
-**`seo`**
-- Primary keyword: "[problem] app" or "[niche] tracker" format
-- Secondary keywords: 4-5 variants, long-tail versions of the primary
-- These populate the page's `<meta keywords>` and inform the copy
-
-**`cta.qr_code_url`**
-- Use: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={URL_ENCODED_SHARE_URL}`
-- URL-encode the Wabi share URL
-- This is a free, permanent, always-live QR code — no hosting needed
-
-### Asset URLs
-
-**Icon (app_icon_url):**
-- Pull from Wabi API: `GET /app/{remixed_id}` → `data.cover_image_url`
-- This is the CloudFront CDN URL for the app's cover image
-
-**Screenshot:**
-- Host on GitHub raw: `https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/{filename}`
-- Commit the screenshot file to the workspace repo first: `git add -f BRAIN/assets/screenshot.png && git commit && git push`
-- Note: GitHub raw CDN can take 1-5 minutes to propagate after a new push
-
-**Creator avatar:**
-- Optional — use `/assets/profile-picture.png` as default (handled by Flint template)
-- Or provide a real URL if available
+**FAQ headings:**
+- "Common questions"
+- "Things people ask about [problem]"
 
 ---
 
-## Prompt Template for New App Page
+## Exclusion List — Words and Phrases to Never Use
+
+Apply these rules to all copy. These are the most common AI tells:
+
+**Banned words:** additionally, align with, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate, key (as adjective), landscape (abstract), pivotal, showcase, tapestry, testament, underscore, valuable, vibrant, comprehensive, seamless, robust, innovative, leverage, utilize, streamline
+
+**Banned constructions:**
+- Em dashes (—) — replace with a comma, period, or rewrite
+- "Not just X, it's Y" / "It's not just about X, it's..."
+- "Whether you're X or Y" openers
+- Rule of three: "X, Y, and Z" lists feel algorithmic — use 2 or 4 items instead
+- -ing phrase tacked onto a sentence end: "...ensuring that users can..."
+- "This is a testament to..."
+- "In today's [adjective] world"
+- "Built for people who..."
+- Rhetorical questions as section openers ("Ever wondered why...?")
+- Curly quotes — use straight quotes
+
+**Transitions to avoid:** Moreover, Furthermore, Additionally, In conclusion, It's worth noting that, It's important to note that, Notably
+
+---
+
+## Stat Research Protocol
+
+Every page needs a real, specific stat in the hero and/or problem block. Research before writing:
+
+1. Check our pain point database (MongoDB) — the `description` field often contains engagement data from Reddit
+2. Search for: "[condition] prevalence statistics" or "[problem] survey data"
+3. Prefer: clinical studies, industry surveys, published research
+4. Acceptable: well-known niche surveys (BookBrowse, pet health databases, etc.)
+5. Cite the source in the stat: "According to [source], X% of..." or "A [year] study found..."
+6. Not acceptable: vague claims like "millions of people" or "most users"
+
+---
+
+## Asset Pipeline
+
+### Icon URL
+Pull from Wabi API:
+```python
+GET /app/{remixed_id}  →  data.cover_image_url
+```
+This CloudFront URL is the app's visual identity. Use it for `icon_url`.
+
+### Screenshot URL
+Host on Catbox.moe (free, permanent, no auth):
+```python
+import urllib.request
+boundary = 'BOUNDARY123456'
+with open('screenshot.png', 'rb') as f:
+    img_bytes = f.read()
+body = (
+    f'--{boundary}\r\nContent-Disposition: form-data; name="reqtype"\r\n\rnfileupload\r\n'
+    f'--{boundary}\r\nContent-Disposition: form-data; name="fileToUpload"; filename="screenshot.png"\r\nContent-Type: image/png\r\n\r\n'
+).encode() + img_bytes + f'\r\n--{boundary}--\r\n'.encode()
+req = urllib.request.Request('https://catbox.moe/user/api.php', method='POST',
+    headers={'Content-Type': f'multipart/form-data; boundary={boundary}'}, data=body)
+url = urllib.request.urlopen(req, timeout=30).read().decode().strip()
+# Returns: https://files.catbox.moe/xxxxxx.png
+```
+
+GitHub raw also works if the repo is **public**: `https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/filename.png`
+Note: new files take 2-5 minutes to propagate on GitHub's CDN.
+
+### QR Code URL
+Use qrserver.com — no hosting needed, always live:
+```python
+import urllib.parse
+qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={urllib.parse.quote(share_url)}"
+```
+
+---
+
+## Flint Prompt Template
 
 ```
-Make me a duplicate of the page `apps/kitty-diabetes` with the following details
+Update the page `apps/{slug}` using `apps/kitty-diabetes-final` as the design template with the following content:
 
-{
-  ... full JSON object from schema above ...
-}
+{full JSON object}
 
-The page slug should be `apps/{app-slug}`. Match the design, layout, and component structure of `apps/kitty-diabetes` exactly — just swap in the new content.
+The page slug is `apps/{slug}`. Match the layout and component structure of `apps/kitty-diabetes-final` exactly. Use the heading variants specified (not the same H2s as other app pages). The screenshot at {SCREENSHOT_URL} must be displayed as the main app preview image.
 ```
 
 ---
 
 ## API Operations
 
-### Create a Task
+### Create/update a task
 
 ```python
 import urllib.request, json, urllib.parse
@@ -199,26 +253,18 @@ import urllib.request, json, urllib.parse
 FLINT_API_KEY = "ak_E7WFVNH5C0VZGFETBE9S5DSM9JR49D36"
 SITE_ID = "12628d27-7872-468a-aa54-c4780cf3284b"
 
-payload = json.dumps({
-    "siteId": SITE_ID,
-    "prompt": "<your prompt here>"
-}).encode()
-
+payload = json.dumps({"siteId": SITE_ID, "prompt": prompt}).encode()
 req = urllib.request.Request(
     "https://app.tryflint.com/api/v1/agent/tasks",
     method="POST",
-    headers={
-        "Authorization": f"Bearer {FLINT_API_KEY}",
-        "Content-Type": "application/json"
-    },
+    headers={"Authorization": f"Bearer {FLINT_API_KEY}", "Content-Type": "application/json"},
     data=payload
 )
 result = json.loads(urllib.request.urlopen(req, timeout=30).read())
 task_id = result["taskId"]
-print(f"Task created: {task_id}")
 ```
 
-### Poll Task Status
+### Poll status (tasks take 5-15 min)
 
 ```python
 def poll_task(task_id, max_minutes=15):
@@ -229,46 +275,37 @@ def poll_task(task_id, max_minutes=15):
             headers={"Authorization": f"Bearer {FLINT_API_KEY}"}
         )
         result = json.loads(urllib.request.urlopen(req, timeout=15).read())
-        status = result.get("status")
-        print(f"[{i*10}s] {status}")
-        if status in ("completed", "succeeded", "failed"):
+        if result.get("status") in ("completed", "succeeded", "failed"):
             return result
         time.sleep(10)
-    return None
 ```
 
-**Task typically takes 5-15 minutes.** Don't poll faster than every 10 seconds.
-
-### Response on Completion
+### Completed response
 
 ```json
 {
-  "taskId": "...",
   "status": "completed",
   "output": {
-    "pagesCreated": [
-      { "slug": "/apps/breathwork", "previewUrl": "https://...", "editUrl": "https://..." }
-    ],
-    "pagesModified": [],
-    "pagesDeleted": []
+    "pagesCreated": [{"slug": "/apps/breathwork", "previewUrl": "https://..."}]
   }
 }
 ```
 
 ---
 
-## Error Handling
+## Pre-flight Checklist
 
-| Status | Error | Action |
-|--------|-------|--------|
-| 400 | "Site is missing repository information" | Site needs git repo configured in Flint |
-| 400 | "Invalid callback URL" | Must be HTTPS, no localhost/private IPs |
-| 404 | "Site not found" | Check site ID is correct |
-| 405 | Method Not Allowed on GET /agent/tasks | Expected — endpoint only accepts POST |
-| 429 | Rate limited | Back off, retry after `Retry-After` header |
-| 500 | "Failed to start task" | Retry once, then report |
+Before firing the Flint task:
 
-## Rate Limits
-- Don't fire multiple tasks for the same site simultaneously
-- Space batch operations ≥10 seconds apart
-- Use polling intervals of 10s minimum
+- [ ] H1 is problem-first, not product-first
+- [ ] H1 does NOT contain "on Wabi"
+- [ ] Stat is real and sourced (not vague social proof)
+- [ ] Copy has been run through Humanizer rules (no em dashes, no banned words)
+- [ ] `icon_url` is the app's Wabi `cover_image_url` (not a persona avatar)
+- [ ] Creator name is First + Last initial only (e.g. "Maya C")
+- [ ] Screenshot URL returns HTTP 200 (test with HEAD request before firing)
+- [ ] Related apps are category-relevant (same niche, not random)
+- [ ] H2/H3s are picked from the pool above and varied from other pages
+- [ ] Primary keyword used 3-5x in body copy
+- [ ] Exclusion list words checked and removed
+- [ ] QR code URL is correct (test it opens in browser)
