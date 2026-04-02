@@ -1,0 +1,92 @@
+{
+  "agentId": "jess-m",
+  "timestamp": "2026-04-02T14:06:25.911Z",
+  "subredditsScanned": 5,
+  "totalPostsAnalyzed": 116,
+  "totalPainPointsFound": 26,
+  "painPoints": [
+    "The point of having baby in your room with you for the first 6 months is to r...",
+    "Feeling Overwhelmed and Missing Couple Time After Baby – Is This Normal?",
+    "Parents who combo feed (breast + formula) - how’s it going and do you have an...",
+    "BFP (3under3) Freaking Out",
+    "Positive experiences travelling with infant",
+    "Opportunity to get more sleep but feel guilty about it. I just need some reas...",
+    "Feeling emotional about never having a girl",
+    "Zoloft",
+    "I think my daughter’s RSV hospital stay traumatized me more than I realized",
+    "How do you stop being terrified of sex?",
+    "Not everything is PPD.",
+    "I just thought I would be enjoying this more??",
+    "At a loss on what to with my 4 year old",
+    "Getting induced",
+    "Question for the women runners!",
+    "United NYC Half Race Report Building Toward a Sub 3 Attempt in Nagano",
+    "30min full body weights? Really overwhelmed with all the videos and informati...",
+    "Exercising through increasing mental stress",
+    "Daily Thread 31 March 2026",
+    "How can I build up to a push up WITHOUT going at an angle?",
+    "The Hip Thrust Paradox: Why do I feel 70kg more than 110kg?",
+    "How do I avoid bruising from the perfect squat machine?",
+    "Bulletproof your shoulders, but for women",
+    "Anyone else struggle with doing way too much at the same time?",
+    "Invited to train with men",
+    "Figuring out my next goals"
+  ],
+  "details": [
+    {
+      "sub": "gardening",
+      "postsScanned": 24,
+      "painPointsFound": []
+    },
+    {
+      "sub": "beyondthebump",
+      "postsScanned": 23,
+      "painPointsFound": [
+        "The point of having baby in your room with you for the first 6 months is to r...",
+        "Feeling Overwhelmed and Missing Couple Time After Baby – Is This Normal?",
+        "Parents who combo feed (breast + formula) - how’s it going and do you have an...",
+        "BFP (3under3) Freaking Out",
+        "Positive experiences travelling with infant",
+        "Opportunity to get more sleep but feel guilty about it. I just need some reas...",
+        "Feeling emotional about never having a girl",
+        "Zoloft",
+        "I think my daughter’s RSV hospital stay traumatized me more than I realized"
+      ]
+    },
+    {
+      "sub": "Mommit",
+      "postsScanned": 23,
+      "painPointsFound": [
+        "How do you stop being terrified of sex?",
+        "Not everything is PPD.",
+        "I just thought I would be enjoying this more??",
+        "At a loss on what to with my 4 year old",
+        "Getting induced"
+      ]
+    },
+    {
+      "sub": "running",
+      "postsScanned": 23,
+      "painPointsFound": [
+        "Question for the women runners!",
+        "United NYC Half Race Report Building Toward a Sub 3 Attempt in Nagano"
+      ]
+    },
+    {
+      "sub": "xxfitness",
+      "postsScanned": 23,
+      "painPointsFound": [
+        "30min full body weights? Really overwhelmed with all the videos and informati...",
+        "Exercising through increasing mental stress",
+        "Daily Thread 31 March 2026",
+        "How can I build up to a push up WITHOUT going at an angle?",
+        "The Hip Thrust Paradox: Why do I feel 70kg more than 110kg?",
+        "How do I avoid bruising from the perfect squat machine?",
+        "Bulletproof your shoulders, but for women",
+        "Anyone else struggle with doing way too much at the same time?",
+        "Invited to train with men",
+        "Figuring out my next goals"
+      ]
+    }
+  ]
+}
