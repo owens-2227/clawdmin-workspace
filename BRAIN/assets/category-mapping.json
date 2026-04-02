@@ -1,0 +1,42 @@
+{
+  "categories": {
+    "New Moms": ["r/beyondthebump", "r/Mommit", "r/babybumps"],
+    "Fitness": ["r/running", "r/xxfitness"],
+    "ADHD & Neurodivergent": ["r/ADHD"],
+    "Language Learning": ["r/languagelearning"],
+    "Remote Work": ["r/remotework"],
+    "Productivity": ["r/productivity"],
+    "Personal Finance": ["r/personalfinance", "r/frugal"],
+    "Cooking": ["r/cooking"],
+    "Solo Travel": ["r/solotravel"],
+    "Home & DIY": ["r/HomeImprovement", "r/DIY", "r/woodworking"],
+    "BBQ & Grilling": ["r/smoking"],
+    "No-Code & Builders": ["r/nocode", "r/SideProject"],
+    "Biohacking": ["r/Nootropics", "r/Biohackers"],
+    "Gardening": ["r/gardening"]
+  },
+  "subredditToCategory": {
+    "r/beyondthebump": "New Moms",
+    "r/Mommit": "New Moms",
+    "r/babybumps": "New Moms",
+    "r/running": "Fitness",
+    "r/xxfitness": "Fitness",
+    "r/ADHD": "ADHD & Neurodivergent",
+    "r/languagelearning": "Language Learning",
+    "r/remotework": "Remote Work",
+    "r/productivity": "Productivity",
+    "r/personalfinance": "Personal Finance",
+    "r/frugal": "Personal Finance",
+    "r/cooking": "Cooking",
+    "r/solotravel": "Solo Travel",
+    "r/HomeImprovement": "Home & DIY",
+    "r/DIY": "Home & DIY",
+    "r/woodworking": "Home & DIY",
+    "r/smoking": "BBQ & Grilling",
+    "r/nocode": "No-Code & Builders",
+    "r/SideProject": "No-Code & Builders",
+    "r/Nootropics": "Biohacking",
+    "r/Biohackers": "Biohacking",
+    "r/gardening": "Gardening"
+  }
+}
