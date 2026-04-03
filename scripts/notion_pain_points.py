@@ -5,8 +5,8 @@ import json
 import time
 import urllib.request
 
-NOTION_SECRET = "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"
-PARENT_PAGE_ID = "32666005-ab52-8032-9338-df9720ae0f45"
+NOTION_SECRET = "REDACTED_NOTION"
+PARENT_PAGE_ID = "31b66005-ab52-800d-9c49-fbc517921ae3"
 NOTION_VERSION = "2022-06-28"
 BASE = "https://api.notion.com/v1"
 

@@ -45,11 +45,12 @@ Response contains `data.ws.puppeteer` — the CDP URL to pass to the subagent.
 
 ## Notion
 
-API secret: `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`
+API secret: `REDACTED_NOTION`
 Version header: `Notion-Version: 2022-06-28`
 
 | Resource | ID |
 |----------|----|
+| Social Signals Reddit (page) | 31b66005-ab52-800d-9c49-fbc517921ae3 |
 | Openclaw Management (page) | 32666005-ab52-8032-9338-df9720ae0f45 |
 | 🧪 Reddit Experiments (database) | 32666005-ab52-81f8-9bbe-f50add0099a4 |
 
