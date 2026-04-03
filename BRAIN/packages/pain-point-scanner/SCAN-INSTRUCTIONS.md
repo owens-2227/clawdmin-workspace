@@ -134,9 +134,9 @@ client = MongoClient(MONGO_URI)
 db = client['reddit_scanner']
 
 def calculate_viral_score(upvotes, comment_count, occurrence_count):
-    """Calculate viral score (0-100) from engagement metrics."""
+    """Calculate viral score from engagement metrics. No cap — higher engagement = higher score."""
     raw = (upvotes / 100) + (comment_count / 10) + (occurrence_count * 5)
-    return min(100, round(raw))
+    return round(raw)
 
 def submit_pain_point_with_post(
     title, description, category, subreddit, agent_id,
