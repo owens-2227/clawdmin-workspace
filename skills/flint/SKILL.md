@@ -43,7 +43,7 @@ These pages are optimized for AI answer engines (ChatGPT, Perplexity) AND tradit
 
 7. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
 
-8. **Related apps must be category-relevant**, not just "apps we've built pages for." If we don't have real related apps yet, use plausible Wabi app names in the same niche — these are internal links and help build topical clusters.
+8. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
 
 ---
 
@@ -80,12 +80,26 @@ Send this JSON in the Flint prompt. All fields required.
       "description": "One sentence starting with an action verb. What it lets you DO."
     }
   ],
+  "alternatives_section_heading": "How people solve this today",
+  "alternatives_section_subhead": "Before [App Name], these were the most common options.",
   "alternatives": [
     {
-      "icon": "Table | AppStoreLogo | NotePencil",
-      "name": "Competitor/alternative name",
-      "description": "One sentence — what it is",
-      "drawback": "Specific weakness. Not 'less convenient' — say '$70/year paywall' or 'no mobile support'."
+      "icon": "Table",
+      "name": "A spreadsheet or workaround",
+      "description": "One sentence — what the workaround is (e.g. Google Sheets, notes app, journal).",
+      "drawback": "Why it fails for this use case. Specific, not vague."
+    },
+    {
+      "icon": "AppStoreLogo",
+      "name": "A paid app (real name)",
+      "description": "One sentence — what it is and how much it costs.",
+      "drawback": "Specific weakness — pricing, complexity, missing feature."
+    },
+    {
+      "icon": "NotePencil",
+      "name": "An analog method (short name)",
+      "description": "One sentence — e.g. pen and paper, counting in your head, sticky notes.",
+      "drawback": "Why it doesn't scale or fails over time."
     }
   ],
   "faq": [
@@ -148,9 +162,9 @@ Pick 4-7 per page. Vary them — don't use the same set on every app page. Headi
 - "Why this works (the science)"
 
 **Comparison headings:**
-- "How it compares"
-- "[App name] vs. the alternatives"
-- "Before [app name]"
+- ⚠️ The alternatives section heading is FIXED: always "How people solve this today"
+- The subhead is FIXED: always "Before [App Name], these were the most common options."
+- Do NOT use "How it compares" or "Alternatives" as the heading — those were wrong
 
 **FAQ headings:**
 - "Common questions"
