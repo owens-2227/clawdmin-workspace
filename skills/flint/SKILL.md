@@ -39,11 +39,13 @@ These pages are optimized for AI answer engines (ChatGPT, Perplexity) AND tradit
 
 5. **Word count discipline.** Don't pad. Each section should say what it needs to say and stop.
 
-6. **The app icon_url must be the app's own cover image** (from Wabi `cover_image_url`), not a persona avatar.
+6. **Every page gets 3 remix ideas, placed as FAQ entries** (not a dedicated section). Each remix idea becomes a question like "What if I want [variation]?" with the answer explaining what to change and mentioning the Remix button. Pick ideas that show range: one functional change, one audience shift, one vibe/aesthetic change. Keep them specific to the app, not generic.
 
-7. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
+7. **The app icon_url must be the app's own cover image** (from Wabi `cover_image_url`), not a persona avatar.
 
-8. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
+8. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
+
+9. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
 
 ---
 
@@ -102,10 +104,20 @@ Send this JSON in the Flint prompt. All fields required.
       "drawback": "Why it doesn't scale or fails over time."
     }
   ],
+
+  "// ALTERNATIVES CHARACTER LIMITS (must fit card layout)": {
+    "name": "max ~25 chars (1 line ideal, 2 lines max at ~30)",
+    "description": "max ~55 chars (keep to 1 line)",
+    "drawback": "max ~65 chars (keep to 1 line, 90 absolute max)"
+  },
   "faq": [
     {
       "question": "Phrased exactly as someone would type it into ChatGPT or Google. Starts with How/Is/What/Does.",
       "answer": "2-4 sentences. Mentions app name once. States the benefit concretely. No hedging."
+    },
+    {
+      "question": "What if I want [remix variation]? — 3 remix ideas as FAQ entries. Format: 'What if I want X instead?' Answer: explain the change + mention tapping Remix in Wabi.",
+      "answer": "Describe what to change and how. End with: 'Tap Remix in Wabi to start with this app and make it yours.'"
     }
   ],
   "community": "2-3 sentences. Names specific subreddits. Describes who uses it emotionally, not demographically.",
@@ -120,6 +132,7 @@ Send this JSON in the Flint prompt. All fields required.
     "app_store_url": "https://wabi.ai/@persona/app-slug?_v=1",
     "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=URL_ENCODED_SHARE_URL"
   },
+
   "trust_signals": [
     { "title": "Free", "subtitle": "No subscription ever" },
     { "title": "No login", "subtitle": "Just open and use" },
@@ -169,6 +182,8 @@ Pick 4-7 per page. Vary them — don't use the same set on every app page. Headi
 **FAQ headings:**
 - "Common questions"
 - "Things people ask about [problem]"
+
+**Note:** Remix ideas go into the FAQ section as additional Q&A entries, not as a separate section.
 
 ---
 
@@ -323,3 +338,5 @@ Before firing the Flint task:
 - [ ] Primary keyword used 3-5x in body copy
 - [ ] Exclusion list words checked and removed
 - [ ] QR code URL is correct (test it opens in browser)
+- [ ] 3 remix ideas are included as FAQ entries ("What if I want [variation]?" format)
+- [ ] Remix FAQ entries show range: functional change, audience shift, and vibe/aesthetic change

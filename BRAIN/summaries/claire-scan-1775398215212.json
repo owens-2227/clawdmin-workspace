@@ -1,0 +1,149 @@
+{
+  "agentId": "claire-t",
+  "timestamp": "2026-04-05T14:10:15.212Z",
+  "subredditsScanned": 4,
+  "totalPostsAnalyzed": 10,
+  "painPointsFound": 8,
+  "results": [
+    {
+      "sub": "insomnia",
+      "postsScanned": 5,
+      "painPointsFound": 5,
+      "painPoints": [
+        {
+          "title": "Omg this is brutal. I don't know what else to do... Another useless sleep prescr",
+          "description": "Military vet here and my insomnia started during my service time 25 years ago. Just wanting to share and vent as I can't take it any more. I got 3 hours and 35 minutes of sleep..",
+          "category": "Sleep & Recovery",
+          "subreddit": "r/insomnia",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1scxqir",
+          "redditUrl": "https://reddit.com/r/insomnia/comments/1scxqir/omg_this_is_brutal_i_dont_know_what_else_to_do/",
+          "postTitle": "Omg this is brutal. I don't know what else to do... Another useless sleep prescription.",
+          "postBody": "Military vet here and my insomnia started during my service time 25 years ago. \n\nJust wanting to share and vent as I can't take it any more. I got 3 hours and 35 minutes of sleep... Again.  And this is after getting put on ambien which isn't working at all. I was told THIS is the one that would work and that I'd get 7 to 8 hours of sleep on it.  Nope. \n\nWas on 300mg of Trazodone and however much clonidine (sorry, can't remember atm).\n\nI don't drink or smoke, I work out 6 days a week, get 7k to 10k steps in daily, no phone in bed, nutrition is on point as I'm an avid bodybuilder, Jo caffeine after noon, have rain playing every night to help me feel calm, AC is on nice and cool, etc etc... Literally doing everything for successful sleep and it doesn't matter.\n\nPretty sure I need a lot of psychological help at this point. I cannot sleep past 3am no matter what time I go to bed or what time I take the sleep meds. \n\nSend help. I am barely hanging on and can't function like this. ",
+          "upvotes": 11,
+          "commentCount": 26
+        },
+        {
+          "title": "Finally found something that helps me wind down — and it’s stupidly simple",
+          "description": "Anyone else like me. My sleep problems have lasted for about two years. There are no clinical symptoms, just that weird habit where around 11 pm my mind suddenly starts replaying all the embarrassing things that happened in my past",
+          "category": "Sleep & Recovery (Tool Gap)",
+          "subreddit": "r/insomnia",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1scyzf4",
+          "redditUrl": "https://reddit.com/r/insomnia/comments/1scyzf4/finally_found_something_that_helps_me_wind_down/",
+          "postTitle": "Finally found something that helps me wind down — and it’s stupidly simple",
+          "postBody": "Anyone else like me? My sleep problems have lasted for about two years. There are no clinical symptoms, just that weird habit where around 11 pm my mind suddenly starts replaying all the embarrassing things that happened in my past.\n\nRecently, I realized my problem isn't actually difficulty falling asleep, but rather a very long sleep transition period. For example, I want to sleep, but my brain seems unable to shut down; my body is resting, but my brain is still running. That changed when I started doing a very simple relaxation routine about 30 minutes before bed. Every night, I do the same thing. I put my phone in another room, sit quietly for a while, and then place a small stick of herbal incense by my bed—not for any health reasons, just because it's not an electronic screen, and it allows me to sit quietly for a few minutes; the smell of it burning makes me feel relaxed.\n\nI read an article before that said ancient Chinese people also had similar quiet rituals to end the day—not for \"healing,\" but simply as a signal that the day was over. I know it has historical roots, so it doesn't seem so strange anymore, haha.\n\nFive weeks have passed. I still can't sleep well. But the time it takes me to fall asleep has definitely shortened, which I think is simply because my body has gradually learned the rhythm of \"sleeping before falling asleep.\"\n\nDoes anyone else feel the same way, that the real problem isn't sleep itself, but rather the \"transition phase before falling asleep\"?",
+          "upvotes": 6,
+          "commentCount": 0
+        },
+        {
+          "title": "Can’t fall asleep without eating copious amounts of food",
+          "description": "I’m 34M and if I eat anything below 4,000 cals a day I simply can’t sleep. If I do manage to fall asleep then I always wake up after an hour or two and can’t fall back asleep until I get up and stuff my face up with carbs. On days I eat until I can’t take another bite of food, I sleep like a baby for 8 hrs straight",
+          "category": "Sleep & Recovery",
+          "subreddit": "r/insomnia",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1sckq4u",
+          "redditUrl": "https://reddit.com/r/insomnia/comments/1sckq4u/cant_fall_asleep_without_eating_copious_amounts/",
+          "postTitle": "Can’t fall asleep without eating copious amounts of food",
+          "postBody": "I’m 34M and if I eat anything below 4,000 cals a day I simply can’t sleep. If I do manage to fall asleep then I always wake up after an hour or two and can’t fall back asleep until I get up and stuff my face up with carbs.\n\nOn days I eat until I can’t take another bite of food, I sleep like a baby for 8 hrs straight.\n\nCan anyone relate??\n\n(Written while I’m waiting for my food to cook at 12am lol)\n\nEdit:\n\nGuys I think I just figured out what it is!\n\nIt’s not calories I’m craving but SALT!\n\nI drink lots of water throughout the day and I probably overdo it a bit, which makes me low on sodium and that’s why my body is craving food at night!\n\nI’m gonna up my salt intake and don’t go past 2.5L a day, and see if that helps!",
+          "upvotes": 53,
+          "commentCount": 69
+        },
+        {
+          "title": "Why does trying harder to sleep make me feel even more awake?",
+          "description": "This is something I keep running into and it’s so frustrating. The more I want sleep, the more I try to relax, the more I focus on “I need to fall asleep now,” the more awake and tense I seem to feel. It’s like the effort itself backfires",
+          "category": "Sleep & Recovery",
+          "subreddit": "r/insomnia",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1scm0vg",
+          "redditUrl": "https://reddit.com/r/insomnia/comments/1scm0vg/why_does_trying_harder_to_sleep_make_me_feel_even/",
+          "postTitle": "Why does trying harder to sleep make me feel even more awake?",
+          "postBody": "This is something I keep running into and it’s so frustrating. \n\nThe more I want sleep, the more I try to relax, the more I focus on “I need to fall asleep now,” the more awake and tense I seem to feel. \n\nIt’s like the effort itself backfires. \n\nI know sleep isn’t supposed to be something you force, but that’s easier said than done when you’re lying there exhausted and just wanting your brain to stop fighting you. \n\nDoes anyone else deal with this?   \nIf so, what helped you stop making sleep feel like a task or a performance? \n\n   \n ",
+          "upvotes": 11,
+          "commentCount": 16
+        },
+        {
+          "title": "So apparently kiwi’s are super effective when it comes to sleep.",
+          "description": "For about a year straight I’ve developed the worst sleeping habits ever. To the point where I’d go days without sleeping at all. Just small micro sleeps which weren’t very helpful",
+          "category": "Sleep & Recovery (Tool Gap)",
+          "subreddit": "r/insomnia",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1sc964e",
+          "redditUrl": "https://reddit.com/r/insomnia/comments/1sc964e/so_apparently_kiwis_are_super_effective_when_it/",
+          "postTitle": "So apparently kiwi’s are super effective when it comes to sleep.",
+          "postBody": "For about a year straight I’ve developed the worst sleeping habits ever. To the point where I’d go days without sleeping at all. Just small micro sleeps which weren’t very helpful. I’ve tried everything you could think of. Sleeping aids, not using my phone before bed, sleep frequency music. Nothing seemed to work. The other day I scrolled upon a post where someone commented “have you tried kiwis?” I thought nothing of it then I said maybe I should give it a try can’t hurt. I ate 2 kiwis with the skin left on them an hour before bed. I woke up in the morning completely oblivious to the fact that I actually fell asleep for 6+ hours. ",
+          "upvotes": 17,
+          "commentCount": 11
+        }
+      ]
+    },
+    {
+      "sub": "CBTi",
+      "postsScanned": 0,
+      "painPointsFound": 0,
+      "painPoints": []
+    },
+    {
+      "sub": "TMJ",
+      "postsScanned": 5,
+      "painPointsFound": 3,
+      "painPoints": [
+        {
+          "title": "Diagnosed with TMJ, Almost Full Recovery a Year Later",
+          "description": "Hey all,\n\n  \nI wanted to share my success story on here in the hopes that it may help some of you find relief as well, or at least give you some hope. I don't know exactly when my TMJ started or what triggered it, but I have a strong suspicion it was due to a root canal I received in July of 2024. The root canal was on a molar in the back upper left of my mouth",
+          "category": "TMJ & Chronic Pain (Tool Gap)",
+          "subreddit": "r/TMJ",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1schztk",
+          "redditUrl": "https://reddit.com/r/TMJ/comments/1schztk/diagnosed_with_tmj_almost_full_recovery_a_year/",
+          "postTitle": "Diagnosed with TMJ, Almost Full Recovery a Year Later",
+          "postBody": "Hey all,\n\n  \nI wanted to share my success story on here in the hopes that it may help some of you find relief as well, or at least give you some hope. \n\nI don't know exactly when my TMJ started or what triggered it, but I have a strong suspicion it was due to a root canal I received in July of 2024. The root canal was on a molar in the back upper left of my mouth. Whether it was because my jaw was open for too long (the procedure took 2 hours, if I recall) or the endodontist disturbed a nerve up there, I don't know. \n\nBut in the six months following that, I continued to have weird sensations in that area. Not so much pain, more like a buzzing or vibrating that wasn't normal. I went back to the endodontist multiple times saying I needed another root canal, and to his credit, he said he didn't see anything wrong up there and did not perform any more operations.\n\n(Worth noting I also got a cavity filled around the same area by another dentist around this time too. So lot of mouth work in small span of time.)\n\nThe sensations continued until about January of 2025, when all hell started breaking loose. That part of my mouth started hurting like crazy. Then I started getting aches all over my head. Eye aches, tooth aches all over my mouth, scalp aches, neck aches. It was absolutely terrible. \n\nI finally started wearing a nightguard my dentist made for me a few months back. That reduced symptoms by 50%. Then I was referred to an orofacial surgeon. She diagnosed me with TMJ, but scarily, she was also stumped by my symptoms because she could not trigger most of my pain. She advised me to try a soft-food diet for a while. I tried it for a couple weeks, but struggled to stick with it and soon went back to my old diet. \n\nThis was where I started getting desperate as I didn't really have any answers. I wasn't sure if it was trigeminal neuralgia (I did occasionally get the electric-shock type pain it's known for, but not often). Chewing a lot definitely did make my jaw hurt the ne",
+          "upvotes": 48,
+          "commentCount": 14
+        },
+        {
+          "title": "Botox question",
+          "description": "Does anyone actually get complete relief from Botox. I’ve had it about 3 or 4 times now and my masseter muscles are just so sore and tight constantly. I even noticed recently over the last few months these rope like cords too",
+          "category": "TMJ & Chronic Pain",
+          "subreddit": "r/TMJ",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1sco580",
+          "redditUrl": "https://reddit.com/r/TMJ/comments/1sco580/botox_question/",
+          "postTitle": "Botox question",
+          "postBody": "Does anyone actually get complete relief from Botox? I’ve had it about 3 or 4 times now and my masseter muscles are just so sore and tight constantly. I even noticed recently over the last few months these rope like cords too. I feel like I felt okayish for a day or two but nothing seems to help. It also doesn’t help my actual joint/disc pain when I open my jaw. ",
+          "upvotes": 7,
+          "commentCount": 9
+        },
+        {
+          "title": "Does anyone get nerve pain down the arm from their TMJD?",
+          "description": "I am stumped at this point. I’ve started getting left TMJ issues about a year and a half ago, thankfully no pain in the jaw but constant clicking and popping of the jaw + clenching. This coincided with other  symptoms like chronic pain and pins and needles down my left arm/hand + constant shoulderblade clicking",
+          "category": "TMJ & Chronic Pain",
+          "subreddit": "r/TMJ",
+          "discoveredBy": "claire-t",
+          "redditPostId": "1sc73so",
+          "redditUrl": "https://reddit.com/r/TMJ/comments/1sc73so/does_anyone_get_nerve_pain_down_the_arm_from/",
+          "postTitle": "Does anyone get nerve pain down the arm from their TMJD?",
+          "postBody": "I am stumped at this point. I’ve started getting left TMJ issues about a year and a half ago, thankfully no pain in the jaw but constant clicking and popping of the jaw + clenching. This coincided with other  symptoms like chronic pain and pins and needles down my left arm/hand + constant shoulderblade clicking. I was finally diagnosed with carpal tunnel/cubital tunnel and given steroid injections and after a while the issue has resolved, just at the same time as my TMJ popping. Ok, so it was just a coincidence then right? But since last month I’m getting very similar symptoms in my right arm and guess what, my right TMJ is constantly clicking and popping which it has never done before… Could this be related somehow? Like referred tension from the jaw causing nerves to be compressed in the neck/shoulder area?\n\nI don’t know what types of stretches or exercises I can do to try to release these muscles so any suggestions welcome please! I’ve been doing back/neck PT for a while but without much success. ",
+          "upvotes": 5,
+          "commentCount": 4
+        }
+      ]
+    },
+    {
+      "sub": "yinyoga",
+      "postsScanned": 0,
+      "painPointsFound": 0,
+      "painPoints": []
+    }
+  ],
+  "painPointTitles": [
+    "Omg this is brutal. I don't know what else to do... Another useless sleep prescr",
+    "Finally found something that helps me wind down — and it’s stupidly simple",
+    "Can’t fall asleep without eating copious amounts of food",
+    "Why does trying harder to sleep make me feel even more awake?",
+    "So apparently kiwi’s are super effective when it comes to sleep.",
+    "Diagnosed with TMJ, Almost Full Recovery a Year Later",
+    "Botox question",
+    "Does anyone get nerve pain down the arm from their TMJD?"
+  ]
+}
