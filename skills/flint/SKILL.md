@@ -45,7 +45,9 @@ These pages are optimized for AI answer engines (ChatGPT, Perplexity) AND tradit
 
 8. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
 
-9. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
+9. **All links on the page must use the app's share URL** (e.g. `wabi.ai/@creator/app-slug-123?_v=8`). CTA buttons, QR codes, any clickable element — all point to the share link. Never link to the Wabi app store or homepage directly.
+
+10. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
 
 ---
 
@@ -129,7 +131,7 @@ Send this JSON in the Flint prompt. All fields required.
     }
   ],
   "cta": {
-    "app_store_url": "https://wabi.ai/@persona/app-slug?_v=1",
+    "app_store_url": "SHARE_URL (e.g. https://wabi.ai/@junaid/choose-your-own-adventure-1007795?_v=8) — ALL links on the page must use the app share link. Never link to the Wabi app store directly.",
     "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=URL_ENCODED_SHARE_URL"
   },
 
