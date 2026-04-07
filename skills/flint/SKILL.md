@@ -232,24 +232,70 @@ GET /app/{remixed_id}  →  data.cover_image_url
 This CloudFront URL is the app's visual identity. Use it for `icon_url`.
 
 ### Screenshot URL
-Host on Catbox.moe (free, permanent, no auth):
+
+**Source: Notion's Screenshot property field.** Do NOT take your own screenshot of the Wabi share page. The screenshot is provided by the app's creator in the Notion database.
+
+**Step 1: Get the screenshot from Notion**
+
+The Notion app database has a `Screenshot` property (field key `VbDU`, type `files`). Extract the attachment reference:
+
+```python
+import subprocess, json
+
+# Load page data from Notion public API
+page_id = "PAGE_ID_HERE"
+result = subprocess.run([
+    "curl", "-s", "https://silver-face-9c4.notion.site/api/v3/loadPageChunk",
+    "-H", "Content-Type: application/json",
+    "-d", json.dumps({
+        "page": {"id": page_id},
+        "limit": 100,
+        "cursor": {"stack": []},
+        "chunkNumber": 0,
+        "verticalColumns": False
+    })
+], capture_output=True, text=True, timeout=15)
+
+data = json.loads(result.stdout)
+blocks = data.get("recordMap", {}).get("block", {})
+for bid, bdata in blocks.items():
+    val = bdata.get("value", {})
+    inner = val.get("value", val) if isinstance(val, dict) else {}
+    props = inner.get("properties", {})
+    if "VbDU" in props:
+        # props["VbDU"] = [["filename.png", [["a", "attachment:UUID:filename.png"]]]]
+        attachment_ref = props["VbDU"][0][1][0][1]  # e.g. "attachment:UUID:filename.png"
+        break
+```
+
+**Step 2: Download via Notion's image proxy**
+
+```python
+import urllib.parse
+encoded_ref = urllib.parse.quote(attachment_ref)
+url = f"https://silver-face-9c4.notion.site/image/{encoded_ref}?id={page_id}&table=block"
+# curl -sL to follow the 302 redirect to img.notionusercontent.com
+subprocess.run(["curl", "-sL", url, "-o", "/tmp/screenshot.png"], timeout=30)
+```
+
+**Step 3: Upload to Catbox for a permanent public URL**
+
 ```python
 import urllib.request
 boundary = 'BOUNDARY123456'
-with open('screenshot.png', 'rb') as f:
+with open('/tmp/screenshot.png', 'rb') as f:
     img_bytes = f.read()
 body = (
-    f'--{boundary}\r\nContent-Disposition: form-data; name="reqtype"\r\n\rnfileupload\r\n'
+    f'--{boundary}\r\nContent-Disposition: form-data; name="reqtype"\r\n\r\nfileupload\r\n'
     f'--{boundary}\r\nContent-Disposition: form-data; name="fileToUpload"; filename="screenshot.png"\r\nContent-Type: image/png\r\n\r\n'
 ).encode() + img_bytes + f'\r\n--{boundary}--\r\n'.encode()
 req = urllib.request.Request('https://catbox.moe/user/api.php', method='POST',
     headers={'Content-Type': f'multipart/form-data; boundary={boundary}'}, data=body)
-url = urllib.request.urlopen(req, timeout=30).read().decode().strip()
+url = urllib.request.urlopen(req, timeout=60).read().decode().strip()
 # Returns: https://files.catbox.moe/xxxxxx.png
 ```
 
-GitHub raw also works if the repo is **public**: `https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/filename.png`
-Note: new files take 2-5 minutes to propagate on GitHub's CDN.
+**⚠️ If the Screenshot field is empty/missing:** STOP and warn Paul. Do not substitute a screenshot from the Wabi share page or take your own. The creator-provided screenshot is required.
 
 ### QR Code URL
 Use qrserver.com — no hosting needed, always live:
@@ -332,6 +378,8 @@ Before firing the Flint task:
 - [ ] Copy has been run through Humanizer rules (no em dashes, no banned words)
 - [ ] `icon_url` is the app's Wabi `cover_image_url` (not a persona avatar)
 - [ ] Creator name is First + Last initial only (e.g. "Maya C")
+- [ ] Screenshot is from Notion's Screenshot property (NOT a self-taken screenshot of the share page)
+- [ ] If Screenshot field is empty in Notion: STOP and alert Paul
 - [ ] Screenshot URL returns HTTP 200 (test with HEAD request before firing)
 - [ ] Related apps are category-relevant (same niche, not random)
 - [ ] H2/H3s are picked from the pool above and varied from other pages
