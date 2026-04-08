@@ -45,7 +45,9 @@ These pages are optimized for AI answer engines (ChatGPT, Perplexity) AND tradit
 
 8. **Creator names must be neutral** — use first name + last initial only (e.g. "Maya C", "Sarah K"). Never full surnames.
 
-9. **All links on the page must use the app's share URL** (e.g. `wabi.ai/@creator/app-slug-123?_v=8`). CTA buttons, QR codes, any clickable element — all point to the share link. Never link to the Wabi app store or homepage directly.
+9. **Wabi requires an account.** Never say "no login", "no account", or "no sign-up". Users need a free Wabi account. Say "free Wabi account" or "free to use" instead.
+
+10. **All links on the page must use the app's share URL** (e.g. `wabi.ai/@creator/app-slug-123?_v=8`). CTA buttons, QR codes, any clickable element — all point to the share link. Never link to the Wabi app store or homepage directly.
 
 10. **Do NOT include `related_apps` in the JSON payload** unless the template explicitly has that section. Flint creates sections from any data you send — sending `related_apps` will add the section even if the template doesn't have it. Current template (`kitty-diabetes-final`) has NO related apps section, so omit this field entirely.
 
@@ -137,7 +139,7 @@ Send this JSON in the Flint prompt. All fields required.
 
   "trust_signals": [
     { "title": "Free", "subtitle": "No subscription ever" },
-    { "title": "No login", "subtitle": "Just open and use" },
+    { "title": "Free Wabi account", "subtitle": "Sign up in seconds" },
     { "title": "Works offline", "subtitle": "No internet needed" },
     { "title": "Built on Wabi", "subtitle": "Open platform" }
   ],
@@ -387,6 +389,7 @@ Before firing the Flint task:
 - [ ] H2/H3s are picked from the pool above and varied from other pages
 - [ ] Primary keyword used 3-5x in body copy
 - [ ] Exclusion list words checked and removed
+- [ ] No "no login" / "no account" claims — Wabi requires a free account
 - [ ] QR code URL is correct (test it opens in browser)
 - [ ] 3 remix ideas are included as FAQ entries ("What if I want [variation]?" format)
 - [ ] Remix FAQ entries show range: functional change, audience shift, and vibe/aesthetic change
