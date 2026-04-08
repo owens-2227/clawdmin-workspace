@@ -54,6 +54,14 @@ Version header: `Notion-Version: 2022-06-28`
 | Openclaw Management (page) | 32666005-ab52-8032-9338-df9720ae0f45 |
 | 🧪 Reddit Experiments (database) | 32666005-ab52-81f8-9bbe-f50add0099a4 |
 
+## Ahrefs
+
+API base: `https://api.ahrefs.com/v3`
+API key: `dA9_1pSIRzFFuVRJoevHngbGYicG11VQsTbxg417`
+Auth header: `Authorization: Bearer dA9_1pSIRzFFuVRJoevHngbGYicG11VQsTbxg417`
+Docs: https://docs.ahrefs.com/api/docs/introduction
+Skill: `skills/ahrefs/SKILL.md`
+
 ## GitHub
 
 Repo: https://github.com/owens-2227/clawdmin-workspace (private)
