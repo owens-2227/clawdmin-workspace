@@ -63,11 +63,17 @@ cost = max(base_cost, per_row_cost × num_rows)
 | `x-api-units-cost-total-actual` | Actual units consumed |
 | `x-api-cache` | `hit`, `miss`, or `no_cache` |
 
+**⚠️ Paul's plan: 25,000 units/month. Be extremely efficient.**
+
 **Cost-saving tips:**
 - Only `select` the fields you need — each field adds to per-row cost
-- Avoid expensive fields (traffic, volume, difficulty) unless needed
-- Use `limit` to cap rows
+- Avoid expensive fields (traffic, volume, difficulty = 10 units each) unless needed
+- Use `limit` to cap rows — never pull more than you need
 - Cached responses (`x-api-cache: hit`) are free
+- Batch keywords in single overview requests (up to ~10 keywords per call) instead of separate calls
+- Prefer `keywords-explorer/overview` (1 request for many keywords) over keyword-ideas endpoints (1 request per seed)
+- A typical overview request with 10 keywords + 6 fields costs ~600 units
+- Budget: ~40 overview requests per month at that rate
 
 ## Free Test Queries (No Units Consumed)
 
