@@ -324,7 +324,37 @@ The page slug is `apps/{slug}`. Match the layout and component structure of `app
 
 ## API Operations
 
-### Create/update a task
+### Create pages (generate_pages) — ALWAYS use `publish: true`
+
+```bash
+curl -X POST https://app.tryflint.com/api/v1/agent/tasks \
+  -H "Authorization: Bearer ak_E7WFVNH5C0VZGFETBE9S5DSM9JR49D36" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "siteId": "12628d27-7872-468a-aa54-c4780cf3284b",
+    "command": "generate_pages",
+    "templatePageSlug": "/apps/breathwork",
+    "publish": true,
+    "items": [
+      {
+        "targetPageSlug": "/apps/my-app",
+        "context": "App name: My App. App link: https://wabi.ai/@creator/my-app-123?_v=1. Category: Productivity. Description of the app. The CTA button should link to the app link."
+      }
+    ]
+  }'
+```
+
+**`publish` (boolean)** controls two things:
+1. **Page visibility**: When `true`, pages are immediately visible on the live site. When `false`, pages are hidden until explicitly published.
+2. **Production deployment**: When `true`, a production deployment is triggered. When `false`, only a preview deployment is created.
+
+**⚠️ ALWAYS set `publish: true`** unless Paul specifically asks for staging/preview only.
+
+**⚠️ ONE TASK AT A TIME** — Flint returns "Another write operation is already in progress" if you fire concurrent tasks. Wait for each task to complete before starting the next.
+
+**Batch limit**: Up to 10 items per `generate_pages` request. For more, run sequential batches.
+
+### Create/update via prompt
 
 ```python
 import urllib.request, json, urllib.parse
@@ -332,7 +362,7 @@ import urllib.request, json, urllib.parse
 FLINT_API_KEY = "ak_E7WFVNH5C0VZGFETBE9S5DSM9JR49D36"
 SITE_ID = "12628d27-7872-468a-aa54-c4780cf3284b"
 
-payload = json.dumps({"siteId": SITE_ID, "prompt": prompt}).encode()
+payload = json.dumps({"siteId": SITE_ID, "prompt": prompt, "publish": True}).encode()
 req = urllib.request.Request(
     "https://app.tryflint.com/api/v1/agent/tasks",
     method="POST",
@@ -361,13 +391,26 @@ def poll_task(task_id, max_minutes=15):
 
 ### Completed response
 
+When `publish: true`, each page includes a `publishedUrl`:
+
 ```json
 {
   "status": "completed",
   "output": {
-    "pagesCreated": [{"slug": "/apps/breathwork", "previewUrl": "https://..."}]
+    "pagesCreated": [
+      {
+        "slug": "/apps/breathwork",
+        "previewUrl": "https://preview.example.com/apps/breathwork",
+        "editUrl": "https://app.tryflint.com/app/edit?siteId=...&page=apps/breathwork",
+        "publishedUrl": "https://www.wabi.ai/apps/breathwork"
+      }
+    ]
   }
 }
+```
+
+- `publishedUrl`: Live production URL. Present when `publish: true` and deployment succeeded, otherwise `null`.
+- `previewUrl`: Always populated regardless of publish flag.
 ```
 
 ---
