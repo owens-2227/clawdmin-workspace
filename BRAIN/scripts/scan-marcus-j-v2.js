@@ -1,321 +1,385 @@
 const { chromium } = require('playwright');
+const https = require('https');
+const http = require('http');
 
-const CDP_URL = 'ws://127.0.0.1:61786/devtools/browser/a7512840-8b27-4c62-8194-62db63e423a1';
+const CDP_URL = 'ws://127.0.0.1:50895/devtools/browser/a7021b33-918e-4b5a-8950-6e9419a93434';
 const AGENT_ID = 'marcus-j';
+const SUBREDDITS = ['Guitar', 'guitarpedals', 'Blues', 'homerecording'];
 const API_BASE = 'http://localhost:3000';
 const API_KEY = 'openclaw-scanner-key';
-const SUBREDDITS = ['Guitar', 'guitarpedals', 'Blues', 'homerecording'];
 
-async function apiPost(path, body) {
-  const res = await fetch(`${API_BASE}${path}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY },
-    body: JSON.stringify(body)
-  });
-  const text = await res.text();
-  try { return JSON.parse(text); } catch { return { raw: text }; }
-}
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-async function submitPainPoint(pp) {
-  console.log(`  → Submitting: "${pp.title.slice(0, 70)}..."`);
-  const result = await apiPost('/api/pain-points', {
-    title: pp.title.slice(0, 80),
-    description: pp.description,
-    category: 'Music',
-    subreddit: pp.subreddit,
-    discoveredBy: AGENT_ID
-  });
-  const id = result?.id || result?.data?.id;
-  console.log(`    Created id: ${id}`);
-  if (id && pp.post) {
-    await apiPost('/api/pain-points/posts', {
-      painPointId: id,
-      redditPostId: pp.post.id || '',
-      redditUrl: pp.post.url || '',
-      postTitle: pp.post.title || '',
-      postBody: (pp.post.body || '').slice(0, 2000),
-      upvotes: pp.post.upvotes || 0,
-      commentCount: pp.post.commentCount || 0,
-      subreddit: pp.subreddit,
-      discoveredBy: AGENT_ID
+async function apiPost(path, data) {
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify(data);
+    const options = {
+      hostname: 'localhost',
+      port: 3000,
+      path: path,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'Content-Length': Buffer.byteLength(body)
+      }
+    };
+    const req = http.request(options, (res) => {
+      let d = '';
+      res.on('data', chunk => d += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(d)); } catch(e) { resolve({ raw: d }); }
+      });
     });
-  }
-  return id;
-}
-
-async function logScan(subreddit, postsScanned, painPointsFound, status = 'completed') {
-  const result = await apiPost('/api/pain-points/scan-logs', {
-    agentId: AGENT_ID,
-    subreddit: `r/${subreddit}`,
-    postsScanned,
-    painPointsFound,
-    status
+    req.on('error', reject);
+    req.write(body);
+    req.end();
   });
-  console.log(`  Logged: ${JSON.stringify(result?.log?.id || result)}`);
 }
 
-async function scrapeSubredditViaBrowser(page, subreddit) {
-  console.log(`\n  Navigating to r/${subreddit}...`);
-  
-  try {
-    await page.goto(`https://www.reddit.com/r/${subreddit}/hot/`, {
-      waitUntil: 'networkidle',
-      timeout: 45000
+async function fetchRedditJSON(path) {
+  return new Promise((resolve) => {
+    const options = {
+      hostname: 'www.reddit.com',
+      path: path,
+      method: 'GET',
+      headers: { 
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/json'
+      }
+    };
+    const req = https.request(options, (res) => {
+      let d = '';
+      res.on('data', chunk => d += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(d)); } catch(e) { 
+          console.log(`  JSON parse error for ${path}: ${d.slice(0, 100)}`);
+          resolve(null); 
+        }
+      });
     });
-  } catch (e) {
-    console.log(`  networkidle timeout, continuing anyway...`);
-  }
-  await page.waitForTimeout(3000);
+    req.on('error', (e) => { console.log(`  Request error for ${path}: ${e.message}`); resolve(null); });
+    req.setTimeout(15000, () => { req.destroy(); resolve(null); });
+    req.end();
+  });
+}
 
-  // Check if we're on a login/error page
-  const pageTitle = await page.title();
-  console.log(`  Page title: ${pageTitle}`);
+// Core pain point signals - what we're looking for
+const PAIN_SIGNALS = {
+  tool_request: ['is there an app', 'is there a tool', 'is there software', 'any app for', 'any tool for', 'any software', 'looking for a way to', 'how do i automate', 'spreadsheet for', 'tracker for'],
+  frustration: ['frustrated', 'frustrating', 'annoying', 'hate that', 'drives me crazy', 'so hard to', 'impossible to', 'pain in the ass', 'waste of time', 'tedious', 'exhausting', 'overwhelming'],
+  manual_process: ['manually', 'by hand', 'keep track of', 'write down', 'spreadsheet', 'notepad', 'pen and paper', 'have to remember', 'keep forgetting'],
+  cost_issue: ['too expensive', 'can\'t afford', 'overpriced', 'cheaper alternative', 'free version', 'subscription cost', 'price is insane', 'wallet pain'],
+  help_seeking: ['help me figure out', 'struggling with', 'can\'t figure out', 'lost with', 'confused about', 'don\'t understand', 'advice on', 'recommendations for', 'anyone dealt with', 'is anyone else'],
+  missing_feature: ['wish there was', 'should have', 'why doesn\'t', 'needs to', 'would be great if', 'missing feature', 'no way to', 'can\'t find a way'],
+};
 
-  // Scroll to load more posts
-  console.log(`  Scrolling to load posts...`);
-  for (let i = 0; i < 6; i++) {
-    await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
-    await page.waitForTimeout(2000);
-  }
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.waitForTimeout(1000);
-
-  // Extract post data via page evaluate
-  const posts = await page.evaluate(() => {
-    const results = [];
-    
-    // Method 1: shreddit-post custom elements
-    const shredditPosts = document.querySelectorAll('shreddit-post');
-    for (const el of shredditPosts) {
-      const title = el.getAttribute('post-title') || el.querySelector('[slot="title"]')?.textContent?.trim() || '';
-      const score = parseInt(el.getAttribute('score') || '0');
-      const commentCount = parseInt(el.getAttribute('comment-count') || '0');
-      const permalink = el.getAttribute('permalink') || '';
-      const postId = el.getAttribute('id') || el.id || permalink.split('/comments/')[1]?.split('/')[0] || '';
-      const contentHref = el.getAttribute('content-href') || '';
-      
-      // Try to get post body text
-      const bodyEl = el.querySelector('[data-testid="post-content"], .post-content, p');
-      const body = bodyEl?.textContent?.trim() || '';
-      
-      if (title) {
-        results.push({ title, score, commentCount, permalink, postId, body, contentHref });
+function detectPainSignals(text) {
+  const lower = text.toLowerCase();
+  const matches = [];
+  for (const [type, signals] of Object.entries(PAIN_SIGNALS)) {
+    for (const signal of signals) {
+      if (lower.includes(signal)) {
+        matches.push({ type, signal });
       }
     }
-    
-    // Method 2: article elements (old UI fallback)
-    if (results.length === 0) {
-      const articles = document.querySelectorAll('article, [data-testid="post-container"]');
-      for (const el of articles) {
-        const titleEl = el.querySelector('h3, h1, [data-testid="post-title"]');
-        const title = titleEl?.textContent?.trim() || '';
-        const scoreEl = el.querySelector('[data-testid="vote-count"]');
-        const score = parseInt(scoreEl?.textContent?.replace(/[^0-9\-]/g, '') || '0');
-        const linkEl = el.querySelector('a[href*="/comments/"]');
-        const permalink = linkEl?.getAttribute('href') || '';
-        if (title) results.push({ title, score, commentCount: 0, permalink, postId: '', body: '' });
-      }
-    }
-    
-    return results;
-  });
-
-  console.log(`  Extracted ${posts.length} posts from browser`);
-  return posts;
-}
-
-async function fetchPostDetails(page, permalink) {
-  try {
-    const url = `https://www.reddit.com${permalink}`;
-    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
-    await page.waitForTimeout(2000);
-    
-    const details = await page.evaluate(() => {
-      // Get post body
-      const bodyEl = document.querySelector('[data-testid="post-content"] div, .RichTextJSON-root, shreddit-post [slot="text-body"]');
-      const body = bodyEl?.textContent?.trim() || '';
-      
-      // Get top comments
-      const commentEls = document.querySelectorAll('[data-testid="comment"], shreddit-comment');
-      const comments = [];
-      for (const el of Array.from(commentEls).slice(0, 5)) {
-        const text = el.querySelector('[data-testid="comment-body"], p')?.textContent?.trim() || '';
-        if (text) comments.push(text.slice(0, 300));
-      }
-      
-      return { body, comments };
-    });
-    return details;
-  } catch (e) {
-    return { body: '', comments: [] };
   }
+  return matches;
 }
 
 function isPainPoint(post) {
-  const title = post.title || '';
-  const body = post.body || '';
-  const combined = (title + ' ' + body).toLowerCase();
-
-  // Strong pain point signals - broader matching
-  const strongSignals = [
-    /\b(is there|does anyone know of|looking for|need|want)\s+(an?\s+)?(app|tool|plugin|software|website|service|platform|way|solution|method)\b/i,
-    /\bwish (there was|i could|we had|someone would|they would|it had)\b/i,
-    /\bhow (do you|do i|can i|can you|should i)\s+(manage|track|organize|record|find|keep|deal|handle|practice|improve)\b/i,
-    /\bstruggl(e|ing|ed)\b/i,
-    /\bfrustrat(ed|ing)\b/i,
-    /\bcan't (figure out|afford|find|get|justify|improve|progress)\b/i,
-    /\btoo (expensive|complex|complicated|hard|difficult|overwhelming)\b/i,
-    /\b(never|can't|unable to|still can't)\s+(play|learn|improve|progress|get|afford)\b/i,
-    /\bwasted (time|money|hours|years)\b/i,
-    /\bno (good|decent|free|affordable|easy)\s+(way|tool|app|option|solution|software)\b/i,
-    /\bannoying|pain (in the|point)\b/i,
-    /\b(hard|difficult|confusing|overwhelming|daunting) (to|for)\b/i,
-    /\bstuck\b/i,
-    /\bnever (seems to|will|going to) (click|work|improve|get better)\b/i,
-    /\bafter (years|months|decades)\b/i,
-    /\bcome to terms\b/i,
-    /\bwhat (do you|should i) use\b/i,
-    /\bworth it\b/i,
-    /\b(help me choose|which is better|vs\b|versus)\b/i,
-    /\bdo i need\b/i,
-    /\bbest (way|approach|method|app|tool|software) (to|for)\b/i,
-    /\bkeep (failing|forgetting|losing|struggling)\b/i,
-    /\bcan't seem to\b/i,
-    /\b(overwhelming|intimidating|confusing)\b/i,
-  ];
-
-  // Exclusion patterns
-  const exclusions = [
-    /^\s*(ngd|npd|nbd)\b/i, // new gear/pedal/bass day - pure celebration
-    /^(check out|look at|here's my|my new|just got|just bought|just picked up)/i,
-  ];
-
-  if (exclusions.some(e => e.test(title))) return false;
-  if ((post.score || 0) < 5) return false;
-
-  const matched = strongSignals.filter(s => s.test(combined));
-  return matched.length > 0;
+  const fullText = `${post.title} ${post.selftext || ''} ${(post.topComments || []).join(' ')}`;
+  const signals = detectPainSignals(fullText);
+  // Need at least 1 strong signal or 2 weaker ones
+  return signals.length >= 1;
 }
 
-function buildPainPointFromPost(post, subreddit) {
-  const title = post.title || '';
-  const body = (post.body || '').slice(0, 200).trim();
+function categorizePainPoint(post, sub) {
+  const text = `${post.title} ${post.selftext || ''}`.toLowerCase();
   
-  // Craft a concise description
-  const desc = body ? 
-    `Guitarists in r/${subreddit} discussing: ${body.slice(0, 200)}` :
-    `Recurring discussion in r/${subreddit} about: ${title}`;
+  // Generate a meaningful title based on what we see
+  if (text.includes('pedal') && (text.includes('organiz') || text.includes('board') || text.includes('order') || text.includes('chain') || text.includes('power'))) {
+    return {
+      title: 'Pedalboard planning & signal chain organization is a manual, error-prone process',
+      description: `Guitarists manually plan pedalboard layouts, signal chain order, and power requirements using pencil/paper or basic apps. There's no dedicated tool that handles pedal power consumption, chain order optimization, and board layout together. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('tone') && (text.includes('match') || text.includes('find') || text.includes('copy') || text.includes('recreat') || text.includes('dial'))) {
+    return {
+      title: 'Replicating guitar tones from recordings requires guesswork without structured tools',
+      description: `Players want to recreate specific tones they hear but have no systematic approach. They cycle through settings randomly or rely on forums. A structured tone-matching reference tool with gear settings would save hours. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if ((text.includes('learn') || text.includes('practice') || text.includes('progress')) && 
+      (text.includes('song') || text.includes('chord') || text.includes('scale') || text.includes('solo') || text.includes('technique') || text.includes('routine'))) {
+    return {
+      title: 'Guitar practice organization and progress tracking lacks dedicated tools',
+      description: `Guitarists struggle to structure practice sessions, track what songs/techniques they've mastered, and maintain consistent routines. They use generic note apps or nothing. A purpose-built guitar practice tracker would fill a real gap. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('record') && (text.includes('home') || text.includes('studio') || text.includes('daw') || text.includes('interface') || text.includes('mic') || text.includes('monitor') || text.includes('mix'))) {
+    return {
+      title: 'Home recording setup and DAW configuration is overwhelming for guitarists',
+      description: `Guitarists attempting home recording face analysis paralysis from endless gear options, DAW complexity, and technical signal-flow issues. The entry barrier is high and setup guides are scattered. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('tab') || (text.includes('sheet') && text.includes('music')) || text.includes('notation')) {
+    return {
+      title: 'Guitar tabs and sheet music are scattered across multiple sources with no central library',
+      description: `Guitarists collect tabs from Ultimate Guitar, PDFs, YouTube transcriptions, and handwritten notes with no unified way to organize, annotate, and search them. Cross-referencing multiple tabs for the same song is cumbersome. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('sell') || text.includes('buy') || (text.includes('worth') && text.includes('gear')) || text.includes('fair price') || text.includes('market value')) {
+    return {
+      title: 'Determining fair market value for used guitars and gear requires extensive manual research',
+      description: `Buyers and sellers struggle to price used gear without spending hours searching Reverb, eBay, and forums. There's no quick, reliable price reference tool that aggregates recent sales data for guitar equipment. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if ((sub === 'Blues' || text.includes('blues')) && (text.includes('improv') || text.includes('theory') || text.includes('lick') || text.includes('pentatonic') || text.includes('bend'))) {
+    return {
+      title: 'Blues improvisation theory is conceptually understood but hard to internalize in actual playing',
+      description: `Blues players know scales and theory but can't bridge the gap to musical improvisation. They need structured exercises, call-and-response practice tools, and lick libraries tied to real musical context rather than abstract theory. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('latency') || text.includes('lag') || (text.includes('monitor') && text.includes('record'))) {
+    return {
+      title: 'Recording latency and monitoring issues frustrate home studio guitarists',
+      description: `Home recording guitarists face persistent latency problems when monitoring their playing. Configuring audio interfaces, buffer sizes, and direct monitoring is confusing and poorly documented. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
+  if (text.includes('metronome') || text.includes('timing') || text.includes('rhythm') || (text.includes('tempo') && text.includes('practice'))) {
+    return {
+      title: 'Practicing with a metronome is monotonous and musicians need smarter rhythm training tools',
+      description: `Musicians find metronome practice boring and ineffective for developing real-world timing feel. They need tools that make rhythm practice more musical and contextualized, like backing track generators with adjustable tempo and feel. Seen in r/${sub}: "${post.title.slice(0, 100)}"`
+    };
+  }
 
-  return {
-    title: title.slice(0, 80),
-    description: desc.slice(0, 500),
-    subreddit: `r/${subreddit}`,
-    post: {
-      id: post.postId || post.id || '',
-      url: post.permalink ? `https://reddit.com${post.permalink}` : '',
-      title: title,
-      body: post.body || '',
-      upvotes: post.score || 0,
-      commentCount: post.commentCount || 0
+  // Generic music pain point if signals are strong enough
+  const signals = detectPainSignals(`${post.title} ${post.selftext || ''}`);
+  if (signals.length >= 2) {
+    const titleExcerpt = post.title.slice(0, 60);
+    return {
+      title: `Music community pain: ${titleExcerpt}`.slice(0, 80),
+      description: `r/${sub} community member expressed a pain point: "${post.title}". ${post.selftext ? post.selftext.slice(0, 200) : 'High engagement post indicating shared frustration.'} Signal types detected: ${signals.map(s => s.type).join(', ')}.`
+    };
+  }
+
+  return null;
+}
+
+async function scanSubredditViaPage(page, sub) {
+  console.log(`\n=== Scanning r/${sub} ===`);
+  let posts = [];
+  let postsScanned = 0;
+
+  // Try browser with scrolling first
+  try {
+    await page.goto(`https://www.reddit.com/r/${sub}/hot/`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await sleep(3000);
+
+    // Scroll to load more
+    for (let i = 0; i < 6; i++) {
+      await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
+      await sleep(2000);
     }
-  };
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await sleep(1000);
+
+    // Extract posts - try shreddit-post first, then fall back
+    posts = await page.evaluate(() => {
+      const results = [];
+      const els = document.querySelectorAll('shreddit-post');
+      els.forEach(el => {
+        const title = el.getAttribute('post-title') || '';
+        const score = parseInt(el.getAttribute('score') || '0');
+        const commentCount = parseInt(el.getAttribute('comment-count') || '0');
+        const permalink = el.getAttribute('permalink') || '';
+        const postId = permalink.split('/comments/')[1]?.split('/')[0] || el.getAttribute('id') || '';
+        if (title && score >= 5) {
+          results.push({ title, score, commentCount, permalink, postId });
+        }
+      });
+      return results;
+    });
+
+    console.log(`  Browser extracted ${posts.length} posts`);
+  } catch (e) {
+    console.log(`  Browser error: ${e.message}`);
+  }
+
+  // Always also try JSON API to get selftext
+  console.log(`  Fetching posts with selftext via JSON API...`);
+  const jsonData = await fetchRedditJSON(`/r/${sub}/hot.json?limit=25&raw_json=1`);
+  if (jsonData && jsonData.data && jsonData.data.children) {
+    const jsonPosts = jsonData.data.children
+      .filter(p => !p.data.stickied && p.data.score >= 5)
+      .map(p => ({
+        title: p.data.title,
+        score: p.data.score,
+        commentCount: p.data.num_comments,
+        permalink: p.data.permalink,
+        postId: p.data.id,
+        selftext: p.data.selftext || '',
+        url: p.data.url,
+        author: p.data.author
+      }));
+    console.log(`  JSON API got ${jsonPosts.length} posts with selftext`);
+    // Merge: prefer JSON posts (they have selftext), add any browser-only ones
+    const jsonPostIds = new Set(jsonPosts.map(p => p.postId));
+    const browserOnly = posts.filter(p => !jsonPostIds.has(p.postId));
+    posts = [...jsonPosts, ...browserOnly];
+  } else {
+    console.log(`  JSON API failed or returned no data`);
+  }
+
+  if (posts.length === 0) {
+    console.log(`  No posts found for r/${sub}, skipping`);
+    await apiPost('/api/pain-points/scan-logs', { agentId: AGENT_ID, subreddit: `r/${sub}`, postsScanned: 0, painPointsFound: 0, status: 'error' });
+    return { postsScanned: 0, painPoints: [] };
+  }
+
+  postsScanned = posts.length;
+  console.log(`  Total posts to analyze: ${postsScanned}`);
+
+  // For posts with good engagement, fetch comments
+  const highEngagement = posts.filter(p => p.commentCount >= 8 && p.postId);
+  console.log(`  Fetching comments for ${Math.min(highEngagement.length, 12)} high-engagement posts...`);
+  
+  for (const post of highEngagement.slice(0, 12)) {
+    try {
+      const commentData = await fetchRedditJSON(`/r/${sub}/comments/${post.postId}.json?limit=10&raw_json=1`);
+      if (commentData && Array.isArray(commentData) && commentData[1]) {
+        const comments = commentData[1].data?.children
+          ?.slice(0, 8)
+          .map(c => c.data?.body || '')
+          .filter(b => b && b !== '[deleted]' && b !== '[removed]') || [];
+        post.topComments = comments;
+        // Also update selftext if we have better data
+        if (commentData[0]?.data?.children?.[0]?.data?.selftext) {
+          post.selftext = commentData[0].data.children[0].data.selftext;
+        }
+      }
+      await sleep(1000);
+    } catch (e) {
+      // Continue
+    }
+  }
+
+  // Now analyze each post for pain points
+  const discovered = [];
+  const seen = new Set(); // deduplicate similar pain points
+
+  for (const post of posts) {
+    if (!isPainPoint(post)) continue;
+    
+    const categorized = categorizePainPoint(post, sub);
+    if (!categorized) continue;
+    
+    // Deduplicate by first 40 chars of title
+    const dedupKey = categorized.title.toLowerCase().slice(0, 40);
+    if (seen.has(dedupKey)) continue;
+    seen.add(dedupKey);
+
+    discovered.push({ ...categorized, sourcePost: post });
+  }
+
+  console.log(`  Pain points found: ${discovered.length}`);
+  for (const pp of discovered) {
+    console.log(`    -> ${pp.title.slice(0, 70)}`);
+  }
+
+  // Submit to API
+  const submitted = [];
+  for (const pp of discovered) {
+    try {
+      const resp = await apiPost('/api/pain-points', {
+        title: pp.title,
+        description: pp.description,
+        category: 'Music',
+        subreddit: `r/${sub}`,
+        discoveredBy: AGENT_ID
+      });
+      const ppId = resp?.id || resp?.data?.id;
+      console.log(`  Submitted: ${pp.title.slice(0, 50)} -> id=${ppId}`);
+      
+      if (ppId && pp.sourcePost) {
+        const sp = pp.sourcePost;
+        await apiPost('/api/pain-points/posts', {
+          painPointId: ppId,
+          redditPostId: sp.postId || '',
+          redditUrl: `https://reddit.com${sp.permalink || ''}`,
+          postTitle: sp.title || '',
+          postBody: (sp.selftext || '').slice(0, 2000),
+          upvotes: sp.score || 0,
+          commentCount: sp.commentCount || 0,
+          subreddit: `r/${sub}`,
+          discoveredBy: AGENT_ID
+        });
+      }
+      submitted.push(pp);
+      await sleep(300);
+    } catch (e) {
+      console.log(`  Submit error: ${e.message}`);
+    }
+  }
+
+  // Log scan
+  await apiPost('/api/pain-points/scan-logs', {
+    agentId: AGENT_ID,
+    subreddit: `r/${sub}`,
+    postsScanned: postsScanned,
+    painPointsFound: submitted.length,
+    status: 'completed'
+  });
+
+  return { postsScanned, painPoints: submitted };
 }
 
 async function main() {
-  console.log('=== marcus-j scanner v2 starting ===');
-  
-  let browser, page;
+  console.log('=== Marcus-J Scanner v2 ===');
+
+  let browser;
   try {
     browser = await chromium.connectOverCDP(CDP_URL);
     console.log('Connected to AdsPower CDP');
-    const context = browser.contexts()[0];
-    const pages = context.pages();
-    for (let i = 1; i < pages.length; i++) await pages[i].close();
-    page = pages[0] || await context.newPage();
-    console.log('Page ready');
   } catch (e) {
-    console.error('CDP connect failed:', e.message);
+    console.error(`CDP connect failed: ${e.message}`);
     process.exit(1);
   }
 
-  let totalPostsAnalyzed = 0;
-  let totalPainPoints = 0;
-  const allPainPointTitles = [];
+  const context = browser.contexts()[0];
+  const pages = context.pages();
+  for (let i = 1; i < pages.length; i++) await pages[i].close().catch(() => {});
+  const page = pages[0] || await context.newPage();
 
-  for (const subreddit of SUBREDDITS) {
-    console.log(`\n========== r/${subreddit} ==========`);
-    let postsScanned = 0;
-    let painPointsFound = 0;
+  const totals = { postsScanned: 0, painPoints: [], errors: [] };
 
+  for (const sub of SUBREDDITS) {
     try {
-      const posts = await scrapeSubredditViaBrowser(page, subreddit);
-      postsScanned = posts.length;
-      totalPostsAnalyzed += postsScanned;
-
-      // Analyze for pain points
-      const candidatePosts = posts.filter(p => isPainPoint(p));
-      console.log(`  ${candidatePosts.length} pain point candidates out of ${posts.length} posts`);
-
-      // For top candidates with many comments, fetch post details
-      const topCandidates = candidatePosts
-        .sort((a, b) => (b.commentCount || 0) - (a.commentCount || 0))
-        .slice(0, 5);
-
-      for (const post of topCandidates) {
-        if (post.permalink && !post.body) {
-          console.log(`  Fetching details for: ${post.title.slice(0, 60)}...`);
-          const details = await fetchPostDetails(page, post.permalink);
-          post.body = details.body;
-          post.comments = details.comments;
-          await page.waitForTimeout(2000);
-        }
-
-        const pp = buildPainPointFromPost(post, subreddit);
-        await submitPainPoint(pp);
-        painPointsFound++;
-        totalPainPoints++;
-        allPainPointTitles.push(pp.title);
-        await new Promise(r => setTimeout(r, 500));
-      }
-
-      // If fewer than 3 were found, also check remaining candidates
-      if (candidatePosts.length > 5) {
-        for (const post of candidatePosts.slice(5, 8)) {
-          const pp = buildPainPointFromPost(post, subreddit);
-          await submitPainPoint(pp);
-          painPointsFound++;
-          totalPainPoints++;
-          allPainPointTitles.push(pp.title);
-          await new Promise(r => setTimeout(r, 500));
-        }
-      }
-
-    } catch (err) {
-      console.error(`  Error scanning r/${subreddit}:`, err.message);
-      await logScan(subreddit, postsScanned, painPointsFound, 'error');
-      continue;
+      const result = await scanSubredditViaPage(page, sub);
+      totals.postsScanned += result.postsScanned;
+      totals.painPoints.push(...result.painPoints);
+    } catch (e) {
+      console.error(`Error on r/${sub}: ${e.message}`);
+      totals.errors.push(`r/${sub}: ${e.message}`);
     }
-
-    await logScan(subreddit, postsScanned, painPointsFound, 'completed');
-    console.log(`  ✓ r/${subreddit}: ${postsScanned} posts, ${painPointsFound} pain points`);
-
-    // Pacing
-    if (SUBREDDITS.indexOf(subreddit) < SUBREDDITS.length - 1) {
-      console.log('  Waiting 4s...');
-      await new Promise(r => setTimeout(r, 4000));
-    }
+    await sleep(3000);
   }
 
-  console.log('\n========== FINAL SUMMARY ==========');
-  console.log(`Subreddits: ${SUBREDDITS.length}`);
-  console.log(`Total posts analyzed: ${totalPostsAnalyzed}`);
-  console.log(`Pain points submitted: ${totalPainPoints}`);
-  if (allPainPointTitles.length > 0) {
-    console.log('\nPain points:');
-    allPainPointTitles.forEach((t, i) => console.log(`  ${i+1}. ${t}`));
-  }
+  console.log('\n=== FINAL RESULTS ===');
+  console.log(`Subreddits scanned: ${SUBREDDITS.length}`);
+  console.log(`Posts analyzed: ${totals.postsScanned}`);
+  console.log(`Pain points submitted: ${totals.painPoints.length}`);
+  totals.painPoints.forEach(pp => console.log(`  - ${pp.title}`));
+  if (totals.errors.length) console.log('Errors:', totals.errors);
 
-  // Do NOT close browser - admin handles it
+  console.log('\nSUMMARY_JSON:' + JSON.stringify({
+    subredditsScanned: SUBREDDITS.length,
+    totalPostsAnalyzed: totals.postsScanned,
+    totalPainPoints: totals.painPoints.length,
+    painPointTitles: totals.painPoints.map(pp => pp.title),
+    errors: totals.errors
+  }));
 }
 
-main().catch(e => { console.error('Fatal:', e); process.exit(1); });
+main().catch(e => { console.error('Fatal:', e.message); process.exit(1); });
