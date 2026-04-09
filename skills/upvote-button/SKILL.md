@@ -83,7 +83,7 @@ async function upvotePost(cdpUrl: string, targetUrl: string): Promise<{ success:
     
     // Click the upvote button
     await upvoteBtn.click();
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(3000);
     
     // Verify the vote registered
     const afterState = await upvoteBtn.getAttribute('aria-pressed');
@@ -128,6 +128,6 @@ await fetch('http://local.adspower.net:50325/api/v1/browser/stop?user_id=k1abonj
 ## Safety
 
 - **Rate limit**: Don't upvote more than 10 posts per session per account
-- **Timing**: Add 1-3 second random delay between upvotes
+- **Timing**: Add 2-6 second random delay between upvotes
 - **Natural behavior**: Browse the page before upvoting — don't just navigate + click + leave
 - **Never upvote your own posts** from the same account (obvious ban risk)
