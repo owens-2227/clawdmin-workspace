@@ -16,7 +16,7 @@ Note: Must use `127.0.0.1`, NOT `local.adspower.net` or `local.adspower.com`
 | 4 | dave-r | k1adu8q6 | ofexfrog | 10004 |
 | 5 | marco-v | k1adu8q7 | unjuvals | 10005 |
 | 6 | nora-p | k1adu8q8 | flordeta | 10006 |
-| 7 | raj-s | k1adu8q9 | glamavub | 10007 |
+| 7 | raj-s | k1bc3ttk | glamavub | 10004 |
 | 8 | claire-t | k1adu8qa | rethighlin | 10008 |
 | 9 | ty-m | k1adu8qb | raispherog | 10009 |
 | 10 | priya-k | k1adu8qc | Perfect_Cricket_9114 | 10010 |
