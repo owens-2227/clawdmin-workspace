@@ -1,0 +1,185 @@
+{
+  "accounts": {
+    "qwsrbaeoyp": {
+      "serial": 34,
+      "user_id": "k1bc4rcq",
+      "username": "qwsrbaeoyp",
+      "start_date": "2026-04-09",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "todayilearned",
+        "mildlyinteresting",
+        "Showerthoughts",
+        "LifeProTips",
+        "coolguides",
+        "NoStupidQuestions",
+        "interestingasfuck"
+      ],
+      "sessions": [
+        {
+          "date": "2026-04-09T13:39:19.140651",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 8,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-09T13:44:25.597007",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 5,
+          "upvotes": 5,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        }
+      ],
+      "total_upvotes": 12,
+      "total_comments": 0,
+      "last_session": "2026-04-09T13:44:25.597000",
+      "status": "warming"
+    },
+    "ndbmzlayar": {
+      "serial": 35,
+      "user_id": "k1bc55n0",
+      "username": "ndbmzlayar",
+      "start_date": "2026-04-09",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "pics",
+        "funny",
+        "movies",
+        "music",
+        "books",
+        "EarthPorn",
+        "dataisbeautiful"
+      ],
+      "sessions": [
+        {
+          "date": "2026-04-09T13:50:36.803065",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 7,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        }
+      ],
+      "total_upvotes": 6,
+      "total_comments": 0,
+      "last_session": "2026-04-09T13:50:36.803060",
+      "status": "warming"
+    },
+    "lhdqpdftdt": {
+      "serial": 36,
+      "user_id": "k1bc5662",
+      "username": "lhdqpdftdt",
+      "start_date": "2026-04-09",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "gaming",
+        "technology",
+        "science",
+        "space",
+        "Futurology",
+        "GetMotivated",
+        "aww"
+      ],
+      "sessions": [
+        {
+          "date": "2026-04-09T13:56:07.666838",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 5,
+          "upvotes": 5,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        }
+      ],
+      "total_upvotes": 5,
+      "total_comments": 0,
+      "last_session": "2026-04-09T13:56:07.666832",
+      "status": "warming"
+    },
+    "vglmtlyrdm": {
+      "serial": 37,
+      "user_id": "k1bc56nd",
+      "username": "vglmtlyrdm",
+      "start_date": "2026-04-09",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "food",
+        "DIY",
+        "LifeProTips",
+        "UpliftingNews",
+        "wholesomememes",
+        "mildlyinteresting",
+        "NoStupidQuestions"
+      ],
+      "sessions": [
+        {
+          "date": "2026-04-09T14:03:27.991973",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 10,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        }
+      ],
+      "total_upvotes": 8,
+      "total_comments": 0,
+      "last_session": "2026-04-09T14:03:27.991967",
+      "status": "warming"
+    },
+    "cuvuvcljco": {
+      "serial": 38,
+      "user_id": "k1bc5757",
+      "username": "cuvuvcljco",
+      "start_date": "2026-04-09",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "todayilearned",
+        "science",
+        "movies",
+        "coolguides",
+        "dataisbeautiful",
+        "interestingasfuck",
+        "GetMotivated"
+      ],
+      "sessions": [
+        {
+          "date": "2026-04-09T14:09:43.749098",
+          "phase": 1,
+          "day": 1,
+          "posts_read": 8,
+          "upvotes": 5,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        }
+      ],
+      "total_upvotes": 5,
+      "total_comments": 0,
+      "last_session": "2026-04-09T14:09:43.749092",
+      "status": "warming"
+    }
+  }
+}
