@@ -105,6 +105,69 @@ curl -s "http://local.adspower.net:50325/api/v1/status"
 - Common error: "Profile is being used" — another process has it open
 - If AdsPower API is unreachable, report to Admin/operator immediately
 
+## Browsing a Subreddit via CDP (Playwright)
+
+Once a profile is active and you have the CDP URL, connect with Playwright and browse like a real user.
+
+### Connect to Active Profile
+
+```javascript
+const { chromium } = require('playwright');
+
+const browser = await chromium.connectOverCDP('<CDP_PUPPETEER_URL>');
+const context = browser.contexts()[0];
+const page = context.pages()[0] || await context.newPage();
+```
+
+### Navigate & Browse Naturally
+
+```javascript
+// Go to a subreddit
+await page.goto('https://www.reddit.com/r/TARGET_SUB/', { waitUntil: 'domcontentloaded', timeout: 30000 });
+await page.waitForTimeout(3000);
+
+// Scroll the feed (simulate reading)
+for (let i = 0; i < 3; i++) {
+  await page.mouse.wheel(0, 500);
+  await page.waitForTimeout(2000 + Math.random() * 1000);
+}
+
+// Click into a post
+const posts = await page.locator('a[slot="full-post-link"]').all();
+if (posts.length > 0) {
+  await posts[0].click();
+  await page.waitForTimeout(4000);
+  
+  // Read / scroll through comments
+  for (let i = 0; i < 3; i++) {
+    await page.mouse.wheel(0, 300);
+    await page.waitForTimeout(1500 + Math.random() * 1000);
+  }
+  
+  // Go back to feed
+  await page.goBack();
+  await page.waitForTimeout(3000);
+}
+```
+
+### Tips for Natural Browsing
+
+- **Randomize delays** — add `Math.random() * 1000` to wait times so scrolling isn't robotic
+- **Vary scroll amounts** — mix 300-600px per wheel event
+- **Click 2-3 posts per session** — don't just scroll the feed endlessly
+- **Read posts before acting** — wait 3-5s on a post page before scrolling or navigating away
+- **Take screenshots** — `await page.screenshot({ path: '/tmp/screenshot.png' })` to verify state
+- **Don't disconnect** — Playwright's `connectOverCDP` shares the browser; just stop using the page. Admin closes the profile via API when done.
+
+### Post Selectors (Reddit New UI)
+
+| Element | Selector |
+|---------|----------|
+| Post link | `a[slot="full-post-link"]` |
+| Upvote button | `page.getByRole('button', { name: /^upvote$/i }).first()` |
+| Upvote state | Check `aria-pressed` attribute (`"true"` = already voted) |
+| Comment box | `div[contenteditable="true"]` inside comment form |
+
 ## Important Notes
 
 - Only one session per profile at a time
