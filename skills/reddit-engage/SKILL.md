@@ -46,6 +46,24 @@ For each candidate post:
 
 ## Comment Guidelines
 
+### Humanizer Check (MANDATORY)
+Before posting ANY comment, run it through the humanizer filter. See `skills/humanizer/SKILL.md` for the full guide. Quick checklist:
+
+- **No AI vocabulary:** Remove "Additionally", "crucial", "delve", "enhance", "foster", "highlight", "intricate", "landscape", "pivotal", "showcase", "tapestry", "testament", "underscore", "vibrant", "valuable"
+- **No rule of three:** Don't force ideas into groups of three ("X, Y, and Z")
+- **No negative parallelisms:** Avoid "It's not just X, it's Y" or "Not only...but..."
+- **No em dash overuse:** One per comment max, prefer commas or periods
+- **No sycophantic openers:** No "Great question!", "That's so true!", "Absolutely!"
+- **No promotional language:** No "groundbreaking", "game-changer", "must-try", "stunning"
+- **No filler phrases:** Cut "In order to", "It is important to note that", "Due to the fact that"
+- **No excessive hedging:** Don't stack "potentially", "possibly", "might", "could"
+- **Use simple verbs:** "is/are/has" over "serves as/stands as/boasts/features"
+- **Vary sentence length:** Mix short punchy lines with longer ones
+- **Have personality:** Include opinions, uncertainty, humor — not robotic neutrality
+- **Be specific:** Concrete details over vague claims
+
+Draft the comment → review against this checklist → fix any violations → then post.
+
 ### Length
 - Most comments: 1-4 sentences
 - Occasionally longer (3-5 sentences) for genuine advice or detailed experience sharing
