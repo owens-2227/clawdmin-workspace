@@ -7,14 +7,14 @@
       "start_date": "2026-04-09",
       "current_phase": 1,
       "subreddits": [
-        "AskReddit",
-        "todayilearned",
         "mildlyinteresting",
+        "MealPreppingParents",
+        "todayilearned",
+        "FelineDiabetes",
+        "CatAdvice",
+        "homeautomation",
         "Showerthoughts",
-        "LifeProTips",
-        "coolguides",
-        "NoStupidQuestions",
-        "interestingasfuck"
+        "AskReddit"
       ],
       "sessions": [
         {
@@ -53,13 +53,13 @@
       "current_phase": 1,
       "subreddits": [
         "AskReddit",
-        "pics",
-        "funny",
-        "movies",
-        "music",
-        "books",
-        "EarthPorn",
-        "dataisbeautiful"
+        "seniorkitties",
+        "SeniorCats",
+        "iosapps",
+        "todayilearned",
+        "homecooking",
+        "Showerthoughts",
+        "mildlyinteresting"
       ],
       "sessions": [
         {
@@ -87,13 +87,13 @@
       "current_phase": 1,
       "subreddits": [
         "AskReddit",
-        "gaming",
-        "technology",
-        "science",
-        "space",
-        "Futurology",
-        "GetMotivated",
-        "aww"
+        "homeowners",
+        "Showerthoughts",
+        "mildlyinteresting",
+        "ZenHabits",
+        "Cooking",
+        "apps",
+        "todayilearned"
       ],
       "sessions": [
         {
@@ -120,14 +120,14 @@
       "start_date": "2026-04-09",
       "current_phase": 1,
       "subreddits": [
-        "AskReddit",
-        "food",
-        "DIY",
-        "LifeProTips",
-        "UpliftingNews",
-        "wholesomememes",
         "mildlyinteresting",
-        "NoStupidQuestions"
+        "cats",
+        "todayilearned",
+        "smarthome",
+        "productivity",
+        "AskReddit",
+        "iphone",
+        "Showerthoughts"
       ],
       "sessions": [
         {
@@ -154,14 +154,13 @@
       "start_date": "2026-04-09",
       "current_phase": 1,
       "subreddits": [
-        "AskReddit",
+        "selfimprovement",
         "todayilearned",
-        "science",
-        "movies",
-        "coolguides",
-        "dataisbeautiful",
-        "interestingasfuck",
-        "GetMotivated"
+        "mildlyinteresting",
+        "sugarcats",
+        "AskReddit",
+        "breathwork",
+        "Showerthoughts"
       ],
       "sessions": [
         {

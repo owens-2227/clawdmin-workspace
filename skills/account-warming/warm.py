@@ -127,6 +127,29 @@ DEFAULT_SUBS = [
 ]
 
 
+# ─── Shadowban Check ─────────────────────────────────────────────────────────
+
+async def check_shadowban(username):
+    """Check if account is shadowbanned via Reddit's public JSON API.
+    Returns: 'clean', 'shadowbanned', 'suspended', or 'error'
+    """
+    import urllib.request
+    try:
+        url = f"https://www.reddit.com/user/{username}/about.json"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read())
+            if data.get("data", {}).get("is_suspended"):
+                return "suspended"
+            return "clean"
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return "shadowbanned"
+        return f"error_http_{e.code}"
+    except Exception as e:
+        return f"error_{str(e)[:50]}"
+
+
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
 def pick_range(r):
@@ -396,6 +419,15 @@ async def run_warming_session(cdp_url, username, phase, subreddits):
         "success": True,
     }
     
+    # Pre-session shadowban check
+    ban_status = await check_shadowban(username)
+    results["shadowban_check_pre"] = ban_status
+    if ban_status not in ("clean", "error_http_429"):
+        results["success"] = False
+        results["errors"].append(f"ACCOUNT COMPROMISED: {ban_status}")
+        print(json.dumps(results, indent=2))
+        return results
+    
     pw = await async_playwright().start()
     browser = None
     
@@ -498,6 +530,13 @@ async def run_warming_session(cdp_url, username, phase, subreddits):
     finally:
         if pw:
             await pw.stop()
+    
+    # Post-session shadowban check
+    post_status = await check_shadowban(username)
+    results["shadowban_check_post"] = post_status
+    if post_status not in ("clean", "error_http_429"):
+        results["errors"].append(f"POST-SESSION ALERT: Account status changed to {post_status}")
+        results["success"] = False
     
     print(json.dumps(results, indent=2))
     return results
