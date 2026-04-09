@@ -139,16 +139,28 @@ async function scanSubreddit(page, sub) {
         }));
       console.log(`  Found ${posts.length} posts via JSON API`);
     } else {
-      console.log(`  Failed to get posts for r/${sub}`);
+      console.log(`  Failed to get posts for r/${sub} — subreddit may be private or inaccessible. Skipping (no fabricated data).`);
       await apiPost('/api/pain-points/scan-logs', {
         agentId: AGENT_ID,
         subreddit: `r/${sub}`,
         postsScanned: 0,
         painPointsFound: 0,
-        status: 'error'
+        status: 'skipped_private'
       });
       return { postsScanned: 0, painPoints: [] };
     }
+  }
+
+  if (posts.length === 0) {
+    console.log(`  No posts found for r/${sub} — skipping analysis (will NOT fabricate data).`);
+    await apiPost('/api/pain-points/scan-logs', {
+      agentId: AGENT_ID,
+      subreddit: `r/${sub}`,
+      postsScanned: 0,
+      painPointsFound: 0,
+      status: 'skipped_empty'
+    });
+    return { postsScanned: 0, painPoints: [] };
   }
 
   postsScanned = posts.length;
@@ -265,7 +277,7 @@ async function scanSubreddit(page, sub) {
       });
       console.log(`  Submitted pain point: ${pp.title.slice(0, 50)}... -> id: ${createResp?.id || createResp?.data?.id || JSON.stringify(createResp).slice(0, 100)}`);
       
-      const ppId = createResp?.id || createResp?.data?.id;
+      const ppId = createResp?.painPoint?.id || createResp?.id || createResp?.data?.id;
       if (ppId && pp.sourcePost) {
         const sp = pp.sourcePost;
         const pPermalink = sp.permalink || `/r/${sub}/comments/${sp.postId}/`;

@@ -206,7 +206,7 @@ async function scanSubreddit(page, sub) {
       });
 
       // API wraps response in { painPoint: { id, ... } }
-      const ppId = ppRes.id || (ppRes.painPoint && ppRes.painPoint.id);
+      const ppId = ppRes?.painPoint?.id || ppRes?.id || ppRes?.data?.id;
 
       if (ppId) {
         console.log(`  ✓ Created pain point: "${ppTitle}" (id: ${ppId})`);

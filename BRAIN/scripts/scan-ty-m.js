@@ -362,7 +362,7 @@ async function submitPainPoint(pp) {
     });
     console.log(`Created pain point: ${pp.title} → id=${created.id || created._id || JSON.stringify(created).substring(0, 80)}`);
 
-    const id = created.id || created._id || created.painPointId;
+    const id = created?.painPoint?.id || created?.id || created?._id || created?.painPointId;
     if (id && pp.redditUrl) {
       // Link source post
       await apiPost('/api/pain-points/posts', {

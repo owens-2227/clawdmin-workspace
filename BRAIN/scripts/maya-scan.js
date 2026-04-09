@@ -1,9 +1,11 @@
 const { chromium } = require('playwright');
+const https = require('https');
+const http = require('http');
 
-const CDP_URL = 'ws://127.0.0.1:57350/devtools/browser/3710a2c0-bdcb-46a4-a52a-4c012180f046';
-const AGENT_ID = 'maya-chen';
+const CDP_URL = 'ws://127.0.0.1:50145/devtools/browser/162cfd6b-f369-4f6d-9b5e-a3ddd6dd34e9';
 const API_BASE = 'http://localhost:3000';
 const API_KEY = 'openclaw-scanner-key';
+const AGENT_ID = 'maya-chen';
 const SUBREDDITS = ['personalfinance', 'cooking', 'solotravel', 'frugal'];
 
 const CATEGORY_MAP = {
@@ -13,100 +15,78 @@ const CATEGORY_MAP = {
   solotravel: 'Solo Travel',
 };
 
-async function sleep(ms) {
+function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-async function apiPost(path, data) {
-  const res = await fetch(`${API_BASE}${path}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': API_KEY,
-    },
-    body: JSON.stringify(data),
+async function apiPost(path, body) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(body);
+    const url = new URL(API_BASE + path);
+    const options = {
+      hostname: url.hostname,
+      port: url.port || 80,
+      path: url.pathname,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'Content-Length': Buffer.byteLength(data),
+      },
+    };
+    const req = http.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(body)); } catch(e) { resolve(body); }
+      });
+    });
+    req.on('error', reject);
+    req.write(data);
+    req.end();
   });
-  const text = await res.text();
-  try {
-    return JSON.parse(text);
-  } catch {
-    return { raw: text };
-  }
 }
 
 async function fetchRedditJSON(sub) {
-  try {
-    const res = await fetch(
-      `https://www.reddit.com/r/${sub}/hot.json?limit=25&raw_json=1`,
-      { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' } }
-    );
-    const json = await res.json();
-    return json.data?.children?.map(c => c.data) || [];
-  } catch (e) {
-    console.error(`JSON fallback failed for ${sub}:`, e.message);
-    return [];
-  }
-}
-
-function isPainPoint(post) {
-  const text = (post.title + ' ' + (post.selftext || '')).toLowerCase();
-  const painKeywords = [
-    'how do i', 'how to', 'is there an app', 'is there a tool', 'is there a way',
-    'frustrated', 'frustrating', 'annoying', 'struggle', 'struggling', 'problem',
-    'manually', 'spreadsheet', 'track', 'tracking', 'organize', 'managing',
-    'complicated', 'expensive', 'too much', 'wish there was', 'need help',
-    'overwhelmed', 'confusing', 'confused', 'automate', 'automation',
-    'anyone else', 'does anyone', 'best way to', 'better way',
-  ];
-  return painKeywords.some(kw => text.includes(kw));
-}
-
-function extractPainPoint(post, sub) {
-  const title = post.title.slice(0, 80);
-  const body = (post.selftext || '').slice(0, 2000);
-  const fullText = post.title + ' ' + body;
-  
-  // Generate a concise description
-  let description = '';
-  if (body.length > 50) {
-    description = body.slice(0, 300).replace(/\n+/g, ' ').trim();
-  } else {
-    description = post.title;
-  }
-  if (description.length > 250) {
-    description = description.slice(0, 250) + '...';
-  }
-
-  return {
-    title,
-    description: `${description} (${post.ups} upvotes, ${post.num_comments} comments)`,
-    category: CATEGORY_MAP[sub] || 'General',
-    subreddit: `r/${sub}`,
-    discoveredBy: AGENT_ID,
-    postId: post.id,
-    postUrl: `https://reddit.com${post.permalink}`,
-    postTitle: post.title,
-    postBody: body,
-    upvotes: post.ups,
-    commentCount: post.num_comments,
-  };
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'www.reddit.com',
+      path: `/r/${sub}/hot.json?limit=25&raw_json=1`,
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+      },
+    };
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(body)); } catch(e) { reject(e); }
+      });
+    });
+    req.on('error', reject);
+    req.end();
+  });
 }
 
 async function scanSubreddit(page, sub) {
   console.log(`\n=== Scanning r/${sub} ===`);
-  const postsScanned = [];
+  const category = CATEGORY_MAP[sub] || 'General';
   const painPoints = [];
+  let postsScanned = 0;
 
-  // Try browser-based scan first
   let posts = [];
+
+  // Try browser first
   try {
-    await page.goto(`https://www.reddit.com/r/${sub}/hot/`, {
-      waitUntil: 'domcontentloaded',
-      timeout: 30000,
-    });
+    await page.goto(`https://www.reddit.com/r/${sub}/hot/`, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await sleep(3000);
 
-    // Scroll to load more posts
+    // Check for login wall or error
+    const pageTitle = await page.title();
+    console.log(`  Page title: ${pageTitle}`);
+
+    // Scroll to load posts
     for (let i = 0; i < 6; i++) {
       await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
       await sleep(2000);
@@ -114,166 +94,226 @@ async function scanSubreddit(page, sub) {
     await page.evaluate(() => window.scrollTo(0, 0));
     await sleep(1000);
 
-    // Check for CAPTCHA or login wall
-    const url = page.url();
-    const content = await page.content();
-    if (content.includes('recaptcha') || url.includes('login') || url.includes('captcha')) {
-      console.log(`CAPTCHA/login wall detected on r/${sub}, using JSON fallback`);
-      posts = await fetchRedditJSON(sub);
-    } else {
-      // Try to get post data from page
-      posts = await page.evaluate(() => {
-        const postEls = document.querySelectorAll('shreddit-post, [data-testid="post-container"], article');
-        const results = [];
-        postEls.forEach(el => {
-          const titleEl = el.querySelector('h1, h2, h3, [slot="title"], a[href*="/comments/"]');
-          const title = titleEl?.textContent?.trim();
-          if (!title) return;
-          
-          const href = titleEl?.getAttribute('href') || el.querySelector('a[href*="/comments/"]')?.getAttribute('href') || '';
-          const idMatch = href.match(/\/comments\/([a-z0-9]+)\//);
-          const id = idMatch?.[1] || '';
-          
-          const scoreEl = el.querySelector('[data-score], faceplate-number, [aria-label*="upvote"], .score');
-          const score = parseInt(scoreEl?.textContent?.replace(/[^0-9]/g, '') || '0') || 0;
-          
-          const commentEl = el.querySelector('a[href*="comments"]');
-          const commentText = commentEl?.textContent || '0';
-          const comments = parseInt(commentText.replace(/[^0-9]/g, '') || '0') || 0;
-          
-          const selftext = el.querySelector('p, [slot="text-body"]')?.textContent?.trim() || '';
-          
-          if (id) {
-            results.push({ id, title, ups: score, num_comments: comments, selftext, permalink: href });
-          }
-        });
-        return results;
+    // Try to extract posts from the page
+    const snapshot = await page.evaluate(() => {
+      const results = [];
+      // Try shreddit-post elements
+      const postEls = document.querySelectorAll('shreddit-post, [data-testid="post-container"], article');
+      postEls.forEach(el => {
+        const titleEl = el.querySelector('a[slot="title"], h3, h1, [data-click-id="body"] a');
+        const title = titleEl ? titleEl.textContent.trim() : '';
+        const href = titleEl ? titleEl.getAttribute('href') : '';
+        const scoreEl = el.querySelector('[score], faceplate-number, [data-testid="vote-count"]');
+        const score = scoreEl ? parseInt(scoreEl.textContent.replace(/[^0-9]/g, '')) || 0 : 0;
+        const commentEl = el.querySelector('a[href*="comments"]');
+        const commentText = commentEl ? commentEl.textContent.trim() : '0';
+        const commentCount = parseInt(commentText.replace(/[^0-9]/g, '')) || 0;
+        const bodyEl = el.querySelector('[data-testid="post-content"], .RichTextJSON-root');
+        const body = bodyEl ? bodyEl.textContent.trim().slice(0, 2000) : '';
+        if (title) {
+          results.push({ title, href: href || '', score, commentCount, body });
+        }
       });
-      
-      console.log(`Browser scrape got ${posts.length} posts from r/${sub}`);
-      
-      if (posts.length < 3) {
-        console.log(`Too few posts from browser, using JSON fallback`);
-        posts = await fetchRedditJSON(sub);
+      return results;
+    });
+
+    if (snapshot && snapshot.length > 3) {
+      console.log(`  Found ${snapshot.length} posts via browser`);
+      posts = snapshot;
+    } else {
+      throw new Error('Not enough posts via browser, falling back to JSON API');
+    }
+  } catch (err) {
+    console.log(`  Browser scrape issue: ${err.message}. Using JSON API fallback...`);
+    try {
+      const json = await fetchRedditJSON(sub);
+      if (json && json.data && json.data.children) {
+        posts = json.data.children.map(c => ({
+          title: c.data.title,
+          href: c.data.permalink,
+          score: c.data.score || 0,
+          commentCount: c.data.num_comments || 0,
+          body: (c.data.selftext || '').slice(0, 2000),
+          id: c.data.id,
+          url: 'https://reddit.com' + c.data.permalink,
+          stickied: c.data.stickied,
+        }));
+        console.log(`  Got ${posts.length} posts via JSON API`);
       }
-    }
-  } catch (e) {
-    console.error(`Browser error for r/${sub}: ${e.message}, trying JSON fallback`);
-    posts = await fetchRedditJSON(sub);
-  }
-
-  console.log(`Total posts fetched for r/${sub}: ${posts.length}`);
-
-  // Filter and analyze posts
-  for (const post of posts) {
-    if (!post.title) continue;
-    if (post.stickied) continue;
-    if ((post.ups || 0) < 5) continue;
-    
-    postsScanned.push(post);
-    
-    if (isPainPoint(post)) {
-      const pp = extractPainPoint(post, sub);
-      painPoints.push(pp);
-      console.log(`  PAIN POINT: ${pp.title}`);
+    } catch (jsonErr) {
+      console.log(`  JSON API also failed: ${jsonErr.message}`);
     }
   }
 
-  console.log(`  Posts scanned: ${postsScanned.length}, Pain points: ${painPoints.length}`);
+  // Filter posts
+  const filtered = posts.filter(p => {
+    if (p.stickied) return false;
+    if (p.score < 5) return false;
+    if (!p.title) return false;
+    return true;
+  });
+
+  postsScanned = filtered.length;
+  console.log(`  Analyzing ${postsScanned} posts for pain points...`);
+
+  // Analyze for pain points
+  const painKeywords = [
+    'how do i', 'is there an app', 'tool for', 'frustrated', 'annoying', 'struggling',
+    'can\'t figure out', 'cant figure out', 'help me', 'need help', 'problem with',
+    'issue with', 'difficult', 'hard to', 'tedious', 'manual', 'automate', 'track',
+    'organize', 'keep track', 'losing track', 'overwhelmed', 'confused', 'complicated',
+    'expensive', 'affordable', 'cheaper', 'alternatives', 'wish there was', 'if only',
+    'nobody tells you', 'worst part', 'hate', 'dreading', 'nightmare', 'pain',
+    'recommendation', 'advice', 'tips', 'suggestions', 'what do you use',
+    'how do you manage', 'how do you deal', 'any tips', 'any suggestions',
+    'best way to', 'efficient way', 'better way', 'spreadsheet',
+  ];
+
+  for (const post of filtered.slice(0, 30)) {
+    const titleLower = post.title.toLowerCase();
+    const bodyLower = (post.body || '').toLowerCase();
+
+    const hasPainSignal = painKeywords.some(kw => titleLower.includes(kw) || bodyLower.includes(kw));
+    if (!hasPainSignal && post.commentCount < 20) continue;
+
+    // Score pain point relevance
+    let score = 0;
+    if (hasPainSignal) score += 2;
+    if (post.commentCount >= 20) score += 1;
+    if (post.commentCount >= 50) score += 1;
+    if (post.score >= 100) score += 1;
+    if (titleLower.includes('?')) score += 1; // questions often indicate problems
+
+    if (score < 2) continue;
+
+    // Build pain point
+    const redditPostId = post.id || (post.href ? post.href.split('/')[4] : Math.random().toString(36).slice(2));
+    const redditUrl = post.url || (post.href ? (post.href.startsWith('http') ? post.href : 'https://reddit.com' + post.href) : '');
+
+    // Create concise description
+    let description = post.body
+      ? `${post.title}. ${post.body.slice(0, 200)}...`
+      : `Reddit users in r/${sub} are experiencing: ${post.title}. This post has ${post.commentCount} comments indicating significant community interest.`;
+
+    description = description.slice(0, 500);
+
+    painPoints.push({
+      title: post.title.slice(0, 80),
+      description,
+      category,
+      subreddit: `r/${sub}`,
+      redditPostId,
+      redditUrl,
+      postTitle: post.title,
+      postBody: post.body || '',
+      upvotes: post.score,
+      commentCount: post.commentCount,
+    });
+  }
+
+  console.log(`  Found ${painPoints.length} pain points in r/${sub}`);
 
   // Submit pain points
+  let submitted = 0;
   for (const pp of painPoints) {
     try {
-      const created = await apiPost('/api/pain-points', {
+      const createRes = await apiPost('/api/pain-points', {
         title: pp.title,
         description: pp.description,
         category: pp.category,
         subreddit: pp.subreddit,
-        discoveredBy: pp.discoveredBy,
+        discoveredBy: AGENT_ID,
       });
-      console.log(`  Submitted pain point: ${pp.title}, id=${created.id}`);
 
-      if (created.id) {
+      console.log(`  Created pain point: ${pp.title.slice(0, 50)}... => id: ${createRes.id || JSON.stringify(createRes).slice(0, 80)}`);
+
+      if (createRes && createRes.id) {
         await apiPost('/api/pain-points/posts', {
-          painPointId: created.id,
-          redditPostId: pp.postId,
-          redditUrl: pp.postUrl,
+          painPointId: createRes.id,
+          redditPostId: pp.redditPostId,
+          redditUrl: pp.redditUrl,
           postTitle: pp.postTitle,
-          postBody: pp.postBody,
+          postBody: pp.postBody.slice(0, 2000),
           upvotes: pp.upvotes,
           commentCount: pp.commentCount,
           subreddit: pp.subreddit,
-          discoveredBy: pp.discoveredBy,
+          discoveredBy: AGENT_ID,
         });
-        console.log(`  Linked source post for id=${created.id}`);
       }
-    } catch (e) {
-      console.error(`  Error submitting pain point: ${e.message}`);
+      submitted++;
+      await sleep(500);
+    } catch (err) {
+      console.log(`  Error submitting pain point: ${err.message}`);
     }
-    await sleep(500);
   }
 
-  // Log scan results
+  // Log scan result
   try {
     await apiPost('/api/pain-points/scan-logs', {
       agentId: AGENT_ID,
       subreddit: `r/${sub}`,
-      postsScanned: postsScanned.length,
-      painPointsFound: painPoints.length,
+      postsScanned,
+      painPointsFound: submitted,
       status: 'completed',
     });
-    console.log(`  Scan log submitted for r/${sub}`);
-  } catch (e) {
-    console.error(`  Error submitting scan log: ${e.message}`);
+    console.log(`  Logged scan for r/${sub}`);
+  } catch (err) {
+    console.log(`  Error logging scan: ${err.message}`);
   }
 
-  return { sub, postsScanned: postsScanned.length, painPoints: painPoints.map(p => p.title) };
+  return { sub, postsScanned, painPointsFound: submitted, painPointTitles: painPoints.map(p => p.title) };
 }
 
 async function main() {
-  console.log('Connecting to AdsPower via CDP...');
+  console.log('Connecting to AdsPower browser...');
   let browser;
   try {
-    browser = await chromium.connectOverCDP(CDP_URL);
+    browser = await chromium.connectOverCDP(CDP_URL, { timeout: 15000 });
     console.log('Connected!');
-  } catch (e) {
-    console.error('Failed to connect via CDP:', e.message);
+  } catch (err) {
+    console.error('Failed to connect via CDP:', err.message);
     process.exit(1);
   }
 
   const context = browser.contexts()[0];
   const pages = context.pages();
-  
-  // Close extra tabs
+
+  // Keep one page, close extras
   for (let i = 1; i < pages.length; i++) {
-    await pages[i].close();
+    await pages[i].close().catch(() => {});
   }
   const page = pages[0] || await context.newPage();
 
   const results = [];
   for (const sub of SUBREDDITS) {
-    const result = await scanSubreddit(page, sub);
-    results.push(result);
+    try {
+      const result = await scanSubreddit(page, sub);
+      results.push(result);
+    } catch (err) {
+      console.error(`Error scanning r/${sub}: ${err.message}`);
+      results.push({ sub, postsScanned: 0, painPointsFound: 0, error: err.message });
+    }
     await sleep(3000); // Pause between subreddits
   }
 
+  // Summary
   console.log('\n=== SCAN COMPLETE ===');
-  console.log(`Subreddits scanned: ${results.length}`);
-  const totalPosts = results.reduce((s, r) => s + r.postsScanned, 0);
-  const totalPainPoints = results.reduce((s, r) => s + r.painPoints.length, 0);
-  console.log(`Total posts analyzed: ${totalPosts}`);
-  console.log(`Total pain points discovered: ${totalPainPoints}`);
+  let totalPosts = 0, totalPainPoints = 0;
   for (const r of results) {
-    console.log(`\nr/${r.sub}: ${r.postsScanned} posts, ${r.painPoints.length} pain points`);
-    r.painPoints.forEach(pp => console.log(`  - ${pp}`));
+    console.log(`r/${r.sub}: ${r.postsScanned} posts scanned, ${r.painPointsFound} pain points`);
+    if (r.painPointTitles && r.painPointTitles.length > 0) {
+      r.painPointTitles.forEach(t => console.log(`  - ${t.slice(0, 70)}`));
+    }
+    totalPosts += r.postsScanned || 0;
+    totalPainPoints += r.painPointsFound || 0;
   }
+  console.log(`\nTotal: ${totalPosts} posts scanned, ${totalPainPoints} pain points submitted`);
 
-  // Do NOT disconnect/close browser — admin handles that
-  console.log('\nDone. Browser left open for admin to close.');
-  process.exit(0);
+  // Don't close browser — admin agent handles that
+  await browser.close().catch(() => {});
 }
 
-main().catch(e => {
-  console.error('Fatal error:', e);
+main().catch(err => {
+  console.error('Fatal error:', err);
   process.exit(1);
 });

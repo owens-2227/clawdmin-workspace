@@ -39,7 +39,7 @@ async function submitPainPoint(painPoint, sources) {
   });
   console.log(`  Result:`, JSON.stringify(result));
   
-  const painPointId = result.id || result.painPoint?.id || result.data?.id;
+  const painPointId = result?.painPoint?.id || result?.id || result?.data?.id;
   if (painPointId && sources && sources.length > 0) {
     for (const src of sources) {
       const postResult = await apiPost('/api/pain-points/posts', {

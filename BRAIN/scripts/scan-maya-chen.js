@@ -180,10 +180,9 @@ async function scanSubreddit(page, sub, category) {
         const result = await submitPainPoint(pp.title, pp.description, category, sub);
         console.log(`Submitted pain point: ${pp.title}`, result);
         
-        if (result && result.id) {
-          await submitRedditPost(result.id, pp.post, sub);
-        } else if (result && result.data && result.data.id) {
-          await submitRedditPost(result.data.id, pp.post, sub);
+        const ppId = result?.painPoint?.id || result?.id || result?.data?.id;
+        if (ppId) {
+          await submitRedditPost(ppId, pp.post, sub);
         }
         painPointsFound++;
         await sleep(500);

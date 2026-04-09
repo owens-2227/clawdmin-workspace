@@ -41,11 +41,12 @@ async function submitPainPoint({ title, description, category, subreddit, post }
     subreddit: `r/${subreddit}`,
     discoveredBy: AGENT_ID,
   });
-  console.log(`  [pain-point created] id=${pp.id} title="${title}"`);
+  const ppId = pp?.painPoint?.id || pp?.id || pp?.data?.id;
+  console.log(`  [pain-point created] id=${ppId} title="${title}"`);
 
-  if (pp.id && post) {
+  if (ppId && post) {
     const link = await apiPost('/api/pain-points/posts', {
-      painPointId: pp.id,
+      painPointId: ppId,
       redditPostId: post.id,
       redditUrl: post.url,
       postTitle: post.title,
@@ -55,7 +56,7 @@ async function submitPainPoint({ title, description, category, subreddit, post }
       subreddit: `r/${subreddit}`,
       discoveredBy: AGENT_ID,
     });
-    console.log(`  [post linked] painPointId=${pp.id}`);
+    console.log(`  [post linked] painPointId=${ppId}`);
   }
   return pp;
 }

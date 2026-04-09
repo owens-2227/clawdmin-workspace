@@ -277,7 +277,7 @@ async function scanSubreddit(page, sub) {
 
       console.log(`    Submitted pain point, id: ${ppRes.id || ppRes.data?.id || JSON.stringify(ppRes).substring(0, 50)}`);
 
-      const ppId = ppRes.id || ppRes.data?.id;
+      const ppId = ppRes?.painPoint?.id || ppRes?.id || ppRes?.data?.id;
       if (ppId) {
         // Link the source post
         const postId = post.id || post.name?.replace('t3_', '');

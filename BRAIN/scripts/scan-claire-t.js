@@ -205,7 +205,7 @@ async function scanSubreddit(page, sub) {
           discoveredBy: AGENT_ID,
         });
 
-        const ppId = ppRes?.id || ppRes?.data?.id;
+        const ppId = ppRes?.painPoint?.id || ppRes?.id || ppRes?.data?.id;
         console.log(`Created pain point: ${ppId} — "${post.title.slice(0, 60)}"`);
 
         if (ppId) {
