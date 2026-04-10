@@ -1,0 +1,16 @@
+{
+  "username": "lhdqpdftdt",
+  "phase": 1,
+  "timestamp": "2026-04-09T19:01:00.793838",
+  "subreddits_joined": [],
+  "posts_read": 0,
+  "upvotes": 0,
+  "downvotes": 0,
+  "comments_posted": [],
+  "saves": 0,
+  "errors": [
+    "ACCOUNT COMPROMISED: error_http_403"
+  ],
+  "success": false,
+  "shadowban_check_pre": "error_http_403"
+}

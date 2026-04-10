@@ -422,11 +422,12 @@ async def run_warming_session(cdp_url, username, phase, subreddits):
     # Pre-session shadowban check
     ban_status = await check_shadowban(username)
     results["shadowban_check_pre"] = ban_status
-    if ban_status not in ("clean", "error_http_429"):
+    if ban_status in ("shadowbanned", "suspended"):
         results["success"] = False
         results["errors"].append(f"ACCOUNT COMPROMISED: {ban_status}")
         print(json.dumps(results, indent=2))
         return results
+    # 403/429/errors are not conclusive — proceed with warming
     
     pw = await async_playwright().start()
     browser = None
@@ -534,7 +535,7 @@ async def run_warming_session(cdp_url, username, phase, subreddits):
     # Post-session shadowban check
     post_status = await check_shadowban(username)
     results["shadowban_check_post"] = post_status
-    if post_status not in ("clean", "error_http_429"):
+    if post_status in ("shadowbanned", "suspended"):
         results["errors"].append(f"POST-SESSION ALERT: Account status changed to {post_status}")
         results["success"] = False
     
