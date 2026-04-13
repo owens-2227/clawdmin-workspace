@@ -59,7 +59,16 @@ When the warming cron fires, the agent should:
       - Write 1-3 sentences that add genuine value
       - Vary tone per subreddit (casual for memes, thoughtful for advice)
       - NEVER use generic phrases ("this is great", "came here to say this", etc.)
-   c. Save the plan as JSON file: `[{"post_url": "...", "comment": "..."}]`
+   c. **Run every comment through the humanizer skill** (`skills/humanizer/SKILL.md`):
+      - Kill em dashes — use commas or periods instead
+      - No formal openers ("Interesting that", "Curious whether", "It's worth noting")
+      - Messy/casual sentence structure — Reddit comments aren't essays
+      - First-person vulnerability ("that'd bug me", "still not great at it")
+      - No "rule of three", no promotional language, no puffery
+      - Read it out loud — if it sounds like a blog post, rewrite it
+   d. **Skip sensitive posts** — grief posts, loss announcements, crisis/mental health emergencies.
+      A warming account commenting on someone's dead cat is tone-deaf and suspicious.
+   e. Save the plan as JSON file: `[{"post_url": "...", "comment": "..."}]`
       → Pass to warm.py via `--comment-plan /path/to/plan.json`
 5. **Run warming** — `bash skills/account-warming/run-warming.sh --timeout 300`
 6. **Review results** — check session log for failures, CAPTCHAs, errors
@@ -117,8 +126,25 @@ Output JSON to stdout       (no canned templates!)       Report success/failure
 - NEVER use canned/template comments
 - ALWAYS read the post title + body + top comments before generating a reply
 - Skip posts that are: pure images/videos, memes with no text, fewer than 5 comments
+- **Skip grief/loss posts** — if the post or update mentions death, loss, crisis, or is tagged Sensitive/Seeking Support with bad news, do not comment
 - Generated comments must be 1-3 sentences, relevant to the specific post
 - Don't start every comment with "I" — vary sentence starters
 - Don't comment more than once per subreddit per session
 - Cool down 5-10 seconds after each comment
 - If CAPTCHA appears at any point, abort the entire session immediately
+
+## Humanizer Checklist (apply to EVERY generated comment)
+
+Before saving a comment to the plan, verify:
+
+1. **No em dashes** — replace with commas, periods, or "and"
+2. **No formal openers** — "Interesting that", "Curious whether", "It's worth noting" are AI tells
+3. **Casual sentence structure** — Reddit comments are messy. Fragments ok. Starting with "But" or "Yeah" is fine.
+4. **First-person vulnerability** — "that'd bug me", "still not great at it", "I might be wrong but"
+5. **Reference something specific** — from the post body, a top comment, or the subreddit context
+6. **No blog-post voice** — if it sounds like a Medium article, rewrite it
+7. **No puffery** — "genuinely impressive", "incredibly powerful", "game changer" are all dead giveaways
+8. **No curly quotes** — use straight quotes only
+9. **Read it out loud** — would a real person actually type this in a Reddit comment box? If not, redo it.
+
+Full humanizer reference: `skills/humanizer/SKILL.md`
