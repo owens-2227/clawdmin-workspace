@@ -1,198 +1,265 @@
-#!/usr/bin/env bash
-# Account Warming Orchestrator
+#!/bin/bash
+# Account Warming Runner v2 — Rebuilt 2026-04-13
 # Opens AdsPower profiles, runs warm.py per account, closes profiles.
-# Reads state from BRAIN/warming/state.json, updates after each session.
+# Designed to be called by the OpenClaw cron agent.
+#
+# Usage: ./run-warming.sh [--timeout 300]
+#
+# Reads accounts from state.json. Only warms accounts with status="warming".
+# Per-account timeout prevents infinite hangs (default: 300s = 5min).
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-WORKSPACE="$HOME/.openclaw/workspace"
-STATE_FILE="$WORKSPACE/BRAIN/warming/state.json"
-WARM_SCRIPT="$SCRIPT_DIR/warm.py"
-LOG_DIR="$WORKSPACE/BRAIN/warming/logs"
-API="http://127.0.0.1:50325/api/v1"
-AUTH="Authorization: Bearer 0d599e9255deef1bcc503d735da537160085c443c76f1c30"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+STATE_FILE="$HOME/.openclaw/workspace/BRAIN/warming/state.json"
+LOG_DIR="$HOME/.openclaw/workspace/BRAIN/warming/logs"
+WARM_PY="$SCRIPT_DIR/warm.py"
+CHECK_SHADOWBAN_PY="$HOME/.openclaw/workspace/BRAIN/warming/check-shadowbans.py"
+
+ADS_API="http://127.0.0.1:50325/api/v1"
+ADS_AUTH="Bearer 0d599e9255deef1bcc503d735da537160085c443c76f1c30"
+
+# Use Jess's profile as the shadowban checker (different IP from warming accounts)
+CHECKER_PROFILE_ID="k1abonj2"
+
+TIMEOUT=300  # 5 minutes per account max
+
+# Parse args
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --timeout) TIMEOUT="$2"; shift 2 ;;
+        *) shift ;;
+    esac
+done
 
 mkdir -p "$LOG_DIR"
 
-# ─── Load state ──────────────────────────────────────────────────────────────
+DATE=$(date +%Y-%m-%d)
+TIME=$(date +%H%M)
+SESSION_LOG="$LOG_DIR/warming-${DATE}-${TIME}.json"
+
+echo "═══════════════════════════════════════════════════════════"
+echo "🔥 Account Warming v2 — $(date '+%Y-%m-%d %H:%M %Z')"
+echo "═══════════════════════════════════════════════════════════"
+
+# ── Step 1: Read state, filter active accounts ──────────────────────────────
 
 if [ ! -f "$STATE_FILE" ]; then
-    echo "ERROR: State file not found at $STATE_FILE"
-    echo "Initialize it first via the skill setup."
+    echo "❌ No state.json found at $STATE_FILE"
     exit 1
 fi
 
-TODAY=$(date +%Y-%m-%d)
-NOW=$(date +%H:%M)
-
-echo "═══════════════════════════════════════════════════════"
-echo "🔥 Account Warming Run — $TODAY $NOW"
-echo "═══════════════════════════════════════════════════════"
-
-# ─── Process each account ────────────────────────────────────────────────────
-
+# Get active accounts (status=warming, not shadowbanned/suspended)
 ACCOUNTS=$(python3 -c "
 import json, sys
-from datetime import datetime, timedelta
-
 with open('$STATE_FILE') as f:
     state = json.load(f)
-
-today = datetime.strptime('$TODAY', '%Y-%m-%d')
-
-for uname, acct in state.get('accounts', {}).items():
-    if acct.get('status') != 'warming':
-        continue
-    
-    start = datetime.strptime(acct['start_date'], '%Y-%m-%d')
-    day_num = (today - start).days + 1
-    
-    # Determine phase
-    if day_num <= 3:
-        phase = 1
-    elif day_num <= 7:
-        phase = 2
-    elif day_num <= 11:
-        phase = 3
-    elif day_num <= 14:
-        phase = 4
-    else:
-        # Account is ready
-        phase = 0
-    
-    # Check if already ran today
-    last = acct.get('last_session', '')
-    if last and last.startswith('$TODAY'):
-        sessions_today = sum(1 for s in acct.get('sessions', []) if s.get('date', '').startswith('$TODAY'))
-        if sessions_today >= 2:
-            continue  # Already did 2 sessions today
-    
-    subs = ','.join(acct.get('subreddits', []))
-    print(f\"{acct['user_id']}|{uname}|{phase}|{day_num}|{subs}\")
+active = []
+for name, acct in state.get('accounts', {}).items():
+    if acct.get('status') == 'warming':
+        active.append(json.dumps({
+            'username': name,
+            'user_id': acct['user_id'],
+            'phase': acct['current_phase'],
+            'subreddits': ','.join(acct.get('subreddits', [])),
+        }))
+print('|||'.join(active))
 ")
 
 if [ -z "$ACCOUNTS" ]; then
-    echo "No accounts need warming today."
+    echo "⚠️  No active warming accounts found"
+    echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","accounts_run":0,"results":[]}' > "$SESSION_LOG"
     exit 0
 fi
 
-RESULT_SUMMARY=""
+IFS='|||' read -ra ACCT_LIST <<< "$ACCOUNTS"
+echo "📋 Found ${#ACCT_LIST[@]} active accounts"
 
-while IFS='|' read -r USER_ID USERNAME PHASE DAY_NUM SUBS; do
-    if [ "$PHASE" = "0" ]; then
-        echo "✅ $USERNAME (day $DAY_NUM): Warming complete! Ready for deployment."
-        # Update status
-        python3 -c "
+# ── Step 2: Run shadowban check first (via checker profile) ─────────────────
+
+echo ""
+echo "🔍 Running shadowban check via checker profile..."
+python3 "$CHECK_SHADOWBAN_PY" 2>&1 || echo "⚠️  Shadowban check failed — proceeding with caution"
+echo ""
+
+# ── Step 3: Warm each account ───────────────────────────────────────────────
+
+RESULTS=()
+SUCCESS_COUNT=0
+FAIL_COUNT=0
+
+for acct_json in "${ACCT_LIST[@]}"; do
+    USERNAME=$(echo "$acct_json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['username'])")
+    USER_ID=$(echo "$acct_json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['user_id'])")
+    PHASE=$(echo "$acct_json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['phase'])")
+    SUBS=$(echo "$acct_json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['subreddits'])")
+    
+    echo "────────────────────────────────────────"
+    echo "👤 $USERNAME (phase $PHASE, profile $USER_ID)"
+    
+    # Check if account was flagged in shadowban check
+    # (state.json updated by check-shadowbans.py)
+    CURRENT_STATUS=$(python3 -c "
 import json
 with open('$STATE_FILE') as f:
     state = json.load(f)
-state['accounts']['$USERNAME']['status'] = 'ready'
-state['accounts']['$USERNAME']['current_phase'] = 5
-with open('$STATE_FILE', 'w') as f:
-    json.dump(state, f, indent=2)
-"
-        RESULT_SUMMARY="${RESULT_SUMMARY}\n✅ $USERNAME: READY (day $DAY_NUM)"
+print(state.get('accounts',{}).get('$USERNAME',{}).get('status','unknown'))
+")
+    
+    if [ "$CURRENT_STATUS" != "warming" ]; then
+        echo "  ⏭️  Skipping — status is '$CURRENT_STATUS'"
         continue
     fi
-    
-    echo ""
-    echo "───────────────────────────────────────────────────"
-    echo "🔥 $USERNAME — Day $DAY_NUM, Phase $PHASE"
-    echo "───────────────────────────────────────────────────"
     
     # Open AdsPower profile
-    echo "  Opening browser profile ($USER_ID)..."
-    OPEN_RESP=$(curl -s "$API/browser/start?user_id=$USER_ID" -H "$AUTH")
-    CDP_URL=$(echo "$OPEN_RESP" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('data',{}).get('ws',{}).get('puppeteer',''))" 2>/dev/null || echo "")
+    echo "  🌐 Opening AdsPower profile..."
+    ADS_RESP=$(curl -s "$ADS_API/browser/start?user_id=$USER_ID" -H "Authorization: $ADS_AUTH" 2>/dev/null || echo '{"code":-1}')
+    CDP_URL=$(echo "$ADS_RESP" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('data',{}).get('ws',{}).get('puppeteer',''))" 2>/dev/null || echo "")
     
     if [ -z "$CDP_URL" ]; then
-        echo "  ❌ Failed to open profile. Response: $OPEN_RESP"
-        RESULT_SUMMARY="${RESULT_SUMMARY}\n❌ $USERNAME: Failed to open browser"
+        echo "  ❌ Failed to get CDP URL"
+        FAIL_COUNT=$((FAIL_COUNT + 1))
+        RESULTS+=("{\"username\":\"$USERNAME\",\"success\":false,\"error\":\"no_cdp_url\"}")
         continue
     fi
     
-    echo "  CDP: $CDP_URL"
+    echo "  🔗 CDP: ${CDP_URL:0:50}..."
+    sleep 3  # Let browser fully initialize
     
-    # Wait for browser to fully load
-    sleep 5
+    # Run warm.py with timeout
+    echo "  🏃 Running warm.py (phase $PHASE, timeout ${TIMEOUT}s)..."
+    ACCT_LOG="$LOG_DIR/${USERNAME}-${DATE}-${TIME}.json"
     
-    # Run warming script
-    LOG_FILE="$LOG_DIR/${USERNAME}_${TODAY}_$(date +%H%M).json"
-    echo "  Running warm.py (phase $PHASE)..."
+    # macOS-compatible timeout using perl
+    WARM_OUTPUT=$(perl -e "alarm $TIMEOUT; exec @ARGV" python3 "$WARM_PY" "$CDP_URL" "$USERNAME" "$PHASE" --subreddits "$SUBS" 2>&1) || {
+        echo "  ⚠️  Timed out or errored after ${TIMEOUT}s"
+        WARM_OUTPUT="{\"username\":\"$USERNAME\",\"success\":false,\"error\":\"timeout_${TIMEOUT}s\",\"captcha_hit\":false}"
+    }
     
-    if [ -n "$SUBS" ]; then
-        python3 "$WARM_SCRIPT" "$CDP_URL" "$USERNAME" "$PHASE" --subreddits "$SUBS" > "$LOG_FILE" 2>&1
+    # Save individual log
+    echo "$WARM_OUTPUT" > "$ACCT_LOG"
+    
+    # Parse result
+    WAS_SUCCESS=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('success',False))" 2>/dev/null || echo "False")
+    CAPTCHA=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('captcha_hit',False))" 2>/dev/null || echo "False")
+    
+    if [ "$WAS_SUCCESS" = "True" ]; then
+        POSTS=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('posts_read',0))" 2>/dev/null || echo "0")
+        UPVOTES=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('upvotes',0))" 2>/dev/null || echo "0")
+        COMMENTS=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('comments_posted',[]).__len__())" 2>/dev/null || echo "0")
+        echo "  ✅ Success — ${POSTS} posts, ${UPVOTES} upvotes, ${COMMENTS} comments"
+        SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
     else
-        python3 "$WARM_SCRIPT" "$CDP_URL" "$USERNAME" "$PHASE" > "$LOG_FILE" 2>&1
+        echo "  ❌ Failed"
+        if [ "$CAPTCHA" = "True" ]; then
+            echo "  🚫 CAPTCHA detected — this profile may need IP rotation"
+        fi
+        FAIL_COUNT=$((FAIL_COUNT + 1))
     fi
     
-    EXIT_CODE=$?
+    RESULTS+=("$WARM_OUTPUT")
     
-    # Parse results
-    if [ $EXIT_CODE -eq 0 ] && python3 -c "import json; json.load(open('$LOG_FILE'))" 2>/dev/null; then
-        RESULT=$(python3 -c "
-import json
-with open('$LOG_FILE') as f:
-    r = json.load(f)
-print(f\"posts={r.get('posts_read',0)} up={r.get('upvotes',0)} down={r.get('downvotes',0)} comments={len(r.get('comments_posted',[]))} saves={r.get('saves',0)} ok={r.get('success',False)}\")
-")
-        echo "  ✅ Done: $RESULT"
-        
-        # Update state
-        python3 -c "
-import json
+    # Close AdsPower profile
+    echo "  🔒 Closing profile..."
+    curl -s "$ADS_API/browser/stop?user_id=$USER_ID" -H "Authorization: $ADS_AUTH" > /dev/null 2>&1 || true
+    
+    # Stagger between accounts (20-40s)
+    if [ "${#ACCT_LIST[@]}" -gt 1 ]; then
+        STAGGER=$((RANDOM % 21 + 20))
+        echo "  ⏳ Waiting ${STAGGER}s before next account..."
+        sleep "$STAGGER"
+    fi
+done
+
+# ── Step 4: Update state.json ───────────────────────────────────────────────
+
+echo ""
+echo "📝 Updating state.json..."
+python3 -c "
+import json, sys
 from datetime import datetime
 
 with open('$STATE_FILE') as f:
     state = json.load(f)
 
-with open('$LOG_FILE') as f:
-    result = json.load(f)
+results_raw = '''$(printf '%s\n' "${RESULTS[@]}")'''
 
-acct = state['accounts']['$USERNAME']
-acct['current_phase'] = $PHASE
-acct['last_session'] = datetime.now().isoformat()
-acct['total_upvotes'] = acct.get('total_upvotes', 0) + result.get('upvotes', 0)
-acct['total_comments'] = acct.get('total_comments', 0) + len(result.get('comments_posted', []))
-
-# Append session summary
-acct.setdefault('sessions', []).append({
-    'date': datetime.now().isoformat(),
-    'phase': $PHASE,
-    'day': $DAY_NUM,
-    'posts_read': result.get('posts_read', 0),
-    'upvotes': result.get('upvotes', 0),
-    'downvotes': result.get('downvotes', 0),
-    'comments': len(result.get('comments_posted', [])),
-    'saves': result.get('saves', 0),
-    'success': result.get('success', False),
-})
+for line in results_raw.strip().split('\n'):
+    if not line.strip():
+        continue
+    try:
+        r = json.loads(line)
+        username = r.get('username', '')
+        if username not in state.get('accounts', {}):
+            continue
+        acct = state['accounts'][username]
+        
+        session = {
+            'date': r.get('timestamp', datetime.now().isoformat()),
+            'phase': r.get('phase', acct.get('current_phase', 1)),
+            'posts_read': r.get('posts_read', 0),
+            'upvotes': r.get('upvotes', 0),
+            'downvotes': r.get('downvotes', 0),
+            'comments': len(r.get('comments_posted', [])),
+            'saves': r.get('saves', 0),
+            'success': r.get('success', False),
+            'captcha_hit': r.get('captcha_hit', False),
+        }
+        
+        if 'sessions' not in acct:
+            acct['sessions'] = []
+        acct['sessions'].append(session)
+        
+        if r.get('success'):
+            acct['total_upvotes'] = acct.get('total_upvotes', 0) + r.get('upvotes', 0)
+            acct['total_comments'] = acct.get('total_comments', 0) + len(r.get('comments_posted', []))
+            acct['last_session'] = r.get('timestamp', '')
+        
+        # Auto-detect issues
+        errors = r.get('errors', [])
+        for err in errors:
+            if 'shadowbanned' in err.lower() or 'suspended' in err.lower():
+                acct['status'] = 'shadowbanned'
+        
+        if r.get('captcha_hit'):
+            acct['captcha_count'] = acct.get('captcha_count', 0) + 1
+            # 3 consecutive CAPTCHAs = flag for IP rotation
+            if acct['captcha_count'] >= 3:
+                acct['needs_ip_rotation'] = True
+    except (json.JSONDecodeError, KeyError):
+        continue
 
 with open('$STATE_FILE', 'w') as f:
     json.dump(state, f, indent=2)
+print('State updated.')
 "
-        RESULT_SUMMARY="${RESULT_SUMMARY}\n✅ $USERNAME (P$PHASE D$DAY_NUM): $RESULT"
-    else
-        echo "  ❌ Script failed (exit $EXIT_CODE)"
-        cat "$LOG_FILE" 2>/dev/null | tail -5
-        RESULT_SUMMARY="${RESULT_SUMMARY}\n❌ $USERNAME: Script failed"
-    fi
-    
-    # Close browser profile
-    echo "  Closing browser..."
-    curl -s "$API/browser/stop?user_id=$USER_ID" -H "$AUTH" > /dev/null 2>&1
-    sleep 2
-    
-    # Stagger between accounts (20-30 seconds in automated mode)
-    STAGGER=$((20 + RANDOM % 11))
-    echo "  Waiting ${STAGGER}s before next account..."
-    sleep "$STAGGER"
-    
-done <<< "$ACCOUNTS"
+
+# ── Step 5: Summary ─────────────────────────────────────────────────────────
 
 echo ""
-echo "═══════════════════════════════════════════════════════"
-echo "🏁 Warming Run Complete"
-echo -e "$RESULT_SUMMARY"
-echo "═══════════════════════════════════════════════════════"
+echo "═══════════════════════════════════════════════════════════"
+echo "📊 Summary: $SUCCESS_COUNT success, $FAIL_COUNT failed out of ${#ACCT_LIST[@]} accounts"
+echo "═══════════════════════════════════════════════════════════"
+
+# Save session log
+python3 -c "
+import json
+results = []
+raw = '''$(printf '%s\n' "${RESULTS[@]}")'''
+for line in raw.strip().split('\n'):
+    try:
+        results.append(json.loads(line))
+    except:
+        pass
+log = {
+    'timestamp': '$(date -u +%Y-%m-%dT%H:%M:%SZ)',
+    'accounts_run': ${#ACCT_LIST[@]},
+    'success': $SUCCESS_COUNT,
+    'failed': $FAIL_COUNT,
+    'results': results
+}
+with open('$SESSION_LOG', 'w') as f:
+    json.dump(log, f, indent=2)
+"
+
+echo "📁 Session log: $SESSION_LOG"

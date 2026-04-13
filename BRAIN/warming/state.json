@@ -109,7 +109,10 @@
       "total_upvotes": 57,
       "total_comments": 4,
       "last_session": "2026-04-12T19:06:07.362910",
-      "status": "warming"
+      "status": "warming",
+      "warming_day": 5,
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     },
     "ndbmzlayar": {
       "serial": 35,
@@ -220,7 +223,10 @@
       "total_upvotes": 54,
       "total_comments": 4,
       "last_session": "2026-04-12T19:12:22.536221",
-      "status": "warming"
+      "status": "warming",
+      "warming_day": 5,
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     },
     "lhdqpdftdt": {
       "serial": 36,
@@ -319,14 +325,16 @@
       "total_upvotes": 49,
       "total_comments": 2,
       "last_session": "2026-04-12T09:22:26.940988",
-      "status": "shadowbanned"
+      "status": "shadowbanned",
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     },
     "vglmtlyrdm": {
       "serial": 37,
       "user_id": "k1bc56nd",
       "username": "vglmtlyrdm",
       "start_date": "2026-04-09",
-      "current_phase": 1,
+      "current_phase": 2,
       "subreddits": [
         "mildlyinteresting",
         "cats",
@@ -408,7 +416,10 @@
       "total_upvotes": 42,
       "total_comments": 0,
       "last_session": "2026-04-11T19:27:21.624840",
-      "status": "warming"
+      "status": "warming",
+      "warming_day": 5,
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     },
     "cuvuvcljco": {
       "serial": 38,
@@ -506,7 +517,9 @@
       "total_upvotes": 48,
       "total_comments": 2,
       "last_session": "2026-04-12T09:33:20.641067",
-      "status": "shadowbanned"
+      "status": "shadowbanned",
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     }
   }
 }

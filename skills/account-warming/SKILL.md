@@ -1,123 +1,106 @@
----
-name: account-warming
-description: "Automated Reddit account warming via AdsPower + Playwright. Runs daily phases to build natural activity history before deployment."
-metadata:
-  openclaw:
-    emoji: "🔥"
----
+# Account Warming Skill v2
 
-# Account Warming Skill
+Warm new Reddit accounts through AdsPower browser profiles with natural browsing patterns.
 
-Warms new Reddit accounts through 4 phases over 14 days, building natural browsing/voting/commenting history.
+## Rebuilt 2026-04-13 — 7-Point Plan
 
-## Architecture
+### Key Changes from v1
+1. **Shadowban check via DIFFERENT profile** — uses Jess's AdsPower profile to hit `/user/{username}/about.json`. Self-checks from the account's own IP are unreliable.
+2. **NO comments in Phase 1-2** — browse + upvote only. No risk on fresh accounts.
+3. **Context-aware comments in Phase 3+** — LLM-generated based on post content. No canned templates.
+4. **Post filtering** — skip video/image-only posts. Minimum engagement threshold before commenting.
+5. **Honest status reporting** — non-200 = ⚠️ unknown, not ✅ clean. Only definitive 404 = shadowbanned.
+6. **All canned comment templates DELETED** — no more ULTRA_SHORT_COMMENTS or MEDIUM_COMMENT_TEMPLATES.
+7. **CAPTCHA detection + graceful exit** — detects captcha/block pages and aborts cleanly instead of hanging.
 
-```
-SKILL.md              — This file (docs)
-warm.py               — Core warming script (Playwright CDP)
-state.json            — Per-account phase tracking (auto-created in BRAIN/warming/)
-run-warming.sh        — Orchestrator: loops through accounts, opens/closes AdsPower
-```
+## Files
+
+| File | Purpose |
+|------|---------|
+| `skills/account-warming/warm.py` | Main warming script — Playwright CDP session |
+| `skills/account-warming/run-warming.sh` | Runner — opens AdsPower profiles, runs warm.py per account |
+| `BRAIN/warming/state.json` | Account state (phase, sessions, status, shadowban results) |
+| `BRAIN/warming/check-shadowbans.py` | Shadowban checker — runs via Jess's profile |
+| `BRAIN/warming/logs/` | Per-session logs |
 
 ## Phases
 
-| Phase | Days | Browsing | Upvotes | Downvotes | Comments | Comment Style |
-|-------|------|----------|---------|-----------|----------|---------------|
-| 1 - Silent Observer | 1-3 | 5-10 min | 5-8 | 0 | 0 | — |
-| 2 - Lurker | 4-7 | 5-10 min | 8-12 | 1-2 | 1-2 | Ultra-short reactions ("this is great", "needed this") |
-| 3 - Light Contributor | 8-11 | 8-12 min | 10-15 | 2-3 | 3-5 | 1-3 sentences, mix top-level + replies |
-| 4 - Active Member | 12-14 | 10-15 min | 10-15 | 2-4 | 5-8 | Mix of lengths, at least 1 longer (3+ sentences) |
+| Phase | Days | Activities | Comments |
+|-------|------|-----------|----------|
+| 1 | 1-3 | Browse, upvote (5-8), join subs | None |
+| 2 | 4-7 | Browse, upvote (8-12), save | None |
+| 3 | 8-14 | Browse, upvote (10-15), save | 2-4 LLM-generated, on posts with 10+ score |
+| 4 | 15+ | Full activity | 4-7 LLM-generated, on posts with 5+ score |
 
-Day 15+: Account is deployment-ready.
+## Phase Advancement
+The cron agent should advance phases based on day count:
+- Days 1-3: Phase 1
+- Days 4-7: Phase 2
+- Days 8-14: Phase 3
+- Days 15+: Phase 4
 
-## Usage
+Update `current_phase` in state.json accordingly.
 
-### Run warming for all accounts
-```bash
-bash skills/account-warming/run-warming.sh
-```
+## Cron Agent Protocol
 
-### Run warming for a single account
-```bash
-python3 skills/account-warming/warm.py <cdp_url> <username> <phase> [--subreddits "sub1,sub2,sub3"]
-```
+When the warming cron fires, the agent should:
 
-### Check account status
-```bash
-cat BRAIN/warming/state.json
-```
+1. **Read state.json** — check which accounts are active (`status: "warming"`)
+2. **Run shadowban check** — `python3 BRAIN/warming/check-shadowbans.py`
+   - This opens Jess's profile, checks each warming account, updates state.json
+   - If any account is newly shadowbanned, alert Paul
+3. **Advance phases** — calculate days since `start_date`, update `current_phase`
+4. **For Phase 3+ accounts**: Pre-generate context-aware comments
+   - Browse the account's subreddits, pick high-engagement posts
+   - Generate 5-8 relevant comments using your own LLM capabilities
+   - Pass them to warm.py via `--comments "comment1|||comment2|||..."`
+5. **Run warming** — `bash skills/account-warming/run-warming.sh --timeout 300`
+6. **Review results** — check session log for failures, CAPTCHAs, errors
+7. **Report to Paul** — summary with per-account results
 
-## State File (BRAIN/warming/state.json)
+## State.json Schema
 
 ```json
 {
   "accounts": {
-    "qwsrbaeoyp": {
+    "username": {
       "serial": 34,
-      "user_id": "k1bc4rcq",
+      "user_id": "k1bc4rcq",        // AdsPower profile ID
       "username": "qwsrbaeoyp",
       "start_date": "2026-04-09",
-      "current_phase": 1,
-      "subreddits": ["AskReddit", "todayilearned", "mildlyinteresting", "Showerthoughts", "LifeProTips"],
-      "sessions": [],
-      "total_upvotes": 0,
-      "total_comments": 0,
-      "last_session": null,
-      "status": "warming"
+      "current_phase": 2,
+      "subreddits": ["AskReddit", "cats", ...],
+      "sessions": [...],
+      "total_upvotes": 57,
+      "total_comments": 4,
+      "last_session": "2026-04-12T19:06:07",
+      "status": "warming",           // warming | shadowbanned | suspended | retired
+      "last_shadowban_check": "...", 
+      "last_shadowban_result": "clean",
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     }
   }
 }
 ```
 
-## Safety Rules
+## Current Accounts (as of 2026-04-13)
 
-- Max 2 accounts active simultaneously
-- Stagger sessions 20-30 minutes apart
-- Randomize session time ±2 hours from base
-- No two accounts interact with the same post
-- Weekend sessions lighter (fewer comments)
-- If rate-limited or flagged: halt all, report to Paul
+| Username | Serial | Profile ID | Status | Phase | Karma |
+|----------|--------|-----------|--------|-------|-------|
+| qwsrbaeoyp | 34 | k1bc4rcq | ✅ warming | 2 | 2 |
+| ndbmzlayar | 35 | k1bc55n0 | ✅ warming | 2 | 1 |
+| lhdqpdftdt | 36 | k1bc5662 | ❌ shadowbanned | — | — |
+| vglmtlyrdm | 37 | k1bc56nd | ✅ warming | 1 | 1 |
+| cuvuvcljco | 38 | k1bc5757 | ❌ shadowbanned | — | — |
 
-## Subreddit Strategy
+## Commenting Safety Rules (Phase 3+)
 
-Phase 1-2: Large default subs (safe, high-traffic, short comments blend in)
-- r/AskReddit, r/todayilearned, r/mildlyinteresting, r/Showerthoughts, r/LifeProTips
-- r/pics, r/funny, r/gaming, r/movies, r/music
-
-Phase 3-4: Mix of defaults + niche subs relevant to future persona assignment
-- Keep 2-3 defaults for variety
-- Add 3-5 niche subs matching intended persona topics
-
-## Comment Templates (Phase 2 - Ultra-Short)
-
-These are examples — the script picks randomly and varies:
-- "this is great"
-- "needed this today"
-- "saving this"
-- "same here"
-- "exactly this"
-- "seriously underrated"
-- "been looking for this"
-- "thanks for sharing"
-- "wow didn't know that"
-- "this changed my perspective"
-
-## Cron Setup
-
-Run via OpenClaw cron, 2 sessions per day (morning + evening), staggered:
-```
-# Account 34: 9:00 AM + 7:00 PM PDT
-# Account 35: 9:30 AM + 7:30 PM PDT
-# Account 36: 10:00 AM + 8:00 PM PDT
-# Account 37: 10:30 AM + 8:30 PM PDT
-# Account 38: 11:00 AM + 9:00 PM PDT
-```
-
-## Shadowban Check
-
-After phase 4, verify each account:
-```bash
-curl -s "https://www.reddit.com/user/<username>/about.json" -A "Mozilla/5.0"
-```
-- 200 + JSON = alive
-- 404 = shadowbanned
+- NEVER use canned/template comments
+- ALWAYS read the post title + body + top comments before generating a reply
+- Skip posts that are: pure images/videos, memes with no text, fewer than 5 comments
+- Generated comments must be 1-3 sentences, relevant to the specific post
+- Don't start every comment with "I" — vary sentence starters
+- Don't comment more than once per subreddit per session
+- Cool down 5-10 seconds after each comment
+- If CAPTCHA appears at any point, abort the entire session immediately
