@@ -158,18 +158,37 @@ def main():
         port = PROXY_PORTS[proxy_idx % len(PROXY_PORTS)]
         proxy_idx += 1
         
-        posts = fetch_subreddit_posts(sub, sort="hot", limit=25, proxy_port=port)
-        
-        for post in posts:
-            if is_commentable(post):
-                all_candidates.append(post)
+        # Fetch both Rising and Hot — Rising posts have exponentially more algorithmic value
+        # (early comments on rising posts compound: 1→10 = same weight as 100→1000)
+        for sort in ["rising", "hot"]:
+            posts = fetch_subreddit_posts(sub, sort=sort, limit=15, proxy_port=port)
+            for post in posts:
+                if is_commentable(post):
+                    # Tag with sort source so we can prioritize rising
+                    post["_sort_source"] = sort
+                    all_candidates.append(post)
+            time.sleep(0.5)
         
         time.sleep(1)  # Rate limit between subs
     
     print(f"Found {len(all_candidates)} commentable posts across {len(subreddits)} subs", file=sys.stderr)
     
-    # Sort by engagement and pick the best ones
-    all_candidates.sort(key=lambda p: p["score"] + p["num_comments"] * 2, reverse=True)
+    # Deduplicate (same post may appear in both rising and hot)
+    seen_ids = set()
+    deduped = []
+    for post in all_candidates:
+        if post["id"] not in seen_ids:
+            seen_ids.add(post["id"])
+            deduped.append(post)
+    all_candidates = deduped
+    
+    # Sort: prioritize Rising posts (early comments = exponential value),
+    # then by engagement within each tier
+    def sort_key(p):
+        rising_bonus = 1000 if p.get("_sort_source") == "rising" else 0
+        return rising_bonus + p["score"] + p["num_comments"] * 2
+    
+    all_candidates.sort(key=sort_key, reverse=True)
     
     # Pick target_count, but spread across subreddits (max 2 per sub)
     selected = []

@@ -59,13 +59,13 @@ When the warming cron fires, the agent should:
       - Write 1-3 sentences that add genuine value
       - Vary tone per subreddit (casual for memes, thoughtful for advice)
       - NEVER use generic phrases ("this is great", "came here to say this", etc.)
-   c. **Run every comment through the humanizer skill** (`skills/humanizer/SKILL.md`):
-      - Kill em dashes — use commas or periods instead
-      - No formal openers ("Interesting that", "Curious whether", "It's worth noting")
-      - Messy/casual sentence structure — Reddit comments aren't essays
-      - First-person vulnerability ("that'd bug me", "still not great at it")
-      - No "rule of three", no promotional language, no puffery
-      - Read it out loud — if it sounds like a blog post, rewrite it
+   c. **Run every comment through the Reddit Comment Humanizer** (`skills/reddit-comment-humanizer/SKILL.md`):
+      - Use the Acknowledge → Contribute → Invite structure
+      - Kill em dashes, formal openers, AI intensifiers, marketing vocab
+      - Add specificity (product names, timeframes, numbers)
+      - Include strategic vulnerability (Pratfall Effect)
+      - Match subreddit register (hobby=warm, tech=precise, casual=short)
+      - Run the full checklist from Part 6 of the skill
    d. **Skip sensitive posts** — grief posts, loss announcements, crisis/mental health emergencies.
       A warming account commenting on someone's dead cat is tone-deaf and suspicious.
    e. Save the plan as JSON file: `[{"post_url": "...", "comment": "..."}]`
@@ -147,4 +147,4 @@ Before saving a comment to the plan, verify:
 8. **No curly quotes** — use straight quotes only
 9. **Read it out loud** — would a real person actually type this in a Reddit comment box? If not, redo it.
 
-Full humanizer reference: `skills/humanizer/SKILL.md`
+Full reference: `skills/reddit-comment-humanizer/SKILL.md`
