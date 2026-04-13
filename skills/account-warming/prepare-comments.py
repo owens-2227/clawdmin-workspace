@@ -121,9 +121,29 @@ def is_commentable(post):
     
     # Skip meta/mod posts
     title_lower = post.get("title", "").lower()
+    body_lower = post.get("selftext", "").lower()
+    combined = title_lower + " " + body_lower
+    
     skip_keywords = ["megathread", "weekly thread", "daily discussion", "mod post", "rule", "announcement"]
     if any(kw in title_lower for kw in skip_keywords):
         return False
+    
+    # Skip grief/loss/end-of-life posts (warming accounts should never comment on these)
+    grief_signals = [
+        "didn't make it", "didn't make it", "passed away", "crossing the rainbow",
+        "rainbow bridge", "rest in peace", "rip ", "put to sleep", "put down",
+        "euthan", "end of life", "saying goodbye", "lost my", "passed today",
+        "passed yesterday", "passed last", "gone now", "no longer with us",
+        "in loving memory", "miss you", "miss her", "miss him",
+    ]
+    if any(signal in combined for signal in grief_signals):
+        return False
+    
+    # Skip posts tagged as sensitive/seeking support with bad news indicators
+    flair = (post.get("link_flair_text", "") or "").lower()
+    if "sensitive" in flair or "support" in flair or "grief" in flair or "loss" in flair:
+        if any(w in combined for w in ["died", "dead", "dying", "terminal", "hospice", "last days"]):
+            return False
     
     return True
 

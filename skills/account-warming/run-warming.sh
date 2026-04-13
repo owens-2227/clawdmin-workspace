@@ -126,12 +126,20 @@ print(state.get('accounts',{}).get('$USERNAME',{}).get('status','unknown'))
     echo "  🔗 CDP: ${CDP_URL:0:50}..."
     sleep 3  # Let browser fully initialize
     
+    # Check for comment plan (Phase 3+ only)
+    COMMENT_PLAN_ARG=""
+    COMMENT_PLAN_FILE="$LOG_DIR/${USERNAME}-${DATE}-${TIME}-comments.json"
+    if [ "$PHASE" -ge 3 ] && [ -f "$LOG_DIR/${USERNAME}-comment-plan.json" ]; then
+        COMMENT_PLAN_ARG="--comment-plan $LOG_DIR/${USERNAME}-comment-plan.json"
+        echo "  💬 Comment plan found for Phase $PHASE"
+    fi
+    
     # Run warm.py with timeout
     echo "  🏃 Running warm.py (phase $PHASE, timeout ${TIMEOUT}s)..."
     ACCT_LOG="$LOG_DIR/${USERNAME}-${DATE}-${TIME}.json"
     
     # macOS-compatible timeout using perl
-    WARM_OUTPUT=$(perl -e "alarm $TIMEOUT; exec @ARGV" python3 "$WARM_PY" "$CDP_URL" "$USERNAME" "$PHASE" --subreddits "$SUBS" 2>&1) || {
+    WARM_OUTPUT=$(perl -e "alarm $TIMEOUT; exec @ARGV" python3 "$WARM_PY" "$CDP_URL" "$USERNAME" "$PHASE" --subreddits "$SUBS" $COMMENT_PLAN_ARG 2>&1) || {
         echo "  ⚠️  Timed out or errored after ${TIMEOUT}s"
         WARM_OUTPUT="{\"username\":\"$USERNAME\",\"success\":false,\"error\":\"timeout_${TIMEOUT}s\",\"captcha_hit\":false}"
     }
