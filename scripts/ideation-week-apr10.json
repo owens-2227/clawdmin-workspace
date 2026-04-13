@@ -1,0 +1,552 @@
+[
+  {
+    "pp_id": "52b84030-31ff-4f6a-bdd2-e8993114d752",
+    "ideation": {
+      "app_idea": "SoberStreak — sobriety tracker with daily check-ins, milestones, and craving management tools",
+      "what_it_does": "Tracks sober days with daily mood/craving check-ins, celebrates milestones, provides emergency coping exercises during urges, and shows money saved from not drinking.",
+      "how_it_solves": "People in recovery need daily accountability and instant access to coping tools during cravings. This replaces scattered notes and calendar counting with a structured support system.",
+      "feature_set": "• Sobriety day counter with milestones\n• Daily check-in (mood, cravings, triggers)\n• Emergency craving toolkit (breathing, grounding)\n• Money saved calculator\n• Journal/reflection space",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple tracker with counter and journaling. No backend needed. The emotional value is extremely high for this community."
+    }
+  },
+  {
+    "pp_id": "22ac46fe-dde3-41c3-85e4-69f1ab8402e9",
+    "ideation": {
+      "app_idea": "DateReady — dating readiness self-assessment for separated/divorced individuals",
+      "what_it_does": "Guides people through a structured self-assessment to determine if they're emotionally ready to date after separation, with checklists for legal, financial, and emotional readiness.",
+      "how_it_solves": "People rush into dating post-separation and face stigma or emotional fallout. This provides a framework to evaluate readiness before putting themselves out there.",
+      "feature_set": "• Emotional readiness quiz\n• Legal/financial readiness checklist\n• Boundary-setting exercises\n• Red flag awareness guide\n• Dating timeline planner",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — quiz/checklist tool. Deeply personal, all local. The readiness quiz format is engaging and shareable."
+    }
+  },
+  {
+    "pp_id": "7b0a7902-8230-43ee-9e77-c53ca98de0a9",
+    "ideation": {
+      "app_idea": "MatchIntent — dating app profile optimizer and intention clarifier for 30+ daters",
+      "what_it_does": "Helps serious daters articulate what they want, craft authentic profiles, and evaluate matches against their actual values instead of superficial criteria.",
+      "how_it_solves": "Dating apps reward shallow swiping. This tool forces intentionality by having users define dealbreakers, values, and goals before matching — leading to better connections.",
+      "feature_set": "• Values and dealbreaker clarifier\n• Profile writing prompts and examples\n• Match evaluation scorecard\n• First date question generator\n• Dating goal tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — guided questionnaire/planner. The profile writing prompts alone are worth it. No external APIs needed."
+    }
+  },
+  {
+    "pp_id": "a509c1b3-45e4-4f07-9777-4eba56b0405f",
+    "ideation": {
+      "app_idea": "FermentLog — fermentation timing tracker with temperature-adjusted scheduling",
+      "what_it_does": "Tracks fermentation batches with start times, temperature readings, and visual readiness indicators. Calculates expected completion based on ambient temp and starter activity.",
+      "how_it_solves": "Home fermenters overbake or underfement because timing depends on temperature and starter health. This takes the guesswork out by logging variables and predicting readiness.",
+      "feature_set": "• Batch timer with temp logging\n• Fermentation stage tracker\n• Temperature-adjusted completion estimate\n• Starter feeding schedule\n• Batch history with outcome notes",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — timer/tracker with simple calculations. The sourdough community is obsessive about data. Very buildable."
+    }
+  },
+  {
+    "pp_id": "c0e32878-14e3-4925-b956-1425fe144c5c",
+    "ideation": {
+      "app_idea": "BreadDoctor — sourdough troubleshooter with visual diagnosis and fix suggestions",
+      "what_it_does": "Diagnose sourdough failures by selecting symptoms (dense crumb, gummy texture, no rise, flat shape) and get specific fixes. Includes a recipe adjustment calculator.",
+      "how_it_solves": "Bakers throw away failed loaves without learning why. This diagnostic tree pinpoints the likely cause and tells you exactly what to change for the next bake.",
+      "feature_set": "• Symptom-based diagnostic quiz\n• Common failure cause database\n• Fix suggestions with explanations\n• Recipe hydration/timing calculator\n• Bake log with improvement tracking",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — diagnostic quiz/calculator. The troubleshooting format is highly engaging. Pre-loaded knowledge, no API needed."
+    }
+  },
+  {
+    "pp_id": "e4c09c96-8626-450f-8ac0-1efd96f29ee5",
+    "ideation": {
+      "app_idea": "DatePace — dating burnout tracker and intentional break planner",
+      "what_it_does": "Tracks dating activity, energy levels, and emotional state to detect burnout before it happens. Suggests when to take breaks and provides re-entry prompts when ready.",
+      "how_it_solves": "Daters push through fatigue and make worse choices. This validates that breaks are healthy and provides structure for when to pause and when to resume.",
+      "feature_set": "• Dating activity log\n• Energy/mood tracker per date\n• Burnout risk indicator\n• Intentional break timer\n• Re-entry readiness check",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple mood tracker with smart alerts. The burnout detection is just frequency + mood correlation."
+    }
+  },
+  {
+    "pp_id": "ae8c80b3-26a4-4dd5-a44c-918ba8af435e",
+    "ideation": {
+      "app_idea": "LoanLifeline — student loan default recovery guide with step-by-step action plans",
+      "what_it_does": "Guides borrowers in default through the rehabilitation or consolidation process step by step, with document checklists, timeline tracking, and income-driven repayment plan comparison.",
+      "how_it_solves": "Defaulted borrowers are paralyzed by complexity and shame. This breaks the recovery process into manageable steps and shows there IS a path forward.",
+      "feature_set": "• Default recovery pathway guide\n• Rehabilitation vs. consolidation comparison\n• Document checklist and tracker\n• IDR plan calculator\n• Progress milestone tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — guided checklist with calculator. Life-changing for people in crisis. All pre-loaded content, no external data."
+    }
+  },
+  {
+    "pp_id": "af613f87-5bc3-4ad2-9b5a-85ee0b37bec2",
+    "ideation": {
+      "app_idea": "WorthWork — self-worth journaling tool for daters dealing with comparison anxiety",
+      "what_it_does": "Guided journaling prompts focused on building dating confidence, challenging comparison thoughts, and tracking personal growth milestones outside of relationship status.",
+      "how_it_solves": "Dating after 30 triggers comparison anxiety ('everyone else is settled'). This reframes the narrative with evidence-based CBT exercises and personal win tracking.",
+      "feature_set": "• Daily confidence journal prompts\n• Comparison thought challenger (CBT-based)\n• Personal wins tracker\n• Values affirmation exercises\n• Progress reflection timeline",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — journaling/CBT tool. Deeply personal, all local. The CBT thought challenger is proven effective and simple to implement."
+    }
+  },
+  {
+    "pp_id": "71a4c092-f70a-4461-9e35-8b15d0d5f843",
+    "ideation": {
+      "app_idea": "DoughMath — sourdough recipe scaler with hydration and baker's percentage calculator",
+      "what_it_does": "Scales any bread recipe up or down while maintaining correct ratios. Calculates baker's percentages, hydration levels, and adjusts proofing times for different batch sizes.",
+      "how_it_solves": "Scaling bread recipes isn't linear — hydration, fermentation time, and shaping all change. This handles the math so bakers can focus on technique.",
+      "feature_set": "• Recipe scaling calculator\n• Baker's percentage converter\n• Hydration calculator\n• Starter quantity adjuster\n• Batch comparison tool",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator. Bread bakers need this constantly. Simple math with huge practical value."
+    }
+  },
+  {
+    "pp_id": "c1e93048-cdf1-4680-8a7d-afc5e115a9fa",
+    "ideation": {
+      "app_idea": "PrepDay — batch cooking planner with scaling, timelines, and storage labels",
+      "what_it_does": "Helps families plan batch cooking sessions: select recipes, auto-generate scaled shopping lists, create cooking day timelines, and print freezer labels with dates and reheating instructions.",
+      "how_it_solves": "Families waste food and time because batch cooking is hard to plan. This organizes the entire flow from recipe selection to storage so nothing gets forgotten or wasted.",
+      "feature_set": "• Recipe selector with serving multiplier\n• Consolidated shopping list generator\n• Cooking day timeline/schedule\n• Freezer label generator with reheat instructions\n• Meal rotation calendar",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — calculator/planner with structured inputs. No external data needed. Families would use this weekly."
+    }
+  },
+  {
+    "pp_id": "fbd61b2e-7d9a-49d1-9d6c-b5421686abaa",
+    "ideation": {
+      "app_idea": "CheckInChain — daily sobriety accountability check-in with streak tracking",
+      "what_it_does": "A focused daily check-in tool that mirrors the r/stopdrinking daily pledge format. Users commit each morning, track their streak, and log reflections.",
+      "how_it_solves": "The daily check-in ritual is the backbone of many people's sobriety. This makes it portable and private — no need to post publicly to maintain accountability.",
+      "feature_set": "• Morning pledge/check-in\n• Streak counter with badges\n• Daily reflection journal\n• Trigger and craving log\n• Weekly progress review",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — daily check-in tracker. Mirrors a proven community practice. Simple, powerful, deeply personal."
+    }
+  },
+  {
+    "pp_id": "a2ca140f-8560-464d-947f-52198db076ba",
+    "ideation": {
+      "app_idea": "HRT Navigator — menopause HRT options comparison tool with symptom tracking",
+      "what_it_does": "Compare HRT types (estrogen patches, progesterone, testosterone), track symptoms before and after starting, and prepare informed questions for doctor appointments.",
+      "how_it_solves": "Women are overwhelmed by HRT options and get conflicting info from doctors. This organizes the options with pros/cons and tracks whether treatment is actually helping.",
+      "feature_set": "• HRT options comparison chart\n• Symptom severity tracker (before/after)\n• Doctor appointment prep questions\n• Side effect log\n• Treatment timeline journal",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — comparison tool + symptom tracker. Pre-loaded HRT info, all tracking is local. Huge underserved market."
+    }
+  },
+  {
+    "pp_id": "d93d7629-ef2b-4f4c-a3ca-d15fddcd3e8f",
+    "ideation": {
+      "app_idea": "CollieCoach — first-time Border Collie owner survival guide and training tracker",
+      "what_it_does": "Week-by-week training plan for new Border Collie owners covering exercise needs, mental stimulation, socialization, and common behavioral issues with structured daily activities.",
+      "how_it_solves": "Border Collies are intense dogs that overwhelm unprepared owners. This provides a structured first-year plan so owners and dogs thrive instead of struggle.",
+      "feature_set": "• Week-by-week training curriculum\n• Daily exercise and enrichment planner\n• Behavioral milestone tracker\n• Common BC problem solutions\n• Energy management guide",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — structured guide/planner. Pre-loaded curriculum. The breed-specific focus is the differentiator from generic dog apps."
+    }
+  },
+  {
+    "pp_id": "0086e95a-37d2-41a8-a00b-7014bc42a108",
+    "ideation": {
+      "app_idea": "MilestoneMap — relationship progression guide for dating over 30",
+      "what_it_does": "Helps navigate relationship milestones (exclusivity talk, meeting friends, moving in) with timing guidance, conversation scripts, and compatibility assessment tools.",
+      "how_it_solves": "After 30, relationship timelines are ambiguous — there's no 'normal.' This provides frameworks and conversation starters so couples align on pacing without awkwardness.",
+      "feature_set": "• Milestone timeline planner\n• Conversation starter scripts\n• Compatibility assessment quizzes\n• Relationship values clarifier\n• DTR readiness check",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — quiz/planner tool. The conversation scripts alone are worth it. All pre-loaded content."
+    }
+  },
+  {
+    "pp_id": "a006fe62-15b7-4e2a-b89c-bed7992dc970",
+    "ideation": {
+      "app_idea": "RawFeedOrg — raw pet food storage and meal prep organizer for small spaces",
+      "what_it_does": "Helps raw feeders plan meals, manage freezer inventory, and organize storage in apartment-sized spaces. Includes portion calculators and thaw scheduling.",
+      "how_it_solves": "Apartment raw feeders struggle with limited freezer space. This optimizes what to buy, when to thaw, and how to organize a small freezer for maximum efficiency.",
+      "feature_set": "• Freezer inventory tracker\n• Meal portion calculator by pet weight\n• Thaw schedule planner\n• Shopping list generator\n• Nutritional balance checker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — inventory/calculator tool. Niche but passionate community. Simple data structure, very practical."
+    }
+  },
+  {
+    "pp_id": "fd84b926-8b5b-4ee7-86d8-a929f9aed7df",
+    "ideation": {
+      "app_idea": "FoodAid Finder — food assistance program eligibility checker and application guide",
+      "what_it_does": "Input income and household size to see all food assistance programs you qualify for (SNAP, WIC, food banks, Flashfood, community fridges) with step-by-step application guides.",
+      "how_it_solves": "People in food insecurity don't know what's available or assume they don't qualify. This surfaces all options and removes the guesswork from applications.",
+      "feature_set": "• Eligibility screener by income/household\n• Program comparison chart\n• Application step-by-step guides\n• Local food bank/pantry finder\n• Benefit maximization tips",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — quiz/calculator with guide. Eligibility rules can be pre-loaded. Local resource finding needs location data."
+    }
+  },
+  {
+    "pp_id": "0db0b040-7522-4178-930c-b8de047cc129",
+    "ideation": {
+      "app_idea": "BrewLog — coffee brewing recipe tracker and extraction dial-in tool",
+      "what_it_does": "Log every brew with grind size, dose, water temp, time, and taste notes. Track what works for each coffee bean so you can reproduce great cups consistently.",
+      "how_it_solves": "Coffee enthusiasts change one variable at a time but lose track of what produced the best cup. This creates a searchable history of every brew attempt.",
+      "feature_set": "• Brew recipe logger (V60, espresso, French press, etc.)\n• Taste rating and notes\n• Bean inventory with roast dates\n• Best recipe per bean finder\n• Grind size reference chart",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — brewing log/tracker. The coffee community is data-obsessed. Simple data entry, powerful for dialing in."
+    }
+  },
+  {
+    "pp_id": "8dd7ea5f-ed7b-46ec-828a-ff91eae3323e",
+    "ideation": {
+      "app_idea": "FogTracker Meno — menopause brain fog journal with trigger and pattern analysis",
+      "what_it_does": "Daily brain fog severity logging with correlation tracking against sleep, stress, HRT doses, and cycle stage. Helps women identify their specific fog triggers.",
+      "how_it_solves": "Menopause brain fog is terrifying and poorly understood. Tracking reveals patterns (worse with poor sleep, better with HRT adjustment) that empower women to manage it.",
+      "feature_set": "• Daily fog severity rating\n• Trigger correlation tracker (sleep, stress, HRT)\n• Pattern analysis dashboard\n• Doctor-ready symptom report\n• Coping strategy library",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — daily tracker with pattern analysis. The menopause-specific focus differentiates from generic brain fog trackers."
+    }
+  },
+  {
+    "pp_id": "2545f991-ec50-42cf-b687-1613c2558674",
+    "ideation": {
+      "app_idea": "GardenER — vegetable garden troubleshooter with visual pest/disease diagnosis",
+      "what_it_does": "Diagnose garden problems by selecting symptoms (yellowing leaves, holes, wilting) and get specific treatment recommendations. Includes planting calendar and companion planting guide.",
+      "how_it_solves": "Beginner gardeners lose crops to easily fixable problems because they can't diagnose the issue. This diagnostic tool catches problems early with actionable solutions.",
+      "feature_set": "• Symptom-based plant diagnostic\n• Pest and disease identification guide\n• Treatment recommendations\n• Planting calendar by zone\n• Companion planting reference",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — diagnostic quiz + reference guide. Zone-based calendars add personalization. Content can be pre-loaded."
+    }
+  },
+  {
+    "pp_id": "1b308761-fd8b-4e7e-a161-64bc8e0f8f27",
+    "ideation": {
+      "app_idea": "MenoMe — body and identity grief journal for women in perimenopause/menopause",
+      "what_it_does": "A guided journaling space for processing the grief of physical changes during menopause: body image shifts, identity evolution, and finding purpose in the next chapter.",
+      "how_it_solves": "Women grieve their pre-menopause selves silently. This validates the experience and provides structured prompts for processing change rather than just enduring it.",
+      "feature_set": "• Guided grief processing prompts\n• Body image reframing exercises\n• Identity exploration journal\n• Daily wins and gratitude log\n• Community affirmation cards",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — guided journaling tool. Deeply emotional, entirely personal, no external data. Fills a major gap in menopause support."
+    }
+  },
+  {
+    "pp_id": "8b6a8a7b-bae2-4506-84af-bc45992692d4",
+    "ideation": {
+      "app_idea": "FlockDoc — backyard chicken health tracker and care guide",
+      "what_it_does": "Track flock health with individual bird profiles, egg production logs, symptom checkers for common poultry diseases, and seasonal care reminders.",
+      "how_it_solves": "Chicken keepers lose birds to preventable diseases because they don't spot symptoms early. Individual tracking and a symptom checker catches problems before they spread.",
+      "feature_set": "• Individual bird health profiles\n• Egg production tracker\n• Poultry disease symptom checker\n• Seasonal care calendar\n• Feed and supplement log",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — tracker with diagnostic features. The backyard chicken community is growing fast. Simple data, high practical value."
+    }
+  },
+  {
+    "pp_id": "7b819f58-de6a-4c15-b933-17ddfee1bf48",
+    "ideation": {
+      "app_idea": "QuoteCompare — home improvement contractor quote organizer and comparison tool",
+      "what_it_does": "Organize and compare contractor quotes side-by-side with standardized line items, scope of work comparison, and red flag checklist for spotting lowball/inflated bids.",
+      "how_it_solves": "Homeowners can't compare quotes because every contractor formats them differently. This standardizes the comparison so you're comparing apples to apples.",
+      "feature_set": "• Quote input and organizer\n• Side-by-side comparison view\n• Line item standardizer\n• Red flag checker\n• Contractor rating notes",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — comparison/organizer tool. Every homeowner needs this. Simple structured data entry."
+    }
+  },
+  {
+    "pp_id": "fed5efb6-9098-46ac-b096-111a3178169a",
+    "ideation": {
+      "app_idea": "BioMod Log — body modification and biohacking implant tracker with healing protocol",
+      "what_it_does": "Track body modifications, implants, and biohacking experiments with healing progress logs, complication monitoring, and maintenance schedules.",
+      "how_it_solves": "Biohackers with implants need to track healing, functionality, and maintenance. There's no dedicated tool — most use scattered notes.",
+      "feature_set": "• Modification/implant inventory\n• Healing progress tracker\n• Complication monitoring log\n• Maintenance schedule reminders\n• Doctor/provider contact book",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — health tracker variant. Niche audience but growing. The healing progress tracker is the key feature."
+    }
+  },
+  {
+    "pp_id": "2acd1154-2597-40ad-a975-19e5726e0e6a",
+    "ideation": {
+      "app_idea": "ProfileCraft — dating app profile builder with prompts and photo selection guide",
+      "what_it_does": "Step-by-step guide to building an engaging dating profile: prompt response generator, photo selection criteria, bio writing templates, and profile review checklist.",
+      "how_it_solves": "People write boring profiles because they don't know what works. This provides templates and examples that showcase personality instead of generic statements.",
+      "feature_set": "• Profile writing prompts by platform\n• Photo selection guide and ranking\n• Bio templates by personality type\n• Conversation starter suggestions\n• Profile audit checklist",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — guided builder/quiz. The profile audit checklist is immediately actionable. All pre-loaded content."
+    }
+  },
+  {
+    "pp_id": "33163537-550e-4988-8c59-dd0d62e95676",
+    "ideation": {
+      "app_idea": "GapBridge — career re-entry planner for stay-at-home parents",
+      "what_it_does": "Helps SAHPs prepare for career re-entry: skills inventory, gap explanation templates, resume rebuilder, upskilling recommendations, and confidence-building exercises.",
+      "how_it_solves": "SAHPs fear re-entering the workforce because they can't articulate their skills. This reframes parenting experience as transferable skills and provides a concrete re-entry plan.",
+      "feature_set": "• Transferable skills identifier\n• Resume gap explanation templates\n• Upskilling recommendation engine\n• Interview prep for returners\n• Confidence building exercises",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — guided planner with templates. Pre-loaded content. The skills reframing exercise is the 'aha' moment."
+    }
+  },
+  {
+    "pp_id": "a7ba725e-ac71-4672-84d0-6a726b63e84a",
+    "ideation": {
+      "app_idea": "CarFreeCalc — car-free lifestyle savings and time calculator",
+      "what_it_does": "Calculate the true cost of car ownership vs. alternatives (biking, transit, e-bike, car-share) and show annual savings, health benefits, and environmental impact.",
+      "how_it_solves": "People don't realize how much cars actually cost when you add insurance, maintenance, parking, and depreciation. This makes the financial case for going car-free or car-light.",
+      "feature_set": "• True car cost calculator (all expenses)\n• Alternative transport cost comparison\n• Annual savings projector\n• Health benefit estimator (calories burned)\n• CO2 reduction calculator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator. The r/fuckcars community would love sharing these numbers. Simple math, high emotional impact."
+    }
+  },
+  {
+    "pp_id": "0c1689a7-11a0-41f1-8fea-3627fc2ffd0f",
+    "ideation": {
+      "app_idea": "BulkTimer — bulk fermentation calculator with temperature and time variables",
+      "what_it_does": "Input your dough temperature, starter percentage, and desired sourness level — get an optimized bulk fermentation schedule with timing windows and visual readiness cues.",
+      "how_it_solves": "Bulk fermentation is the #1 failure point in sourdough. This calculates timing based on your specific conditions instead of following generic recipe times.",
+      "feature_set": "• Temperature-based fermentation calculator\n• Starter percentage adjuster\n• Visual readiness guide\n• Ambient temp logger\n• Batch outcome tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — specialized calculator. Sourdough bakers check fermentation timing constantly. Simple formula, huge practical value."
+    }
+  },
+  {
+    "pp_id": "b8f3c75b-2870-4fed-9941-d2fbd3c2d4b7",
+    "ideation": {
+      "app_idea": "LoanNav — student loan repayment plan comparison calculator post-SAVE collapse",
+      "what_it_does": "Compare all current IDR plans (IBR, PAYE, ICR) side-by-side with your specific income, family size, and loan balance. Shows monthly payments, total paid, and forgiveness timelines.",
+      "how_it_solves": "After SAVE collapsed, borrowers don't know which plan to switch to. This calculates the real cost of each option so they can make an informed choice.",
+      "feature_set": "• IDR plan comparison calculator\n• Monthly payment estimator by plan\n• Total cost over loan life\n• Forgiveness timeline projector\n• Plan switch impact analysis",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator. Timely (SAVE collapse is current news). The comparison format makes a complex topic accessible."
+    }
+  },
+  {
+    "pp_id": "47dea11c-08e2-419c-a092-5562d19164ad",
+    "ideation": {
+      "app_idea": "KidPlan — age-appropriate activity idea generator for stay-at-home parents",
+      "what_it_does": "Input your child's age and available materials, get curated activity suggestions. Filters by indoor/outdoor, prep time, mess level, and developmental benefits.",
+      "how_it_solves": "SAHPs run out of activity ideas daily. This provides an endless supply filtered by practical constraints so parents spend less time planning and more time playing.",
+      "feature_set": "• Activity generator by age group\n• Filter: indoor/outdoor, prep time, mess level\n• Materials needed checklist\n• Developmental benefit tags\n• Favorites and activity log",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — content generator/filter tool. Pre-loaded activity database. The filtering by practical constraints is the killer feature."
+    }
+  },
+  {
+    "pp_id": "6fe5dacd-3bec-4540-b9bf-d088e1467998",
+    "ideation": {
+      "app_idea": "BeanVault — all-in-one coffee management app (beans, brews, gear, and preferences)",
+      "what_it_does": "Unified coffee tracking: bean inventory with roast dates, brew recipes per method, gear maintenance log, and taste preference profile that helps discover new beans you'll love.",
+      "how_it_solves": "Coffee people use 3-4 separate tools for beans, brewing, and gear. This consolidates everything and connects the dots — 'you liked this light roast, try these similar ones.'",
+      "feature_set": "• Bean inventory with freshness tracking\n• Multi-method brew recipe log\n• Gear maintenance reminders\n• Taste preference profiler\n• Coffee discovery suggestions",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — multi-tracker. The preference profiler is ambitious but a simple rating system works. The all-in-one angle is the differentiator."
+    }
+  },
+  {
+    "pp_id": "9dc52765-7159-4d90-b797-2dbf3bae13f9",
+    "ideation": {
+      "app_idea": "QuickFit — effective 20-minute workout generator for time-constrained women",
+      "what_it_does": "Generates quick, effective workouts based on available time (15-30 min), equipment, and fitness goals. Includes progression tracking and deload week guidance.",
+      "how_it_solves": "Women skip workouts because they think they need 60 minutes. This proves that 20 focused minutes is enough and removes the planning barrier entirely.",
+      "feature_set": "• Workout generator by time/equipment\n• Exercise library with form cues\n• Progressive overload tracker\n• Deload week scheduler\n• Workout history and streaks",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — workout generator/tracker. Simple logic (randomized from curated exercises). Women's fitness is underserved."
+    }
+  },
+  {
+    "pp_id": "34c27e31-35fc-4f66-83f4-627ef01da6f4",
+    "ideation": {
+      "app_idea": "SleepReset Meno — menopause sleep disruption tracker and intervention log",
+      "what_it_does": "Track sleep quality alongside menopause symptoms (hot flashes, night sweats, anxiety), HRT adjustments, and sleep hygiene interventions to find what actually helps.",
+      "how_it_solves": "Menopausal women try everything for better sleep but can't tell what works because they change multiple things at once. Structured tracking reveals the actual solutions.",
+      "feature_set": "• Sleep quality rating with symptom log\n• Hot flash/night sweat frequency tracker\n• Intervention effectiveness tracker\n• Sleep hygiene checklist\n• Doctor-ready sleep report",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — sleep tracker variant with menopause focus. The symptom correlation is simple but powerful."
+    }
+  },
+  {
+    "pp_id": "26045d48-ff91-4586-aa54-9ac981222777",
+    "ideation": {
+      "app_idea": "CoffeeOS — unified coffee app covering brewing, bean tracking, equipment, and tasting",
+      "what_it_does": "A single app for the complete coffee journey: track beans from purchase to last cup, log brews, maintain equipment, and build your palate with structured tasting notes.",
+      "how_it_solves": "Coffee tools are fragmented — one for brewing, another for beans, another for gear. This connects the full workflow in one place.",
+      "feature_set": "• Bean tracker with freshness alerts\n• Brew recipe library by method\n• Equipment maintenance log\n• Structured tasting notes\n• Cost per cup calculator",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — comprehensive tracker. The cost-per-cup calculator is the surprising hook. Slightly complex but each module is simple."
+    }
+  },
+  {
+    "pp_id": "8cdd207b-3454-4879-949e-6821e7c96032",
+    "ideation": {
+      "app_idea": "GearUp — camping gear upgrade priority calculator with experience-based recommendations",
+      "what_it_does": "Input your current gear and camping style — get a prioritized upgrade list based on comfort/weight impact per dollar. Stops you from buying the wrong thing first.",
+      "how_it_solves": "Campers upgrade gear randomly instead of strategically. This shows that a $200 sleeping pad upgrade matters more than a $400 tent upgrade for comfort.",
+      "feature_set": "• Current gear inventory\n• Upgrade priority ranker (impact/$)\n• Gear comparison tool\n• Weight savings calculator\n• Budget planner for upgrades",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — calculator/ranker tool. The prioritized upgrade list is a novel concept. Pre-loaded gear categories."
+    }
+  },
+  {
+    "pp_id": "13bdefb0-e773-4b2e-a694-ef03d4f63e18",
+    "ideation": {
+      "app_idea": "MenoTrack — comprehensive menopause symptom and HRT dose adjustment tracker",
+      "what_it_does": "Track all menopause symptoms daily, log HRT dose changes, and see how adjustments affect symptoms over weeks. Generates reports to show doctors the full picture.",
+      "how_it_solves": "Women adjust HRT without tracking results, so they can't tell if changes helped. This provides clear before/after data for informed dose discussions with doctors.",
+      "feature_set": "• Daily symptom check-in (hot flashes, mood, sleep, etc.)\n• HRT dose change log\n• Symptom trend graphs\n• Dose adjustment impact analysis\n• Doctor appointment report generator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — symptom tracker with HRT focus. The doctor report generator is the killer feature. All local data."
+    }
+  },
+  {
+    "pp_id": "278219ea-b498-46dc-bd2a-aa76ae757de7",
+    "ideation": {
+      "app_idea": "RenoRegret — pre-renovation decision checklist with crowd-sourced regret data",
+      "what_it_does": "Before starting a renovation, go through a structured decision checklist covering common regret areas. Includes lessons from others' regrets organized by project type.",
+      "how_it_solves": "Homeowners rush into renovations and regret decisions they can't undo. This forces a methodical review of common pitfalls before money is spent.",
+      "feature_set": "• Room-by-room renovation checklist\n• Common regret database by project type\n• Contractor comparison scorecard\n• Budget vs. actual tracker\n• Decision journal with photos",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — checklist/planner tool. Pre-loaded content from Reddit regret threads makes it immediately useful."
+    }
+  },
+  {
+    "pp_id": "aedfe993-a479-436f-a282-8375b8972e89",
+    "ideation": {
+      "app_idea": "K9Train — dog training progress tracker with reactive dog management protocols",
+      "what_it_does": "Track training sessions, behavior triggers, and progress for reactive dogs. Includes desensitization protocols, threshold distance logging, and vet behaviorist prep tools.",
+      "how_it_solves": "Reactive dog owners feel hopeless because progress is invisible day-to-day. This shows cumulative improvement and provides structured protocols to follow.",
+      "feature_set": "• Training session logger\n• Trigger and threshold tracker\n• Desensitization protocol templates\n• Progress timeline with milestones\n• Vet behaviorist appointment prep",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — behavior tracker. Reactive dog owners are desperate for structured help. The progress visualization is the key value."
+    }
+  },
+  {
+    "pp_id": "f3e25b77-b6b6-47ed-af95-16f493ceac6e",
+    "ideation": {
+      "app_idea": "FretBoard — music notation learning path generator for self-taught guitarists",
+      "what_it_does": "Progressive music theory lessons starting from 'I know nothing about notation' to reading sheet music. Includes guitar-specific tab-to-notation translation exercises.",
+      "how_it_solves": "Guitarists avoid notation because it seems overwhelming. This breaks it into bite-sized daily lessons that connect notation to the tab they already know.",
+      "feature_set": "• Progressive notation lessons\n• Tab-to-notation translator\n• Daily practice exercises\n• Sight reading trainer\n• Theory concept reference",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — educational app with progressive curriculum. Pre-loaded lessons. The tab-to-notation bridge is the clever hook."
+    }
+  },
+  {
+    "pp_id": "721dd103-70b8-42f7-bea3-c8717a8fa6d0",
+    "ideation": {
+      "app_idea": "OneSalary — single-income household budget planner and financial safety net builder",
+      "what_it_does": "Budget planner designed specifically for single-income families: tracks essential vs. discretionary spending, builds emergency fund targets, and plans for the SAHP's financial security.",
+      "how_it_solves": "Standard budget tools don't address single-income family dynamics (one earner, one SAHP with no income history). This focuses on the unique financial vulnerabilities.",
+      "feature_set": "• Single-income budget template\n• Emergency fund builder with milestones\n• SAHP financial safety checklist\n• Insurance coverage analyzer\n• Return-to-work financial planning",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — budget planner with specific templates. The SAHP safety checklist addresses a real fear. Simple calculations."
+    }
+  },
+  {
+    "pp_id": "c96cf2ce-9da9-46ee-8b28-71788aab68ed",
+    "ideation": {
+      "app_idea": "CheckDetox — portfolio checking habit tracker and market anxiety reducer",
+      "what_it_does": "Tracks how often you check your portfolio, shows the correlation between checking frequency and anxiety, and provides CBT-based exercises to break the compulsive checking habit.",
+      "how_it_solves": "Obsessive portfolio checking increases anxiety without improving returns. This makes the behavior visible and provides alternatives when the urge strikes.",
+      "feature_set": "• Portfolio check frequency logger\n• Anxiety vs. checking correlation chart\n• CBT urge-surfing exercises\n• Scheduled check-in times (reduce gradually)\n• Market perspective reminders",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — behavior tracker with CBT tools. Timely during market volatility. The habit awareness alone is therapeutic."
+    }
+  },
+  {
+    "pp_id": "6ddcfb3a-f382-45cb-b46d-83598978e250",
+    "ideation": {
+      "app_idea": "ThriftFlip — thrift find value estimator and profit tracker for resellers",
+      "what_it_does": "Log thrift finds with purchase price, estimated market value, and resale outcome. Tracks your thrifting ROI and identifies your most profitable categories.",
+      "how_it_solves": "Thrifters buy impulsively without tracking returns. This adds financial clarity and helps focus on high-value finds.",
+      "feature_set": "• Item logging with photo and price\n• Market value estimator by category\n• Resale profit tracker\n• Best categories analysis\n• Monthly thrifting ROI dashboard",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — expense/profit tracker. Simple data entry, powerful for the thrifting community."
+    }
+  },
+  {
+    "pp_id": "74f12d78-fb5d-4fef-8f58-568f4905998d",
+    "ideation": {
+      "app_idea": "KidCal — children's activity schedule manager and overscheduling detector",
+      "what_it_does": "Track all children's activities with time commitments, costs, and stress levels. Flags overscheduling and helps families prioritize activities that align with the child's interests.",
+      "how_it_solves": "Parents don't realize they're overscheduling until everyone is burned out. This makes the total time/cost/stress visible so families can make intentional choices.",
+      "feature_set": "• Activity schedule with time tracking\n• Per-child activity load visualizer\n• Cost calculator across all activities\n• Overscheduling warning system\n• Priority ranking tool",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — scheduler/calculator. The overscheduling visualizer is the 'oh wow' feature. Simple data, big insight."
+    }
+  },
+  {
+    "pp_id": "8331ff26-4e15-4be6-b86f-2722c3999ba6",
+    "ideation": {
+      "app_idea": "FlareLog — fibromyalgia symptom and flare tracker with trigger pattern detection",
+      "what_it_does": "Track daily symptoms, pain levels, and potential triggers. Over time identifies personal flare patterns so patients can anticipate and prevent episodes.",
+      "how_it_solves": "Fibro patients can't predict flares because they don't systematically track triggers. This reveals patterns like 'weather changes + poor sleep = flare in 2 days.'",
+      "feature_set": "• Daily symptom severity tracker\n• Trigger logging (weather, stress, activity, sleep)\n• Flare pattern detection\n• Medication effectiveness log\n• Doctor appointment summary generator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — symptom tracker with pattern analysis. Chronic illness trackers have proven demand. Simple data, life-improving insights."
+    }
+  },
+  {
+    "pp_id": "c70c6642-4add-4ced-86f1-6138486fd180",
+    "ideation": {
+      "app_idea": "ACA Cliff Calc — early retirement income planner to maximize ACA subsidies",
+      "what_it_does": "Models how much income you can take in early retirement while staying below the ACA subsidy cliff. Calculates optimal Roth conversions and capital gains harvesting.",
+      "how_it_solves": "Going $1 over the ACA cliff can cost $10K+ in lost subsidies. This calculator shows exactly how much room you have and which income sources to tap.",
+      "feature_set": "• ACA subsidy cliff calculator\n• MAGI income planner\n• Roth conversion optimizer\n• Capital gains harvesting guide\n• Year-by-year income strategy planner",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — financial calculator. The ACA cliff is a very specific, high-stakes math problem. Perfectly suited for a focused tool."
+    }
+  },
+  {
+    "pp_id": "8de78d9b-3bb7-42f7-894f-5c05c0fb194e",
+    "ideation": {
+      "app_idea": "StealthFIRE — guide to keeping FIRE plans private at work while staying motivated",
+      "what_it_does": "Provides strategies for maintaining career ambition appearance while pursuing FIRE. Includes conversation deflection scripts, motivation tracking, and countdown tools.",
+      "how_it_solves": "Employers penalize workers who seem 'checked out.' This helps FIRE pursuers stay motivated and discreet while counting down to freedom.",
+      "feature_set": "• FIRE countdown timer\n• Conversation deflection scripts\n• Career maintenance checklist\n• Motivation journal\n• Milestone celebration tracker",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — planner/journal. The deflection scripts are unique and practical. The countdown timer is emotionally satisfying."
+    }
+  },
+  {
+    "pp_id": "db5ed0ff-62d4-4fc3-b2b5-2bc6c971ae38",
+    "ideation": {
+      "app_idea": "DayFlow — daily routine builder and maintenance tool for stay-at-home parents",
+      "what_it_does": "Creates flexible daily routines (not rigid schedules) with blocks for meals, naps, activities, and rest. Adapts when things go sideways and helps SAHPs maintain structure.",
+      "how_it_solves": "SAHPs struggle between rigid schedules that fail and no structure at all. This flexible routine approach provides enough structure to stay sane without constant pressure.",
+      "feature_set": "• Flexible routine block builder\n• Age-appropriate schedule templates\n• 'Things went sideways' recovery mode\n• Routine adherence tracker\n• Self-care block reminders",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — schedule/routine builder. The 'recovery mode' for bad days is the differentiator. Pre-loaded templates by age."
+    }
+  },
+  {
+    "pp_id": "7f3e6387-a81b-4e36-9025-b36ea409e749",
+    "ideation": {
+      "app_idea": "TrainerMatch — qualified dog trainer finder with specialty and method filters",
+      "what_it_does": "Search for dog trainers filtered by specialty (reactive dogs, aggression, separation anxiety), training method (positive reinforcement, balanced), location, and verified credentials.",
+      "how_it_solves": "Finding a qualified trainer for a reactive dog is a nightmare — most trainers aren't equipped. This filters by the specific expertise needed.",
+      "feature_set": "• Trainer search by specialty\n• Training method filter\n• Credential verification indicators\n• Client review system\n• Consultation prep checklist",
+      "wabi_fit": 2,
+      "analysis": "Poor Wabi fit — needs a trainer database, location data, and reviews. Better as a full directory service, not a micro-app."
+    }
+  },
+  {
+    "pp_id": "dfb3fac3-9e86-4791-a390-56a9e9aa39ee",
+    "ideation": {
+      "app_idea": "CatCheck — cat health symptom checker and vet visit decision tool",
+      "what_it_does": "Input cat symptoms and get guidance on urgency level (emergency, vet soon, monitor at home). Includes a home health check routine and symptom progression tracker.",
+      "how_it_solves": "Cat owners panic or wait too long because they can't assess symptom severity. This triage tool helps them make better decisions about when to seek vet care.",
+      "feature_set": "• Symptom urgency checker\n• Home health check routine\n• Symptom progression tracker\n• Common cat illness reference\n• Vet visit prep notes",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — diagnostic quiz/reference. Pre-loaded symptom database. The urgency triage is the killer feature."
+    }
+  },
+  {
+    "pp_id": "744c9997-d9c1-4607-adb1-4acd54f8a0c8",
+    "ideation": {
+      "app_idea": "ThriftID — thrift store find identifier with quick value lookup and photo logging",
+      "what_it_does": "Document thrift finds with photos, notes, and quick value estimates. Builds a personal treasure-hunting log and helps identify valuable items by brand, era, and category.",
+      "how_it_solves": "Thrifters miss valuable items because they can't quickly assess worth in-store. This builds pattern recognition over time and creates a satisfying collection log.",
+      "feature_set": "• Photo-based find logger\n• Brand/era identification guide\n• Value range estimator by category\n• Personal treasure archive\n• Most valuable finds leaderboard",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — photo logger with reference data. The identification guide can be pre-loaded. Fun and practical."
+    }
+  },
+  {
+    "pp_id": "18d2127c-c9ea-4c5c-b4a8-86c4dbdba7dd",
+    "ideation": {
+      "app_idea": "CanSafe — canning recipe safety validator and processing time calculator",
+      "what_it_does": "Check if a canning recipe is safe by cross-referencing USDA guidelines, calculate correct processing times by altitude, and track your canning inventory with best-by dates.",
+      "how_it_solves": "Food safety anxiety stops people from canning, and bad recipes cause real danger. This validates recipes against trusted sources so canners can preserve with confidence.",
+      "feature_set": "• Recipe safety validator (USDA cross-reference)\n• Altitude-adjusted processing time calculator\n• Canning inventory with best-by dates\n• Trusted recipe library\n• Equipment checklist",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — safety checker/calculator. The altitude adjustment and safety validation are simple rules with huge peace-of-mind value."
+    }
+  }
+]

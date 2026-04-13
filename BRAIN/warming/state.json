@@ -5,7 +5,7 @@
       "user_id": "k1bc4rcq",
       "username": "qwsrbaeoyp",
       "start_date": "2026-04-09",
-      "current_phase": 1,
+      "current_phase": 2,
       "subreddits": [
         "mildlyinteresting",
         "MealPreppingParents",
@@ -38,11 +38,77 @@
           "comments": 0,
           "saves": 0,
           "success": true
+        },
+        {
+          "date": "2026-04-10T09:06:19.823347",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 8,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-10T19:06:06.692905",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 8,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T09:05:58.834492",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 8,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T19:05:41.209891",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 9,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T09:05:31.943332",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 12,
+          "upvotes": 10,
+          "downvotes": 0,
+          "comments": 2,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T19:06:07.362915",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 12,
+          "upvotes": 9,
+          "downvotes": 0,
+          "comments": 2,
+          "saves": 0,
+          "success": true
         }
       ],
-      "total_upvotes": 12,
-      "total_comments": 0,
-      "last_session": "2026-04-09T13:44:25.597000",
+      "total_upvotes": 57,
+      "total_comments": 4,
+      "last_session": "2026-04-12T19:06:07.362910",
       "status": "warming"
     },
     "ndbmzlayar": {
@@ -50,7 +116,7 @@
       "user_id": "k1bc55n0",
       "username": "ndbmzlayar",
       "start_date": "2026-04-09",
-      "current_phase": 1,
+      "current_phase": 2,
       "subreddits": [
         "AskReddit",
         "seniorkitties",
@@ -83,11 +149,77 @@
           "comments": 0,
           "saves": 0,
           "success": true
+        },
+        {
+          "date": "2026-04-10T09:12:45.271679",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 8,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-10T19:12:23.041220",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 9,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T09:12:09.533745",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 8,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T19:11:52.213414",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 7,
+          "upvotes": 5,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T09:11:12.000933",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 10,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 2,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T19:12:22.536225",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 12,
+          "upvotes": 9,
+          "downvotes": 0,
+          "comments": 2,
+          "saves": 0,
+          "success": true
         }
       ],
-      "total_upvotes": 13,
-      "total_comments": 0,
-      "last_session": "2026-04-09T21:00:07.665822",
+      "total_upvotes": 54,
+      "total_comments": 4,
+      "last_session": "2026-04-12T19:12:22.536221",
       "status": "warming"
     },
     "lhdqpdftdt": {
@@ -95,7 +227,7 @@
       "user_id": "k1bc5662",
       "username": "lhdqpdftdt",
       "start_date": "2026-04-09",
-      "current_phase": 1,
+      "current_phase": 2,
       "subreddits": [
         "AskReddit",
         "homeowners",
@@ -128,12 +260,66 @@
           "comments": 0,
           "saves": 0,
           "success": true
+        },
+        {
+          "date": "2026-04-10T09:24:42.652478",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 11,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-10T19:31:18.306281",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 11,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T09:35:54.210638",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 10,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T19:20:30.698808",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 6,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T09:22:26.940992",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 9,
+          "upvotes": 8,
+          "comments": 2,
+          "saves": 0,
+          "success": true
         }
       ],
-      "total_upvotes": 13,
-      "total_comments": 0,
-      "last_session": "2026-04-09T21:06:30.752083",
-      "status": "warming"
+      "total_upvotes": 49,
+      "total_comments": 2,
+      "last_session": "2026-04-12T09:22:26.940988",
+      "status": "shadowbanned"
     },
     "vglmtlyrdm": {
       "serial": 37,
@@ -173,11 +359,55 @@
           "comments": 0,
           "saves": 0,
           "success": true
+        },
+        {
+          "date": "2026-04-10T09:31:24.426333",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 9,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-10T19:31:18.306515",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 9,
+          "upvotes": 5,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T09:35:54.210641",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 12,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T19:27:21.624845",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 10,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
         }
       ],
-      "total_upvotes": 15,
+      "total_upvotes": 42,
       "total_comments": 0,
-      "last_session": "2026-04-09T21:13:10.013068",
+      "last_session": "2026-04-11T19:27:21.624840",
       "status": "warming"
     },
     "cuvuvcljco": {
@@ -185,7 +415,7 @@
       "user_id": "k1bc5757",
       "username": "cuvuvcljco",
       "start_date": "2026-04-09",
-      "current_phase": 1,
+      "current_phase": 2,
       "subreddits": [
         "selfimprovement",
         "todayilearned",
@@ -217,12 +447,66 @@
           "comments": 0,
           "saves": 0,
           "success": true
+        },
+        {
+          "date": "2026-04-10T09:39:59.935929",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 12,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-10T19:36:51.975345",
+          "phase": 1,
+          "day": 2,
+          "posts_read": 7,
+          "upvotes": 7,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T09:35:54.210643",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 7,
+          "upvotes": 6,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-11T19:37:22.691836",
+          "phase": 1,
+          "day": 3,
+          "posts_read": 12,
+          "upvotes": 8,
+          "downvotes": 0,
+          "comments": 0,
+          "saves": 0,
+          "success": true
+        },
+        {
+          "date": "2026-04-12T09:33:20.641070",
+          "phase": 2,
+          "day": 4,
+          "posts_read": 9,
+          "upvotes": 8,
+          "comments": 2,
+          "saves": 0,
+          "success": true
         }
       ],
-      "total_upvotes": 12,
-      "total_comments": 0,
-      "last_session": "2026-04-09T21:19:39.870193",
-      "status": "warming"
+      "total_upvotes": 48,
+      "total_comments": 2,
+      "last_session": "2026-04-12T09:33:20.641067",
+      "status": "shadowbanned"
     }
   }
 }

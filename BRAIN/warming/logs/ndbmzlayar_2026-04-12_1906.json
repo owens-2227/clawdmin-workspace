@@ -1,0 +1,26 @@
+{
+  "username": "ndbmzlayar",
+  "phase": 2,
+  "timestamp": "2026-04-12T19:06:47.850976",
+  "subreddits_joined": [],
+  "posts_read": 12,
+  "upvotes": 9,
+  "downvotes": 0,
+  "comments_posted": [
+    {
+      "subreddit": "iosapps",
+      "post": "[iOS] [IAP: Lifetime $7.99 ->FREE] Calculator where a typo d",
+      "text": "this changed my perspective"
+    },
+    {
+      "subreddit": "AskReddit",
+      "post": "If money wasn't an issue, what would you be doing with your ",
+      "text": "same here"
+    }
+  ],
+  "saves": 0,
+  "errors": [],
+  "success": true,
+  "shadowban_check_pre": "error_http_403",
+  "shadowban_check_post": "error_http_403"
+}

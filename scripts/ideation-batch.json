@@ -1,0 +1,702 @@
+[
+  {
+    "page_id": "33e66005-ab52-81b3-9588-e7e1a4aa9492",
+    "title": "Cat separation anxiety identification and management",
+    "score": 585,
+    "sub": "r/cats",
+    "ideation": {
+      "app_idea": "SepAnx Cat — feline separation anxiety symptom tracker and management plan builder",
+      "what_it_does": "Helps cat owners log and identify signs of separation anxiety (excessive vocalization, destructive behavior, inappropriate elimination) and tracks the effectiveness of behavioral interventions over time.",
+      "how_it_solves": "Most owners don't recognize separation anxiety symptoms for years. This app provides a symptom checklist, daily behavior logging, and correlates interventions (Feliway, enrichment, gradual desensitization) with behavioral changes.",
+      "feature_set": "• Daily behavior symptom checklist\n• Intervention tracking (meds, enrichment, routines)\n• Before/after behavior trend graphs\n• Vet visit summary generator\n• Separation training schedule builder",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple tracker with checklists and local data. No backend needed, just structured logging and visualization."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8111-bc11-ca80de25609b",
+    "title": "Plant care knowledge gap: golden pothos care",
+    "score": 481,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "PlantWise — houseplant care guide with species-specific pruning and propagation instructions",
+      "what_it_does": "Provides step-by-step care guides for common houseplants, including when/how to prune, propagate, repot, and troubleshoot common issues like leggy growth or yellowing leaves.",
+      "how_it_solves": "Plant owners repeatedly ask the same questions about basic care. This centralizes species-specific guidance with visual how-tos so they stop killing their pothos through over/under-care.",
+      "feature_set": "• Plant species database with care profiles\n• Pruning & propagation step-by-step guides\n• Seasonal care reminders\n• Photo-based issue diagnosis\n• My Plants collection tracker",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit as a reference guide app. Species database could be pre-loaded. Photo diagnosis is stretch but text-based troubleshooter works well."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8143-b147-c2c7e7e22898",
+    "title": "Recurring cancer in rescue cats requiring multiple expensive surgeries",
+    "score": 322,
+    "sub": "r/cats",
+    "ideation": {
+      "app_idea": "PetCare Budget — veterinary expense tracker and treatment decision support tool",
+      "what_it_does": "Tracks vet expenses across multiple pets, logs treatment history, and helps owners weigh cost vs. quality-of-life decisions for chronic/recurring conditions like cancer.",
+      "how_it_solves": "Owners of chronically ill pets lose track of cumulative costs and treatment timelines. This organizes the financial and medical picture so they can make informed decisions about ongoing care.",
+      "feature_set": "• Treatment timeline with costs\n• Cumulative expense dashboard\n• Quality-of-life daily scoring\n• Vet appointment notes and reminders\n• Insurance claim tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — expense tracker with structured data entry. All local, no external APIs needed. Highly practical for pet owners facing tough decisions."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8186-9c5f-c424ae7fabdf",
+    "title": "No smart weather alerts to protect outdoor/patio plants from frost",
+    "score": 313,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "FrostGuard — plant cold-sensitivity alert system with action checklists",
+      "what_it_does": "Users input their plant inventory with cold tolerance thresholds. The app checks weather forecasts and alerts when temps will drop below safe levels, with specific action steps for each plant.",
+      "how_it_solves": "People lose plants to unexpected frost because they don't check weather daily. This automates the monitoring and tells them exactly which plants to bring inside or cover.",
+      "feature_set": "• Plant inventory with cold tolerance settings\n• Weather-linked frost alerts\n• Per-plant action checklist (cover, move, water)\n• Frost event log\n• Seasonal hardiness zone reference",
+      "wabi_fit": 3,
+      "analysis": "Moderate Wabi fit — the weather API integration is the challenge. Could work as a manual check tool where user inputs forecast, but auto-alerts need backend."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81fe-a88b-e127a2dd76fc",
+    "title": "Cat owners miss anxiety signs for years — no behavioral tracking tools",
+    "score": 301,
+    "sub": "r/cats",
+    "ideation": {
+      "app_idea": "CatMood — daily feline behavior journal with anxiety pattern detection",
+      "what_it_does": "A simple daily log where owners record cat behaviors (hiding, aggression, litter issues, appetite). Over time it highlights patterns and flags potential anxiety or health concerns.",
+      "how_it_solves": "Owners don't connect scattered symptoms to anxiety until a vet points it out years later. Daily logging with pattern analysis catches issues months earlier.",
+      "feature_set": "• Quick daily behavior check-in (30 seconds)\n• Behavior pattern timeline\n• Anxiety risk score based on logged symptoms\n• Trigger correlation (guests, schedule changes)\n• Vet-ready behavior report export",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple daily check-in tracker. All local data, no APIs. The pattern detection is just basic frequency analysis."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8139-a67c-eb31328a72dc",
+    "title": "No one talks about the pain of seeing your parents aging",
+    "score": 183,
+    "sub": "r/Adulting",
+    "ideation": {
+      "app_idea": "ParentCare Journal — caregiver emotional processing and practical planning tool",
+      "what_it_does": "Combines a private journaling space for processing emotions about aging parents with practical checklists for care planning (legal docs, medical info, financial planning).",
+      "how_it_solves": "Adult children feel isolated in this experience and overwhelmed by both the emotional and practical demands. This gives them a structured outlet and actionable planning framework.",
+      "feature_set": "• Guided journaling prompts for caregiver emotions\n• Parent health/medical info organizer\n• Legal document checklist (POA, will, advance directive)\n• Important contacts directory\n• Self-care reminders for the caregiver",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — journaling + checklists are core micro-app territory. Deeply personal, all local storage. High emotional value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8106-8206-cd440132b9aa",
+    "title": "Share your Not-AI projects",
+    "score": 180,
+    "sub": "r/SideProject",
+    "ideation": {
+      "app_idea": "ProjectShowcase — side project portfolio builder with tech stack tags",
+      "what_it_does": "Helps indie developers create a shareable portfolio of their side projects with descriptions, tech stacks, links, and progress updates. Emphasizes human-built, non-AI projects.",
+      "how_it_solves": "Developers want to showcase their work but building a portfolio site is yet another project. This provides a quick, structured way to document and share what they've built.",
+      "feature_set": "• Project cards with description, stack, links\n• Progress status tracking (idea → shipped)\n• Shareable portfolio page\n• Tech stack tagging\n• Build log / changelog entries",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — structured content builder. Could be a simple card-based portfolio. The shareable page aspect maps well to Wabi's publishing model."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8160-8461-e3969ab85278",
+    "title": "Batch Cooking and Meal Prep Planner for Families",
+    "score": 144,
+    "sub": "r/cooking",
+    "ideation": {
+      "app_idea": "PrepDay — batch cooking planner with scaling, timelines, and storage labels",
+      "what_it_does": "Helps families plan batch cooking sessions: select recipes, auto-generate scaled shopping lists, create cooking day timelines, and print freezer labels with dates and reheating instructions.",
+      "how_it_solves": "Families waste food and time because batch cooking is hard to plan. This organizes the entire flow from recipe selection to storage so nothing gets forgotten or wasted.",
+      "feature_set": "• Recipe selector with serving multiplier\n• Consolidated shopping list generator\n• Cooking day timeline/schedule\n• Freezer label generator with reheat instructions\n• Meal rotation calendar",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — calculator/planner with structured inputs. No external data needed. Families would use this weekly."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8146-acc7-c0f61586cd97",
+    "title": "Plant care tracking/reminder system needed",
+    "score": 133,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "WaterWhen — per-plant watering and care schedule tracker with reminders",
+      "what_it_does": "Users add their plants with species and location. The app generates care schedules and sends reminders for watering, fertilizing, and repotting based on each plant's needs.",
+      "how_it_solves": "People with 20+ plants can't remember individual watering schedules. This eliminates guesswork by tracking each plant's last-watered date and next-due schedule.",
+      "feature_set": "• Plant inventory with photos and locations\n• Custom watering/feeding schedules\n• Overdue plant alerts\n• Care history log per plant\n• Seasonal schedule adjustments",
+      "wabi_fit": 5,
+      "analysis": "Ideal Wabi fit — simple tracker/reminder. Hugely requested feature in plant communities. All local data."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8122-8da3-c2846a2ebbff",
+    "title": "Plant care knowledge gap: Pothos pruning help",
+    "score": 133,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "PruneRight — interactive pruning guide for common houseplants",
+      "what_it_does": "Step-by-step pruning guides with diagrams showing where to cut, when to prune, and what to do with cuttings. Covers the top 50 most popular houseplants.",
+      "how_it_solves": "New plant owners are terrified of cutting their plants wrong. Visual guides with clear cut-point indicators remove the fear and guesswork from pruning.",
+      "feature_set": "• Species-specific pruning guides\n• Visual cut-point diagrams\n• Seasonal pruning calendar\n• Propagation instructions for cuttings\n• Before/after photo journal",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit as a reference/guide app. Content can be pre-loaded. The visual diagrams are the key value-add."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8111-9f16-c7b166fd9d27",
+    "title": "WIP tracking is disorganized for fiber artists",
+    "score": 120,
+    "sub": "r/crochet",
+    "ideation": {
+      "app_idea": "StitchTrack — WIP project manager for knitters and crocheters",
+      "what_it_does": "Tracks work-in-progress fiber art projects: yarn used, pattern links, row/round counts, time spent, and deadline tracking. Includes a stash inventory for yarn management.",
+      "how_it_solves": "Fiber artists juggle multiple WIPs with no organized system. This replaces scattered notes and Ravelry with a focused, mobile-friendly project tracker.",
+      "feature_set": "• WIP project cards with photos and status\n• Row/round counter with undo\n• Yarn stash inventory\n• Pattern link storage\n• Time tracking per project",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — tracker/counter app. Niche but passionate audience. Simple data structure, all local."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-818b-967c-fa59b656dfa3",
+    "title": "Thrift haul item identification and resale value lookup tool",
+    "score": 118,
+    "sub": "r/ThriftStoreHauls",
+    "ideation": {
+      "app_idea": "ThriftFlip — thrift find logger with cost basis and resale profit tracker",
+      "what_it_does": "Log thrift store finds with purchase price, estimated resale value, and status (keep/sell/sold). Tracks your thrifting ROI over time and helps identify your most profitable categories.",
+      "how_it_solves": "Thrifters buy things impulsively without tracking what they spend vs. earn. This adds financial clarity to the hobby and helps them focus on high-value finds.",
+      "feature_set": "• Item logging with photo, price, and category\n• Resale listing tracker (platform, price, status)\n• Profit/loss dashboard\n• Best categories analysis\n• Monthly thrifting budget tracker",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — expense/profit tracker. Simple data entry, powerful for the thrifting community. No external APIs needed."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8186-8d2d-e95bf21e51be",
+    "title": "Watering schedules are hard to get right across multiple plants",
+    "score": 114,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "HydroHelper — multi-plant watering scheduler with environmental adjustments",
+      "what_it_does": "Manages watering schedules for plant collections, adjusting frequency based on season, pot size, soil type, and light conditions. Shows a daily dashboard of what needs water today.",
+      "how_it_solves": "Every plant has different water needs that change with seasons. Instead of one-size-fits-all weekly watering, this calculates per-plant schedules based on actual conditions.",
+      "feature_set": "• Per-plant watering profiles\n• Daily 'water today' dashboard\n• Seasonal auto-adjustments\n• Overwatering/underwatering risk alerts\n• Soil moisture tracking log",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — scheduler/calculator. The seasonal adjustments add intelligence. Could pair with manual moisture checks."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8163-8139-f4fa4758b22a",
+    "title": "Plant care knowledge gap: plant room organization",
+    "score": 110,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "PlantRoom — plant collection organizer with room mapping and care zones",
+      "what_it_does": "Helps plant enthusiasts organize their collection by room and light zones. Maps which plants are where, tracks growth progress, and suggests optimal placement based on light needs.",
+      "how_it_solves": "As collections grow, people lose track of what's where and which plants need what conditions. Room-based organization keeps the collection manageable.",
+      "feature_set": "• Room-by-room plant mapping\n• Light zone classification (bright, medium, low)\n• Growth progress photo journal\n• Plant swap/wishlist tracker\n• Collection statistics dashboard",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — organizer/inventory app. Room mapping is the unique angle. Photo journals add engagement."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81f9-ba20-c5bfb80cd315",
+    "title": "Stores selling plants with hot-glued plastic flowers and paint",
+    "score": 108,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "PlantScam Spotter — guide to identifying misleadingly sold houseplants",
+      "what_it_does": "A reference guide helping plant buyers identify common retail tricks: glued-on flowers, painted leaves, artificially dyed soil, and mislabeled species. Includes what to do after purchase.",
+      "how_it_solves": "New plant buyers get scammed by stores and don't know the flowers are fake until the plant starts dying. This arms them with knowledge before they buy.",
+      "feature_set": "• Visual guide to common plant retail tricks\n• Before/after glue removal instructions\n• Species identification helper\n• Store rating/review system\n• Rescue care guide for damaged plants",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit as an educational reference app. Content-driven, easy to build. The store review feature might need backend but core guide works standalone."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8115-963d-cd9fc7c134db",
+    "title": "Home Renovation Decision Regret Tracker / Pre-Reno Research Tool",
+    "score": 101,
+    "sub": "r/HomeImprovement",
+    "ideation": {
+      "app_idea": "RenoRegret — pre-renovation decision checklist with crowd-sourced regret data",
+      "what_it_does": "Before starting a renovation, users go through a structured decision checklist covering common regret areas (material choices, contractor vetting, scope creep). Includes lessons from others' regrets.",
+      "how_it_solves": "Homeowners rush into renovations and regret decisions they can't undo. This forces a methodical review of common pitfalls before money is spent.",
+      "feature_set": "• Room-by-room renovation checklist\n• Common regret database by project type\n• Contractor comparison scorecard\n• Budget vs. actual tracker\n• Decision journal with photos",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — checklist/planner tool. Pre-loaded content from Reddit regret threads makes it immediately useful. No backend needed."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-815e-908d-fc5a6ec2c3da",
+    "title": "Plant care knowledge gap — 43 thrips infested plants",
+    "score": 51,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "PestID — houseplant pest identification and treatment protocol tracker",
+      "what_it_does": "Helps plant owners identify common pests (thrips, mealybugs, spider mites, scale), select treatment protocols, and track treatment application schedules across multiple affected plants.",
+      "how_it_solves": "When pests hit a large collection, tracking which plants are treated and when becomes chaos. This organizes the battle plan and ensures consistent treatment schedules.",
+      "feature_set": "• Pest identification guide with photos\n• Treatment protocol library\n• Per-plant treatment schedule tracker\n• Quarantine zone manager\n• Treatment effectiveness log",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — reference guide + tracker combo. Pest outbreaks are time-sensitive and stressful. Organized treatment tracking is a real need."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-817f-aa90-e4bf3b87451e",
+    "title": "Misleading 'Beginner Plant' Labels — Care Difficulty Mismatch",
+    "score": 92,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "TrueDifficulty — honest plant care difficulty ratings based on real owner experience",
+      "what_it_does": "Provides realistic difficulty ratings for houseplants based on actual owner success/failure rates, not marketing labels. Includes specific care requirements and common failure points.",
+      "how_it_solves": "Stores label everything 'easy care' but fiddle leaf figs aren't beginner plants. Real difficulty ratings help new owners pick plants they'll actually keep alive.",
+      "feature_set": "• Honest difficulty ratings (1-10 scale)\n• Common failure points per species\n• 'Actually easy' starter plant recommendations\n• Care requirement comparison tool\n• Success rate tracking for your plants",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — reference/rating app. Pre-loaded species database. The comparison tool is the killer feature for new plant parents."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81f2-9090-fb48b042e1d1",
+    "title": "North-facing windows provide insufficient light for houseplants",
+    "score": 93,
+    "sub": "r/houseplants",
+    "ideation": {
+      "app_idea": "LightMatch — window orientation plant matcher with grow light calculator",
+      "what_it_does": "Users input their window orientations and the app recommends plants that will thrive in those conditions. Includes a grow light calculator for supplementing insufficient natural light.",
+      "how_it_solves": "People buy plants that need bright indirect light for north-facing rooms. This matches plants to actual available light and calculates grow light needs when natural light isn't enough.",
+      "feature_set": "• Window orientation light estimator\n• Plant recommendations by light level\n• Grow light wattage/distance calculator\n• Seasonal light variation guide\n• Light meter log (manual readings)",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — calculator/matcher tool. The grow light calculator adds practical value. Light estimations are formula-based, no API needed."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8139-9556-f3ca4a123338",
+    "title": "Managing harvest gluts and knowing what to do with excess produce",
+    "score": 95,
+    "sub": "r/vegetablegardening",
+    "ideation": {
+      "app_idea": "GlutBuster — harvest surplus recipe finder and preservation guide",
+      "what_it_does": "When your garden produces more than you can eat, this app suggests recipes, preservation methods (canning, freezing, dehydrating), and community sharing options based on what you have excess of.",
+      "how_it_solves": "Gardeners end up with 50 zucchini and no plan. This turns surplus into preserved food, meals, or community goodwill instead of compost waste.",
+      "feature_set": "• Produce surplus logger\n• Recipe suggestions by ingredient\n• Preservation method guides (canning, freezing, fermenting)\n• Harvest calendar and yield tracker\n• Share/swap board for local gardeners",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — recipe/guide app with inventory tracking. The preservation guides are high-value content. Community board needs backend."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81a2-bf98-e89a9b2633f9",
+    "title": "The library thing is real and I want to add something nobody talks about",
+    "score": 91,
+    "sub": "r/povertyfinance",
+    "ideation": {
+      "app_idea": "LibraryMax — discover everything your library card unlocks beyond books",
+      "what_it_does": "A comprehensive guide to hidden library benefits: free museum passes, tool lending, seed libraries, streaming services (Kanopy, Libby), 3D printing, co-working spaces, and more.",
+      "how_it_solves": "Most people only use 10% of what their library offers. This surfaces the hidden perks that save real money — especially valuable for people on tight budgets.",
+      "feature_set": "• Library benefit discovery checklist\n• Savings calculator (vs. paid alternatives)\n• Digital service activation guides\n• Local library program finder\n• Monthly savings tracker from library use",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — checklist/guide with calculator. Pre-loaded content, immediately useful. The savings calculator is the hook."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-812b-a3e8-f617d30981d7",
+    "title": "Personal brain fog tracking + intervention logging app",
+    "score": 88,
+    "sub": "r/Biohackers",
+    "ideation": {
+      "app_idea": "FogLog — daily brain fog tracker with intervention correlation analysis",
+      "what_it_does": "Track daily brain fog severity alongside sleep, diet, supplements, and exercise. Over time, it identifies which interventions correlate with clearer days vs. foggy ones.",
+      "how_it_solves": "People track brain fog in spreadsheets for months and can't see patterns. This automates the correlation analysis: 'sleep >7hrs = 40% less fog' without being a data scientist.",
+      "feature_set": "• Daily fog severity rating (1-10)\n• Intervention/variable logging (sleep, supplements, food)\n• Correlation dashboard\n• Weekly/monthly trend graphs\n• Experiment mode (A/B testing interventions)",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — personal tracker with simple statistics. All local data. The correlation analysis is basic math but feels like magic to users."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8173-b14d-dddb8c6d125e",
+    "title": "People throwing away perfectly good expensive items instead of donating",
+    "score": 86,
+    "sub": "r/ThriftStoreHauls",
+    "ideation": {
+      "app_idea": "DonateRight — item donation value estimator and charity matcher",
+      "what_it_does": "Helps people estimate the value of items they want to get rid of and matches them with the best donation destination (charity, Buy Nothing group, consignment, recycler).",
+      "how_it_solves": "People throw away valuable items because donating feels complicated. This simplifies the decision: what's it worth, who wants it, and how to get it there.",
+      "feature_set": "• Item value estimator by category\n• Donation destination matcher\n• Tax deduction calculator\n• Pickup scheduling guide\n• Impact tracker (items donated, value given)",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — calculator/matcher tool. Value estimation is the tricky part but category-based ranges work. Tax calculator is simple math."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81d9-912e-d1de90f92b0f",
+    "title": "Investment Fee and Performance Monitoring Alert System",
+    "score": 79,
+    "sub": "r/personalfinance",
+    "ideation": {
+      "app_idea": "FeeCheck — investment fee analyzer and performance comparison calculator",
+      "what_it_does": "Users input their investment holdings and fees. The app calculates total fee drag over time, compares performance to low-cost index alternatives, and flags overly expensive funds.",
+      "how_it_solves": "People unknowingly pay 1-2% fees that cost them hundreds of thousands over a career. This makes the hidden cost visible and shows what they'd have with cheaper alternatives.",
+      "feature_set": "• Fee calculator by fund/account\n• 10/20/30-year fee drag projection\n• Index fund comparison tool\n• Advisor fee analysis\n• Annual fee audit reminder",
+      "wabi_fit": 5,
+      "analysis": "Excellent Wabi fit — pure calculator app. The long-term projection is just compound interest math but the emotional impact is huge."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8179-8cc4-f91d0443a63a",
+    "title": "Spouse vetoing thrift store purchases over gendered clothing norms",
+    "score": 68,
+    "sub": "r/ThriftStoreHauls",
+    "ideation": {
+      "app_idea": "ThriftCase — build a visual case for thrift finds with value and style proof",
+      "what_it_does": "Document thrift finds with photos, original retail prices, and outfit pairings to share with skeptical family members. Shows the value proposition and style potential of secondhand items.",
+      "how_it_solves": "When a partner doesn't see the value of thrifting, numbers and visuals speak louder than arguments. This builds a portfolio of smart finds with clear savings data.",
+      "feature_set": "• Find documentation (photo, price, retail comparison)\n• Outfit pairing gallery\n• Cumulative savings dashboard\n• Style board builder\n• Share-ready find showcases",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — photo gallery with calculator. The social/sharing angle is the differentiator. Fun concept with practical value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8108-bcb4-c04c319ff5ba",
+    "title": "Lost Relationships Due to ADHD Time Blindness",
+    "score": 68,
+    "sub": "r/ADHD",
+    "ideation": {
+      "app_idea": "ReachOut — relationship maintenance reminder for people with ADHD time blindness",
+      "what_it_does": "Tracks important relationships and nudges users to reach out when too much time has passed. Shows how long since last contact and suggests low-friction ways to reconnect.",
+      "how_it_solves": "ADHD time blindness means months pass without contacting friends/family. This external reminder system prevents relationships from silently dying through neglect.",
+      "feature_set": "• Contact list with last-touched dates\n• Configurable check-in intervals per person\n• Low-effort reach-out suggestions\n• Relationship health dashboard\n• Quick-action buttons (text, call, send meme)",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple tracker with reminders. Addresses a deeply painful ADHD symptom. The emotional resonance is very high."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81dd-aede-d4538d5863df",
+    "title": "Cats causing household chaos - knocking things, trapping owners",
+    "score": 66,
+    "sub": "r/cats",
+    "ideation": {
+      "app_idea": "CatProof — room-by-room cat-proofing checklist and enrichment planner",
+      "what_it_does": "A checklist-based guide to cat-proofing your home room by room, plus enrichment activity suggestions to redirect destructive energy into positive play.",
+      "how_it_solves": "Cats knock things over and cause chaos because their environment isn't set up for them. Systematic cat-proofing and enrichment reduces destruction and stress for both cat and owner.",
+      "feature_set": "• Room-by-room cat-proofing checklists\n• Enrichment activity library\n• Daily play schedule planner\n• Problem behavior log with solutions\n• Cat-safe product recommendations",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — checklist/guide app. Pre-loaded content, immediately actionable. Every cat owner needs this."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-810e-b724-e2597095ee35",
+    "title": "Musician tool/knowledge need — guitar battery issues",
+    "score": 66,
+    "sub": "r/Guitar",
+    "ideation": {
+      "app_idea": "GearDoc — guitar gear maintenance scheduler and troubleshooting guide",
+      "what_it_does": "Track battery life for active pickups/pedals, string change schedules, setup intervals, and common troubleshooting steps. A digital maintenance log for guitar gear.",
+      "how_it_solves": "Guitarists forget to change batteries and strings until mid-gig. This tracks usage hours and reminds them before failure, plus provides quick fixes for common issues.",
+      "feature_set": "• Battery life tracker per device\n• String change schedule and reminders\n• Gear inventory with maintenance logs\n• Troubleshooting decision tree\n• Gig prep checklist",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — maintenance tracker. Every gigging musician needs this. Simple data, high practical value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81ef-8399-dedf04ca57a4",
+    "title": "First race training plans for women",
+    "score": 66,
+    "sub": "r/XXRunning",
+    "ideation": {
+      "app_idea": "HerFirstRace — women-specific first race training planner with cycle-aware scheduling",
+      "what_it_does": "A training plan builder designed for women running their first 5K/10K/half marathon, with adjustments for menstrual cycle phases, pelvic floor considerations, and body-positive coaching.",
+      "how_it_solves": "Generic training plans ignore women's physiology. Cycle-aware scheduling means hard workouts during high-energy phases and recovery during low-energy ones, reducing injury and burnout.",
+      "feature_set": "• Race distance training plan generator\n• Menstrual cycle phase integration\n• Weekly mileage tracker\n• Pelvic floor exercise library\n• Race day preparation checklist",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — planner/tracker with pre-built content. The cycle integration is the unique differentiator. Training plans are structured data."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-817f-9c01-e506dcc7310e",
+    "title": "Conflicting Medical Advice for New Parents",
+    "score": 65,
+    "sub": "r/beyondthebump",
+    "ideation": {
+      "app_idea": "ParentSource — evidence-based answer finder for conflicting parenting advice",
+      "what_it_does": "When grandma says one thing and the pediatrician says another, this app provides evidence-based answers from AAP, WHO, and peer-reviewed research on common parenting debates.",
+      "how_it_solves": "New parents are overwhelmed by conflicting advice from family, friends, and the internet. Having a single source of evidence-based answers reduces anxiety and family conflict.",
+      "feature_set": "• Searchable parenting FAQ database\n• Source citations (AAP, WHO, studies)\n• Common myths debunked section\n• Age-appropriate milestone guide\n• 'Show this to grandma' shareable cards",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — reference/guide app. Pre-loaded evidence-based content. The shareable cards feature is clever for family diplomacy."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81b4-a290-fff1a644660c",
+    "title": "Propagation is trial-and-error with no way to track what works",
+    "score": 62,
+    "sub": "r/proplifting",
+    "ideation": {
+      "app_idea": "PropTracker — plant propagation experiment logger with success rate analytics",
+      "what_it_does": "Log propagation attempts with method, medium, conditions, and outcomes. Over time, see which methods work best for which species and optimize your propagation success rate.",
+      "how_it_solves": "Propagation success is random because nobody tracks variables. This turns trial-and-error into data-driven decisions: 'water propagation + rooting hormone = 80% success for pothos.'",
+      "feature_set": "• Propagation attempt logger\n• Method/medium/condition tracking\n• Success rate analytics per species\n• Photo timeline per cutting\n• Best practices library",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — experiment tracker. Niche but passionate audience (proplifting has 500K+ members). Simple data structure."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81df-beda-d41914dec710",
+    "title": "Home Maintenance Scheduling and Service Quality Tracker",
+    "score": 54,
+    "sub": "r/HomeImprovement",
+    "ideation": {
+      "app_idea": "HomeKeep — home maintenance calendar with service provider ratings",
+      "what_it_does": "Schedules recurring home maintenance tasks (HVAC filter changes, gutter cleaning, etc.) and tracks service provider quality so you know who to call back and who to avoid.",
+      "how_it_solves": "Homeowners forget maintenance until something breaks, then can't remember which contractor did good work. This prevents both problems with scheduled reminders and provider notes.",
+      "feature_set": "• Maintenance task calendar with reminders\n• Service provider contact book with ratings\n• Cost history per maintenance category\n• Home system inventory (age, warranty, model)\n• Seasonal maintenance checklists",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — scheduler/tracker. Every homeowner needs this. Simple data, high recurring value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8142-9de0-c79166c5c205",
+    "title": "Would you commute 5 days RTO to double your salary?",
+    "score": 54,
+    "sub": "r/remotework",
+    "ideation": {
+      "app_idea": "RTOCalc — return-to-office vs. remote work total compensation calculator",
+      "what_it_does": "Compares the true cost of RTO (commute, childcare, meals, wardrobe, time) against salary increases to show the real net gain or loss of switching from remote to office work.",
+      "how_it_solves": "A 'double your salary' offer sounds great until you factor in $15K/yr commuting and 500 hours of lost time. This reveals the true financial picture.",
+      "feature_set": "• Commute cost calculator (gas, transit, wear)\n• Time value calculator (hours × your hourly rate)\n• Childcare cost differential\n• Wardrobe and meal cost estimator\n• Side-by-side total comp comparison",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator. Timely topic (RTO mandates everywhere). The 'hours lost' calculation is the emotional hook."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81e5-b58b-e378c2ac7c2c",
+    "title": "New guitar cures writer's block",
+    "score": 53,
+    "sub": "r/Guitar",
+    "ideation": {
+      "app_idea": "RiffSpark — creative block breaker for guitarists with random prompts and challenges",
+      "what_it_does": "Generates random musical prompts, chord progressions, tuning suggestions, and 15-minute creative challenges to break through writer's block without buying a new guitar.",
+      "how_it_solves": "A new guitar works because it forces you to play differently. This app replicates that novelty through creative constraints and random inspiration — for free.",
+      "feature_set": "• Random chord progression generator\n• Creative constraint cards (key, tempo, style)\n• 15-minute songwriting challenges\n• Alternative tuning explorer\n• Riff idea recorder/notes",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — random generator/prompt tool. Musicians love these. Simple logic, infinite replay value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81a7-bc83-d5fd61589b90",
+    "title": "ADHD Task Initiation Mental Block",
+    "score": 51,
+    "sub": "r/ADHD",
+    "ideation": {
+      "app_idea": "JustStart — ADHD task initiation helper with micro-step breakdown and body doubling",
+      "what_it_does": "Breaks overwhelming tasks into absurdly small first steps (e.g., 'open the document' not 'write the report'), provides initiation rituals, and offers a virtual body-doubling timer.",
+      "how_it_solves": "ADHD paralysis isn't about the task — it's about starting. Making the first step trivially small bypasses the mental block. The body-doubling timer provides accountability.",
+      "feature_set": "• Task micro-step breakdown generator\n• 'Just do the first step' mode\n• Body-doubling focus timer\n• Initiation ritual builder\n• Task completion celebration tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — simple interactive tool. ADHD community is huge and underserved. The micro-step concept is proven effective."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81db-80bb-e3bfc463a14c",
+    "title": "Guitar owners struggle to identify unknown parts and gear",
+    "score": 51,
+    "sub": "r/Guitar",
+    "ideation": {
+      "app_idea": "GearID — guitar parts and component identification guide",
+      "what_it_does": "A visual reference guide for identifying guitar parts, components, and hardware. Helps new guitarists learn what everything is on their instrument and find replacement parts.",
+      "how_it_solves": "New guitarists inherit or buy used guitars and have no idea what the parts are called, let alone how to find replacements. This visual guide fills the knowledge gap.",
+      "feature_set": "• Interactive guitar anatomy diagram\n• Parts identification photo library\n• Common replacement parts guide\n• 'What's this?' photo reference tool\n• Beginner setup checklist",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — reference/educational app. Visual content is key. Pre-loaded diagrams and photos make it immediately useful."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-811e-8d4a-c672b3cdc83c",
+    "title": "Tax optimization and ACA subsidy management in early retirement",
+    "score": 51,
+    "sub": "r/Fire",
+    "ideation": {
+      "app_idea": "FIRETax — early retirement tax optimization and ACA subsidy calculator",
+      "what_it_does": "Calculates optimal withdrawal strategies across account types (401k, Roth, taxable) to minimize taxes while maximizing ACA subsidies in early retirement.",
+      "how_it_solves": "Early retirees leave thousands on the table by not optimizing withdrawal order and income thresholds. This calculator shows the tax-efficient way to access retirement funds.",
+      "feature_set": "• Withdrawal order optimizer\n• ACA subsidy cliff calculator\n• Roth conversion ladder planner\n• Estimated tax calculator by scenario\n• MAGI threshold tracker",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — calculator/planner. Tax rules are complex but the calculator is rule-based. Very high value for the FIRE community."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8163-9666-d70d42b2e738",
+    "title": "Difficulty calculating personalized FIRE number variants",
+    "score": 51,
+    "sub": "r/Fire",
+    "ideation": {
+      "app_idea": "FIRECalc Pro — personalized FIRE number calculator with scenario modeling",
+      "what_it_does": "Calculates your FIRE number with multiple scenarios: lean FIRE, regular FIRE, fat FIRE, coast FIRE, and barista FIRE. Accounts for healthcare, kids, geographic arbitrage, and inflation.",
+      "how_it_solves": "Online FIRE calculators are too simple — they don't account for varying expense phases (kids, healthcare gaps, Social Security start). This models your actual life stages.",
+      "feature_set": "• Multi-scenario FIRE number calculator\n• Life phase expense modeling\n• Healthcare cost estimator by age\n• Geographic arbitrage comparison\n• Progress tracker to each FIRE variant",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator. The FIRE community obsesses over these numbers. Multi-scenario modeling is the differentiator."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81a7-9d79-f72fe7f8391d",
+    "title": "Home-cooked food tastes flat despite following recipes",
+    "score": 50,
+    "sub": "r/cooking",
+    "ideation": {
+      "app_idea": "FlavorFix — cooking troubleshooter for bland food with flavor balancing guide",
+      "what_it_does": "Diagnoses why home-cooked food tastes flat and provides specific fixes: salt ratios, acid additions, fat usage, browning techniques, and seasoning timing — the things recipes don't teach.",
+      "how_it_solves": "Recipes assume cooking knowledge that home cooks don't have. This bridges the gap with a 'what went wrong' diagnostic and 'how to fix it' guide.",
+      "feature_set": "• Flavor troubleshooting quiz\n• Salt/acid/fat/heat balancing guide\n• Seasoning timing cheat sheet\n• Common mistake corrections by dish type\n• Flavor pairing reference",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — interactive guide/quiz. Cooking is the most universal skill. The troubleshooting format is uniquely helpful."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81f9-bb63-dbbb46c8fe8b",
+    "title": "No clear classification system for e-bikes vs e-motorcycles",
+    "score": 49,
+    "sub": "r/fuckcars",
+    "ideation": {
+      "app_idea": "eBikeClass — e-bike classification checker and local regulation guide",
+      "what_it_does": "Input your e-bike specs (wattage, top speed, throttle type) and get its legal classification, where you can ride it, and what regulations apply in your state/city.",
+      "how_it_solves": "E-bike laws vary wildly by jurisdiction and most riders don't know if their bike is legal on bike paths. This prevents tickets and conflicts with pedestrians/cyclists.",
+      "feature_set": "• E-bike class calculator (Class 1/2/3)\n• State/city regulation lookup\n• Where-can-I-ride-this map guide\n• Speed/power limit quick reference\n• Registration requirement checker",
+      "wabi_fit": 3,
+      "analysis": "Moderate Wabi fit — the regulation database needs maintenance. Good as a calculator/reference but jurisdiction data gets outdated fast."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-816b-bfe0-f888a96278dc",
+    "title": "Health optimization tracking gap — supplements",
+    "score": 49,
+    "sub": "r/Biohackers",
+    "ideation": {
+      "app_idea": "StackTrack — supplement stack tracker with adherence and effect logging",
+      "what_it_does": "Track daily supplement intake, log how you feel, and identify which supplements actually make a difference vs. which are placebo. Includes interaction warnings for common stacks.",
+      "how_it_solves": "People take 10+ supplements and have no idea which ones work. Daily logging with before/after analysis helps rationalize the stack and save money on useless supplements.",
+      "feature_set": "• Daily supplement check-in\n• Effect/mood rating log\n• Stack optimization suggestions\n• Interaction warning database\n• Cost-per-month calculator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — daily tracker with simple analytics. Biohackers love data. The cost calculator is a nice practical touch."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81b7-9b2b-c47526b18bfb",
+    "title": "Remote workers face hidden location-based salary discrimination",
+    "score": 49,
+    "sub": "r/remotework",
+    "ideation": {
+      "app_idea": "PayParity — location-based salary adjustment calculator and negotiation tool",
+      "what_it_does": "Shows how much your salary is adjusted based on location and whether that adjustment is fair relative to cost-of-living differences. Provides negotiation talking points.",
+      "how_it_solves": "Companies cut remote worker pay by 15-25% for cheaper locations but the cost difference is often smaller. This gives workers data to negotiate fair compensation.",
+      "feature_set": "• Location salary adjustment calculator\n• Cost-of-living comparison tool\n• Adjustment fairness score\n• Negotiation script generator\n• Salary transparency data points",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — calculator/comparison tool. COL data could be pre-loaded for major metros. The negotiation scripts add unique value."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8121-b1e2-e378aa3c9f39",
+    "title": "What to do with large silos?",
+    "score": 49,
+    "sub": "r/homestead",
+    "ideation": {
+      "app_idea": "SiloConvert — repurposing guide and cost estimator for farm structures",
+      "what_it_does": "A decision guide for repurposing old farm structures (silos, barns, sheds) with project plans, cost estimates, zoning considerations, and inspiration galleries.",
+      "how_it_solves": "Homesteaders inherit structures and don't know whether to demolish or convert. This provides practical conversion options with rough cost estimates to inform the decision.",
+      "feature_set": "• Structure assessment checklist\n• Conversion idea gallery (silo house, storage, workshop)\n• Rough cost estimator by project type\n• Zoning/permit requirement guide\n• Structural safety inspection checklist",
+      "wabi_fit": 3,
+      "analysis": "Moderate Wabi fit — guide/calculator. Very niche audience. The cost estimates and zoning info vary hugely by location."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8151-ae70-f4c9c80b9330",
+    "title": "Tedious custom keyboard build process overwhelming for beginners",
+    "score": 47,
+    "sub": "r/MechanicalKeyboards",
+    "ideation": {
+      "app_idea": "KeyBuild — custom mechanical keyboard build planner and compatibility checker",
+      "what_it_does": "Guides beginners through custom keyboard builds: PCB/case/switch/keycap compatibility checking, parts list building, and step-by-step assembly instructions.",
+      "how_it_solves": "Beginners get overwhelmed by incompatible parts and confusing terminology. This ensures all parts work together before purchasing and guides assembly step by step.",
+      "feature_set": "• Parts compatibility checker\n• Build cost calculator\n• Step-by-step assembly guide\n• Switch comparison tool\n• Build log and photo journal",
+      "wabi_fit": 4,
+      "analysis": "Good Wabi fit — compatibility checker/planner. The parts database needs curation but the tool concept is strong. Passionate niche community."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-815b-901c-e9c7f2f5e056",
+    "title": "Cats ingesting dangerous household items — no home hazard checklist app",
+    "score": 46,
+    "sub": "r/cats",
+    "ideation": {
+      "app_idea": "CatSafe Home — room-by-room toxic/dangerous item checklist for cat owners",
+      "what_it_does": "A comprehensive household hazard checklist organized by room, covering toxic plants, dangerous small objects, harmful chemicals, and string/ribbon dangers. Includes emergency vet contacts.",
+      "how_it_solves": "Cats eat needles, thread, rubber bands, and toxic plants — owners don't realize the danger until an ER visit. This proactive checklist prevents emergencies.",
+      "feature_set": "• Room-by-room hazard checklist\n• Toxic plant database\n• Dangerous item photo guide\n• Emergency vet contact card\n• Cat-proofing progress tracker",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — checklist app with pre-loaded safety content. Could literally save a cat's life. Simple to build, high impact."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81a7-88de-f1f206ff6329",
+    "title": "1000 Sardines in a Month experiment tracking",
+    "score": 46,
+    "sub": "r/Biohackers",
+    "ideation": {
+      "app_idea": "N=1 Lab — personal nutrition experiment tracker with biomarker logging",
+      "what_it_does": "Design and track personal nutrition experiments (carnivore, elimination diet, macro changes) with daily food logs, symptom tracking, and before/after biomarker comparison.",
+      "how_it_solves": "Biohackers run self-experiments but don't log consistently or track the right variables. This provides experiment structure so results are actually meaningful.",
+      "feature_set": "• Experiment design template\n• Daily food/supplement log\n• Symptom and energy tracker\n• Biomarker entry and comparison\n• Experiment report generator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — experiment tracker/logger. Biohackers love structured self-experimentation. The report generator is a great shareable output."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-817d-ba2b-de8b9c80be78",
+    "title": "Local running stores lack community and differentiation",
+    "score": 45,
+    "sub": "r/running",
+    "ideation": {
+      "app_idea": "RunLocal — local running store finder with community event listings",
+      "what_it_does": "Discovers local running stores, their group runs, events, and community offerings. Helps runners find their tribe and support local businesses over big-box stores.",
+      "how_it_solves": "Running stores are closing because runners don't know what they offer beyond shoes. This surfaces the community value (group runs, gait analysis, training groups) that keeps stores alive.",
+      "feature_set": "• Local running store directory\n• Group run event finder\n• Store specialty/service listings\n• Runner review/recommendations\n• Community event calendar",
+      "wabi_fit": 2,
+      "analysis": "Poor Wabi fit — needs location data, store database, and event feeds. Better as a full web app. Too dependent on external data sources."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-8150-a6bb-e7626e257895",
+    "title": "Where do you actually keep your emergency fund?",
+    "score": 45,
+    "sub": "r/personalfinance",
+    "ideation": {
+      "app_idea": "FundPark — emergency fund placement optimizer and rate comparison tool",
+      "what_it_does": "Compares options for parking emergency funds (HYSA, money market, T-bills, CDs) with current rates, liquidity trade-offs, and FDIC coverage. Helps users optimize where idle cash sits.",
+      "how_it_solves": "Most people leave emergency funds in checking accounts earning 0.01%. This shows them they could earn $500+/year just by moving to a HYSA — with clear risk/liquidity comparisons.",
+      "feature_set": "• Rate comparison calculator\n• Liquidity vs. yield trade-off matrix\n• FDIC coverage checker\n• Monthly interest earnings projector\n• Emergency fund sizing calculator",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — pure calculator/comparison tool. The interest earnings projector is the 'aha moment' that drives adoption."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-81ee-b8e7-e05727f2e603",
+    "title": "No structured tool to track brain fog and test interventions",
+    "score": 44,
+    "sub": "r/Biohackers",
+    "ideation": {
+      "app_idea": "ClearDay — brain fog severity tracker with A/B intervention testing",
+      "what_it_does": "Daily brain fog assessment with structured A/B testing of interventions. Users alternate between intervention and control periods, then see statistically meaningful results.",
+      "how_it_solves": "Unstructured tracking produces inconclusive data. The A/B testing framework adds scientific rigor so users can confidently say 'this supplement actually helps' vs. placebo effect.",
+      "feature_set": "• Daily cognitive clarity rating\n• A/B experiment designer\n• Intervention vs. control period tracking\n• Statistical significance calculator\n• Shareable results summary",
+      "wabi_fit": 5,
+      "analysis": "Perfect Wabi fit — tracker with built-in experiment framework. The statistical angle differentiates it from simple mood trackers."
+    }
+  },
+  {
+    "page_id": "33e66005-ab52-818d-a496-d83022fc19dc",
+    "title": "Employee Monitoring Transparency Tool for Remote Workers",
+    "score": 44,
+    "sub": "r/remotework",
+    "ideation": {
+      "app_idea": "WatcherWatch — employee monitoring software detector and privacy rights guide",
+      "what_it_does": "Helps remote workers understand what monitoring software their employer uses, what it tracks, and their legal rights. Includes a monitoring audit checklist and privacy protection tips.",
+      "how_it_solves": "Workers don't know they're being monitored or what data is collected. This empowers them with knowledge about their rights and practical steps to protect their privacy.",
+      "feature_set": "• Common monitoring software identifier\n• What-gets-tracked breakdown by tool\n• Employee rights guide by state\n• Privacy protection checklist\n• Work device audit guide",
+      "wabi_fit": 3,
+      "analysis": "Moderate Wabi fit — the legal info varies by state and changes frequently. Good as a reference guide but needs ongoing content updates."
+    }
+  }
+]

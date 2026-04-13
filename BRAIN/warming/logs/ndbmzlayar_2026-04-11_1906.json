@@ -1,0 +1,24 @@
+{
+  "username": "ndbmzlayar",
+  "phase": 1,
+  "timestamp": "2026-04-11T19:06:27.496788",
+  "subreddits_joined": [
+    "AskReddit",
+    "seniorkitties",
+    "SeniorCats",
+    "iosapps",
+    "todayilearned",
+    "homecooking",
+    "Showerthoughts",
+    "mildlyinteresting"
+  ],
+  "posts_read": 7,
+  "upvotes": 5,
+  "downvotes": 0,
+  "comments_posted": [],
+  "saves": 0,
+  "errors": [],
+  "success": true,
+  "shadowban_check_pre": "error_http_403",
+  "shadowban_check_post": "error_http_403"
+}
