@@ -19,6 +19,7 @@ Warm new Reddit accounts through AdsPower browser profiles with natural browsing
 |------|---------|
 | `skills/account-warming/warm.py` | Main warming script — Playwright CDP session |
 | `skills/account-warming/run-warming.sh` | Runner — opens AdsPower profiles, runs warm.py per account |
+| `skills/account-warming/prepare-comments.py` | Finds commentable posts + fetches context for LLM |
 | `BRAIN/warming/state.json` | Account state (phase, sessions, status, shadowban results) |
 | `BRAIN/warming/check-shadowbans.py` | Shadowban checker — runs via Jess's profile |
 | `BRAIN/warming/logs/` | Per-session logs |
@@ -47,16 +48,33 @@ When the warming cron fires, the agent should:
 
 1. **Read state.json** — check which accounts are active (`status: "warming"`)
 2. **Run shadowban check** — `python3 BRAIN/warming/check-shadowbans.py`
-   - This opens Jess's profile, checks each warming account, updates state.json
-   - If any account is newly shadowbanned, alert Paul
+   - Opens Jess's profile, checks each warming account, updates state.json
+   - If any account is newly shadowbanned, alert Paul immediately
 3. **Advance phases** — calculate days since `start_date`, update `current_phase`
-4. **For Phase 3+ accounts**: Pre-generate context-aware comments
-   - Browse the account's subreddits, pick high-engagement posts
-   - Generate 5-8 relevant comments using your own LLM capabilities
-   - Pass them to warm.py via `--comments "comment1|||comment2|||..."`
+4. **For Phase 3+ accounts: Prepare targeted comments** (3-step process):
+   a. Run `python3 skills/account-warming/prepare-comments.py --subreddits "sub1,sub2,..." --count 6`
+      → outputs JSON array of commentable posts with full context (title, body, top comments)
+   b. For each post in the output, generate ONE context-aware comment using your LLM:
+      - Read the post title + body + existing top comments
+      - Write 1-3 sentences that add genuine value
+      - Vary tone per subreddit (casual for memes, thoughtful for advice)
+      - NEVER use generic phrases ("this is great", "came here to say this", etc.)
+   c. Save the plan as JSON file: `[{"post_url": "...", "comment": "..."}]`
+      → Pass to warm.py via `--comment-plan /path/to/plan.json`
 5. **Run warming** — `bash skills/account-warming/run-warming.sh --timeout 300`
 6. **Review results** — check session log for failures, CAPTCHAs, errors
 7. **Report to Paul** — summary with per-account results
+
+### Comment Flow Diagram
+```
+prepare-comments.py          Cron Agent (LLM)              warm.py
+─────────────────           ──────────────────            ─────────
+Fetch subreddit posts  →    Read post context       →    Navigate to URL
+Filter: text, score,        Generate 1-3 sentence        Post pre-written comment
+  comments, not meta        comment per post              Cool-down 30-60s
+Fetch top comments     →    Save as plan.json       →    Reject if generic (safety net)
+Output JSON to stdout       (no canned templates!)       Report success/failure
+```
 
 ## State.json Schema
 
