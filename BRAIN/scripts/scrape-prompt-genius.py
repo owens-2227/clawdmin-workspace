@@ -84,10 +84,7 @@ def evaluate_wabi_viability(post):
     if any(k in combined for k in skip_keywords) and post["flair"] == "Discussion":
         return False, "Discussion/resource list, not an app concept", "", "", 0
     
-    # Skip image generation / camera requirements
-    if any(k in combined for k in ["image generation", "drawing", "photo", "camera", "dall-e", "midjourney"]):
-        if "image" in combined and ("generate" in combined or "drawing" in combined or "photo" in combined):
-            return False, "Requires image generation or camera access not available in Wabi SDK", "", "", 0
+    # NOTE: Wabi apps DO have camera access and image gen model — don't filter these out
     
     # Skip if it needs external APIs
     if any(k in combined for k in ["api key", "api access", "web scraping", "scrape"]):
