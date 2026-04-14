@@ -6,7 +6,14 @@ using opportunityScore from pain_point_snapshots (not the stale viralScore).
 import json, sys, time, urllib.request
 from pymongo import MongoClient
 
-MONGO_URI = 'mongodb+srv://paul_db_user:REDACTED_MONGO_PASS@cluster0.tdvafh8.mongodb.net/?appName=Cluster0'
+import os
+MONGO_URI = os.environ.get('MONGO_URI', '')
+if not MONGO_URI:
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env')
+    if os.path.exists(env_path):
+        for line in open(env_path):
+            if line.startswith('MONGO_URI='):
+                MONGO_URI = line.strip().split('=', 1)[1]
 NOTION_SECRET = "REDACTED_NOTION"
 DB_ID = "33e66005-ab52-81c7-aaef-f6f8538429e2"  # Already created April 10 database
 NOTION_BASE = "https://api.notion.com/v1"

@@ -13,7 +13,15 @@ from datetime import datetime, timezone
 from pymongo import MongoClient
 
 # === Config ===
-MONGO_URI = 'mongodb+srv://paul_db_user:REDACTED_MONGO_PASS@cluster0.tdvafh8.mongodb.net/?appName=Cluster0'
+import os
+MONGO_URI = os.environ.get('MONGO_URI', '')
+if not MONGO_URI:
+    # Load from .env
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env')
+    if os.path.exists(env_path):
+        for line in open(env_path):
+            if line.startswith('MONGO_URI='):
+                MONGO_URI = line.strip().split('=', 1)[1]
 NOTION_SECRET = "REDACTED_NOTION"
 PARENT_PAGE_ID = "31b66005-ab52-800d-9c49-fbc517921ae3"
 NOTION_VERSION = "2022-06-28"
