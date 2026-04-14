@@ -109,10 +109,12 @@
       "total_upvotes": 57,
       "total_comments": 4,
       "last_session": "2026-04-12T19:06:07.362910",
-      "status": "warming",
+      "status": "shadowbanned",
       "warming_day": 5,
       "captcha_count": 0,
-      "needs_ip_rotation": false
+      "needs_ip_rotation": false,
+      "last_shadowban_check": "2026-04-13T23:19:12.878043+00:00",
+      "last_shadowban_result": "shadowbanned"
     },
     "ndbmzlayar": {
       "serial": 35,

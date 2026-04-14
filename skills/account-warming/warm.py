@@ -148,17 +148,32 @@ async def check_shadowban_http(username):
 # ─── CAPTCHA Detection ──────────────────────────────────────────────────────
 
 async def detect_captcha(page):
-    """Check if the current page is a CAPTCHA/block page."""
+    """Check if the current page is a CAPTCHA/block page.
+    
+    Must be careful: Reddit's normal pages contain 'captcha' in script tags.
+    Only flag as CAPTCHA if the VISIBLE text is very short (actual block pages
+    have almost no visible content) AND contains captcha-like strings.
+    """
     try:
-        content = await page.content()
-        content_lower = content.lower()
-        for sig in CAPTCHA_STRINGS:
-            if sig in content_lower:
+        # Get visible text only (not HTML source)
+        text = (await page.text_content("body") or "").strip()
+        text_lower = text.lower()
+        
+        # Very short visible text = likely a block/captcha page
+        # Normal Reddit pages have 1000+ chars of visible text
+        if len(text) < 200:
+            for sig in CAPTCHA_STRINGS:
+                if sig in text_lower:
+                    return True
+            # Also catch totally empty/minimal pages
+            if len(text) < 30:
                 return True
-        # Also check for very short pages (Reddit blocks return minimal HTML)
-        text = await page.text_content("body") or ""
-        if len(text.strip()) < 50 and "reddit" not in text.lower():
+        
+        # Check for dedicated captcha page titles
+        title = (await page.title() or "").lower()
+        if any(sig in title for sig in ["captcha", "blocked", "verify", "robot"]):
             return True
+        
     except:
         pass
     return False

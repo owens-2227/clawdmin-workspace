@@ -282,21 +282,27 @@ url = f"https://silver-face-9c4.notion.site/image/{encoded_ref}?id={page_id}&tab
 subprocess.run(["curl", "-sL", url, "-o", "/tmp/screenshot.png"], timeout=30)
 ```
 
-**Step 3: Upload to Catbox for a permanent public URL**
+**Step 3: Upload to GitHub for a permanent public URL**
 
-```python
-import urllib.request
-boundary = 'BOUNDARY123456'
-with open('/tmp/screenshot.png', 'rb') as f:
-    img_bytes = f.read()
-body = (
-    f'--{boundary}\r\nContent-Disposition: form-data; name="reqtype"\r\n\r\nfileupload\r\n'
-    f'--{boundary}\r\nContent-Disposition: form-data; name="fileToUpload"; filename="screenshot.png"\r\nContent-Type: image/png\r\n\r\n'
-).encode() + img_bytes + f'\r\n--{boundary}--\r\n'.encode()
-req = urllib.request.Request('https://catbox.moe/user/api.php', method='POST',
-    headers={'Content-Type': f'multipart/form-data; boundary={boundary}'}, data=body)
-url = urllib.request.urlopen(req, timeout=60).read().decode().strip()
-# Returns: https://files.catbox.moe/xxxxxx.png
+⚠️ **ALWAYS use GitHub for hosting. Never use Catbox** — files expire/disappear.
+
+```bash
+# Copy to workspace assets
+cp /tmp/screenshot.png ~/.openclaw/workspace/BRAIN/assets/screenshots/{slug}.png
+
+# Commit and push
+cd ~/.openclaw/workspace
+git add BRAIN/assets/screenshots/{slug}.png
+git commit -m "Add screenshot: {slug}"
+git push
+
+# Raw URL (always live, we control it):
+# https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/{slug}.png
+```
+
+**GitHub raw URL pattern:**
+```
+https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/{slug}.png
 ```
 
 **⚠️ If the Screenshot field is empty/missing:** STOP and warn Paul. Do not substitute a screenshot from the Wabi share page or take your own. The creator-provided screenshot is required.
