@@ -7,7 +7,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/photo-habit-tracker.png",
     "wabi_description": "Track habits with photos for accountability and see your progress visually.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6867fd1ccc59cf9dce71f02d/add74c85a9d142a490c9a274129a2bdd33f12fa7e05c42e1ae92856c23da3022/6867fd1ccc59cf9dce71f02d_bytedance_v4_5_create_1769475718575_0.webp",
+    "cover_ok": true,
     "wabi_id": "69780ed48c0ef9fa402c0856",
+    "wabi_title": "Photo Habit Tracker",
     "creator_display": "Joonas Virtanen",
     "main_color": "#4CAF50",
     "notion_description": "Git-style habit tracker"
@@ -20,7 +22,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/rubik\u2019s-world.png",
     "wabi_description": "A fully 3D, touch-driven Rubik\u2019s cube right on your phone. Have fun solving 2x2 to 6x6 cubes.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/690ec940d3c94cd369a1d762/b906c7a43c974bc08037d274c27eaaad7773284a5ab542c1a20c4e73a828d4f6/690ec940d3c94cd369a1d762_bytedance_v4_5_create_1774838844197_0.webp",
+    "cover_ok": true,
     "wabi_id": "69ca06c7ab97a9eee31cf247",
+    "wabi_title": "Rubik\u2019s World",
     "creator_display": "AWD",
     "main_color": "#0288D1",
     "notion_description": "A fully 3D, touch-driven Rubik\u2019s cube right on your phone. Have fun solving 2x2 to 6x6 cubes."
@@ -33,7 +37,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/don\u2019t-let-go---hold-the-button.png",
     "wabi_description": "See how long you can hold the button.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/689a8ae50559e68affcdb74b/33071d738ce145d9a1822e1632a35cd5edc57dffaf3140e0b5837b2ffee1541b/689a8ae50559e68affcdb74b_bytedance_v4_5_create_1770400709745_0.webp",
+    "cover_ok": true,
     "wabi_id": "69863d2e39c55339e71026c9",
+    "wabi_title": "don\u2019t let go",
     "creator_display": "blas",
     "main_color": "#D32F2F",
     "notion_description": "Who can hold longest before letting go"
@@ -46,7 +52,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/doodle-and-text.png",
     "wabi_description": "doodle anything and send in a text in one click",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/689a8ae50559e68affcdb74b/3988912d797f495eb0c0cef3f8c3b870c78dcf57b69f4fdba5bdb86c6af5a296/689a8ae50559e68affcdb74b_bytedance_v4_5_create_1773088949293_0.webp",
+    "cover_ok": true,
     "wabi_id": "69af844822e2d496f25d5471",
+    "wabi_title": "Doodle and text",
     "creator_display": "blas",
     "main_color": "#FBC02D",
     "notion_description": ""
@@ -59,7 +67,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/spyfall.png",
     "wabi_description": "A party game where players deduce the spy while the spy bluffs their way to victory.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/689a8ae50559e68affcdb74b/fd1e3929438f42bda463c027bd4088b3b736165fa5aa440b849859fea1b05473/689a8ae50559e68affcdb74b_bytedance_v4_5_create_1773268786429_0.webp",
+    "cover_ok": true,
     "wabi_id": "69b205f5e6f3495b2110e681",
+    "wabi_title": "Spyfall",
     "creator_display": "blas",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -72,7 +82,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/what-is-that.png",
     "wabi_description": "Play a cozy real-time drawing and guessing game with friends.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/fdc621303ba24556a2c547168ead13432a6339bebde64b1bb7629f62092efdfc/68fd260a66f3399e02066383_nano_banana_for_covers_1764534914053_0.webp",
+    "cover_ok": true,
     "wabi_id": "692c2d43daee81f89bce0d0f",
+    "wabi_title": "What is that?",
     "creator_display": "Janina",
     "main_color": "#6D4C41",
     "notion_description": "Play a cozy real-time drawing and guessing game with friends"
@@ -85,7 +97,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/how-does-this-work.png",
     "wabi_description": "Answer your kid\u2019s curious questions with simple explanations and visuals.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/d060c99caaf24f3e9f271367499be83bef24aba8d8f64fd583fd5962e98afab2/68fd260a66f3399e02066383_nano_banana_for_covers_1764711948921_0.webp",
+    "cover_ok": true,
     "wabi_id": "692f67477f16e6387b725805",
+    "wabi_title": "How things work for kids",
     "creator_display": "Janina",
     "main_color": "#0288D1",
     "notion_description": "Answer your kid's questions with simple explanations and visuals"
@@ -98,7 +112,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/lingo.png",
     "wabi_description": "Customize your language learning goals, levels, and schedule in minutes.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6931c2a848c1024b7102fde8/7394f830d3bd496899d1b2eb61d5bc1b26e740a243ee483ca2ddd1ebb00f72b3/6931c2a848c1024b7102fde8_bytedance_v4_5_create_1769220820143_0.webp",
+    "cover_ok": true,
     "wabi_id": "696dac47e9053816bdd325ac",
+    "wabi_title": "Learn any language",
     "creator_display": "Junaid Dawud",
     "main_color": "#0277BD",
     "notion_description": "Learn a Language"
@@ -111,7 +127,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/solar-system.png",
     "wabi_description": "Exploration from the Sun to Neptune.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/9adc9750404040528b97b8c381e1965ecb38631857e94f93afb3293353876179/68fd260a66f3399e02066383_nano_banana_for_covers_1765480620908_0.webp",
+    "cover_ok": true,
     "wabi_id": "693b18c181adfc0062ced2ea",
+    "wabi_title": "Solar System guide",
     "creator_display": "Janina",
     "main_color": "#050A20",
     "notion_description": ""
@@ -124,7 +142,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/endless-ai-courses.png",
     "wabi_description": "Explore infinite AI-generated courses tailored to any topic you choose.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/690e0af1373e6f0d25263fa5/6b5351fd78944eb7bb9f26fe0ed3abaea12189efa8dc4239a75bf285c59e2b68/690e0af1373e6f0d25263fa5_nano_banana_for_covers_1766543410650_0.webp",
+    "cover_ok": true,
     "wabi_id": "697b93e4867ae24d1c5c047f",
+    "wabi_title": "Endless AI courses",
     "creator_display": "Benjamin Metcalfe",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -135,11 +155,13 @@
     "category": "Health & Fitness",
     "share_url": "https://wabi.ai/@joonas/calorie-tracker-1018749?_v=2",
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/calorie-tracker.png",
-    "wabi_description": "Easily log and track your daily calorie intake.",
-    "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/69cf77b802c7bcbae3eef209/71c180eb4b814f80a1a21ddf233a9ea1347cd4c50ff04074bfb37a488d928ca5/69cf77b802c7bcbae3eef209_bytedance_v4_5_create_1775204345148_0.webp",
-    "wabi_id": "69d65586ed6edd1922105956",
-    "creator_display": "Bohdan Tkachenko",
-    "main_color": "#E64A19",
+    "wabi_description": "Easily track calories and nutrition info for healthier eating.",
+    "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6867fd1ccc59cf9dce71f02d/e8854b7e84c04226a8a4afa741b02b09508b83e3e30e4bd38eb767222ddebab3/6867fd1ccc59cf9dce71f02d_nano_banana_for_covers_1768508459085_0.webp",
+    "cover_ok": true,
+    "wabi_id": "69695a4cae8d8d60bd363f4f",
+    "wabi_title": "Calorie tracker",
+    "creator_display": "Joonas Virtanen",
+    "main_color": "#4CAF50",
     "notion_description": ""
   },
   {
@@ -150,7 +172,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/steps-grid.png",
     "wabi_description": "Track your steps, add friends, and compete in fun challenges.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6867fd1ccc59cf9dce71f02d/5fa769e4757e429ba802c8e1034b260a8e245c67a5b1452591319a389766cee7/6867fd1ccc59cf9dce71f02d_bytedance_v4_5_create_1769654338312_0.webp",
+    "cover_ok": true,
     "wabi_id": "697ac855d3b3e272f17f1b57",
+    "wabi_title": "Steps Grid",
     "creator_display": "Joonas Virtanen",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -163,7 +187,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/breather.png",
     "wabi_description": "Customize your breathing pace, hold lengths, and number of rounds.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6931c2a848c1024b7102fde8/fc5df80307024f8fb9d28a6e36fe0ac1ddf213e9636b42c1a8cfe5c311cbd81e/6931c2a848c1024b7102fde8_nano_banana_for_covers_1766953658053_0.webp",
+    "cover_ok": true,
     "wabi_id": "6959891fffbe462e6ba3b3a5",
+    "wabi_title": "Wim Hof breathing timer",
     "creator_display": "Junaid Dawud",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -176,7 +202,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/protein-recipes.png",
     "wabi_description": "Discover protein-packed recipes and plan your daily meals with ease.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6867fd1ccc59cf9dce71f02d/c212b9806a7e4915ba69bed820251fa58e6ff5faac9c47ed9aa2a065d2f778cf/6867fd1ccc59cf9dce71f02d_bytedance_v4_5_create_1769483603069_0.webp",
+    "cover_ok": true,
     "wabi_id": "69782d768c0ef9fa402c18fd",
+    "wabi_title": "Protein recipes",
     "creator_display": "Joonas Virtanen",
     "main_color": "#F57319",
     "notion_description": ""
@@ -189,7 +217,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/dish-scout.png",
     "wabi_description": "You know what you\u2019re craving, now find where you can get it!",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/0ba4713cd35c4bf1aed6347cca106bc35ea03320b43b4c47a797f6395419cd89/68fd260a66f3399e02066383_bytedance_v4_5_create_1774869330374_0.webp",
+    "cover_ok": true,
     "wabi_id": "69ca5b6d862c8c4bc2434633",
+    "wabi_title": "Discover restaurants by dish",
     "creator_display": "Janina",
     "main_color": "#1976D2",
     "notion_description": ""
@@ -202,7 +232,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/pantry-rescue.png",
     "wabi_description": "Stop food waste. Turn bits and pieces of ingredients left in your fridge/pantry to delicious food.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net//953d7f43fed448ca95f2c1517ec0838f5b6f7dacb4774bb991e8342a0ce6c383/flux_generated_1763673560_9736.png",
+    "cover_ok": true,
     "wabi_id": "691f8630c4f295ea91247944",
+    "wabi_title": "Pantry rescue",
     "creator_display": "Janina",
     "main_color": "#E64A19",
     "notion_description": ""
@@ -215,7 +247,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/cuisine-me.png",
     "wabi_description": "Learn a cuisine with meal plans, staple ingredients, recipes, and culinary techniques.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6931c2a848c1024b7102fde8/aab07f8ac2a7448f84b9f513da59b9d6b4631107142e499699c8bd95bb28337d/6931c2a848c1024b7102fde8_bytedance_v4_5_create_1769979745022_0.webp",
+    "cover_ok": true,
     "wabi_id": "6998a165aab1b5d2bb74d265",
+    "wabi_title": "Learn any cuisine",
     "creator_display": "Junaid Dawud",
     "main_color": "#4CAF50",
     "notion_description": ""
@@ -228,7 +262,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/menuiq.png",
     "wabi_description": "Scan menus and get meal recommendations tailored to your diet.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/690cca52373e6f0d2525dc7c/fb449edfbd8d4b1b848286cda4cabce21727243890024cc7b764eec756480c42/690cca52373e6f0d2525dc7c_nano_banana_for_covers_1768079406419_0.webp",
+    "cover_ok": true,
     "wabi_id": "69630ce8355d43e33ce62a29",
+    "wabi_title": "Menu meal recommendations",
     "creator_display": "Jiayao Yu",
     "main_color": "#009688",
     "notion_description": ""
@@ -241,7 +277,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/weekly-meal-planner.png",
     "wabi_description": "Plan balanced, healthy, and delicious meals for the week for two people.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/689a8ae50559e68affcdb74b/2688fe3b2342422b9b41df0a3b52a951bbe2d414642143319b3ee4236c0c4b3c/689a8ae50559e68affcdb74b_bytedance_v4_5_create_1771440226978_0.webp",
+    "cover_ok": true,
     "wabi_id": "69960d578ffd93f62ef558a9",
+    "wabi_title": "Weekly meal planner",
     "creator_display": "blas",
     "main_color": "#4CAF50",
     "notion_description": ""
@@ -254,7 +292,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/rob.png",
     "wabi_description": "A robot made to draw abstract art.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fec031eb945ff1c15f80af/4dffbb2ea8bc4012931bc603f0d79658b12f6d1d1de3457da18ffb19a2b7af5c/68fec031eb945ff1c15f80af_bytedance_v4_5_create_1773771157332_0.webp",
+    "cover_ok": true,
     "wabi_id": "69b999d8e8289e877cfe8198",
+    "wabi_title": "Robot drawing arm",
     "creator_display": "Tykra",
     "main_color": "#FF6600",
     "notion_description": ""
@@ -267,7 +307,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/retro-dashboard-radio.png",
     "wabi_description": "Relive the feeling of actually listening to the radio while in the car.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/40a0b3788f984aa7ad07ec3ccb60e687dd1d3b551c2c48fba36a375d5f2328bd/68fd260a66f3399e02066383_nano_banana_for_covers_1765364938423_0.webp",
+    "cover_ok": true,
     "wabi_id": "69395a9d7b485b755491c218",
+    "wabi_title": "Retro dashboard radio",
     "creator_display": "Janina",
     "main_color": "#222222",
     "notion_description": ""
@@ -280,7 +322,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/wabios.png",
     "wabi_description": "Wabi. Desktop. Yes.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/f4b223b077a84d268153502ef70fead2378c2d9ded8d473ab4971a3debfdc8d5/68fd260a66f3399e02066383_nano_banana_for_covers_1764327908888_0.webp",
+    "cover_ok": true,
     "wabi_id": "692a495915627ee65fb90bb8",
+    "wabi_title": "WabiOS",
     "creator_display": "Janina",
     "main_color": "#283593",
     "notion_description": ""
@@ -293,7 +337,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/ai-headshots.png",
     "wabi_description": "Generate stunning portraits in different styles.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/000000000000000000000000/52d0c1fe29874a04a2981ead21e0513668f0691cdd704bb38330c08e5f1d84f9/000000000000000000000000_bytedance_v4_5_create_1775682693766_0.webp",
+    "cover_ok": true,
     "wabi_id": "6988713ded1e38ae56383f02",
+    "wabi_title": "AI headshots",
     "creator_display": "Janina",
     "main_color": "#1565C0",
     "notion_description": ""
@@ -306,7 +352,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/magna-doodle.png",
     "wabi_description": "Draw like it\u2019s real with magnetic powder, haptics, and satisfying erasing.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/d838fc84f7fa4a30944641efa62bc68c690c94bc36d5444bab9301421e035798/68fd260a66f3399e02066383_bytedance_v4_5_create_1772240672351_0.webp",
+    "cover_ok": true,
     "wabi_id": "69a23f352b079cf05db0af6e",
+    "wabi_title": "Magna Doodle",
     "creator_display": "Janina",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -319,7 +367,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/koi-pond.png",
     "wabi_description": "Touch to create ripples and watch calm koi swim in a serene pond.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/2128e4856a5c45a394f2c3762b4aec7f9e3af1da69b6449286a79e8ee881e270/68fd260a66f3399e02066383_bytedance_v4_5_create_1768911535676_0.webp",
+    "cover_ok": true,
     "wabi_id": "696feb7239630199746e9da2",
+    "wabi_title": "Koi Pond",
     "creator_display": "Janina",
     "main_color": "#00796B",
     "notion_description": ""
@@ -332,7 +382,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/vintage-apple-media.png",
     "wabi_description": "Explore a gallery of vintage Apple posters, ads, and brochures.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/b22cd7223e8c4c0e9dad2a51175a1d960fda8e6b296941e39292b30686fd422b/68fd260a66f3399e02066383_bytedance_v4_5_create_1772503796001_0.webp",
+    "cover_ok": true,
     "wabi_id": "69a64341c262b2f20ec228b1",
+    "wabi_title": "Vintage Apple Media",
     "creator_display": "Janina",
     "main_color": "#1976D2",
     "notion_description": ""
@@ -345,7 +397,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/vinyl-catalog.png",
     "wabi_description": "Easily catalog and organize your vinyl collection and discover new ones!",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/d7aba8d7695649e4ba653387076c7e524c13e15e82dc4cc7a543cdbf550e7ca0/68fd260a66f3399e02066383_nano_banana_for_covers_1765344788277_0.webp",
+    "cover_ok": true,
     "wabi_id": "6938e1877b485b7554919f3e",
+    "wabi_title": "Vinyl Catalog",
     "creator_display": "Janina",
     "main_color": "#6D4C41",
     "notion_description": ""
@@ -358,7 +412,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/postscript.png",
     "wabi_description": "Don\u2019t tell me you\u2019ve never thought of writing your will?",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/9ce533976edf433280ac45105fa6e24f883ef227d6bb4165a381b29a23c04950/68fd260a66f3399e02066383_bytedance_v4_5_create_1769237952471_0.webp",
+    "cover_ok": true,
     "wabi_id": "69746dcf511d3feaa68c305f",
+    "wabi_title": "Postscript",
     "creator_display": "Janina",
     "main_color": "#8D6E63",
     "notion_description": ""
@@ -371,7 +427,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/wabispace.png",
     "wabi_description": "Making Wabi social one post at a time. But make it retro.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/fad48e657a9a40278eb4dbb6ba1b7c1179e9b87202814fa886b09693b9d9f1eb/68fd260a66f3399e02066383_nano_banana_for_covers_1764471102274_0.webp",
+    "cover_ok": true,
     "wabi_id": "692b8a90daee81f89bcde3b0",
+    "wabi_title": "WabiSpace",
     "creator_display": "Janina",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -384,7 +442,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/city-time-traveller.png",
     "wabi_description": "Explore any city across history, the present, or the future with interactive timelines and cultural details.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6963a348355d43e33ce63b74/e8b4d94be22940fab2796a3955be39e43573a66033e84123b64934a4e97a3c8c/6963a348355d43e33ce63b74_bytedance_v4_5_create_1769312149708_0.webp",
+    "cover_ok": true,
     "wabi_id": "6975c7ab70db18bb998f5a00",
+    "wabi_title": "Time traveling city explorer",
     "creator_display": "msa",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -397,7 +457,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/waymark.png",
     "wabi_description": "Plan trips, pin places, and turn travel ideas into easy itineraries.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/463e5f25170c42e6a40ebf78029dfa484e304d7c9e93472397b1cb88007abf07/68fd260a66f3399e02066383_bytedance_v4_5_create_1774529154829_0.webp",
+    "cover_ok": true,
     "wabi_id": "69c52b588191ddcebd9bbfd6",
+    "wabi_title": "Waymark - trip planner",
     "creator_display": "Janina",
     "main_color": "#EBC7AF",
     "notion_description": "Trip planner"
@@ -410,7 +472,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/interactive-train-map.png",
     "wabi_description": "Plan, book, and track train journeys on an immersive, full-screen map.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/69b07985799b937ad0a07d75/d2d41055b8574b00ac9805db2b92fd136fa1f64d42994eabb213af79c8fda753/69b07985799b937ad0a07d75_bytedance_v4_5_create_1773173508496_0.webp",
+    "cover_ok": true,
     "wabi_id": "69b08636799b937ad0a08a87",
+    "wabi_title": "Interactive train map",
     "creator_display": "Alexandre Cormeraie",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -423,7 +487,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/hot-springs-guide.png",
     "wabi_description": "Find and explore hot springs near you or in any area.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/6931c2a848c1024b7102fde8/2a9a8bcd75cd49cc8fb1a879ffb23c08d5a038ce61d04f4089da7a54db23fbe4/6931c2a848c1024b7102fde8_bytedance_v4_5_create_1769221988911_0.webp",
+    "cover_ok": true,
     "wabi_id": "69750437511d3feaa68c531a",
+    "wabi_title": "Hot springs guide",
     "creator_display": "Junaid Dawud",
     "main_color": "#0288D1",
     "notion_description": ""
@@ -436,7 +502,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/to-the-rescue.png",
     "wabi_description": "Quickly find the nearest public bathroom with ratings and helpful details.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/94c165f4cac148038c5fdc6d81a4621d9c1ba1758aa64f8daa60cdaa850db6e0/68fd260a66f3399e02066383_nano_banana_for_covers_1765000071135_0.webp",
+    "cover_ok": true,
     "wabi_id": "6933f52cbfe652810d0a20c0",
+    "wabi_title": "To The Rescue",
     "creator_display": "Janina",
     "main_color": "#D32F2F",
     "notion_description": ""
@@ -449,7 +517,9 @@
     "screenshot_url": "https://raw.githubusercontent.com/owens-2227/clawdmin-workspace/main/BRAIN/assets/screenshots/last-mile-home.png",
     "wabi_description": "A map that guides you home with smart detours, highlighting favorites and hidden gems nearby.",
     "cover_image_url": "https://d1emsmfzj1ksyl.cloudfront.net/68fd260a66f3399e02066383/25e7922653db4edfb5811597f74d82b2860f4d085ad34c9abb409a1b47f37e0f/68fd260a66f3399e02066383_nano_banana_for_covers_1765243748620_0.webp",
+    "cover_ok": true,
     "wabi_id": "69377d98f4c9082979356601",
+    "wabi_title": "Last mile home guide",
     "creator_display": "Janina",
     "main_color": "#D500F9",
     "notion_description": "\u2023"
