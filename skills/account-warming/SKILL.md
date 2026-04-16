@@ -51,7 +51,7 @@ Warm purchased Reddit accounts (REDAccs) through AdsPower browser profiles with 
 
 | Phase | Timing | Activities | Comments | Links |
 |-------|--------|-----------|----------|-------|
-| 1 | First 8-10h | Browse only. Light upvoting (3-5). Join 3-5 subs. | NONE | NONE |
+| 1 | First 8-10h | Browse ONLY. No upvoting. No joining subs. Just scroll and read. | NONE | NONE |
 | 2 | Days 1-3 | Browse, upvote (5-8), save posts, join more subs | NONE | NONE |
 | 3 | Days 4-7 | Browse, upvote (8-12) | 2-3 per day — REPLY to existing comments (not top-level) in big subs. LLM-generated. | NONE |
 | 4 | Days 8-14 | Diversify into niche subs. 3-5 comments/day. | LLM-generated, context-aware. Add genuine value. | NONE — still no external links |
@@ -59,7 +59,8 @@ Warm purchased Reddit accounts (REDAccs) through AdsPower browser profiles with 
 | 6 | Day 30+ | Operational. 80/20 rule. | Unlimited (within anti-detection limits) | External links OK — sparingly, naturally |
 
 ### Phase Rules (STRICT)
-- **Phase 1-2**: Zero comments. Zero posts. Browse + upvote + join only.
+- **Phase 1**: Zero everything. Browse only. No upvotes, no joins, no clicks beyond scrolling.
+- **Phase 2**: Browse + light upvoting + join subs. Still zero comments, zero posts.
 - **Phase 3**: First comments as REPLIES to existing comments (not top-level) in big subs (r/AskReddit, r/todayilearned, r/pics). Focus on comment karma. Max 2-3 comments/day. No profile images.
 - **Phase 4**: Move into more subs. Still no external links. Keep old posts from REDAccs.
 - **Phase 5**: Can delete old REDAccs posts ONLY after 10-20 new posts of your own. Still no external links.
