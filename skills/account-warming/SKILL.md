@@ -10,7 +10,7 @@ Warm purchased Reddit accounts (REDAccs) through AdsPower browser profiles with 
 - **Keep old posts** — DO NOT delete the account's existing karma posts. Only delete after you have 10-20 new posts of your own.
 - **Don't change password for 24h** — per REDAccs guide. Change email password instead if needed. Add 2FA after 24h.
 - **Don't change email** — ever. Only update the email password. Changing email is high-risk.
-- **Post 2-3 SFW images on profile early** — avoids unusual account restrictions.
+- **No profile images** — skip the SFW image posting step. Keep profiles clean.
 - **No external links during warm-up** — NO wabi.ai links, NO any-domain links until Phase 4.
 - **No mass upvoting/downvoting** — keep it light and natural, especially in Phase 1-2.
 - **US residential proxies** — accounts were created in the US. Decodo city proxies assigned per profile.
@@ -53,14 +53,14 @@ Warm purchased Reddit accounts (REDAccs) through AdsPower browser profiles with 
 |-------|--------|-----------|----------|-------|
 | 1 | First 8-10h | Browse only. Light upvoting (3-5). Join 3-5 subs. | NONE | NONE |
 | 2 | Days 1-3 | Browse, upvote (5-8), save posts, join more subs | NONE | NONE |
-| 3 | Days 4-7 | Browse, upvote (8-12), post 2-3 SFW images on profile | 2-3 per day in SMALL/lightly-moderated subs only. LLM-generated. | NONE |
+| 3 | Days 4-7 | Browse, upvote (8-12) | 2-3 per day — REPLY to existing comments (not top-level) in big subs. LLM-generated. | NONE |
 | 4 | Days 8-14 | Diversify into niche subs. 3-5 comments/day. | LLM-generated, context-aware. Add genuine value. | NONE — still no external links |
 | 5 | Days 15-30 | Full organic activity. Build to few hundred karma. | 5-8 comments/day across diverse subs. | Internal Reddit links OK. No external links yet. |
 | 6 | Day 30+ | Operational. 80/20 rule. | Unlimited (within anti-detection limits) | External links OK — sparingly, naturally |
 
 ### Phase Rules (STRICT)
 - **Phase 1-2**: Zero comments. Zero posts. Browse + upvote + join only.
-- **Phase 3**: First comments in small subs (r/AskReddit, r/todayilearned, r/pics). Focus on comment karma. Max 2-3 posts/day. Post SFW images to profile.
+- **Phase 3**: First comments as REPLIES to existing comments (not top-level) in big subs (r/AskReddit, r/todayilearned, r/pics). Focus on comment karma. Max 2-3 comments/day. No profile images.
 - **Phase 4**: Move into more subs. Still no external links. Keep old posts from REDAccs.
 - **Phase 5**: Can delete old REDAccs posts ONLY after 10-20 new posts of your own. Still no external links.
 - **Phase 6**: Operational. 80% organic, 20% max promotional. External links allowed naturally.
@@ -145,6 +145,7 @@ When the warming cron fires:
 - NEVER use canned/template comments
 - ALWAYS read the post title + body + top comments before generating a reply
 - Skip posts that are: pure images/videos with no discussion, memes, fewer than 5 comments
+- **Always reply to an existing comment, not top-level** — find a comment you can meaningfully add to and reply to THAT. Top-level comments on big posts are more visible and more scrutinized. Nested replies look natural.
 - Skip grief/loss/crisis posts — tone-deaf and suspicious on a warming account
 - Generated comments: 1-3 sentences, relevant to the specific post
 - Don't start every comment with "I" — vary sentence starters
@@ -208,7 +209,7 @@ Status values: `ready` | `warming` | `operational` | `shadowbanned` | `suspended
 4. **48-hour guarantee** — report login issues to REDAccs within 48h of delivery
 5. **No VPNs** — use residential proxies only (VPNs are usually blacklisted)
 6. **US IPs required** — accounts were created/used in the US
-7. **Post 2-3 SFW images** on profile early to avoid unusual restrictions
+7. **No profile images** — keep profiles clean, don't post images to profile
 8. **No redgifs or link-hosting platforms** for warm-up content — post directly to subreddits
 
 ---
