@@ -34,6 +34,54 @@ except ImportError:
     sys.exit(1)
 
 
+# ─── Bandwidth Tracking ──────────────────────────────────────────────────────
+
+class BandwidthTracker:
+    """Track bytes sent/received via CDP Network events."""
+    def __init__(self):
+        self.bytes_received = 0
+        self.bytes_sent = 0
+        self.request_count = 0
+        self._cdp = None
+
+    async def start(self, page):
+        """Attach CDP session and enable network tracking."""
+        try:
+            self._cdp = await page.context.new_cdp_session(page)
+            await self._cdp.send("Network.enable")
+            self._cdp.on("Network.dataReceived", self._on_data_received)
+            self._cdp.on("Network.requestWillBeSent", self._on_request_sent)
+        except Exception as e:
+            print(f"[bandwidth] Failed to start CDP tracking: {e}", file=sys.stderr)
+
+    def _on_data_received(self, params):
+        self.bytes_received += params.get("encodedDataLength", 0)
+
+    def _on_request_sent(self, params):
+        self.request_count += 1
+        req = params.get("request", {})
+        headers_text = "\r\n".join(f"{k}: {v}" for k, v in req.get("headers", {}).items())
+        self.bytes_sent += len(headers_text.encode()) + len(req.get("postData", "").encode())
+
+    def summary(self):
+        return {
+            "bytes_received": self.bytes_received,
+            "bytes_sent": self.bytes_sent,
+            "bytes_total": self.bytes_received + self.bytes_sent,
+            "mb_received": round(self.bytes_received / (1024 * 1024), 2),
+            "mb_sent": round(self.bytes_sent / (1024 * 1024), 2),
+            "mb_total": round((self.bytes_received + self.bytes_sent) / (1024 * 1024), 2),
+            "request_count": self.request_count,
+        }
+
+
+# ─── Session Timing ──────────────────────────────────────────────────────────
+
+ACTIVE_BROWSE_MINUTES = 20   # Active browsing phase
+IDLE_MINUTES = 40            # Idle phase — browser open, no actions
+TOTAL_SESSION_SECONDS = (ACTIVE_BROWSE_MINUTES + IDLE_MINUTES) * 60  # 60 min total
+
+
 # ─── Configuration ───────────────────────────────────────────────────────────
 
 PHASE_CONFIG = {
@@ -472,6 +520,9 @@ async def run_warming_session(cdp_url, username, phase, subreddits, comment_plan
         "errors": [],
         "captcha_hit": False,
         "success": True,
+        "bandwidth": {},
+        "active_minutes": 0,
+        "idle_minutes": 0,
     }
     
     # NOTE: Shadowban check should be done by the CRON AGENT before calling this script,
@@ -485,6 +536,11 @@ async def run_warming_session(cdp_url, username, phase, subreddits, comment_plan
         browser = await pw.chromium.connect_over_cdp(cdp_url)
         ctx = browser.contexts[0]
         page = ctx.pages[0] if ctx.pages else await ctx.new_page()
+        
+        # Start bandwidth tracking
+        bw = BandwidthTracker()
+        await bw.start(page)
+        session_start = time.time()
         
         # Quick CAPTCHA check on Reddit homepage
         await page.goto("https://www.reddit.com/", wait_until="domcontentloaded", timeout=PAGE_TIMEOUT)
@@ -627,10 +683,28 @@ async def run_warming_session(cdp_url, username, phase, subreddits, comment_plan
         except:
             pass
         
+        # ── PHASE C: Idle period — browser open, no actions ──────────
+        active_elapsed = (time.time() - session_start) / 60
+        results["active_minutes"] = round(active_elapsed, 1)
+        
+        idle_target = max(0, TOTAL_SESSION_SECONDS - (time.time() - session_start))
+        if idle_target > 0:
+            idle_mins = round(idle_target / 60, 1)
+            print(f"[idle] Active phase done ({active_elapsed:.1f} min). Idling {idle_mins} min with browser open...", file=sys.stderr)
+            idle_start = time.time()
+            while (time.time() - idle_start) < idle_target:
+                await asyncio.sleep(min(60, idle_target - (time.time() - idle_start)))
+            results["idle_minutes"] = round((time.time() - idle_start) / 60, 1)
+        
     except Exception as e:
         results["errors"].append(str(e))
         results["success"] = False
     finally:
+        # Record final bandwidth stats
+        try:
+            results["bandwidth"] = bw.summary()
+        except:
+            pass
         if pw:
             await pw.stop()
     

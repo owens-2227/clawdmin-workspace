@@ -47,6 +47,15 @@ Warm purchased Reddit accounts (REDAccs) through AdsPower browser profiles with 
 | `BRAIN/rules/anti-detection-commenting.md` | Detection avoidance rules |
 | `BRAIN/rules/reddit-fresh-start-playbook.md` | AdsPower guides + algorithm research |
 
+## Session Timing (Updated 2026-04-16)
+
+Each warming session = **1 hour total**:
+- **20 minutes active browsing** — scroll, read, upvote (phase-dependent)
+- **40 minutes idle with browser open** — no navigation, no actions, just keep the tab alive
+- Close the AdsPower profile after the full hour
+
+This saves proxy bandwidth vs. extended browsing while still building session duration. Apply to ALL phases.
+
 ## Warm-Up Phases
 
 | Phase | Timing | Activities | Comments | Links |

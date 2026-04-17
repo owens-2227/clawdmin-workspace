@@ -22,7 +22,7 @@ ADS_AUTH="Bearer 0d599e9255deef1bcc503d735da537160085c443c76f1c30"
 # Use Jess's profile as the shadowban checker (different IP from warming accounts)
 CHECKER_PROFILE_ID="k1abonj2"
 
-TIMEOUT=300  # 5 minutes per account max
+TIMEOUT=3900  # 65 minutes per account (60 min session + 5 min buffer)
 
 # Parse args
 while [[ $# -gt 0 ]]; do
@@ -155,7 +155,11 @@ print(state.get('accounts',{}).get('$USERNAME',{}).get('status','unknown'))
         POSTS=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('posts_read',0))" 2>/dev/null || echo "0")
         UPVOTES=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('upvotes',0))" 2>/dev/null || echo "0")
         COMMENTS=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('comments_posted',[]).__len__())" 2>/dev/null || echo "0")
+        BW_MB=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('bandwidth',{}).get('mb_total','?'))" 2>/dev/null || echo "?")
+        ACTIVE_MIN=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('active_minutes',0))" 2>/dev/null || echo "0")
+        IDLE_MIN=$(echo "$WARM_OUTPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('idle_minutes',0))" 2>/dev/null || echo "0")
         echo "  ✅ Success — ${POSTS} posts, ${UPVOTES} upvotes, ${COMMENTS} comments"
+        echo "  📊 Bandwidth: ${BW_MB} MB | Active: ${ACTIVE_MIN} min | Idle: ${IDLE_MIN} min"
         SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
     else
         echo "  ❌ Failed"
@@ -247,6 +251,31 @@ print('State updated.')
 echo ""
 echo "═══════════════════════════════════════════════════════════"
 echo "📊 Summary: $SUCCESS_COUNT success, $FAIL_COUNT failed out of ${#ACCT_LIST[@]} accounts"
+
+# Bandwidth totals
+python3 -c "
+import json
+results = []
+raw = '''$(printf '%s\n' "${RESULTS[@]}")'''
+total_recv = 0
+total_sent = 0
+total_reqs = 0
+for line in raw.strip().split('\n'):
+    try:
+        r = json.loads(line)
+        bw = r.get('bandwidth', {})
+        total_recv += bw.get('bytes_received', 0)
+        total_sent += bw.get('bytes_sent', 0)
+        total_reqs += bw.get('request_count', 0)
+    except:
+        pass
+total_mb = (total_recv + total_sent) / (1024*1024)
+recv_mb = total_recv / (1024*1024)
+sent_mb = total_sent / (1024*1024)
+print(f'📡 Total bandwidth: {total_mb:.1f} MB (received: {recv_mb:.1f} MB, sent: {sent_mb:.1f} MB)')
+print(f'   Total requests: {total_reqs}')
+"
+
 echo "═══════════════════════════════════════════════════════════"
 
 # Save session log
@@ -259,11 +288,13 @@ for line in raw.strip().split('\n'):
         results.append(json.loads(line))
     except:
         pass
+total_bw = sum(r.get('bandwidth',{}).get('bytes_total',0) for r in results)
 log = {
     'timestamp': '$(date -u +%Y-%m-%dT%H:%M:%SZ)',
     'accounts_run': ${#ACCT_LIST[@]},
     'success': $SUCCESS_COUNT,
     'failed': $FAIL_COUNT,
+    'total_bandwidth_mb': round(total_bw / (1024*1024), 2),
     'results': results
 }
 with open('$SESSION_LOG', 'w') as f:
