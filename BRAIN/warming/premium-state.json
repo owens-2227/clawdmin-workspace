@@ -1,0 +1,75 @@
+{
+  "accounts": {
+    "reddit-23-premium": {
+      "user_id": "k1blqw5d",
+      "reddit_username": "roostersubstantial75",
+      "proxy_port": 21023,
+      "current_phase": 2,
+      "subreddits": [
+        "AmItheAsshole",
+        "UnderReportedNews",
+        "StardewValley",
+        "anime",
+        "mildlyinteresting",
+        "TheDigitalCircus",
+        "Fauxmoi",
+        "RealOrAI",
+        "ghibli"
+      ],
+      "first_session_date": "2026-04-17",
+      "successful_browse_sessions": 1,
+      "successful_comment_sessions": 0,
+      "removed_comments": 0,
+      "sessions": [
+        {
+          "timestamp": "2026-04-18T13:48:30.754468",
+          "phase": 2,
+          "posts_read": 3,
+          "upvotes": 2,
+          "success": true
+        }
+      ],
+      "total_upvotes": 2,
+      "total_comments": 0,
+      "last_session": "2026-04-18T13:48:30.754468",
+      "status": "warming",
+      "captcha_count": 0,
+      "notes": "Sarcastic pop-culture wit. Short-medium comments. Italicized sarcasm, ALL CAPS drama, parenthetical asides."
+    },
+    "reddit-24-premium": {
+      "user_id": "k1blvnan",
+      "reddit_username": "glad_offer6657",
+      "proxy_port": 21024,
+      "current_phase": 2,
+      "subreddits": [
+        "AmItheAsshole",
+        "Fauxmoi",
+        "DC_Cinematic",
+        "ProgrammerHumor",
+        "Charadefensesquad",
+        "Spiderman",
+        "HollowKnightMemes",
+        "ralsei"
+      ],
+      "first_session_date": "2026-04-17",
+      "successful_browse_sessions": 1,
+      "successful_comment_sessions": 0,
+      "removed_comments": 0,
+      "sessions": [
+        {
+          "timestamp": "2026-04-18T13:48:30.754468",
+          "phase": 2,
+          "posts_read": 5,
+          "upvotes": 5,
+          "success": true
+        }
+      ],
+      "total_upvotes": 5,
+      "total_comments": 0,
+      "last_session": "2026-04-18T13:48:30.754468",
+      "status": "warming",
+      "captcha_count": 0,
+      "notes": "Analytical devil's advocate. Medium-long comments. 'While X, let's not pretend Y' framing. Structured arguments."
+    }
+  }
+}

@@ -14,7 +14,9 @@ Reddit interactions via Playwright CDP through AdsPower browser profiles.
 
 | Script | Purpose |
 |--------|---------|
-| `skills/reddit-browser/comment.py` | Post a comment on a Reddit post (rebuilt 2026-04-09) |
+| `skills/reddit-browser/comment.py` | Post a top-level comment on a Reddit post (rebuilt 2026-04-09) |
+| `skills/reddit-browser/reply_to_comment.py` | Reply to a specific user's comment (nested reply, not top-level) |
+| `skills/reddit-browser/scout_opportunities.py` | Browse subreddits and find 10+ reply opportunities for a persona |
 | `skills/reddit-browser/reddit_browser.py` | Legacy: delete comments, create posts (use with caution) |
 
 ## Comment Script (Primary)
@@ -78,6 +80,72 @@ document.querySelector('shreddit-composer').querySelector('button[slot="submit-b
 ```
 
 **Modal handling:** Reddit shows a "Save Draft?" modal if a previous comment was abandoned. The script checks for and clicks "Discard" before attempting to type.
+
+## Reply-to-Comment Script
+
+### Usage
+```bash
+python3 skills/reddit-browser/reply_to_comment.py <cdp_url> <post_url> --target-author "<username>" "<reply_text>"
+python3 skills/reddit-browser/reply_to_comment.py <cdp_url> <post_url> --target-text "<partial_text>" "<reply_text>"
+python3 skills/reddit-browser/reply_to_comment.py <cdp_url> <post_url> --target-id "<thing_id>" "<reply_text>"
+```
+
+### How It Works
+1. Navigates to the post URL
+2. Finds the target comment by author, text match, or thingId
+3. Scrolls target into view, expands "more replies" if needed
+4. Clicks the Reply button on that specific comment (pierces shadow DOM)
+5. Types reply with human-like delays into the nested editor
+6. Submits and verifies the reply appeared in the thread
+7. Returns JSON with success, screenshot, target info, and our reply details
+
+### Target Selection (must provide at least one)
+- `--target-author` — Reply to first comment by this username
+- `--target-text` — Reply to first comment containing this text (case-insensitive partial match)
+- `--target-id` — Reply to comment with this exact thingId (most precise)
+
+## Scout Opportunities Script
+
+### Usage
+```bash
+python3 skills/reddit-browser/scout_opportunities.py <cdp_url> --subreddits "gardening,houseplants,running" --count 10 --persona "Mom who gardens and runs"
+```
+
+### How It Works
+1. Browses hot + rising posts across given subreddits
+2. Filters to posts with moderate comment counts (sweet spot: 10-200)
+3. Loads each thread and extracts comment structure
+4. Scores each comment as a reply target based on:
+   - Is it a question? (+30)
+   - Unanswered? (+25)
+   - Moderate depth? (+15)
+   - Good substance/length? (+10)
+   - Well-received (score)? (+10)
+5. Ensures 1 opportunity per post (different posts for each of the 10)
+6. Classifies reply angle: experience-sharing, question-answering, supportive, or comparison
+7. Returns JSON array of top opportunities with post URL, target comment, and suggested angle
+
+### Output (per opportunity)
+```json
+{
+  "post_url": "https://www.reddit.com/r/.../comments/...",
+  "post_title": "...",
+  "subreddit": "r/gardening",
+  "target_author": "username",
+  "target_text": "first 200 chars...",
+  "target_thing_id": "t1_xxx",
+  "opportunity_score": 65,
+  "suggested_angle": "question-answering",
+  "reason": "asks a question; unanswered; depth 1 — visible"
+}
+```
+
+### 9:1 Rule Workflow
+1. Run scout with `--count 10` across persona's subreddits
+2. Review the 10 opportunities
+3. For 9 of them: write pure value-add replies (experience, advice, support)
+4. For 1 of them: write a reply that naturally mentions Wabi by name (no link)
+5. Use `reply_to_comment.py` to post each reply, staggered 15-45 min apart
 
 ## Pre-Comment Checklist (For Subagents)
 

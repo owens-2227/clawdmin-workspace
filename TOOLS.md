@@ -8,20 +8,17 @@ API base: `http://127.0.0.1:50325/api/v1`
 Auth: `Authorization: Bearer 0d599e9255deef1bcc503d735da537160085c443c76f1c30`
 Note: Must use `127.0.0.1`, NOT `local.adspower.net` or `local.adspower.com`
 
-| # | Agent | user_id | Reddit | Proxy Port |
-|---|-------|---------|--------|------------|
-| 1 | jess-m | k1abonj2 | Known-Train2059 | 10001 |
-| 2 | owen-b | k1adu606 | portraftwerb | 10002 |
-| 3 | maya-chen | k1adu8q5 | tiolenssesg | 10003 |
-| 4 | dave-r | k1adu8q6 | ofexfrog | 10004 |
-| 5 | marco-v | k1adu8q7 | unjuvals | 10005 |
-| 6 | nora-p | k1adu8q8 | flordeta | 10006 |
-| 7 | raj-s | k1bc3ttk | glamavub | 10004 |
-| 8 | claire-t | k1adu8qa | rethighlin | 10008 |
-| 9 | ty-m | k1adu8qb | raispherog | 10009 |
-| 10 | priya-k | k1adu8qc | Perfect_Cricket_9114 | 10010 |
-| 11 | marcus-j | k1adu8qd | Low-Bath-946 | 10011 |
-| 12 | elise-c | k1adu8qe | Over_Rise2921 | 10012 |
+| # | Agent | user_id | Reddit | Proxy Port | Status |
+|---|-------|---------|--------|------------|--------|
+| 1 | jess-m | k1abonj2 | Known-Train2059 | 10001 | ✅ Active |
+| 2 | slot-2 | k1bhyx23 | risworlcon | 10002 | 🔥 Warming up |
+| 3 | slot-3 | k1bhyy2k | weicritil | 10003 | 🔥 Warming up |
+| 4 | slot-4 | k1bhyy3p | rextpentsis | 10004 | 🔥 Warming up |
+| 5 | marco-v | k1adu8q7 | unjuvals | 10005 | ✅ Active |
+| 6 | slot-6 | k1bhyy4i | fudtafe | 10006 | 🔥 Warming up |
+| 9 | ty-m | k1adu8qb | raispherog | 10009 | ✅ Active |
+| 11 | marcus-j | k1adu8qd | Low-Bath-946 | 10011 | ✅ Active |
+| 12 | elise-c | k1adu8qe | Over_Rise2921 | 10012 | ✅ Active |
 
 ```bash
 # Open profile

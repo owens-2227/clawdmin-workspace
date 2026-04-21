@@ -1,0 +1,26 @@
+{
+  "username": "glad_offer6657",
+  "phase": 2,
+  "timestamp": "2026-04-18T12:48:13.972787",
+  "subreddits_joined": [],
+  "posts_read": 5,
+  "upvotes": 5,
+  "downvotes": 0,
+  "comments_posted": [],
+  "comments_skipped": 0,
+  "saves": 0,
+  "errors": [],
+  "captcha_hit": false,
+  "success": true,
+  "bandwidth": {
+    "bytes_received": 14578037,
+    "bytes_sent": 2170156,
+    "bytes_total": 16748193,
+    "mb_received": 13.9,
+    "mb_sent": 2.07,
+    "mb_total": 15.97,
+    "request_count": 3122
+  },
+  "active_minutes": 3.1,
+  "idle_minutes": 56.9
+}

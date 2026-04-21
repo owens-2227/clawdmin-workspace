@@ -22,7 +22,15 @@ if not MONGO_URI:
         for line in open(env_path):
             if line.startswith('MONGO_URI='):
                 MONGO_URI = line.strip().split('=', 1)[1]
-NOTION_SECRET = "REDACTED_NOTION"
+NOTION_SECRET = os.environ.get('NOTION_SECRET', '')
+if not NOTION_SECRET:
+    env_path2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env')
+    if os.path.exists(env_path2):
+        for line in open(env_path2):
+            line = line.strip()
+            if line.startswith('NOTION_SECRET='):
+                NOTION_SECRET = line.split('=', 1)[1].strip()
+                break
 PARENT_PAGE_ID = "31b66005-ab52-800d-9c49-fbc517921ae3"
 NOTION_VERSION = "2022-06-28"
 NOTION_BASE = "https://api.notion.com/v1"

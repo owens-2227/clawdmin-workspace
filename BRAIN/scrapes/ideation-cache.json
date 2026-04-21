@@ -1,0 +1,402 @@
+{
+  "You are being lied to.": {
+    "app_idea": "Real Inflation Tracker \u2014 Track inflation using everyday items you actually buy",
+    "what_it_does": "Users create personal inflation indices by tracking price changes of specific items they regularly purchase (like the Taco Bell quesadilla example). The app calculates personalized inflation rates and compares them to official government statistics.",
+    "how_it_solves": "Addresses the frustration that official inflation numbers don't reflect real-world price increases people experience. Users can prove to themselves and others how much prices have actually risen on items they care about, creating their own 'honest' inflation metrics.",
+    "feature_set": "Custom item price tracking, inflation rate calculator, comparison charts vs official CPI, shareable inflation reports, preset popular items database, historical price timeline",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as people love sharing relatable price comparison data on social media. Strong market fit with FIRE community's focus on tracking expenses and calling out financial misinformation."
+  },
+  "I am so tired of \"just invest\" advice when I'm literally choosing between ele\u2026": {
+    "app_idea": "Survival Budget Tracker \u2014 Track which essential needs you can afford this week",
+    "what_it_does": "A simple tracker that helps people prioritize essential expenses when money is extremely tight. Users input their available cash and essential needs (rent, utilities, food, medications) to see what they can afford and what might need to wait or be substituted.",
+    "how_it_solves": "Instead of getting generic investment advice when choosing between electricity and food, users get practical help prioritizing immediate survival needs. The app validates their situation and provides actionable decisions for their specific circumstances without judgment.",
+    "feature_set": "Essential expense categorizer, priority ranking system, substitution suggestions for expensive items, weekly survival budget calculator, local resource finder for food banks/assistance, progress tracker for getting back on track",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in poverty finance communities as it addresses a real daily struggle ignored by mainstream finance apps. Strong market need among millions dealing with financial crisis who need practical tools, not investment advice."
+  },
+  "3 hours there 3 hours back. Is it worth it?": {
+    "app_idea": "Commute Cost Calculator \u2014 Is that distant job actually worth your time and money?",
+    "what_it_does": "A comprehensive calculator that helps users determine if a job with a long commute is financially viable by factoring in all transportation costs, time value, and take-home pay. Users input their potential salary, commute details, and personal financial situation to get a clear breakdown of true hourly earnings after commute expenses.",
+    "how_it_solves": "Directly addresses the '3 hours there 3 hours back' dilemma by quantifying the hidden costs of long commutes that people in tight financial situations often overlook. Helps users make data-driven decisions about whether accepting distant jobs will actually improve their financial position or trap them in unprofitable work.",
+    "feature_set": "Hourly wage calculator after commute costs, Transportation cost breakdown (gas/bus/train), Time value calculator, Break-even salary finder, Multiple job comparison tool, Monthly budget impact estimator",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in poverty finance and job hunting communities where this exact calculation is desperately needed daily. Addresses a universal pain point for anyone considering jobs with significant commutes, especially lower-income workers who can't afford to make the wrong choice."
+  },
+  "Workers don't know what government benefits they qualify for": {
+    "app_idea": "BenefitCheck \u2014 Quick eligibility screener for government assistance programs",
+    "what_it_does": "A step-by-step questionnaire that asks about income, household size, employment status, and location to instantly screen users against 15+ major federal and state benefit programs. Provides a personalized results page showing likely eligible programs with application links and next steps.",
+    "how_it_solves": "Eliminates the guesswork and research burden by consolidating eligibility requirements for SNAP, Medicaid, EITC, WIC, housing assistance, and other programs into one simple screening tool. Workers can discover benefits they never knew existed without navigating multiple government websites or waiting years to learn about programs.",
+    "feature_set": "Income calculator with multiple job inputs, household composition form, state-specific program database, eligibility scoring algorithm, results dashboard with program details, application deadline tracker",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as users share discoveries of benefits worth thousands annually. Large addressable market with 40+ million Americans in poverty who could benefit from proactive screening."
+  },
+  "I made it, I'm starting to stop being poor": {
+    "app_idea": "Poverty Escape Tracker \u2014 Track your journey from financial struggle to stability",
+    "what_it_does": "A milestone-based tracker that helps users document and celebrate their progress escaping poverty with specific financial benchmarks and achievements. Users can set personalized goals, track savings growth, employment stability, and investment milestones while building momentum through visual progress indicators.",
+    "how_it_solves": "Addresses the specific need to recognize and celebrate the transition from poverty to financial stability by making progress tangible and motivating. Provides a structured way to track the exact journey this user described - from struggling to having stable employment, savings, and investments.",
+    "feature_set": "Customizable milestone checklist, savings growth calculator, days-employed-steadily counter, investment tracking input, progress percentage bar, achievement celebration badges",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as people love sharing success stories and progress updates on social platforms. Large addressable market given widespread financial struggles and the motivational aspect of visible progress tracking."
+  },
+  "The \u201csustainable shopping\u201d trend feels like poor appropriation, and now, I ca\u2026": {
+    "app_idea": "Thrift Hunt Mapper \u2014 Find the cheapest thrift stores and track pricing trends in your area",
+    "what_it_does": "Users input and rate local thrift stores by price ranges, item quality, and frequency of good finds. The app builds a crowd-sourced database of which stores still offer truly affordable prices versus those that have inflated to near-retail costs.",
+    "how_it_solves": "Helps budget-conscious shoppers identify which thrift stores haven't been overtaken by the sustainable fashion trend and still offer genuine bargains. Users can avoid overpriced 'curated vintage' stores and focus their limited time and gas money on locations that actually serve low-income shoppers.",
+    "feature_set": "Store rating system (price/quality scale), item category price tracker, user reviews and tips, distance calculator from zip code, best find of the week submissions, price alert notifications",
+    "wabi_fit": 4,
+    "analysis": "High viral potential as budget shoppers desperately need this intel and would actively contribute data. Growing market as more people struggle with inflation and gentrified thrifting."
+  },
+  "Baby blanket in Cascade SW 220 Worsted": {
+    "app_idea": "Superwash Stretch Calculator \u2014 Predict yarn growth after washing and blocking",
+    "what_it_does": "Calculates expected dimensions of crochet and knit projects after washing based on yarn type, stitch pattern, and washing method. Users input their project specs and get predictions for length, width, and row depth changes to plan accordingly.",
+    "how_it_solves": "Prevents the frustration of superwash yarn growing unexpectedly after blocking by giving crafters realistic post-wash measurements upfront. Helps them adjust initial sizing and stitch count to achieve desired final dimensions instead of discovering changes too late.",
+    "feature_set": "Yarn database with stretch percentages, stitch pattern multipliers, washing method adjustments, before/after dimension calculator, project size recommendations, user contribution system for new yarn data",
+    "wabi_fit": 5,
+    "analysis": "Strong niche demand from active fiber arts community who regularly face this technical challenge. High shareability as users will want to spread tool that prevents common costly mistakes."
+  },
+  "I wrote an email to my frozen fruit company": {
+    "app_idea": "Company Feedback Tracker \u2014 Track and organize your sustainability feedback requests to companies",
+    "what_it_does": "A simple tracker that helps users log feedback emails sent to companies about sustainability improvements, track response rates, and organize follow-up actions. Users can record company details, request specifics, dates sent, and outcomes to build a personal advocacy database.",
+    "how_it_solves": "Instead of sending one-off emails and forgetting about them, users can systematically track their sustainability requests to companies and see which ones are responsive. This creates accountability and helps users identify which companies actually care about customer feedback on environmental issues.",
+    "feature_set": "Company contact form, request category tags, response status tracker, follow-up date reminders, success rate calculator, exportable company responsiveness report",
+    "wabi_fit": 5,
+    "analysis": "Perfect for the growing conscious consumer movement where people want to influence corporate behavior systematically. High shareability as users can compare company responsiveness and inspire others to take similar action."
+  },
+  "He\u2019s gone.": {
+    "app_idea": "Pet Health Monitor \u2014 track daily symptoms and vital signs to catch emergencies early",
+    "what_it_does": "A simple daily tracker where pet owners log their dog's energy levels, appetite, gum color, stomach firmness, and other vital signs. The app provides a visual timeline and flags concerning patterns that warrant immediate vet attention.",
+    "how_it_solves": "Many emergency conditions like splenic masses develop gradually with subtle symptoms that owners miss until it's too late. This tracker helps owners systematically monitor and document changes, potentially catching life-threatening conditions earlier when treatment is still possible.",
+    "feature_set": "Daily symptom checklist, gum color guide with photos, energy level scale, appetite tracker, symptom timeline view, emergency alert triggers",
+    "wabi_fit": 5,
+    "analysis": "High emotional stakes drive consistent usage among pet owners who want to prevent tragic losses. Viral potential through pet communities sharing early detection success stories."
+  },
+  "My dog learned when my wife and I are about to get intimate": {
+    "app_idea": "Sneaky Schedule \u2014 A discrete intimacy planning tracker for pet parents",
+    "what_it_does": "A private calendar and timing tracker that helps couples plan intimate moments around their pet's routine. Users can log their pet's sleep patterns, walk times, and training schedules to identify optimal windows for privacy.",
+    "how_it_solves": "Instead of reactive crating that creates behavioral associations, couples can proactively plan around natural breaks in their pet's routine. The app helps identify when pets are naturally occupied or tired, avoiding the need to suddenly change the pet's environment which triggers learned behaviors.",
+    "feature_set": "Pet routine tracker, privacy window calculator, discrete scheduling calendar, behavioral pattern logger, reminder notifications, routine optimization suggestions",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in pet owner communities who face this common but rarely discussed issue. Large addressable market of millennial/Gen Z pet parents who are tech-savvy and appreciate data-driven solutions to awkward problems."
+  },
+  "Debating getting out and spending years exploring, selling our house as part of it.": {
+    "app_idea": "FIRE Nomad Calculator \u2014 Compare your current lifestyle costs vs. nomadic travel budgets",
+    "what_it_does": "A financial comparison tool that helps users calculate the true cost difference between their current fixed lifestyle and a minimalist travel lifestyle. Users input their current expenses, desired travel destinations, and lifestyle preferences to see potential savings and required income adjustments.",
+    "how_it_solves": "Addresses the core uncertainty around whether downsizing and traveling is financially viable by providing concrete numbers and comparisons. Takes the guesswork out of major life decisions by showing real cost breakdowns for different travel scenarios vs. current living situations.",
+    "feature_set": "Current expense tracker, Destination cost database with living expenses, Travel budget calculator by region, Savings projection timeline, House sale vs. rent income comparison, Annual spending comparison charts",
+    "wabi_fit": 5,
+    "analysis": "High demand in growing FIRE and digital nomad communities seeking data-driven lifestyle decisions. Highly shareable as users compare results and validate major life transitions with concrete numbers."
+  },
+  "Put an ice pack on your neck!": {
+    "app_idea": "CoolDown Kit \u2014 Quick sensory regulation tracker for neurodivergent families",
+    "what_it_does": "A simple tracker that helps parents and individuals quickly log which sensory regulation techniques work best during meltdowns or dysregulated moments. Users can record what triggered the episode, which cooling/calming method they tried (ice pack, cold water, weighted blanket, etc.), and rate how effective it was.",
+    "how_it_solves": "Instead of frantically trying to remember what worked last time during a crisis, parents have a personalized database of proven techniques at their fingertips. The app builds a pattern recognition system showing which sensory interventions work best for specific triggers or times of day.",
+    "feature_set": "Quick trigger selection buttons, sensory technique library with timers, effectiveness rating system, pattern insights dashboard, sharable technique cards, emergency favorites list",
+    "wabi_fit": 5,
+    "analysis": "Huge underserved market of neurodivergent individuals and parents seeking practical tools. High viral potential through neurodivergent communities sharing successful regulation strategies."
+  },
+  "Probably will delete in a bit, just want to say something": {
+    "app_idea": "Crisis Clarity \u2014 Anonymous emergency support decision helper",
+    "what_it_does": "A guided decision tree that helps people in crisis moments identify their support options, assess urgency levels, and find appropriate resources. It provides a structured way to process overwhelming situations when thinking clearly is difficult.",
+    "how_it_solves": "Addresses the specific moment when someone is scared, alone, and needs immediate guidance but may not know what steps to take or who to reach out to. Transforms panicked uncertainty into actionable steps while providing emotional validation.",
+    "feature_set": "Crisis severity assessment quiz, Emergency contact generator, Local resource finder by zip code, Calming affirmations between steps, Printable action plan, Anonymous hope message board",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as crisis moments create strong sharing motivation when people want to help others avoid similar situations. Large addressable market across addiction recovery, mental health, and general crisis support communities."
+  },
+  "Steggo fresh off the needles!": {
+    "app_idea": "Knitting Project Showcase \u2014 track and share your finished knitting projects with pattern details",
+    "what_it_does": "A digital portfolio where knitters can log their completed projects with pattern information, yarn details, modifications made, and personal notes. Users can track their progress through different techniques and browse others' interpretations of the same patterns.",
+    "how_it_solves": "Addresses knitters' desire to showcase their finished work and document project details like the Steggo sweater post. Provides a dedicated space to celebrate completions, share pattern experiences, and inspire others with colorwork and technique variations.",
+    "feature_set": "Project entry form with pattern/yarn fields, photo upload placeholder, difficulty rating system, technique tags (colorwork, cables, etc.), project timeline tracker, pattern review and notes section",
+    "wabi_fit": 5,
+    "analysis": "Strong viral potential as knitters love sharing finished objects and discovering new patterns through others' work. Large engaged community on Reddit shows demand for better project documentation tools."
+  },
+  "Tried to weaponized my unmasking, had a weird realization": {
+    "app_idea": "Boundary Script Builder \u2014 Pre-written responses for unwanted social interactions",
+    "what_it_does": "A micro-app that helps neurodivergent women generate and practice polite but firm responses to unwanted attention or interactions in public spaces. Users can select scenarios (grocery store, gym, classes) and get customized scripts with confidence-building tips.",
+    "how_it_solves": "Addresses the specific struggle of neurodivergent women who attract unwanted attention and need to 'mask' or develop defensive behaviors like 'murder walking.' Provides pre-planned responses so users don't have to think on the spot during uncomfortable situations.",
+    "feature_set": "Scenario selector dropdown, customizable response templates, confidence level tracker, practice mode with sample conversations, personal safety tips checklist, quick-access favorite responses",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in neurodivergent communities where masking and social navigation are major pain points. Could expand to general social anxiety and women's safety markets."
+  },
+  "Shaken by racist attack on my toddler, heartbroken": {
+    "app_idea": "Safe Space Prep \u2014 Age-appropriate conversation planner for discussing discrimination with kids",
+    "what_it_does": "A guided planner that helps parents prepare and practice difficult conversations about racism and discrimination with their children. It provides age-appropriate scripts, conversation starters, and follow-up activities based on the child's age and specific situations they may encounter.",
+    "how_it_solves": "When parents face the heartbreaking reality of preparing their children for discrimination, this tool gives them concrete, actionable guidance instead of feeling helpless. It transforms the overwhelming task of 'having the talk' into manageable, structured conversations that build resilience and understanding.",
+    "feature_set": "Age-based conversation templates, situation-specific response scripts, emotional preparation checklist, follow-up activity suggestions, progress tracker for multiple conversations, printable conversation cards",
+    "wabi_fit": 5,
+    "analysis": "High emotional urgency drives immediate sharing among parent communities facing similar challenges. Parents desperately need practical tools for these difficult conversations, creating strong word-of-mouth potential in parenting groups and communities of color."
+  },
+  "I\u2019m 30 years old and I have no money.": {
+    "app_idea": "Penny Stretch \u2014 survival budget calculator for people living paycheck to paycheck",
+    "what_it_does": "A micro-budget calculator that helps people with extremely limited income ($2000-3000/month) allocate every dollar for basic survival needs. It prioritizes absolute essentials like rent, utilities, and food while identifying which bills can be delayed or negotiated.",
+    "how_it_solves": "Specifically designed for people in poverty who need to make impossible financial decisions with limited income. Unlike generic budgeting apps, it focuses on survival-mode budgeting with features like bill prioritization and emergency fund building from spare change.",
+    "feature_set": "Income input with irregular gig work calculator, Essential vs non-essential expense categorizer, Bill priority ranking system, Spare change savings tracker, Emergency fund goal setter, Weekly survival budget breakdown",
+    "wabi_fit": 5,
+    "analysis": "Massive underserved market of low-income individuals who find traditional budgeting apps irrelevant to their reality. High viral potential in poverty finance communities where practical survival tools are desperately needed and frequently shared."
+  },
+  "Food pantries are for YOU!": {
+    "app_idea": "Pantry Locator \u2014 Find food assistance near you instantly",
+    "what_it_does": "A simple search tool where users enter their ZIP code to find nearby food pantries, soup kitchens, and food assistance programs. Displays basic information like addresses, hours, requirements, and contact details for each location.",
+    "how_it_solves": "Removes the barrier of not knowing where to find food assistance by providing an easy lookup tool. Helps people quickly identify which programs they qualify for and what to expect, reducing the intimidation factor of seeking help.",
+    "feature_set": "ZIP code lookup, food pantry directory, program requirements checker, hours and contact info display, qualification quiz, preparation checklist",
+    "wabi_fit": 4,
+    "analysis": "High demand from budget-conscious users who need immediate food assistance but don't know where to start. Strong viral potential as users share with friends facing similar struggles."
+  },
+  "If you think you can just walk away from a car repo": {
+    "app_idea": "Repo Reality Check \u2014 Calculate the true cost of car repossession",
+    "what_it_does": "A calculator that shows users the total financial impact of letting their car get repossessed versus other options. Users input their loan details, current situation, and get a breakdown of repo costs including deficiency balance, fees, credit impact, and transportation alternatives.",
+    "how_it_solves": "Many people think repo is a simple way out of car payments, not realizing they'll still owe thousands in deficiency balance plus fees. This app reveals the hidden costs upfront and compares total expenses against alternatives like selling the car, loan modification, or voluntary surrender.",
+    "feature_set": "Loan balance calculator, Repo cost estimator with fees and charges, Deficiency balance calculator, Alternative options comparison, Credit score impact timeline, Transportation cost calculator",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in poverty finance communities where car repos are common but misunderstood. Fills a clear education gap with actionable financial calculations that could save users thousands."
+  },
+  "Multiple errors on my loans and the inability to get through to anyone means it's probably time to stop trying": {
+    "app_idea": "Loan Call Logger \u2014 Track your customer service attempts and build documentation",
+    "what_it_does": "A simple tracker that logs each attempt to contact loan servicers, recording dates, times, phone numbers called, wait times, and outcomes. Users can export their call history as documentation for complaints or disputes.",
+    "how_it_solves": "When borrowers can't reach customer service representatives, this app creates a paper trail of their efforts, which can be used as evidence when filing complaints with CFPB or disputing loan errors. It also helps users identify the best times to call and track patterns in servicer availability.",
+    "feature_set": "Call attempt logger with date/time stamps, Wait time tracker, Outcome recorder (busy signal, hung up, reached human), Phone number database for different servicers, Export function for complaint documentation, Success rate calculator by time of day",
+    "wabi_fit": 5,
+    "analysis": "High market need with 45+ million borrowers facing similar customer service issues. Viral potential through loan forgiveness communities and social media sharing of servicer problems."
+  },
+  "Parents have no good system for managing school break childcare and activities": {
+    "app_idea": "Break Planner \u2014 School holiday logistics organizer for working parents",
+    "what_it_does": "A comprehensive planning tool that helps parents map out school breaks month by month, tracking coverage needs, available camps/activities, and backup plans. Parents input their work schedules and kids' break dates to generate a visual timeline with coverage gaps highlighted.",
+    "how_it_solves": "Eliminates the recurring nightmare of scrambling for last-minute childcare by creating a centralized system for break planning. Parents can see all coverage gaps at once, track which camps they've registered for, and maintain backup options for emergencies.",
+    "feature_set": "School break calendar input, work schedule overlay, camp/activity tracker with dates and costs, coverage gap identifier, backup caregiver list with contact info, budget calculator for break expenses",
+    "wabi_fit": 5,
+    "analysis": "Huge market of working parents who face this 3-4 times per year, with high shareability as parents desperately seek solutions from other parents. Natural viral spread through parenting groups and school communities."
+  },
+  "Finally done! Please enjoy with me my beautiful Hibiscus blouse": {
+    "app_idea": "Crochet Project Celebration \u2014 Track and share your finished fiber arts projects with progress milestones",
+    "what_it_does": "A micro-app that helps crocheters document their project journey from start to finish, track time spent, materials used, and create a shareable celebration post when completed. Users can log daily progress, note pattern details, and generate a beautiful project summary to share with the community.",
+    "how_it_solves": "Addresses the desire to properly celebrate and share completed crochet projects by creating a structured way to document the journey and generate shareable content. Helps crafters feel more accomplished by tracking their dedication and provides a format for meaningful project sharing beyond just posting a photo.",
+    "feature_set": "Project timer and session tracker, Pattern and materials logger, Progress photo uploader, Completion celebration generator, Shareable project summary cards, Personal project gallery",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as crafters love sharing their work and the sense of community around completed projects. The fiber arts community is very active online and would appreciate a dedicated tool for celebrating their craft achievements."
+  },
+  "An Important Update to the SAVE Plan - April 6th Filing": {
+    "app_idea": "SAVE Plan Tracker \u2014 Monitor your student loan repayment plan status and legal updates",
+    "what_it_does": "A tracking tool that helps users monitor their SAVE Plan enrollment status, payment calculations, and important legal case developments. Users can input their loan details to see how court decisions and policy changes affect their specific situation.",
+    "how_it_solves": "Eliminates confusion around constantly changing SAVE Plan rules by providing a centralized dashboard to track personal enrollment status and legal updates. Helps users make informed decisions about their repayment strategy instead of relying on scattered Reddit posts and confusing government communications.",
+    "feature_set": "SAVE Plan eligibility checker, payment calculator with current rules, legal case timeline tracker, personal enrollment status log, key date reminders, decision impact analyzer",
+    "wabi_fit": 5,
+    "analysis": "High demand among 45+ million borrowers navigating complex policy changes with strong viral potential as users share status updates. Perfect calculator/tracker combo that students would bookmark and share widely during ongoing legal uncertainty."
+  },
+  "they're not diagnosing the Black girls with ADHD lmao": {
+    "app_idea": "ADHD Symptom Tracker & Advocacy Prep \u2014 Document your symptoms and prepare for healthcare conversations",
+    "what_it_does": "A comprehensive symptom tracker that helps users document ADHD symptoms over time with specific focus on how they present in women and marginalized communities. The app generates a detailed report and conversation guide to bring to healthcare appointments.",
+    "how_it_solves": "Addresses the diagnostic bias by helping Black women and other marginalized groups systematically document their symptoms in medical terminology and prepare evidence-based conversations with healthcare providers. Reduces the likelihood of misdiagnosis by providing structured symptom tracking and advocacy tools.",
+    "feature_set": "Daily symptom checklist with women-specific ADHD symptoms, mood and focus tracking, appointment preparation guide, symptom timeline visualization, printable medical summary report, healthcare conversation scripts",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in underserved communities facing healthcare bias, with strong word-of-mouth potential in ADHD and women's health communities. Large addressable market given widespread diagnostic disparities."
+  },
+  "Identifying Unknown Crochet Stitches by Photo or Description": {
+    "app_idea": "Stitch Detective \u2014 crowdsourced crochet stitch identification quiz",
+    "what_it_does": "A community-driven identification tool where users submit photos and descriptions of unknown stitches, then other crocheters can vote on multiple choice answers or suggest stitch names. Creates a searchable database of user-submitted stitch examples with verified names.",
+    "how_it_solves": "Solves the lack of reliable stitch identification by leveraging the collective knowledge of the crochet community. Users get crowd-sourced answers from experienced crocheters who can recognize stitches, while building a visual reference library for future searchers.",
+    "feature_set": "Photo upload with description fields, multiple choice voting system for stitch identification, searchable stitch database, difficulty rating system, pattern source tracking, community reputation scores",
+    "wabi_fit": 4,
+    "analysis": "High viral potential in crochet communities as users return to both ask questions and help others identify stitches. Creates valuable crowdsourced database that becomes more useful over time."
+  },
+  "ABC falling asleep method working consistently for me!": {
+    "app_idea": "ABC Sleep Game \u2014 Gamified alphabet method to beat bedtime boredom",
+    "what_it_does": "A customizable sleep aid that guides users through the ABC method with different themed categories (animals, foods, movies, etc.) to keep the mind engaged but calm. Users can track which categories work best and how long it takes them to fall asleep using different themes.",
+    "how_it_solves": "Addresses the core issue that 'sleep is boring' by turning the ABC method into an engaging but not overstimulating activity. Provides variety through different categories and tracks effectiveness so ADHD users can find their optimal sleep routine.",
+    "feature_set": "Category selector (animals, foods, places, movies), sleep timer tracking, effectiveness rating after each session, custom category creator, progress streaks, gentle night mode interface",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in ADHD and insomnia communities where sleep struggles are common. Simple concept that's immediately useful and shareable across neurodivergent support groups."
+  },
+  "Well, that\u2019s just perfect.": {
+    "app_idea": "Moisture Meter Validator \u2014 Cross-check soil readings and calibrate your watering schedule",
+    "what_it_does": "Helps gardeners track and compare readings from multiple soil moisture meters to identify faulty equipment and establish reliable watering patterns. Users log readings from different meters in the same spots over time to detect inconsistencies and build confidence in their watering decisions.",
+    "how_it_solves": "Solves the frustrating problem of unreliable soil moisture meters giving contradictory readings by providing a systematic way to validate meter accuracy. Prevents both overwatering and underwatering by helping gardeners identify which meters to trust and establish consistent measurement protocols.",
+    "feature_set": "Multi-meter comparison tracker, Daily reading logger with notes, Meter reliability score calculator, Watering schedule planner, Plant-specific moisture level guide, Equipment replacement alerts",
+    "wabi_fit": 5,
+    "analysis": "High demand from frustrated gardeners dealing with unreliable tools, with strong viral potential as users share their 'meter fails' and validation results. Simple data tracking format perfect for Wabi's capabilities."
+  },
+  "The cruelest part of growing up is realizing most people leave quietly": {
+    "app_idea": "Relationship Archive \u2014 Track and reflect on the people who've left your life",
+    "what_it_does": "A personal tracker where users log relationships that ended without closure, record memories, last interactions, and patterns. Users can categorize different types of departures and track their emotional journey through processing these losses.",
+    "how_it_solves": "Instead of endlessly scrolling through old texts and replaying conversations in their head, users get a structured way to process quiet departures. The app validates that this experience is normal and helps identify patterns in relationships to build awareness for future connections.",
+    "feature_set": "Relationship entry form with departure type categories, last interaction logger, memory timeline builder, emotional processing tracker, pattern recognition insights, closure ritual generator",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as this resonates with Gen Z/millennial shared experience of digital-age relationship endings. Strong market opportunity in the mental wellness space for young adults seeking tools to process modern relationship challenges."
+  },
+  "13 year old is lonely and just got rejected AGAIN": {
+    "app_idea": "Rejection Resilience Tracker \u2014 Help teens track social interactions and build confidence after rejections",
+    "what_it_does": "A personal tracker where teens log social attempts (asking to hang out, joining groups, etc.), outcomes, and feelings to visualize their social courage over time. Includes reflection prompts and confidence-building exercises after each social interaction, whether successful or not.",
+    "how_it_solves": "Reframes rejection as data rather than failure, helping teens see patterns in their social life and celebrate the courage it takes to keep trying. Provides structured reflection tools that turn painful experiences into growth opportunities and builds resilience through small daily wins.",
+    "feature_set": "Daily interaction logger, rejection-to-success ratio tracker, mood check-ins, confidence-building prompt library, weekly reflection questions, courage streak counter",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as rejection is universal among teens, and parents would actively share this tool. Strong recurring usage pattern since social interactions happen daily during formative years."
+  },
+  "Buffalo Wild Wings unlimited apps for 4 people $9.99 total (not per person)": {
+    "app_idea": "DealSplit Calculator \u2014 Split restaurant deals and promos across groups",
+    "what_it_does": "A calculator that helps users find and split restaurant deals, promos, and group discounts to maximize savings. Users input deal details, group size, and additional costs to see exact per-person pricing and total savings.",
+    "how_it_solves": "Addresses the confusion around group deals like BWW's $9.99 unlimited apps for 4 people by clearly calculating per-person costs and helping users organize groups to take advantage of these deals. Shows exactly how much each person saves compared to regular pricing.",
+    "feature_set": "Deal cost calculator with group sizing, Per-person breakdown with tax/tip, Savings comparison vs regular menu, Group organizer for splitting costs, Popular restaurant deal database, Share results with friends",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as users will share calculated savings with friends to organize group outings. Addresses a recurring pain point for budget-conscious diners trying to maximize restaurant deals."
+  },
+  "Crocheted my cat a little crown": {
+    "app_idea": "Pet Project Planner \u2014 Track your pet craft projects from pattern to purrfection",
+    "what_it_does": "A project tracker specifically for crafters making items for their pets, helping them log patterns, materials, sizing attempts, and pet reactions. Users can track multiple projects, note what worked or didn't, and plan future pet crafts based on their pet's preferences and tolerance.",
+    "how_it_solves": "Addresses the trial-and-error nature of crafting for pets by letting crafters document sizing issues, pet reactions, and pattern modifications for future reference. Helps crafters remember which patterns worked well for their specific pets and build a personalized database of successful pet projects.",
+    "feature_set": "Project logger with pet details, pattern source tracker, sizing notes and adjustments, pet reaction recorder, material cost calculator, completion photo gallery",
+    "wabi_fit": 5,
+    "analysis": "Strong niche appeal in the growing pet crafting community with high shareability potential as crafters love showing off successful pet projects. Low competition in this specific vertical creates opportunity for word-of-mouth growth."
+  },
+  "How to make Authentic Kvass": {
+    "app_idea": "Kvass Master \u2014 Traditional fermentation recipe calculator and tracker",
+    "what_it_does": "A specialized calculator that helps users determine precise ingredient ratios for authentic kvass based on bread type, desired flavor profile, and fermentation conditions. It includes a step-by-step timeline tracker that guides users through the traditional fermentation process with customizable alerts and progress logging.",
+    "how_it_solves": "Eliminates the guesswork in authentic kvass making by providing calculated ratios based on ancestral techniques and zero-waste principles. The tracker ensures users follow proper timing and fermentation stages, addressing the lack of reliable, specific guidance that frustrates the r/fermentation community.",
+    "feature_set": "Ingredient ratio calculator based on bread type and quantity, fermentation timeline planner with day-by-day steps, flavor profile selector for traditional vs custom kvass, temperature and time tracking log, troubleshooting quiz for common issues, recipe sharing community board",
+    "wabi_fit": 5,
+    "analysis": "High viral potential within fermentation communities as kvass knowledge is specialized and scattered across forums. Strong recurring use case as enthusiasts make multiple batches and experiment with variations."
+  },
+  "I catch no breaks with my kids": {
+    "app_idea": "Kid-Approved Recipe Tracker \u2014 track which homemade recipes your kids actually eat",
+    "what_it_does": "A simple tracker where parents log homemade recipes they try with their kids, rating each child's reaction from 'loved it' to 'refused to try.' Parents can add notes about modifications that worked and build a personalized database of kid-approved recipes.",
+    "how_it_solves": "Helps parents avoid the heartbreak of spending hours baking or cooking only to have kids reject it. By tracking what works and what doesn't, parents can focus their energy on recipes their specific kids will actually enjoy, reducing waste and frustration.",
+    "feature_set": "Recipe entry form, kid reaction rating scale, success/failure tracking, notes section for modifications, filtered view of 'winners only', simple statistics on success rate",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as every parent faces picky eater frustration. Could easily expand across cooking communities beyond sourdough, with potential for recipe sharing between parents."
+  },
+  "Why ????": {
+    "app_idea": "Bread Diagnosis Helper \u2014 visual troubleshooting guide for failed loaves",
+    "what_it_does": "An interactive diagnostic tool where users answer simple questions about their bread's appearance, texture, and baking process to get specific explanations for what went wrong. The app walks through common bread failures with visual descriptions and provides targeted solutions for each issue.",
+    "how_it_solves": "Instead of posting photos and waiting for community responses, bakers get instant diagnosis of their bread problems through a structured questionnaire. The app captures the collective wisdom of experienced bakers in an easily accessible format, eliminating the guesswork and frustration of repeated failures.",
+    "feature_set": "Visual symptom checker with photos, step-by-step diagnostic questions, personalized troubleshooting advice, common fixes database, baking technique tips, failure prevention checklist",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as bread baking exploded during pandemic and remains popular hobby with active online communities. Solves a universal problem that every home baker faces repeatedly, making it highly shareable and useful."
+  },
+  "Almost screwed up my mortgage payments big time - \"biweekly\" vs twice a month": {
+    "app_idea": "PaySchedule Planner \u2014 visualize your exact paycheck dates and payment timing",
+    "what_it_does": "Users input their pay frequency (biweekly, twice monthly, weekly, etc.) and start date to generate a full year calendar showing exact paycheck dates. The app highlights months with 3+ paychecks and helps users plan when to make mortgage or other payments based on their actual cash flow.",
+    "how_it_solves": "Eliminates confusion between 'biweekly' (26 payments per year) and 'twice monthly' (24 payments per year) by showing users their exact payment schedule visually. Helps users identify bonus paycheck months in advance so they can plan extra mortgage payments without screwing up their budget timing.",
+    "feature_set": "Pay frequency selector with clear definitions, visual calendar showing all paycheck dates, bonus paycheck month highlighter, payment planning notes for each month, mortgage payment timing optimizer, export calendar option",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as pay schedule confusion affects millions of workers, especially those considering biweekly mortgage strategies. Simple calculator format perfect for social sharing when people discover their bonus paycheck months."
+  },
+  "I recently started applying to jobs and realized the \u201cdo you have a disabilit\u2026": {
+    "app_idea": "Disclosure Compass \u2014 Interactive guide for disability disclosure decisions on job applications",
+    "what_it_does": "A decision tree tool that walks users through personalized questions about their situation, job type, and concerns to provide tailored guidance on whether to disclose disabilities like ADHD on applications. Includes educational content about legal protections and accommodation options.",
+    "how_it_solves": "Addresses the uncertainty and anxiety around disclosure decisions by providing structured, personalized guidance instead of leaving people to guess. Helps users understand their rights and make informed choices based on their specific circumstances rather than fear or confusion.",
+    "feature_set": "Interactive decision tree questionnaire, Legal rights information cards, Accommodation examples database, Pros/cons comparison generator, Personal decision tracker, Resource links for support",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as this affects millions of neurodivergent job seekers who face this dilemma repeatedly. Strong word-of-mouth potential in ADHD and autism communities where disclosure anxiety is widely discussed."
+  },
+  "The real reason escaping poverty is so hard has nothing to do with laziness an\u2026": {
+    "app_idea": "Bandwidth Buddy \u2014 cognitive load tracker for financial decisions",
+    "what_it_does": "A daily tracker that helps users monitor their mental energy levels and schedule important financial decisions for when their cognitive bandwidth is highest. Users log their stress levels, sleep, and mental fatigue, then get personalized recommendations for timing money-related tasks.",
+    "how_it_solves": "Addresses the core issue that financial scarcity consumes mental bandwidth by helping users recognize when they're cognitively depleted and avoid making poor financial decisions during low-energy periods. Creates awareness of the scarcity mindset and provides structure for making better choices when mental resources are available.",
+    "feature_set": "Daily cognitive load check-in, stress level tracker, financial decision scheduler, energy pattern analysis, decision quality tracker, weekly bandwidth reports",
+    "wabi_fit": 5,
+    "analysis": "Highly shareable among poverty finance communities as it validates their struggles with scientific backing. Strong viral potential as users discover patterns in their decision-making quality correlating with their mental bandwidth."
+  },
+  "I\u2019m crashing out over the response to a Reddit post I made": {
+    "app_idea": "Post Panic Checker \u2014 Pre-post anxiety relief for neurodivergent minds",
+    "what_it_does": "A guided checklist and emotional regulation tool that helps users pause, reflect, and prepare before posting on social media or dating apps. It includes prompts to clarify intentions, set realistic expectations, and create coping strategies for potential negative responses.",
+    "how_it_solves": "Addresses the ADHD tendency to overthink and catastrophize social interactions by providing structure and emotional preparation before posting. Helps users identify their goals, manage rejection sensitivity, and build resilience against negative feedback before they're in crisis mode.",
+    "feature_set": "Pre-post intention checker, expectation reality-check prompts, response scenario planner, emotional regulation techniques, post-interaction reflection tracker, trigger identification quiz",
+    "wabi_fit": 5,
+    "analysis": "Strong market opportunity among neurodivergent communities who struggle with rejection sensitivity and social media anxiety. High viral potential as users share their positive experiences managing online interactions more confidently."
+  },
+  "\ud83d\udea8First loaf alert!\ud83d\udea8": {
+    "app_idea": "Starter Success Tracker \u2014 guided sourdough starter development with milestone tracking",
+    "what_it_does": "A step-by-step tracker that guides beginners through the sourdough starter creation process with daily check-ins, feeding schedules, and visual progress indicators. Users log their starter's behavior, bubbling activity, and smell to determine when it's truly ready for baking their first loaf.",
+    "how_it_solves": "Eliminates the guesswork and anxiety around starter readiness by providing clear daily milestones and signs to look for. Prevents premature first-loaf attempts by tracking actual starter stability over time rather than just days passed, helping beginners understand what 'stabilized' actually looks like.",
+    "feature_set": "Daily feeding reminder calculator, bubble activity tracker, smell assessment checklist, starter readiness score, feeding ratio calculator, troubleshooting decision tree",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in passionate sourdough communities where starter struggles are universally shared experiences. Large addressable market of home baking enthusiasts who need structured guidance through the intimidating starter process."
+  },
+  "Wild deodorant size change": {
+    "app_idea": "Package Shrink Tracker \u2014 Track when your favorite products get smaller but cost the same",
+    "what_it_does": "A community database where users log and track when products reduce in size or quantity while maintaining the same price. Users can search products, compare old vs new specifications, and see shrinkflation trends over time.",
+    "how_it_solves": "Helps zero waste consumers make informed purchasing decisions by documenting product downsizing like the Wild deodorant issue. Creates accountability for brands and helps users find better value alternatives when their trusted products shrink.",
+    "feature_set": "Product search and logging form, before/after size comparison calculator, community voting on submissions, brand shrinkflation scorecard, price-per-unit calculator, submission photo upload area",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as shrinkflation affects everyone and people love sharing 'gotcha' moments with brands. Strong community engagement opportunity with zero waste and frugal living audiences."
+  },
+  "Realized I probably had a \"last\" experience today.": {
+    "app_idea": "Last Times Tracker \u2014 Capture and cherish fleeting childhood moments",
+    "what_it_does": "A simple tracker that helps parents log and reflect on precious 'last time' moments with their children, from final bedtime stories to last piggyback rides. Parents can add entries with dates, descriptions, and emotional reflections to create a meaningful record of these bittersweet milestones.",
+    "how_it_solves": "Addresses the pain of realizing special moments have passed unnoticed by encouraging parents to be more mindful and intentional about recognizing these experiences in real-time. Transforms the sadness of 'lasts' into gratitude by creating a beautiful collection of memories to revisit and appreciate.",
+    "feature_set": "Moment entry form with date and description, Category tags for different types of experiences, Reflection prompts to capture emotions, Memory timeline view, Milestone counter by child/age, Gratitude reminder notifications",
+    "wabi_fit": 5,
+    "analysis": "High emotional resonance with parents who deeply relate to missing childhood milestones, with strong sharing potential as parents compare similar 'last times' experiences. Simple tracking format makes it highly viral within parenting communities seeking mindful approaches to raising children."
+  },
+  "I\u2019m 36 and I think my FIRE goal is unreachable": {
+    "app_idea": "FIRE Reality Check \u2014 Personalized financial independence goal recalibrator",
+    "what_it_does": "Takes your current financial situation, age, and setbacks to generate multiple realistic FIRE scenarios with adjusted timelines and target amounts. Shows you alternative paths like Coast FIRE, Barista FIRE, or Geographic Arbitrage FIRE instead of just the traditional $1M+ goal.",
+    "how_it_solves": "Addresses the despair of feeling like FIRE goals are unreachable by showing that a $50k portfolio loss and starting at 29 doesn't kill your dreams\u2014it just changes the path. Provides hope through realistic alternatives and shows how small adjustments can get you back on track without starting over.",
+    "feature_set": "Current situation input form, Multiple FIRE scenario calculator, Setback recovery timeline, Coast FIRE date calculator, Geographic arbitrage savings calculator, Monthly adjustment recommendation engine",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in FIRE communities where goal reassessment is common after market downturns or life changes. Fills gap between overly optimistic FIRE calculators and the reality of financial setbacks."
+  },
+  "Word of warning": {
+    "app_idea": "FIRE Reality Check \u2014 Calculator to reveal hidden costs of extreme frugality",
+    "what_it_does": "A calculator that helps users evaluate the true cost-benefit of FIRE lifestyle choices by factoring in opportunity costs, health impacts, relationship strain, and career sacrifices. Users input their frugal decisions and see both financial gains and potential hidden costs across different life areas.",
+    "how_it_solves": "Addresses the pain point of FIRE enthusiasts who pursue extreme frugality without considering broader life impacts. Helps users make more balanced decisions by quantifying what they might be sacrificing (relationships, health, experiences) for financial independence.",
+    "feature_set": "Frugality decision calculator, opportunity cost estimator, relationship impact scorer, health cost tracker, career sacrifice analyzer, balanced FIRE planning worksheet",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in FIRE community as it challenges conventional wisdom with data-driven insights. Addresses growing concern about FIRE burnout and extreme frugality backlash among younger practitioners."
+  },
+  "Anyone else's BC love playing in the rain? Lol -This is Zildjian, btw": {
+    "app_idea": "Rainy Day Pup Planner \u2014 Track your dog's weather preferences and plan perfect outdoor activities",
+    "what_it_does": "A simple tracker that helps dog owners log their pet's behavior and energy levels in different weather conditions. Users can record activities, moods, and preferences to identify patterns and plan optimal outdoor time based on weather forecasts.",
+    "how_it_solves": "Many dog owners notice their pets have strong weather preferences but don't systematically track these patterns. This app helps identify when your dog is most happy and energetic, turning casual observations like 'my BC loves rain' into actionable data for better pet care and activity planning.",
+    "feature_set": "Weather condition logger, mood/energy rating scale, activity tracker, pattern analysis charts, weekly weather-based activity suggestions, shareable pet weather personality profiles",
+    "wabi_fit": 5,
+    "analysis": "High viral potential as pet owners love sharing quirky pet behaviors and comparing notes. Simple data entry with visual outputs makes it perfect for social sharing and community building among breed-specific groups."
+  },
+  "I'm going stretches of 4 days without sleep": {
+    "app_idea": "Sleep Streak Tracker \u2014 Visual sleep pattern tracker with perimenopause-specific insights",
+    "what_it_does": "A simple daily tracker where users log sleep hours, quality, and perimenopause symptoms with visual streaks and patterns. Provides personalized insights on sleep triggers and celebrates small wins like getting any sleep after multi-day stretches.",
+    "how_it_solves": "Helps women track the connection between hormonal symptoms and sleep patterns to identify triggers and improvements. Validates their experience by showing data patterns and provides hope by highlighting progress, even if it's just 2 hours after 4 sleepless nights.",
+    "feature_set": "Daily sleep hours input, symptom tracker (hot flashes, anxiety, pain), visual calendar with color-coded sleep quality, streak counter for consecutive sleep nights, trigger pattern analysis, celebration badges for small wins",
+    "wabi_fit": 5,
+    "analysis": "High viral potential in perimenopause communities as sleep issues affect 60% of women in this stage. Simple tracking format is perfect for sharing screenshots of patterns with doctors and support groups."
+  },
+  "Yes. You can date even if you are poor": {
+    "app_idea": "DateSmart \u2014 Budget-friendly dating planner and community",
+    "what_it_does": "Helps users plan meaningful, low-cost dates by providing creative date ideas under specific budget ranges ($0-5, $5-15, $15-30), connecting them with others who share frugal dating values, and offering tips for romance on a budget. Includes a community feature where users can share successful budget date experiences and rate activities by cost-effectiveness.",
+    "how_it_solves": "Directly addresses the limiting belief that dating requires significant money by providing concrete, actionable alternatives. Builds confidence through community validation from others successfully dating on tight budgets. Removes the guesswork and anxiety around planning affordable dates while maintaining romance and connection.",
+    "feature_set": "Budget-based date idea generator, local free events calendar integration, cost calculator for planned dates, user-submitted budget date reviews, community forum for sharing experiences, dating confidence tips, DIY romantic gesture guides, group date coordination for cost-splitting, and achievement badges for creative budget dating",
+    "wabi_fit": 4,
+    "analysis": "Strong fit for Wabi's micro-app model as it solves a specific, recurring pain point with actionable features. The r/povertyfinance community shows clear demand with 453 upvotes and 154 comments indicating high engagement. The app addresses both practical (budget planning) and emotional (confidence/community) aspects of the problem. Simple enough for no-code development while providing real value through curated content and community features."
+  },
+  "Cat separation anxiety identification and management \u2014 owners lack diagnostic tools": {
+    "app_idea": "CatCalm Tracker \u2014 Cat separation anxiety diagnostic and management tool",
+    "what_it_does": "Provides cat owners with a structured assessment tool to identify separation anxiety symptoms, tracks behavioral patterns over time, and offers personalized management strategies and progress monitoring for anxious cats.",
+    "how_it_solves": "Addresses the lack of diagnostic tools by offering a comprehensive symptom checklist, daily behavior logging, photo/video evidence collection, and expert-backed recommendations that help owners distinguish between normal attachment and problematic separation anxiety.",
+    "feature_set": "Separation anxiety assessment quiz \u2022 Daily behavior tracking log \u2022 Photo/video symptom documentation \u2022 Behavioral pattern analytics \u2022 Personalized management tips \u2022 Progress tracking dashboard \u2022 Vet report generator \u2022 Emergency calm-down techniques \u2022 Community support forum \u2022 Educational resources library",
+    "wabi_fit": 5,
+    "analysis": "Perfect fit for Wabi's no-code platform - this addresses a clear pain point with high engagement (45K+ upvotes) in the cat owner community. The app requires simple forms, tracking tools, and content delivery rather than complex functionality. Cat owners are highly engaged and willing to invest time/money in their pets' wellbeing, making this a viable micro-app with potential for premium features."
+  },
+  "Offer of help, Oh, wait, no nevermind": {
+    "app_idea": "HelpfullyHonest \u2014 Verified Mutual Aid Network",
+    "what_it_does": "A micro-app that connects people in financial crisis with verified helpers who can provide specific, realistic assistance. Users can post detailed needs (medical bills, utilities, groceries) and helpers can commit to concrete actions with built-in accountability measures.",
+    "how_it_solves": "Eliminates false hope by requiring helpers to verify their intent and capacity before offering assistance. Features pre-commitment mechanisms, progress tracking, and community reputation scores to ensure follow-through on promises of help.",
+    "feature_set": "Need posting with verification requirements, helper capacity verification, commitment contracts, progress tracking dashboard, reputation scoring system, automated follow-up reminders, community feedback loops, and integration with payment platforms for direct assistance",
+    "wabi_fit": 4,
+    "analysis": "High fit for Wabi's no-code platform as it requires simple forms, user profiles, basic matching logic, and notification systems rather than complex algorithms. The r/povertyfinance community shows strong engagement with mutual aid posts, indicating demand. The recurring nature of 'promised help that doesn't materialize' suggests a systemic problem that a structured platform could address effectively."
+  },
+  "So unemployed that I finished this top in one day": {
+    "app_idea": "CraftCash \u2014 Monetize your crafting skills during unemployment",
+    "what_it_does": "A micro-app that helps unemployed crafters quickly turn their handmade items into income by connecting them with local buyers, providing pricing guidance, and offering pattern creation tools to monetize their expertise",
+    "how_it_solves": "Transforms the abundant free time during unemployment from a source of anxiety into productive income generation by leveraging existing crafting skills. Provides immediate earning opportunities while users search for traditional employment",
+    "feature_set": "Quick photo uploader for finished pieces, AI-powered pricing suggestions based on materials/time, local marketplace integration, pattern documentation tool to create sellable tutorials, time-to-income tracker, and simple social sharing for craft progress",
+    "wabi_fit": 4,
+    "analysis": "Perfect fit for Wabi's micro-app approach - addresses a specific, emotional pain point (unemployment anxiety channeled through crafting) with actionable solutions. The crochet community is highly engaged and would benefit from lightweight tools that don't require complex e-commerce setup. High viral potential as users share both crafts and success stories."
+  },
+  "What's a gardening \"rule\" everyone follows in backyard vegetable gardening th\u2026": {
+    "app_idea": "GardenMyth Buster \u2014 Evidence-based gardening advice validator",
+    "what_it_does": "Allows gardeners to input common gardening advice/rules and get data-driven insights on their actual effectiveness, plus crowdsourced real-world results from other gardeners who've tested these practices",
+    "how_it_solves": "Eliminates wasted time and resources on ineffective gardening practices by providing evidence-based validation of popular advice, helping gardeners focus on what actually works in their specific conditions rather than blindly following traditional rules",
+    "feature_set": "Rule submission and rating system, myth vs fact database, location-based effectiveness scores, user experiment tracking, before/after photo comparisons, practice cost-benefit calculator, personalized recommendation engine based on climate zone and garden type",
+    "wabi_fit": 4,
+    "analysis": "Perfect fit for Wabi's micro-app format as it addresses a specific, recurring pain point in the gardening community. The crowdsourced validation approach creates strong user engagement and retention. Simple data collection and display functionality aligns well with no-code capabilities. Large addressable market of home gardeners seeking practical, proven advice over traditional wisdom."
+  }
+}

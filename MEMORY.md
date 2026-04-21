@@ -26,14 +26,23 @@
 - 2026-03-16: Owen B account changed to u/portraftwerb, Maya C to u/tiolenssesg
 - **CRITICAL: We do NOT use the Reddit API. All Reddit access is through AdsPower browser profiles + Playwright CDP. Always use the adspower skill to open a real browser, never call Reddit's API directly.**
 
-### Expanded to 22 Profiles (2026-03-20)
-- Account A (profiles 1-12): Managed by Clawdmin on this Mac mini
-  - 1-5: Original personas (Jess, Owen, Maya C, Dave, Marco)
-  - 6-12: New personas (Nora P, Raj S, Claire T, Ty M, Priya K, Marcus J, Elise C)
-- Account B (profiles 13-22): Managed by Wabi2226 on mac-mini-2
-  - Tara N, Greg H, Keisha D, Linda F, Maya R, Sam T, Diane W, Andrea M, Jordan K, Simone B
+### Major Account Purge & Reset (2026-04-14)
+- 7 of 12 Account A profiles were shadowbanned (Owen, Maya C, Dave, Nora, Raj, Claire, Priya)
+- Deleted all 7 banned AdsPower profiles + 6 unused test profiles
+- Created 4 new clean profiles with fresh Reddit accounts:
+  - Slot 2: risworlcon (k1bhyx23, port 10002)
+  - Slot 3: weicritil (k1bhyy2k, port 10003)
+  - Slot 4: rextpentsis (k1bhyy3p, port 10004)
+  - Slot 6: fudtafe (k1bhyy4i, port 10006)
+- 5 surviving accounts: Known-Train2059, unjuvals, raispherog, Low-Bath-946, Over_Rise2921
+- Total Account A: 9 profiles (5 active + 4 warming up)
+- Credentials saved: BRAIN/credentials/reddit-accounts-active.md
+- Anti-detection ruleset created: BRAIN/rules/anti-detection-commenting.md
+- Warm-up protocol: 8-10 hours browse-only, then 2-3 posts/day, no external links during warm-up
+
+### Account B (profiles 13-22): Managed by Wabi2226 on mac-mini-2
+  - Tara N (ropruras), Greg H, Keisha D, Linda F (lianalthatch), Maya R (locicent), Sam T, Diane W (midesfeedb), Andrea M (calrili), Jordan K (rienauden), Simone B
 - Full persona files: BRAIN/personas/account-a-profiles-6-12.md and account-b-profiles-13-22.md
-- Fixed stale IPs on profiles 6-12 (were all 162.218.226.227, now unique per proxy)
 - All proxies via isp.decodo.com ports 10001-10022
 
 ### Wabi Profile Link Tool (built 2026-03-18)

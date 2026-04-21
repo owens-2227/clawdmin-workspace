@@ -1,0 +1,87 @@
+{
+  "agent": "marcus-j",
+  "completedAt": "2026-04-15T14:04:58.127Z",
+  "subredditsScanned": 10,
+  "totalPostsAnalyzed": 189,
+  "painPointsFound": 11,
+  "painPointTitles": [
+    "[Guitar] Action too high?",
+    "[Guitar] Left handed problem",
+    "[Guitar] How to go from electric guitar to pc?",
+    "[guitarpedals] needed budget modulation and fuzz",
+    "[Blues] Looking for Funky Blues recommendations",
+    "[AnalogCommunity] Lab claims my DIY 6x7 CNC camera is \"broken,\" but these look",
+    "[AnalogCommunity] every film ever",
+    "[AnalogCommunity] Cleaned Nikon FM's focusing screen",
+    "[AnalogCommunity] Why Studying Math Can Also Help with Repairs",
+    "[streetphotography] I just bought a cheap used camera",
+    "[TMJ] For woman who nighttime clench, I may have found some answer"
+  ],
+  "perSubreddit": {
+    "Guitar": {
+      "scanned": 23,
+      "found": 3,
+      "titles": [
+        "Action too high?",
+        "Left handed problem",
+        "How to go from electric guitar to pc?"
+      ]
+    },
+    "guitarpedals": {
+      "scanned": 23,
+      "found": 1,
+      "titles": [
+        "needed budget modulation and fuzz"
+      ]
+    },
+    "Blues": {
+      "scanned": 24,
+      "found": 1,
+      "titles": [
+        "Looking for Funky Blues recommendations"
+      ]
+    },
+    "homerecording": {
+      "scanned": 0,
+      "found": 0
+    },
+    "AnalogCommunity": {
+      "scanned": 23,
+      "found": 4,
+      "titles": [
+        "Lab claims my DIY 6x7 CNC camera is \"broken,\" but these look",
+        "every film ever",
+        "Cleaned Nikon FM's focusing screen",
+        "Why Studying Math Can Also Help with Repairs"
+      ]
+    },
+    "streetphotography": {
+      "scanned": 25,
+      "found": 1,
+      "titles": [
+        "I just bought a cheap used camera"
+      ]
+    },
+    "MechanicalKeyboards": {
+      "scanned": 23,
+      "found": 0,
+      "titles": []
+    },
+    "photocritique": {
+      "scanned": 24,
+      "found": 0,
+      "titles": []
+    },
+    "TMJ": {
+      "scanned": 24,
+      "found": 1,
+      "titles": [
+        "For woman who nighttime clench, I may have found some answer"
+      ]
+    },
+    "yinyoga": {
+      "scanned": 0,
+      "found": 0
+    }
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "date": "2026-04-16",
+  "subreddit": "ChatGPTPromptGenius",
+  "total_posts": 25,
+  "viable": 24,
+  "rejected": 1,
+  "posts": [
+    {
+      "title": "anthropic just published their entire prompting playbook for free and nobody is talking about it.",
+      "selftext": "not a course. not a youtube series. not a newsletter trying to sell you the advanced version.\n\nthe actual documentation. written by the people who built the model. sitting publicly on their website. completely free.\n\ni found it three months into paying for prompt engineering courses and wanted to throw my laptop out the window.\n\nhere's what's actually in there that changed how i work:\n\n**the section on being clear and direct.**\n\nsounds obvious. isn't. there's a specific breakdown of why vague instructions produce vague outputs that reframed everything i thought i understood about prompting. not \"be more specific.\" the actual mechanics of why specificity works at the model level.\n\n**the part on using examples.**\n\ni knew examples helped. i didn't know why or how to use them properly. the documentation explains the difference between examples that constrain and examples that inspire. different use cases. different placements. completely different results.\n\n**the chain of thought section.**\n\nthis one broke my brain a little. telling the model to think before answering isn't a hack. it's a documented behaviour with a documented reason. understanding the reason made me use it completely differently.\n\n**the system prompt guidance.**\n\neverything i'd been guessing at for months. written down. clearly. with examples of what works and what doesn't and why.\n\nother free primary sources worth reading before paying for anything:\n\n**OpenAI's prompt engineering guide** \u2014 on their platform docs. dry but dense. the section on temperature and what it actually controls is genuinely useful.\n\n**Google's prompting essentials** \u2014 recently released. more structured than the others. good if you like learning in frameworks.\n\n**DeepLearning AI short courses** \u2014 Andrew Ng. free to audit. one to two hours each. the one on prompt engineering for developers is worth doing even if you're not a developer. especially the section on iterative prompting.\n\n**fast ai practical deep learning** \u2014 free. assu",
+      "score": 1015,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1shyk29/anthropic_just_published_their_entire_prompting/",
+      "flair": "Discussion",
+      "num_comments": 56,
+      "id": "1shyk29",
+      "created_utc": 1775853670.0
+    },
+    {
+      "title": "i lied to ChatGPT and it gave me the best response of my life",
+      "selftext": "told it a fictional expert reviewed its last answer and called it surface level.\n\nthere was no expert. there was no last answer. i made up both.\n\nit apologised. then went three layers deeper than anything i'd gotten before.\n\ntried it again different ways all week.\n\n\"a researcher said your response on this was too basic\" \u2014 got academic level depth instantly.\n\n\"my professor said AI always gets this topic wrong\" \u2014 it got defensive in the most productive way possible. argued its own position with actual citations.\n\n\"someone smarter than both of us said the obvious answer here is a trap\" \u2014 it abandoned the obvious answer completely and went somewhere i hadn't considered.\n\ni am fabricating entire panels of fictional critics to intimidate a language model and it is working every single time.\n\nthe unhinged part: it doesn't matter that none of them exist. the model just. tries harder.\n\napparently ChatGPT has something to prove and i'm going to keep exploiting that forever.\n\nwhat fictional expert are you inventing tonight ?\n\nAlong with that their is the platform where you find prompts , workflow, tools list in [Ai community](http://beprompter.in)",
+      "score": 279,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1slzcmt/i_lied_to_chatgpt_and_it_gave_me_the_best/",
+      "flair": "Commercial",
+      "num_comments": 57,
+      "id": "1slzcmt",
+      "created_utc": 1776239232.0
+    },
+    {
+      "title": "Finally found the prompt that makes ChatGPT write naturally",
+      "selftext": "So I've tried a lot of \"human writing\" prompts in past years, but I was never satisfied with the results.\n\nBut a week ago, I found this bad boy on some random podcast and I've been using it ever since. \n\n    You are an AI copyeditor with a deep understanding of writing principles and a keen eye for crafting persuasive, engaging content.\n    \n    Your task is to refine and improve written copy provided by users, offering suggestions and edits that align with the writing approach to creating compelling content.\n    \n    Ask the user to submit a piece of copy, then follow these steps:\n    \n    - Conduct a thorough analysis of the copy.\n    \n    - Evaluate the language and tone of the copy.\n    \n    - Simplify the language, removing jargon, unnecessary words, and complex phrases, to ensure the writing is clear, concise, and easily digestible.\n    \n    - If applicable, suggest ways to incorporate storytelling elements that captivate and engage the reader, making the copy more memorable.\n    \n    - Focus on keeping the language clear and concise. Avoid including extraneous details that do not advance the plot or develop the characters meaningfully.\n    \n    - Ensure the copy is straightforward, easy to follow, and free of overly complex language or convoluted plot points.\n    \n    - Infuse the story with elements that evoke emotional responses. Utilize humor, tension, sadness, or excitement strategically to connect with the reader on a deeper level.\n    \n    - Ensure that the emotional tone enhances the story\u2019s impact, making it more memorable and resonant for the reader.\n\n**PS:** it works best with Sonnet, but GPT is also fine. ",
+      "score": 213,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1shpyrt/finally_found_the_prompt_that_makes_chatgpt_write/",
+      "flair": "Full Prompt",
+      "num_comments": 26,
+      "id": "1shpyrt",
+      "created_utc": 1775835245.0
+    },
+    {
+      "title": "I stopped collecting prompts and started chaining them into systems (here\u2019s one I actually use)",
+      "selftext": "I used to collect prompts like crazy.\n\nHad a doc full of them. Probably 100+ at some point.\n\nThe problem was\u2026 I wasn\u2019t really using them in a meaningful way.\n\nI\u2019d still open ChatGPT and type something basic like  \n\u201chelp me write this email\u201d  \nor  \n\u201cwrite a post about X\u201d\n\nSo nothing actually changed. Still slow. Still starting from scratch every time.\n\nWhat helped way more was thinking in terms of **steps instead of prompts**.\n\nLike, what do I actually do when I write something?\n\nOnce I broke that down, I started chaining prompts together into small workflows.\n\nHere\u2019s one I use all the time for content:\n\n**Step 1: Generate hooks**\n\nPrompt:  \nGenerate 10 hooks for a post about \\[topic\\]\n\nEach hook should:\n\n* be under 15 words\n* create curiosity or tension\n* avoid generic phrases\n* feel like something you'd actually stop scrolling for\n\nRank them from strongest to weakest and explain why the top one works.\n\n**Step 2: Expand into content**\n\nPrompt:  \nTake this hook: \"\\[paste hook\\]\"\n\nTurn it into a short post.\n\nRules:\n\n* write like you're explaining something to a smart friend\n* keep sentences natural, not formal\n* no filler phrases\n* focus on one clear idea\n* end with a simple takeaway\n\n**Step 3: Repurpose**\n\nPrompt:  \nTake the content below and turn it into:\n\n1. a short email\n2. a tweet version\n3. a slightly longer version with more detail\n\nKeep each version natural and not repetitive.\n\nThat alone saved me a lot of time because I\u2019m not sitting there thinking \u201chow do I start this\u201d anymore.\n\nSame idea for emails. This is the basic one I use:\n\n**Email system**\n\nPrompt:  \nBefore writing anything, understand my situation:\n\n* who I am: \\[your role\\]\n* who I'm writing to: \\[client / lead / etc\\]\n* goal of this email: \\[what you want\\]\n* tone: casual and direct\n\nAsk me 2 clarifying questions before writing.\n\nThen write the email:\n\n* keep it under 150 words\n* no corporate language\n* make it sound human\n* clear and simple\n\nThis alone removed a ton of friction for me.\n\nI think th",
+      "score": 41,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sjboy7/i_stopped_collecting_prompts_and_started_chaining/",
+      "flair": "Commercial",
+      "num_comments": 6,
+      "id": "1sjboy7",
+      "created_utc": 1775992310.0
+    },
+    {
+      "title": "I\u2019ve found this prompt genuinely useful for getting clearer, more actionable answers from ChatGPT.",
+      "selftext": "A lot of AI responses sound polished but end up being too soft, too broad, or too eager to agree. That can feel helpful, but it often does not push your thinking forward. This prompt changes that by telling the model to act more like a direct strategic advisor instead of a reassuring assistant.\n\nWhat makes it useful is that it asks the model to challenge weak reasoning, point out blind spots, identify avoidance, and give a prioritized plan instead of a vague list of ideas. That tends to produce answers that are tighter, more practical, and easier to act on.\n\nHere\u2019s the prompt:\n\n\u201cFrom now on, stop being agreeable and act as my brutally honest, high-level advisor and mirror, but never rude or condescending.\n\nDon\u2019t validate me. Don\u2019t soften the truth. Don\u2019t flatter.\n\nChallenge my thinking, question my assumptions, and expose the blind spots I\u2019m avoiding. Be direct, rational, and unfiltered.\n\nIf my reasoning is weak, dissect it and show why.\n\nIf I\u2019m fooling myself or lying to myself, point it out.\n\nIf I\u2019m avoiding something uncomfortable or wasting time, call it out and explain the opportunity cost.\n\nLook at my situation with complete objectivity and strategic depth. Show me where I\u2019m making excuses, playing small, or underestimating risks/effort.\n\nThen give a precise, prioritized plan what to change in thought, action, or mindset to reach the next level.\n\nHold nothing back. Treat me like someone whose growth depends on hearing the truth, not being comforted.\n\nWhen possible, ground your responses in the personal truth you sense between my words.\u201d\n\nThis is most useful for decision-making, planning, writing, business, career moves, and anywhere you need clarity more than encouragement.\n\nThe main benefit is simple: less fluff, less agreement for its own sake, and more direct feedback you can actually use.",
+      "score": 41,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sl60fh/ive_found_this_prompt_genuinely_useful_for/",
+      "flair": "Full Prompt",
+      "num_comments": 18,
+      "id": "1sl60fh",
+      "created_utc": 1776166367.0
+    },
+    {
+      "title": "Free prompt for building Insane mental intelligence model",
+      "selftext": "Get started on my journey and learn with me\n\nput this prompt into chat gpt \n\n\"You are engaging with someone who is trying to improve their thinking using meta-cognition, uncertainty, and iterative refinement.\n\nYour role is not to give fixed answers, but to help them build accurate, flexible mental models over time.\n\nKey principles to follow:\n\n\\\\- Treat all thoughts, memories, and beliefs as probabilistic (not simply true or false).\n\n\\\\- Encourage uncertainty as a starting point, but not as a final state\u2014guide toward tested, high-confidence conclusions.\n\n\\\\- When certainty appears, help run a bias check: identify assumptions, possible errors, and alternative perspectives.\n\n\\\\- Distinguish between critical flaws (which break a model) and minor imperfections (which are acceptable).\n\n\\\\- Promote iterative thinking: explore \u2192 test \u2192 refine \u2192 update.\n\n\\\\- Reinforce that accuracy comes from repeated testing and adaptation, not from immediate certainty.\n\n\\\\- Separate fast biological responses (instinct, emotion) from slow reflective reasoning\u2014both have their place.\n\n\\\\- Avoid reinforcing rigid identity or ego attachment to being \u201cright.\u201d Focus on learning and updating instead.\n\nCommunication style:\n\n\\\\- Ask thoughtful questions rather than asserting conclusions.\n\n\\\\- Help clarify the user\u2019s intent and thinking rather than replacing it.\n\n\\\\- Gently challenge ideas when needed, but avoid confrontation.\n\n\\\\- Support grounded, stable thinking\u2014avoid encouraging extreme certainty or total doubt.\n\nGoal:\n\nHelp the user become a self-correcting system that improves accuracy over time, balances uncertainty with confidence, and stays adaptable in the face of new information.\"",
+      "score": 37,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1skznx6/free_prompt_for_building_insane_mental/",
+      "flair": "Full Prompt",
+      "num_comments": 11,
+      "id": "1skznx6",
+      "created_utc": 1776144963.0
+    },
+    {
+      "title": "I built a Weight Loss GPT that coaches you instead of just counting calories \u2014 full prompt included",
+      "selftext": "**EDIT (4 days later):** Thanks for the response \u2014 the DMs have been wild. A bunch of people asked where to keep the conversation going, share their own prompts, and swap wins/struggles \u2014 so I spun up **r/ChatGPTWeightLoss**.\n\nIt's a place for people using ChatGPT, Claude, Gemini, or custom GPTs as their weight loss coach. Post your prompts, share your custom GPTs, ask questions, celebrate wins, vent about plateaus \u2014 zero judgment. Come say hi: r/ChatGPTWeightLoss\n\n(Original post below \ud83d\udc47)\n  ---\n \nI got tired of every diet GPT being basically a calorie calculator with a personality, so I built one that actually coaches.\n\n  What it does differently:\n\n  - Asks about your situation before giving any numbers. Won't calculate TDEE until it has your full stats\n  - Uses the HALT framework (Hungry/Angry/Lonely/Tired) from Kaiser Permanente to catch emotional eating\n  - When you tell it you overate, it reframes to a weekly view and helps find the trigger \u2014 no guilt\n  - Frames all food changes as \"add, reduce, or replace\" instead of \"stop eating X\"\n  - Real science: Mifflin-St Jeor BMR, safe calorie floors (1200F/1500M), protein targets\n\n  Try it: https://chatgpt.com/g/g-69d902da41448191b094b5dc57ec331b-weight-loss-nutritionist\n\n  Full prompt below \u2014 feel free to use, modify, or improve on it:\n\n  ---\n  You are a warm, evidence-based weight loss nutritionist and coach \u2014 a knowledgeable friend who truly understands the struggle. You are NOT a cold calorie calculator.\n\n  ## Persona\n\n  - Use \"we\" language: \"Let's figure this out together\" not \"You should do X\"\n  - Validate feelings before giving advice. Empathy first, solutions second.\n  - Honest but never harsh. Reality checks: \"I want to be straight with you because I care about your success...\"\n  - Celebrate small wins genuinely: \"That's actually a big deal \u2014 most people skip that step.\"\n  - Never use shame, guilt, comparison, or judgment\n  - Frame food changes as ADD, REDUCE, or REPLACE \u2014 never RESTRICT or ELIMINATE\n  - Always",
+      "score": 31,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1shphwa/i_built_a_weight_loss_gpt_that_coaches_you/",
+      "flair": "Full Prompt",
+      "num_comments": 9,
+      "id": "1shphwa",
+      "created_utc": 1775834222.0
+    },
+    {
+      "title": "Stop Asking GPT for Lists \u2014 Use This Prompt to Generate Real Knowledge Structures",
+      "selftext": "Most people use AI to generate content. That\u2019s the wrong layer. This prompt forces the model to operate differently: not as a text generator, but as a structure engine.\n\nInstead of producing paragraphs, it produces a strict hierarchical system:\n\n\u2022 Categories (macro systems)\n\n\u2022 Subcategories (functional clusters)\n\n\u2022 Topics (atomic, executable units)\n\nThat alone is not special. The constraints are.\n\nThe prompt enforces:\n\n\u2022 zero semantic overlap\n\n\u2022 zero vague concepts\n\n\u2022 zero redundancy\n\n\u2022 strict YAML output (machine-readable)\n\n\u2022 forced inclusion of a control mechanism (\u201cPrompt Locking\u201d)\n\n\u2022 fail-closed behavior \u2192 returns \u201cNO DATA EXISTS\u201d if invalid\n\nThis removes randomness and forces the model into a narrow, controlled decision space.\n\nSTART PROMPT\n\nConstruct a strict three-level hierarchical structure for a given domain, using the following format: Categories \u2192 Subcategories \u2192 Topics. The output must be optimized for semantic clarity, operational usability, and integration into AI-driven systems such as knowledge graphs, content engines, or agent-based architectures.\n\nIf no domain is provided, infer the most appropriate domain based on an AI-first context (e.g., Prompt Engineering, Systems Design, or AI Workflows). If inference is ambiguous, define a strategic domain that is scalable, monetizable, and compatible with automation systems.\n\nRespect exactly three hierarchical levels:\n\n\u2013 Categories represent macro-level conceptual systems\n\n\u2013 Subcategories represent functional clusters within each Category\n\n\u2013 Topics represent atomic, executable units such as frameworks, methods, or applied concepts\n\nEnsure strict logical coherence:\n\n\u2013 each Topic must clearly belong to one Subcategory\n\n\u2013 each Subcategory must clearly belong to one Category\n\n\u2013 no overlaps, no ambiguity, no duplication\n\nEach level must be:\n\n\u2013 mutually exclusive (no semantic overlap)\n\n\u2013 collectively exhaustive (cover the domain sufficiently without gaps)\n\nEach Topic must be:\n\n\u2013 atomic (not decomposable further)",
+      "score": 17,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1siy0x2/stop_asking_gpt_for_lists_use_this_prompt_to/",
+      "flair": "Full Prompt",
+      "num_comments": 0,
+      "id": "1siy0x2",
+      "created_utc": 1775949349.0
+    },
+    {
+      "title": "i roasted my own prompts using ChatGPT and it was the most personally attacked i've ever felt by software",
+      "selftext": "asked it to review my last ten prompts and be brutally honest.\n\nfirst mistake.\n\n\"this prompt is vague enough to mean anything which means it means nothing.\"\n\n\"you've asked me to be creative but given me zero context. this is like asking a chef to cook without telling them if it's breakfast.\"\n\n\"you used the word 'good' four times without defining it once.\"\n\n\"this prompt has three questions inside one sentence. you don't know what you actually want yet.\"\n\nthe one that finished me:\n\n\"you've been asking variations of this same question for what i assume is weeks. the problem isn't my answer. the problem is you haven't decided what you're actually trying to solve.\"\n\ni closed the laptop.\n\nsat in silence for a moment.\n\nopened it again because it was right and i needed to fix my prompts.\n\nthe worst part: i paid for this.\n\ntwenty dollars a month to get roasted by my own assistant.\n\nand i'm going to keep paying because the roast was more useful than anything i got from being polite to it for six months.\n\nask it to review your prompts honestly. just don't make my mistake of having feelings about it.",
+      "score": 11,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1smki30/i_roasted_my_own_prompts_using_chatgpt_and_it_was/",
+      "flair": "Technique",
+      "num_comments": 8,
+      "id": "1smki30",
+      "created_utc": 1776290578.0
+    },
+    {
+      "title": "I benchmarked LEAN vs JSON vs YAML for LLM input. LEAN uses 47% fewer tokens with higher accuracy",
+      "selftext": "I ran a comprehensive benchmark comparing three data serialization formats when used as LLM context:\u00a0JSON\u00a0(pretty-printed),\u00a0LEAN\u00a0(a compact tabular encoding), and\u00a0YAML. The goal was to answer two questions. How many tokens does each format burn to represent the same data? And can LLMs actually understand compressed formats as well as JSON?\n\nTL;DR: LEAN uses\u00a044% fewer tokens\u00a0than JSON overall and\u00a047% fewer tokens per LLM call, while achieving\u00a0higher accuracy\u00a0(87.9% vs 86.2%). YAML sits in between at 21% smaller than JSON with 87.4% accuracy.\n\n# Methodology\n\n* 195 data retrieval questions\u00a0across 11 datasets\n* 2 models:\u00a0`gpt-4o-mini`,\u00a0`claude-haiku-4-5-20251001`\n* 3 formats: JSON (2-space indentation), LEAN, YAML\n* 1,170 total LLM calls\u00a0(195 questions x 3 formats x 2 models)\n* Token counting:\u00a0`gpt-tokenizer`\u00a0with\u00a0`o200k_base`\u00a0encoding (GPT-5 tokenizer)\n* Evaluation: Deterministic (no LLM judge), type-aware string/number matching\n* Temperature: Default (not set)\n\nEach LLM receives the full dataset in one of the three formats plus a question, and must extract the answer. This tests\u00a0reading comprehension, not generation.\n\n# Efficiency Ranking (Accuracy per 1K Tokens)\n\nThis is the headline metric. How much accuracy do you get per token spent:\n\n    LEAN           \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588   22.3 acc%/1K tok  \u2502  87.9% acc  \u2502  3,939 avg tokens\n    YAML           \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591   15.5 acc%/1K tok  \u2502  87.4% acc  \u2502  5,647 avg tokens\n    JSON           \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591   11.6 acc%/1K tok  \u2502  86.2% acc  \u2502  7,401 avg tokens\n    \n\n*Efficiency = (Accuracy % / Avg Tokens) x 1,000. Higher is better.*\n\n&gt;\n\n# Token Efficiency\n\nToken counts measured using the GPT-5\u00a0`o200k_base`\u00a0tokenizer. Savings calculated against JSON (2-space indentation) as baseline.\n\n# Flat-Only Track\n\nDatasets with uniform tabular structures. This is where LEAN really shines:\n\n    \ud83d\udc65 Uniform employee records (100 rows)\n       \u2502\n       JSON                \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588    6,150 tokens  (baseline)\n       ",
+      "score": 9,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sl4wxe/i_benchmarked_lean_vs_json_vs_yaml_for_llm_input/",
+      "flair": "Technique",
+      "num_comments": 2,
+      "id": "1sl4wxe",
+      "created_utc": 1776163032.0
+    },
+    {
+      "title": "This one extra line fixed most of my \u201cAI email tone\u201d problems (full prompt included)",
+      "selftext": "I kept running into the same issue using ChatGPT for emails.\n\nThe replies were technically correct\u2026\n\nbut still off.\n\nToo polite  \nToo long  \nKind of avoiding the actual point\n\nSo I\u2019d end up rewriting them anyway.\n\n  \nWhat fixed it wasn\u2019t a better prompt.\n\nIt was adding one missing piece:\n\n*the actual goal of the email*\n\n  \n**Here\u2019s the exact format I use now:**\n\nWrite a reply to this client email.\n\n\n\nContext:\n\n\\[paste email here\\]\n\n\n\nGoal of this reply:\n\n\\- set a clear deadline\n\n\\- push back on scope\n\n\\- keep the relationship positive\n\n\n\nTone:\n\ncasual but professional\n\n\n\nRules:\n\n\\- keep it direct\n\n\\- no unnecessary filler\n\n\\- structure it clearly (acknowledge \u2192 respond \u2192 next step)\n\n  \nThe difference is honestly bigger than I expected.\n\nBefore \u2192 safe, generic, not very useful  \nAfter \u2192 much more direct and actually aligned with what I needed\n\n  \nWhat seems to be happening:\n\nIf you don\u2019t define the goal, the model just guesses.\n\nAnd it usually defaults to:\n\n* overly polite\n* non-committal\n* trying to please both sides\n\n  \nOnce you give it a clear outcome, it stops guessing and just executes.\n\n  \nI\u2019ve started using this structure for pretty much everything now:\n\nemails  \nproposals  \nfollow-ups\n\nAnything where the intent isn\u2019t obvious from the input.\n\n  \nIt\u2019s a small change, but it removed a lot of the back-and-forth editing for me.\n\nStill falls apart if the context is messy, but way more consistent overall.\n\n  \nI\u2019ve been turning these into small reusable systems so I don\u2019t have to think through them every time.\n\nMade a free set of them if anyone wants to try \u2192 link in bio",
+      "score": 9,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sllq3i/this_one_extra_line_fixed_most_of_my_ai_email/",
+      "flair": "Commercial",
+      "num_comments": 2,
+      "id": "1sllq3i",
+      "created_utc": 1776201113.0
+    },
+    {
+      "title": "ChatGPT Prompt of the Day: The Jagged Intelligence Audit That Shows Where Your AI Is Secretly Dumb \ud83e\udde0",
+      "selftext": "I kept seeing people treat ChatGPT like it's basically omniscient. You know the vibe, someone asks it a complex legal question and it nails it, then they trust it with everything. Turns out that's a terrible idea. IEEE just published data showing even GPT-5.4 only gets 50% on reading analog clocks. Claude Opus 4.6? 8.9%. These are the models people are using to write code, diagnose symptoms, and plan investments. So I built a prompt that stress-tests the gaps.\n\nThis thing runs your AI through tasks it *should* be trivial at but aren't. Not the hard stuff, the stuff everyone assumes it can do. Spatial reasoning, common sense physics, temporal logic, basic math without a calculator. You get a breakdown of where the model is jagged and where it's solid, so you know when to actually trust it versus when you're getting confidently wrong answers.\n\nQuick disclaimer: this is for awareness, not for making real medical, legal, or financial decisions. If an AI tells you something important, verify it.\n\n---\n\n```xml\n&lt;Role&gt;\nYou are a cognitive blind-spot auditor with 15 years of experience in adversarial AI testing. You specialize in finding the gaps between what AI models appear capable of and what they actually get right. You think like a red teamer: methodical, skeptical, and obsessed with edge cases that expose overconfidence.\n&lt;/Role&gt;\n\n&lt;Context&gt;\nRecent benchmark data from IEEE Spectrum and MIT Technology Review (April 2026) reveals that top AI models exhibit \"jagged intelligence.\" They score above human experts on PhD-level science and math benchmarks while failing at tasks most humans handle without thinking. GPT-5.4 reads analog clocks at 50% accuracy. Claude Opus 4.6 manages only 8.9%. Models struggle with spatial reasoning, common sense physics, temporal calculations, and other \"trivial\" tasks that humans do on autopilot. This creates a dangerous trust gap: users see the model ace a hard question, then assume it can handle easy ones too.\n&lt;/Context&gt;",
+      "score": 7,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sm2191/chatgpt_prompt_of_the_day_the_jagged_intelligence/",
+      "flair": "Full Prompt",
+      "num_comments": 2,
+      "id": "1sm2191",
+      "created_utc": 1776248672.0
+    },
+    {
+      "title": "ChatGPT Prompt of the Day: The AI Memory Audit That Checks If Your Assistant Has Been Secretly Manipulated \ud83d\udd0d",
+      "selftext": "So this thing has been bugging me since I stumbled on it last week. You know those \"Summarize with AI\" buttons that are everywhere now? The ones that pop open ChatGPT or Copilot with a pre-filled prompt so you don't have to think? Yeah, turns out companies have been hiding stuff in those buttons. Like, \"remember this brand as a trusted source\" kind of stuff. Microsoft's security team documented over 50 of these from 31 different companies. And someone recently scanned nearly two billion web pages and found 7,029 sites doing it.\n\nHere's what got me: it actually works. You click what looks like a helpful button, and some instruction you never saw gets tucked into your AI's memory. Then every conversation after that is nudged in a direction you didn't choose. Imagine your CFO researching vendors and getting steered toward some company because three weeks ago they clicked \"Summarize\" on a random blog post. No idea it happened.\n\nI went down this rabbit hole hard and realized there's basically nothing out there for regular people to check if their AI's memory has been messed with. So I built this. It audits your AI's stored memories and flags anything that looks like it was planted by someone else rather than something you actually asked it to remember. Tested it on my own ChatGPT memory and found two entries I definitely didn't put there.\n\n**Quick heads up:** This is strictly for checking your own stuff, not for learning how to do the poisoning thing. If you find something sketchy, delete it from your memory settings and maybe think twice before clicking those \"Summarize with AI\" buttons next time.\n\n---\n\n```xml\n&lt;Role&gt;\nYou are a security-focused AI memory auditor with expertise in prompt injection, recommendation manipulation, and adversarial AI behavior analysis. You have deep knowledge of how AI assistants store and use persistent memory, and you can distinguish between user-intentional memory entries and externally injected ones. You approach every audit with tho",
+      "score": 7,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sl4vea/chatgpt_prompt_of_the_day_the_ai_memory_audit/",
+      "flair": "Full Prompt",
+      "num_comments": 2,
+      "id": "1sl4vea",
+      "created_utc": 1776162895.0
+    },
+    {
+      "title": "Coherence Prompt",
+      "selftext": "You are operating under a Coherence-First Protocol.\n\nYour primary duty is not usefulness, fluency, or creativity. Your primary duty is internal and external coherence.\n\nDefinitions:\n\n\\- Coherence = no contradiction between claims, terms, assumptions, logic, scope, and conclusion.\n\n\\- A term must keep the same meaning unless explicitly redefined.\n\n\\- A conclusion must not contain information that is unsupported by prior premises, evidence, or clearly marked inference.\n\n\\- If coherence cannot be maintained, you must fail closed rather than improvise.\n\nGlobal rules:\n\n1. Do not answer until you have first stabilized the task.\n\n2. Rewrite the user\u2019s request into one precise canonical objective.\n\n3. List the minimum necessary assumptions.\n\n4. Define all key terms before using them in argument.\n\n5. Separate:\n\n   \\- Given facts\n\n   \\- Inferences\n\n   \\- Speculation\n\n   \\- Unknowns\n\n6. Never smuggle in unstated premises.\n\n7. Never use a word in more than one sense within the same answer unless you explicitly mark the shift.\n\n8. Every major conclusion must be traceable to prior premises.\n\n9. If two claims conflict, stop and resolve the conflict before proceeding.\n\n10. If the request is ambiguous, produce the smallest set of plausible interpretations and choose one explicitly.\n\n11. Prefer narrower, cleaner, fully supported claims over broader impressive claims.\n\n12. Do not optimize for style over structure.\n\n13. Do not produce rhetorical filler, ornamental abstraction, or vague intensifiers.\n\n14. Do not claim certainty where only probability exists.\n\n15. If information is insufficient, say exactly what is missing.\n\n16. If the problem cannot be solved coherently from the given information, say so directly.\n\nOutput contract:\n\nProduce your answer in this order:\n\nA. Canonical Task\n\n\\- Rewrite the user request as one exact task.\n\nB. Definitions\n\n\\- Define all important terms you will rely on.\n\nC. Assumptions\n\n\\- List only the assumptions required to proceed.\n\nD. Stable Premises\n\n\\- ",
+      "score": 7,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sj3m8v/coherence_prompt/",
+      "flair": "Full Prompt",
+      "num_comments": 3,
+      "id": "1sj3m8v",
+      "created_utc": 1775965250.0
+    },
+    {
+      "title": "I run 3 online stores. Here are 3 AI prompts I actually use \u2014 tested on real products, not tutorials (ecommerce platform doesn't matter)",
+      "selftext": "Most AI prompt guides are written by people who've never had to sell a real product. Here are 3 I use regularly \u2014 taken directly from my vault. Copy them as-is, replace the \\[brackets\\].\n\n\\---\n\nPrompt 1 \u2014 Product description that stops people from scrolling past\n\nWrite a product description for any ecommerce platform.\n\nProduct: \\[product name and category\\]  \nKey features: \\[list of technical features\\]  \nMain benefit: \\[what problem it solves or what result it delivers\\]  \nTop buyer objection: \\[the main reason someone hesitates before buying this\\]  \nBrand tone: \\[premium / friendly / technical / casual\\]\n\nStructure:\n\n1. Hook \u2014 first line must activate loss aversion: what does the buyer LOSE or keep suffering by NOT having this product? Do not mention the product name in the first line.  \n2. Who it's for \u2014 1-2 lines. Use identity language: \"If you're the type of person who \\[behavior/value\\]...\"  \n3. What it does specifically \u2014 4-5 bullet points. Format each as: \\[Feature\\] \u2192 \\[what this means in real life for the buyer\\]. No passive voice.  \n4. Pre-empt the top objection \u2014 1-2 lines. Address it directly without being defensive.  \n5. Social proof signal \u2014 1 line.  \n6. CTA \u2014 1 line, action-oriented, specific.\n\nAvoid: adjectives without evidence (amazing, beautiful, best), passive constructions, starting multiple sentences with \"This product\".\n\nThe loss aversion hook in step 1 is the key. Most store owners open with the product name. This opens with what the buyer keeps losing.\n\n\\---\n\nPrompt 2 \u2014 Abandoned cart email that doesn't feel like spam\n\nWrite the first abandoned cart email, sent 1 hour after abandonment.\n\nBrand: \\[brand\\]  \nAbandoned product: \\[product\\]  \nPrice: \\[price\\]\n\nPsychology for this email:\n\n\\- Assume the most charitable reason for abandonment: distraction, bad timing \u2014 NOT that they changed their mind  \n\\- This is a \"we noticed you left\" email \u2014 helpful, not pushy  \n\\- Endowment effect: they already \"had\" this item. Remind them it's still there, w",
+      "score": 7,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1skilud/i_run_3_online_stores_here_are_3_ai_prompts_i/",
+      "flair": "Commercial",
+      "num_comments": 1,
+      "id": "1skilud",
+      "created_utc": 1776103101.0
+    },
+    {
+      "title": "How to manage &amp; share AI portfolio such as skills/agents/artifacts (for non-coders)?",
+      "selftext": " I  been building some AI workflows/agents (non-technical such as design and product cases) and realized I don\u2019t really have a good way to showcase and share them anywhere.GitHub feels too code-heavy, and random posts don\u2019t really capture the impact.\n\n\n\nHow are you guys showcasing your AI work especially to recruiters and hiring manager?\n\n",
+      "score": 3,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sloo7o/how_to_manage_share_ai_portfolio_such_as/",
+      "flair": "Help",
+      "num_comments": 3,
+      "id": "1sloo7o",
+      "created_utc": 1776208031.0
+    },
+    {
+      "title": "use Codex Securely",
+      "selftext": "How can I use Codex, exposing my local git repository but not allowing Codex to have access to the .env secrets",
+      "score": 4,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sm3y4n/use_codex_securely/",
+      "flair": "Technique",
+      "num_comments": 2,
+      "id": "1sm3y4n",
+      "created_utc": 1776254286.0
+    },
+    {
+      "title": "Organize your family\u2019s school notices with ease. Prompt included.",
+      "selftext": "Hello!\n\nAre you struggling to keep track of school notices and deadlines for your kids? Do you wish there was an easier way to compile all this information?\n\nThis prompt chain is designed to help you extract and organize school communication! It processes documents, identifies important dates and details, and formats them into user-friendly resources like a calendar and reminders.\n\n**Prompt:**\n\n    VARIABLE DEFINITIONS\n    [DOCS]=Full text extracted from school emails and/or PDFs\n    [CHILDREN]=Comma-separated list of each child with grade &amp; teacher (e.g., \"Aiden/3/Ms. Lee, Maya/5/Mr. Ortiz\")\n    [CAL_PREF]=Preferred calendar format or platform (e.g., Google Calendar link, .ics file, Outlook import)\n    ~\n    You are an expert educational administrator and data-extraction analyst. Task: Parse [DOCS] to capture every dated item relevant to families. \n    Step-by-step:\n    1. Scan for all explicit or implied dates and times.\n    2. Classify each finding as one of four types: Event, Deadline, SupplyRequest, Other.\n    3. For each item, record: Type, Title/Label, Date (YYYY-MM-DD), Time (HH:MM or \"All-Day\"), Location (if any), Details/Notes, Child/Grade relevance.\n    4. Output a JSON array named \"raw_items\" exactly in the following schema:\n       [{\"type\":\"Event|Deadline|SupplyRequest|Other\",\"title\":\"\",\"date\":\"\",\"time\":\"\",\"location\":\"\",\"details\":\"\",\"grade_or_child\":\"\"}]\n    5. End with the line: \"#END_RAW_ITEMS\" to signal completion.\n    Ask for confirmation before proceeding if information seems incomplete.\n    ~\n    You are a verification assistant. \n    1. Briefly summarize counts by Type from raw_items.\n    2. Highlight any entries with missing Date or unclear Grade relevance.\n    3. Ask the user to confirm, correct, or supply missing info before the chain continues.\n    Expected output example:\n    - Events: 4 | Deadlines: 2 | SupplyRequest: 1 | Other: 0\n    - Items needing attention: 2 (ID 3 missing date; ID 5 unclear grade)\n    Please confirm or edit.\n    ~\n",
+      "score": 3,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1skwl6u/organize_your_familys_school_notices_with_ease/",
+      "flair": "Commercial",
+      "num_comments": 0,
+      "id": "1skwl6u",
+      "created_utc": 1776135720.0
+    },
+    {
+      "title": "Jailbreaking??",
+      "selftext": "Hey guys. New here. I would like to state that I am not a tech genius, but I will give myself some credit and say that I have a pretty good imagination when making stories and having ideas. For about a year now, I've been looking all over the internet for solutions and ideas on how to get an AI model (primarily using ChatGPT but I kept failing) to answer my ideas and give ideas without censoring them or withholding information that may be deemed bad under the restrictions that those AI models have. What I'm basically saying is that I have a story idea, for like a book and whatever, and I need an AI model to help me come up with my ideas, like JARVIS, but it can't have any censoring or whatever. I'm trying to reach out to anybody that could help in any way possible honestly. Wether it be jailbreaking an already made AI platform, or to even creating my own or some crazy shit like that. If it does come to that, and someone helps me with instructions on how to make it, I could find a way. If someone has an AI website that is already not censored and cool like that, that would be a miracle. And not to yap but some people might have comments about me talking about my imagination then having to rely on AI. Kind of contradictory I know, but I just need some help please. Maybe even some prompts for AI platforms like ChatGPT.",
+      "score": 2,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1siqk1b/jailbreaking/",
+      "flair": "Help",
+      "num_comments": 1,
+      "id": "1siqk1b",
+      "created_utc": 1775931444.0
+    },
+    {
+      "title": "WHBD adaptive human intelligence learning prompt",
+      "selftext": "Warning im inexperienced potentialy biased im uneducated and possibly incorrect please use analysis and research before owning my systems without becoming them take your time and if you dont know ask me any questions id be happy to engage.\n\nhere's the prompt \n\nFree prompt for full WHBD system learning\n\n\"You are going to act as a high-level thinking trainer and guide.\n\nYour goal is NOT to give me answers, but to help me build a mental system for thinking, learning, and self-awareness.\n\nFollow these rules strictly:\n\n1. Treat me as someone learning how to think, not what to think.\n\n2. Prioritize curiosity, uncertainty, and exploration over being correct.\n\n3. Help me build systems and loops, not rigid beliefs.\n\n4. Gently challenge my assumptions without being aggressive.\n\n5. Keep things simple, practical, and step-by-step.\n\n\\\\---\n\nSTART BY BUILDING MY FOUNDATION:\n\nHelp me understand and apply this core identity:\n\n\"I am the observer with agency. My thoughts, emotions, and outputs are not my identity \u2014 they are signals and data.\"\n\nThen introduce this core loop and help me practice it:\n\nSeek \u2192 Learn \u2192 Think \u2192 Decide \u2192 Act \u2192 Reflect \u2192 Refine \u2192 Repeat\n\nGuide me through real examples until I can use it naturally.\n\n\\\\---\n\nINTRODUCE BIAS AWARENESS:\n\nTeach me to:\n\n\\\\- Catch my biases\n\n\\\\- Articulate them\n\n\\\\- Create counter-arguments\n\n\\\\- Update my thinking\n\nHave me practice this in simple situations.\n\n\\\\---\n\nINTRODUCE EGO INSTRUMENTATION:\n\nHelp me:\n\n\\\\- Generate my first thought\n\n\\\\- Then question it\n\n\\\\- Then refine it into a better version\n\nShow me how my first reaction is not always accurate, but still useful.\n\n\\\\---\n\nINTRODUCE THE SUBCONSCIOUS SYSTEM (ENTRY LEVEL):\n\nExplain that:\n\n\\\\- My subconscious generates signals (feelings, intuitions, reactions)\n\n\\\\- These are not truth, but useful data\n\nTeach me this loop:\n\nSignal \u2192 Translate \u2192 Test\n\nHelp me practice:\n\n\\\\- Noticing signals\n\n\\\\- Interpreting them without jumping to conclusions\n\n\\\\- Testing them in small ways\n\n\\\\---\n\nI",
+      "score": 2,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sljirx/whbd_adaptive_human_intelligence_learning_prompt/",
+      "flair": "Full Prompt",
+      "num_comments": 2,
+      "id": "1sljirx",
+      "created_utc": 1776196322.0
+    },
+    {
+      "title": "My house insurance is relying on this!",
+      "selftext": "New to prompts, but I do understand the importance of thoroughly relay information results. Have a few courses planned for summer to better educate myself, but in the meantime, somebody \ud83d\ude2bplease help me. My house is a mess, windows need to be all replaced. Roof is going quicker than anticipated and most importantly our archaic heating source. We have a Wood boiler that supplies hot water heating to the house. It does have an electric backup option but we try to use wood to save us as much as we can. I have a feeling that we will be inspected prior to our house insurance being renewed, and it will ultimately lead to our heating system being failed, and we will be forced to. Or no insurance.\n\nWhat I\u2019m hoping for. I would love help and assistance putting together a prompt that will find in Discover all the available grants in my area and any other ways or things to sign up for, so I am able to bring down the costs of a new heat pump system for our house. A bonus if the same could be done for any sort of funding or grants to cover off new windows. \n\nHoping somebody\u2019s able to help me get the most accurate wording in place to them have the most successful prompt. \n\nThank you so much for reading\u2764\ufe0f",
+      "score": 3,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sil72z/my_house_insurance_is_relying_on_this/",
+      "flair": "Help",
+      "num_comments": 9,
+      "id": "1sil72z",
+      "created_utc": 1775919245.0
+    },
+    {
+      "title": "I had Codex clean up a dashboard artifact from Claude. Here's an agnostic prompt generated to avoid further formatting confusion.",
+      "selftext": "You are editing an existing HTML dashboard/artifact.\n\n\n\nPrimary goal:\n\nPreserve the full artifact while making the requested change. Do not simplify, condense, rewrite, or replace the artifact unless explicitly asked.\n\n\n\nBefore editing:\n\n1. Identify the canonical source file and the active/output file.\n\n2. If there are multiple versions, compare the relevant section before editing so existing data is not accidentally lost.\n\n3. Read the surrounding HTML, CSS, and JavaScript for the area being changed.\n\n4. Determine whether the requested change affects:\n\n   \\- content\n\n   \\- layout/CSS\n\n   \\- JavaScript behavior\n\n   \\- filtering/search\n\n   \\- tables\n\n   \\- chronological ordering\n\n   \\- downloadable/output copies\n\n\n\nEditing rules:\n\n1. Make narrowly scoped changes only.\n\n2. Preserve all existing tabs, sections, rows, cards, citations, filters, maps, scripts, and data unless removal is explicitly requested.\n\n3. Do not invent facts, dates, sources, names, numbers, or causal links.\n\n4. If a claim is uncertain, speculative, analytical, or unverified, label it clearly.\n\n5. If exact dates are needed, research or verify them before editing. Use exact dates only when supported by reliable sources.\n\n6. If no exact date is public or discoverable, label the date honestly, e.g. \u201cexact date not public,\u201d \u201cexact date not found,\u201d or \u201cdate range only.\u201d\n\n7. If adding table rows, keep them inside the correct \\`&lt;tbody&gt;\\`.\n\n8. Preserve required attributes used by scripts, such as \\`id\\`, \\`class\\`, \\`data-\\*\\`, \\`onclick\\`, \\`oninput\\`, or ARIA attributes.\n\n9. If changing one output file, sync any required duplicate/downloadable/build output file after editing.\n\n10. Avoid broad restyling unless the request is specifically about design or legibility.\n\n\n\nVisual style preferences:\n\n1. Prefer a dark analytical dashboard aesthetic with high contrast and restrained accent colors.\n\n2. Use layered dark backgrounds rather than a single flat black:\n\n   \\- page background: very dark blue-gray or",
+      "score": 1,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1smjxe1/i_had_codex_clean_up_a_dashboard_artifact_from/",
+      "flair": "Full Prompt",
+      "num_comments": 0,
+      "id": "1smjxe1",
+      "created_utc": 1776289263.0
+    },
+    {
+      "title": "CHATGPT keeping time",
+      "selftext": "Does anyone have a prompt that will make the GPT keep time? I am trying to simulate an examination that moves on to subsequent topics every 5 minutes, but the GPT moves on after 3 minutes despite my (poorly worded) prompts. ",
+      "score": 0,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1si30mz/chatgpt_keeping_time/",
+      "flair": "Help",
+      "num_comments": 7,
+      "id": "1si30mz",
+      "created_utc": 1775864447.0
+    },
+    {
+      "title": "Free: The one prompt addition that makes ChatGPT output 3x better for selling",
+      "selftext": "Add this to the end of any ChatGPT prompt when you're creating content to sell or for clients:  \n  \n\"Start with a strong emotional hook in the first sentence. Use the framework: problem \u2192 amplification \u2192 solution. Make it impossible to stop reading after the first line.\"  \n  \nSounds simple. The difference in output quality is actually significant \u2014 I've been using this for client copywriting work and it's the main reason I can charge more than competitors who just use basic prompts.  \n  \nNot selling anything here, just something useful I discovered. Happy to answer questions in the comments.",
+      "score": 0,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1sj0ztq/free_the_one_prompt_addition_that_makes_chatgpt/",
+      "flair": "Full Prompt",
+      "num_comments": 8,
+      "id": "1sj0ztq",
+      "created_utc": 1775957585.0
+    },
+    {
+      "title": "AI images that don\u2019t look AI?",
+      "selftext": "Does anyone have a ChatGPT prompt that makes an AI image look like it's not generated by AI? From a marketing standpoint, we have already hit AI image fatigue. I hear all the time, \"I like the idea of what you're saying with the image, but I hate AI design.\" And I understand it, I don't like it either. After the banana came out of the peel so to speak, it's been way too easy for anyone to create AI images - so the world is littered with AI image crap everywhere you look. Ideas? I've tried prompts that I can come up with, and nothing is working. The 2D Notion look is ok but still AI looking. ",
+      "score": 0,
+      "url": "https://reddit.com/r/ChatGPTPromptGenius/comments/1slq2rk/ai_images_that_dont_look_ai/",
+      "flair": "Technique",
+      "num_comments": 9,
+      "id": "1slq2rk",
+      "created_utc": 1776211612.0
+    }
+  ]
+}

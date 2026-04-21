@@ -1,0 +1,29 @@
+[bandwidth] Blocked images/video loading
+[auth] Login verified for glad_offer6657
+[idle] Active phase done (11.9 min). Idling 33.1 min...
+{
+  "username": "glad_offer6657",
+  "phase": 1,
+  "timestamp": "2026-04-17T16:20:12.903793",
+  "posts_read": 7,
+  "upvotes": 2,
+  "downvotes": 0,
+  "comments_posted": [],
+  "comments_skipped": 0,
+  "removed_comments": 0,
+  "saves": 0,
+  "errors": [],
+  "captcha_hit": false,
+  "success": true,
+  "bandwidth": {
+    "bytes_received": 4385996,
+    "bytes_sent": 2576689,
+    "bytes_total": 6962685,
+    "mb_received": 4.18,
+    "mb_sent": 2.46,
+    "mb_total": 6.64,
+    "request_count": 5955
+  },
+  "active_minutes": 11.9,
+  "idle_minutes": 33.1
+}

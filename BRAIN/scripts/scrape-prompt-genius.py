@@ -6,12 +6,13 @@ Intended to run as a 1 AM PDT cron job.
 """
 
 import json
+import os
 import requests
 import time
 from datetime import datetime, timezone, timedelta
 
 # --- Config ---
-NOTION_SECRET = "REDACTED_NOTION"
+NOTION_SECRET = os.environ.get("NOTION_SECRET", "REDACTED_NOTION")
 NOTION_PAGE_ID = "34166005-ab52-8162-9828-e902e7398dbb"
 SUBREDDIT = "ChatGPTPromptGenius"
 HEADERS_NOTION = {

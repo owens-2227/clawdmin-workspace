@@ -522,6 +522,56 @@
       "status": "shadowbanned",
       "captcha_count": 0,
       "needs_ip_rotation": false
+    },
+    "roostersubstantial75": {
+      "serial": 69,
+      "user_id": "k1blqw5d",
+      "username": "roostersubstantial75",
+      "start_date": "2026-04-19",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "todayilearned",
+        "mildlyinteresting",
+        "Showerthoughts",
+        "LifeProTips",
+        "NoStupidQuestions",
+        "coolguides",
+        "interestingasfuck"
+      ],
+      "sessions": [],
+      "total_upvotes": 0,
+      "total_comments": 0,
+      "last_session": "",
+      "status": "warming",
+      "warming_day": 1,
+      "captcha_count": 0,
+      "needs_ip_rotation": false
+    },
+    "glad_offer6657": {
+      "serial": 72,
+      "user_id": "k1blvnan",
+      "username": "glad_offer6657",
+      "start_date": "2026-04-19",
+      "current_phase": 1,
+      "subreddits": [
+        "AskReddit",
+        "pics",
+        "funny",
+        "gaming",
+        "movies",
+        "science",
+        "technology",
+        "DIY"
+      ],
+      "sessions": [],
+      "total_upvotes": 0,
+      "total_comments": 0,
+      "last_session": "",
+      "status": "warming",
+      "warming_day": 1,
+      "captcha_count": 0,
+      "needs_ip_rotation": false
     }
   }
 }
