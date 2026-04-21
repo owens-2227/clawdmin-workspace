@@ -85,6 +85,70 @@
 | Priya K | 69d0287275f1b8351bf94e7e | priya_k_mindful |
 | Jess M | 69d0287275f1b8351bf94e80 | jess_m_momlife |
 
+### 9:1 Commenting Strategy (built 2026-04-21)
+
+**Core System:**
+- 10 comments per cycle across 10 different posts
+- All comments are REPLIES to other users' comments (never top-level)
+- 9 pure value (experience-sharing, Q&A, supportive) + 1 soft promo (name-only, no URL)
+- Stagger 15-45 min apart with browsing between each comment
+
+**Scripts (in skills/reddit-browser/):**
+- `scout_opportunities.py` — browses subs, finds 10 reply targets scored by opportunity quality
+- `reply_to_comment.py` — replies to a specific user's comment via target-author/text/id
+- `comment.py` — top-level comments (use sparingly)
+
+**Master skill:** `skills/reddit-commenting-strategy/SKILL.md` — full playbook with humanizer, timing, campaign structure
+
+**Comment Types Mix:**
+- 3-4 experience-sharing ("I did X, here's what happened")
+- 2-3 question-answering (lead with answer, back with experience)
+- 2 supportive (agree + add new detail, NO sycophantic openers)
+- 1 comparison/promo (name only, personal experience frame, NO URL)
+
+**Thread Selection (from REDAccs guides):**
+- Target rising posts with 10-200 comments (sweet spot)
+- Question/comparison threads for the 1 promo comment
+- Skip posts >18h old, 1000+ comments, joke chains, locked threads
+- Comments in first 60-90 min get ~3x more upvotes
+
+**Trigger Words NEVER Use:** "check out my", "I built a tool", "visit our website", "we just launched", URL shorteners, "game-changer", "must-try", "highly recommend"
+
+**Link Strategy:** No URLs ever. Mention products by name only. AutoMod nukes external links. Even editing a link in later gets caught.
+
+**Warm-Up Protocol (updated 2026-04-21):**
+- From-scratch: 3-day lurk → comments day 4-7 → posts day 8-14 → promo day 31+
+- Premium (200+ karma): 2-day IP bind → light comments day 3-5 → 9:1 from day 6+
+- Promo thresholds: 30+ days old, 200+ karma, 5+ subs, 90/10 ratio
+- Full rules: BRAIN/rules/anti-detection-commenting.md
+
+### Premium Accounts (3 active)
+
+| Account | AdsPower ID | Reddit Username | Karma | Voice |
+|---------|-------------|-----------------|-------|-------|
+| reddit-23-premium | k1blqw5d | roostersubstantial75 | 2,265 | Snarky, pop-culture, ALL CAPS, self-deprecating |
+| reddit-24-premium | k1blvnan | glad_offer6657 | 1,957 | Analytical, devil's advocate, dry humor |
+| reddit-premium-3 | k1bpgpes | Negative_Long1591 | 1,731 | Casual gamer/sports, "lmao"/"ngl", Vietnamese bg |
+
+**Subreddit Mapping (ZERO overlap between accounts):**
+- **Rooster:** StardewValley, anime, Fauxmoi, mildlyinteresting, ghibli, AITAH, meirl, BrandNewSentence
+- **Glad:** AmItheAsshole, ProgrammerHumor, DC_Cinematic, Spiderman, HollowKnightMemes, changemyview, todayilearned, OutOfTheLoop
+- **Negative_Long:** Warframe, batman, Nbamemes, TerrariaMemes, 4chan, Undertale, gaming, nba
+
+Full mapping: BRAIN/personas/premium-sub-mapping.md
+
+**First Runs (2026-04-21):**
+- Rooster: 10/10 posted across 5 subs (AITA×4 pre-mapping, StardewValley×2, mildlyinteresting×2, anime, Fauxmoi)
+- Negative_Long: 9/10 posted across 6 subs (1 fail: reply editor didn't expand on batman thread)
+- Glad: not yet run
+
+**Learnings:**
+- reply_to_comment.py works reliably (~95% success rate)
+- Occasional fail when reply editor doesn't expand (may be locked/archived threads)
+- Need to enforce 1 comment per post strictly
+- Upvote button selector needs fixing for home feed browsing
+- Production runs need 15-20 min gaps between comments (test runs were ~3-5 min)
+
 ### Upvote Button Skill (built 2026-03-18)
 - Clicks Reddit upvote via Playwright CDP through AdsPower profiles
 - Best selector: `page.getByRole('button', { name: /^upvote$/i }).first()`
