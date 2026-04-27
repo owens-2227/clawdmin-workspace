@@ -83,14 +83,26 @@ def main():
     now = datetime.now(timezone.utc)
     week_label = now.strftime("%B %d, %Y")
 
-    # === Step 1: Pull top 50 from MongoDB ===
+    # === Step 1: Pull top 50 from MongoDB (last 7 days only) ===
     print("Connecting to MongoDB...")
     client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=15000)
     db = client['reddit_scanner']
 
+    # createdAt is stored as ISO string — lexicographic comparison works
+    from datetime import timedelta
+    seven_days_ago = (now - timedelta(days=7)).strftime('%Y-%m-%dT%H:%M:%S')
+    print(f"Filtering pain points since: {seven_days_ago}")
+
     top50 = list(db['pain_points'].find(
-        {'painPointType': {'$in': ['actionable', None]}}
+        {'createdAt': {'$gte': seven_days_ago}}
     ).sort('viralScore', -1).limit(50))
+
+    if len(top50) < 10:
+        print(f"WARNING: Only {len(top50)} pain points in the last 7 days. Expanding to 14 days...")
+        fourteen_days_ago = (now - timedelta(days=14)).strftime('%Y-%m-%dT%H:%M:%S')
+        top50 = list(db['pain_points'].find(
+            {'createdAt': {'$gte': fourteen_days_ago}}
+        ).sort('viralScore', -1).limit(50))
 
     print(f"Got {len(top50)} pain points")
 
@@ -182,19 +194,32 @@ def main():
         posts = posts_by_pp.get(pp_id, [])
         idea = ideations.get(pp_id) or {}
 
-        # Best source post URL
+        # Best source post URL — check joined posts first, fall back to direct field
         best_post_url = ""
         if posts:
             best = max(posts, key=lambda p: p.get('upvotes', 0))
             best_post_url = best.get('redditUrl', '')
+        if not best_post_url:
+            best_post_url = pp.get('redditUrl', '') or ''
 
         def rt(text, max_len=2000):
             """Make a rich_text field, truncated to Notion's limit."""
             t = (text or '')[:max_len]
             return {"rich_text": [{"text": {"content": t}}]} if t else {"rich_text": []}
 
+        # Use the ideated pain point summary if available, otherwise fall back to description
+        pain_point_text = idea.get('pain_point', '') if idea else ''
+        if not pain_point_text:
+            desc = pp.get('description', '')
+            pain_point_text = desc[:200] if desc else (pp.get('title') or '')[:200]
+
+        # Build Post field as a clickable Notion URL
+        post_rt = {"rich_text": []}
+        if best_post_url:
+            post_rt = {"rich_text": [{"text": {"content": best_post_url[:2000], "link": {"url": best_post_url[:2000]}}}]}
+
         properties = {
-            "Pain Point": {"title": [{"text": {"content": (pp.get('title') or '')[:200]}}]},
+            "Pain Point": {"title": [{"text": {"content": pain_point_text[:200]}}]},
             "Subreddit": rt(pp.get('subreddit', '')),
             "Viral Score": {"number": pp.get('viralScore', 0)},
             "Wabi Fit (1-5)": {"number": idea.get('wabi_fit') if idea else None},
@@ -203,7 +228,7 @@ def main():
             "How It Solves the Pain": rt(idea.get('how_it_solves', '')),
             "Feature Set": rt(idea.get('feature_set', '')),
             "Analysis": rt(idea.get('analysis', '')),
-            "Post": rt(best_post_url),
+            "Post": post_rt,
         }
 
         payload = {"parent": {"database_id": db_id}, "properties": properties}
