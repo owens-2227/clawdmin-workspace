@@ -207,11 +207,14 @@ def main():
             t = (text or '')[:max_len]
             return {"rich_text": [{"text": {"content": t}}]} if t else {"rich_text": []}
 
-        # Use the ideated pain point summary if available, otherwise fall back to description
-        pain_point_text = idea.get('pain_point', '') if idea else ''
+        # Use the clean pain_point from ideation cache (a concise problem statement),
+        # NOT the raw post description or title
+        pain_point_text = ''
+        if idea:
+            pain_point_text = idea.get('pain_point', '')
         if not pain_point_text:
-            desc = pp.get('description', '')
-            pain_point_text = desc[:200] if desc else (pp.get('title') or '')[:200]
+            # Fallback: use title as a short label (never the full description blob)
+            pain_point_text = (pp.get('title') or '')[:200]
 
         # Build Post field as a clickable Notion URL
         post_rt = {"rich_text": []}
