@@ -266,6 +266,8 @@ If you only have the share URL (e.g. `https://wabi.ai/@creator/app-slug-123?_v=1
 
 **Always pull the description from Wabi before writing copy.** The app description is the ground truth for what the app does — don't guess or infer from the app name alone.
 
+**⚠️ CRITICAL: The landing page content must accurately reflect what the app actually does.** The Wabi app description defines the app's real functionality. Every claim on the landing page — features, hero copy, problem/solution story, FAQ answers — must match what the app description says. Do not invent features the app doesn't have. Do not describe capabilities that aren't in the description. If the description says it's a breathing timer, don't claim it has AI coaching. The landing page sells the real app, not a fantasy version of it.
+
 ---
 
 ## Asset Pipeline
