@@ -226,12 +226,54 @@ Every page needs a real, specific stat in the hero and/or problem block. Researc
 
 ---
 
+## Data Sourcing — Wabi App Details
+
+Before writing any landing page copy, pull the app's full details from the Wabi API. This gives you the app name, description, category, cover image, and more — use it as the primary source for the page content.
+
+### Option A: Wabi API (preferred)
+
+```python
+import urllib.request, json
+
+APP_ID = "the_app_or_remixed_id"
+API_KEY = "test_{wabi_user_id}"  # or the global API key
+BASE = "https://api.wabi.ai/api/v1"
+
+req = urllib.request.Request(
+    f"{BASE}/app/{APP_ID}",
+    headers={"X-Api-Key": API_KEY}
+)
+data = json.loads(urllib.request.urlopen(req, timeout=15).read())["data"]
+
+# Key fields:
+# data["title"]           — App name
+# data["description"]     — Full app description (use this for page copy context)
+# data["cover_image_url"] — CloudFront URL for icon_url
+# data["category"]        — App category
+# data["main_color"]      — Brand color
+```
+
+### Option B: Scrape the share link page
+
+If you only have the share URL (e.g. `https://wabi.ai/@creator/app-slug-123?_v=1`), fetch the page and extract the description from the meta tags or visible content:
+
+```python
+# Use web_fetch tool on the share URL — the page contains:
+# - App name in the title
+# - App description in meta description and visible on-page
+# - Screenshot/preview of the app
+```
+
+**Always pull the description from Wabi before writing copy.** The app description is the ground truth for what the app does — don't guess or infer from the app name alone.
+
+---
+
 ## Asset Pipeline
 
 ### Icon URL
-Pull from Wabi API:
+Pull from Wabi API (see Data Sourcing above):
 ```python
-GET /app/{remixed_id}  →  data.cover_image_url
+GET /app/{remixed_id}  →  data["cover_image_url"]
 ```
 This CloudFront URL is the app's visual identity. Use it for `icon_url`.
 
